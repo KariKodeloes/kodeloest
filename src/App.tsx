@@ -29,6 +29,9 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/bilder" element={<Bilder />} />
+              <Route path="/bilder/akvareller" element={<Bilder />} />
+              <Route path="/bilder/mixed-media" element={<Bilder />} />
+              <Route path="/bilder/tegning" element={<Bilder />} />
               <Route path="/foto" element={<Foto />} />
               <Route path="/som" element={<Som />} />
               <Route path="/design" element={<Design />} />
