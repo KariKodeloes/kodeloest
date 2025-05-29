@@ -23,6 +23,13 @@ const Navigation = () => {
   return (
     <nav className={`${isHomePage ? 'bg-transparent fixed top-0 left-0 right-0 z-50' : 'bg-card border-b border-border shadow-sm sticky top-0 z-50'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Kodeløst heading for home page */}
+        {isHomePage && (
+          <div className="text-center py-4">
+            <h1 className="text-white font-oswald font-medium text-4xl">Kodeløst</h1>
+          </div>
+        )}
+        
         <div className="flex justify-between items-center h-16">
           {/* Empty left side for home page, logo for other pages */}
           {!isHomePage && (
@@ -35,22 +42,27 @@ const Navigation = () => {
             </Link>
           )}
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {menuItems.slice(1).map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-sm font-medium transition-colors ${
-                  isHomePage 
-                    ? 'text-white hover:text-gray-200' 
-                    : location.pathname === item.path
-                      ? 'text-primary border-b-2 border-primary'
-                      : 'text-foreground hover:text-primary'
-                }`}
-              >
-                {item.title}
-              </Link>
+          {/* Desktop Navigation - centered for home page */}
+          <div className={`hidden md:flex items-center space-x-8 ${isHomePage ? 'mx-auto' : ''}`}>
+            {menuItems.slice(1).map((item, index) => (
+              <React.Fragment key={item.path}>
+                <Link
+                  to={item.path}
+                  className={`text-sm font-medium transition-colors ${
+                    isHomePage 
+                      ? 'text-white hover:text-gray-200' 
+                      : location.pathname === item.path
+                        ? 'text-primary border-b-2 border-primary'
+                        : 'text-foreground hover:text-primary'
+                  }`}
+                >
+                  {item.title}
+                </Link>
+                {/* Vertical separator between menu items, except for the last one */}
+                {index < menuItems.slice(1).length - 1 && (
+                  <div className={`w-px h-4 ${isHomePage ? 'bg-white/30' : 'bg-border'}`} />
+                )}
+              </React.Fragment>
             ))}
           </div>
 
