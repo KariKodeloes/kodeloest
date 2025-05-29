@@ -35,7 +35,7 @@ const Navigation = () => {
               className="absolute top-8 right-0 text-white hover:text-gray-200 transition-colors"
               aria-label="Følg meg på Instagram"
             >
-              <Instagram size={40} />
+              <Instagram size={32} />
             </a>
           </div>
         )}
@@ -90,7 +90,7 @@ const Navigation = () => {
                 className="text-foreground hover:text-primary transition-colors"
                 aria-label="Følg meg på Instagram"
               >
-                <Instagram size={40} />
+                <Instagram size={32} />
               </a>
             )}
 
