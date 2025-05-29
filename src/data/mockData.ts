@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -40,10 +39,10 @@ export const mockProjects: Project[] = [
     subtitle: 'Monoprint akryl og akvarell, 300 gr bomull',
     description: 'Eget foto fra tur i marka i landskap med tjern. Mobilkamera er gull og alltid med.',
     year: 2024,
-    images: ['/lovable-uploads/bab0576c-50ae-48f6-a998-2e953d6af2c3.png', '/lovable-uploads/cf0f53e3-5b2b-4bde-bb0f-0263cd35300b.png'],
+    images: ['/lovable-uploads/cf0f53e3-5b2b-4bde-bb0f-0263cd35300b.png', '/lovable-uploads/bab0576c-50ae-48f6-a998-2e953d6af2c3.png'],
     category: 'bilder',
     subcategory: 'mixed-media',
-    mainImage: '/lovable-uploads/bab0576c-50ae-48f6-a998-2e953d6af2c3.png'
+    mainImage: '/lovable-uploads/cf0f53e3-5b2b-4bde-bb0f-0263cd35300b.png'
   },
   {
     id: '4',
