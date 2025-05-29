@@ -22,7 +22,7 @@ const Navigation = () => {
   const isHomePage = location.pathname === '/';
 
   return (
-    <nav className={`${isHomePage ? 'bg-transparent absolute top-0 left-0 right-0 z-50' : 'bg-card border-b border-border shadow-sm'} sticky top-0 z-50`}>
+    <nav className={`${isHomePage ? 'bg-transparent fixed top-0 left-0 right-0 z-50' : 'bg-card border-b border-border shadow-sm sticky top-0 z-50'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -73,7 +73,7 @@ const Navigation = () => {
               variant="ghost"
               size="sm"
               onClick={toggleTheme}
-              className={isHomePage ? 'text-white hover:text-gray-200' : ''}
+              className={isHomePage ? 'text-white hover:text-gray-200 hover:bg-white/10' : ''}
               aria-label={theme === 'light' ? 'Bytt til mørk modus' : 'Bytt til lys modus'}
             >
               <span className="material-icon">
@@ -85,7 +85,7 @@ const Navigation = () => {
             <Button
               variant="ghost"
               size="sm"
-              className={`md:hidden ${isHomePage ? 'text-white hover:text-gray-200' : ''}`}
+              className={`md:hidden ${isHomePage ? 'text-white hover:text-gray-200 hover:bg-white/10' : ''}`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Åpne meny"
             >
