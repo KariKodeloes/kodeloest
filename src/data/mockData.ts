@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -14,14 +13,14 @@ export interface Project {
 export const mockProjects: Project[] = [
   {
     id: '1',
-    title: 'Fjelllandskap i akvarell',
-    subtitle: 'Nordnorsk natur',
-    description: 'Et maleri inspirert av fjellene i Lofoten. Brukte akvarellfarger for å fange den unike atmosfæren.',
-    year: 2023,
-    images: ['https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&h=600&fit=crop'],
+    title: 'Farvel vinter!',
+    subtitle: 'Lengter mot sommer.',
+    description: 'Leken akvarell som fløyt av gårde med drømmene. 300 gr bomull, 24x30 cm.',
+    year: 2024,
+    images: ['/lovable-uploads/f339d8fd-fe3d-4540-9f13-acfad88162cd.png'],
     category: 'bilder',
     subcategory: 'akvareller',
-    mainImage: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&h=600&fit=crop'
+    mainImage: '/lovable-uploads/f339d8fd-fe3d-4540-9f13-acfad88162cd.png'
   },
   {
     id: '2',
