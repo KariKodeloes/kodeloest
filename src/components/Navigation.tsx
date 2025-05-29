@@ -61,7 +61,7 @@ const Navigation = () => {
               <Button
                 variant="ghost"
                 size="sm"
-                className="md:hidden mr-2 p-1"
+                className="md:hidden mr-2 p-1 text-foreground hover:text-black"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label="Åpne meny"
               >
