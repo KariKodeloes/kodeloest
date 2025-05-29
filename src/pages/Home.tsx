@@ -40,29 +40,6 @@ const Home = () => {
           <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-white">
             <div className="bg-transparent p-4">
               <Gallery projects={galleryProjects} />
-              
-              <div className="text-center mt-12">
-                <p className="text-muted-foreground text-lg mb-6">
-                  Oppdage mer av mitt kreative arbeid i de ulike kategoriene
-                </p>
-                <div className="flex flex-wrap justify-center gap-4">
-                  {[
-                    { title: 'Bildekunst', path: '/bilder' },
-                    { title: 'Foto', path: '/foto' },
-                    { title: 'Søm', path: '/som' },
-                    { title: 'Design', path: '/design' },
-                    { title: 'DIY', path: '/diy' }
-                  ].map((category) => (
-                    <a
-                      key={category.path}
-                      href={category.path}
-                      className="bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors duration-200 font-medium"
-                    >
-                      {category.title}
-                    </a>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </div>
