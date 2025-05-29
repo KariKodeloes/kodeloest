@@ -144,7 +144,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
         </div>
 
         {/* Project Count */}
-        <div className="flex items-center gap-2 mb-8">
+        <div className="flex items-center gap-2 mb-4">
           <span className="text-sm text-muted-foreground">
             {projects.length} prosjekt{projects.length !== 1 ? 'er' : ''}
           </span>
