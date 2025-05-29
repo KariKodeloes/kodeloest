@@ -71,7 +71,7 @@ const Navigation = () => {
               </Button>
               
               <Link to="/" className="flex items-center">
-                <span className="text-foreground hover:text-primary font-oswald font-medium text-2xl transition-colors">
+                <span className="text-foreground font-oswald font-medium text-2xl transition-colors" style={{ color: location.pathname === '/' ? '#000000' : undefined }} onMouseEnter={(e) => e.currentTarget.style.color = '#000000'} onMouseLeave={(e) => e.currentTarget.style.color = location.pathname === '/' ? '#000000' : ''}>
                   HELT KODELØS
                 </span>
               </Link>
