@@ -27,9 +27,11 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <h1 className={`text-2xl font-oswald font-semibold ${isHomePage ? 'text-white' : 'text-primary'}`}>
-              Kari Kodeløs
-            </h1>
+            <img 
+              src="/lovable-uploads/092fa60a-3b25-44f7-bc70-4fabe5da4497.png" 
+              alt="Kari Kodeløs" 
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
