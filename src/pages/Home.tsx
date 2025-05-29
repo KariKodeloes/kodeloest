@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import Gallery from '../components/Gallery';
 import { getRandomProjects } from '../data/mockData';
@@ -9,12 +8,11 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section with Background Image - now goes to the very top */}
+      {/* Hero Section with Background Image - now shows complete image */}
       <div 
         className="relative h-screen bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/lovable-uploads/9b63042b-7977-4895-a9d2-c453310e5828.png)',
-          clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%)'
+          backgroundImage: 'url(/lovable-uploads/9b63042b-7977-4895-a9d2-c453310e5828.png)'
         }}
       >
         <div className="relative z-10 flex items-center justify-center h-full text-white text-center px-4 pt-16">
@@ -27,31 +25,33 @@ const Home = () => {
       </div>
 
       {/* Gallery Section */}
-      <div className="relative -mt-80 z-20 bg-background">
+      <div className="relative -mt-80 z-20">
         <div className="container mx-auto px-4 pt-8 pb-16">
-          <div className="bg-card rounded-xl shadow-lg p-8">
-            <Gallery projects={galleryProjects} />
-            
-            <div className="text-center mt-12">
-              <p className="text-muted-foreground text-lg mb-6">
-                Oppdage mer av mitt kreative arbeid i de ulike kategoriene
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                {[
-                  { title: 'Bilder', path: '/bilder' },
-                  { title: 'Foto', path: '/foto' },
-                  { title: 'Søm', path: '/som' },
-                  { title: 'Design', path: '/design' },
-                  { title: 'DIY', path: '/diy' }
-                ].map((category) => (
-                  <a
-                    key={category.path}
-                    href={category.path}
-                    className="bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors duration-200 font-medium"
-                  >
-                    {category.title}
-                  </a>
-                ))}
+          <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-white">
+            <div className="bg-transparent p-4">
+              <Gallery projects={galleryProjects} />
+              
+              <div className="text-center mt-12">
+                <p className="text-muted-foreground text-lg mb-6">
+                  Oppdage mer av mitt kreative arbeid i de ulike kategoriene
+                </p>
+                <div className="flex flex-wrap justify-center gap-4">
+                  {[
+                    { title: 'Bilder', path: '/bilder' },
+                    { title: 'Foto', path: '/foto' },
+                    { title: 'Søm', path: '/som' },
+                    { title: 'Design', path: '/design' },
+                    { title: 'DIY', path: '/diy' }
+                  ].map((category) => (
+                    <a
+                      key={category.path}
+                      href={category.path}
+                      className="bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors duration-200 font-medium"
+                    >
+                      {category.title}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -62,4 +62,3 @@ const Home = () => {
 };
 
 export default Home;
-
