@@ -24,14 +24,16 @@ const Navigation = () => {
     <nav className={`${isHomePage ? 'bg-transparent fixed top-0 left-0 right-0 z-50' : 'bg-card border-b border-border shadow-sm sticky top-0 z-50'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img 
-              src="/lovable-uploads/092fa60a-3b25-44f7-bc70-4fabe5da4497.png" 
-              alt="Kari Kodeløs" 
-              className="h-10 w-auto"
-            />
-          </Link>
+          {/* Empty left side for home page, logo for other pages */}
+          {!isHomePage && (
+            <Link to="/" className="flex items-center">
+              <img 
+                src="/lovable-uploads/092fa60a-3b25-44f7-bc70-4fabe5da4497.png" 
+                alt="Kari Kodeløs" 
+                className="h-10 w-auto"
+              />
+            </Link>
+          )}
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">

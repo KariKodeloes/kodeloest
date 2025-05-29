@@ -17,6 +17,15 @@ const Home = () => {
       >
         <div className="relative z-10 flex items-center justify-center h-full text-white text-center px-4 pt-16">
           <div className="max-w-4xl">
+            {/* Centered Logo */}
+            <div className="mb-8">
+              <img 
+                src="/lovable-uploads/092fa60a-3b25-44f7-bc70-4fabe5da4497.png" 
+                alt="Kari Kodeløs" 
+                className="h-20 w-auto mx-auto"
+              />
+            </div>
+            
             <blockquote className="text-xl md:text-3xl font-oswald font-light mb-8 animate-fade-in">
               "Jeg har laget mye jeg er stolt av uten å kunne kode.<br />Denne nettsida foreksempel!"
             </blockquote>
