@@ -14,7 +14,7 @@ const Bilder = () => {
 
   return (
     <CategoryPage
-      title="Bilder"
+      title="Bildekunst"
       projects={projects}
       subcategories={subcategories}
     />
