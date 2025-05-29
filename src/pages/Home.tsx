@@ -25,7 +25,7 @@ const Home = () => {
       </div>
 
       {/* Gallery Section */}
-      <div className="relative -mt-80 z-20">
+      <div className="relative -mt-40 z-20">
         <div className="container mx-auto px-4 pt-8 pb-16">
           <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-white">
             <div className="bg-transparent p-4">
