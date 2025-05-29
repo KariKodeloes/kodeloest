@@ -41,7 +41,7 @@ const Navigation = () => {
           )}
 
           {/* Desktop Navigation - centered for home page */}
-          <div className={`hidden md:flex items-center space-x-8 ${isHomePage ? 'mx-auto' : ''}`}>
+          <div className={`hidden md:flex items-center space-x-4 ${isHomePage ? 'mx-auto' : ''}`}>
             {menuItems.slice(1).map((item, index) => (
               <React.Fragment key={item.path}>
                 <Link
