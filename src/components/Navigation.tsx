@@ -23,10 +23,10 @@ const Navigation = () => {
   return (
     <nav className={`${isHomePage ? 'bg-transparent fixed top-0 left-0 right-0 z-50' : 'bg-card border-b border-border shadow-sm sticky top-0 z-50'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Helt kodeløs heading for home page with Instagram icon */}
+        {/* HELT KODELØS heading for home page with Instagram icon */}
         {isHomePage && (
           <div className="text-center pt-8 pb-2 relative">
-            {/* Mobile Menu Button positioned aligned with Helt kodeløs for home page */}
+            {/* Mobile Menu Button positioned aligned with HELT KODELØS for home page */}
             <Button
               variant="ghost"
               size="sm"
@@ -39,8 +39,8 @@ const Navigation = () => {
               </span>
             </Button>
             
-            <h1 className="text-white font-oswald font-medium text-4xl">Helt kodeløs</h1>
-            {/* Instagram Icon positioned aligned with Helt kodeløs */}
+            <h1 className="text-white font-oswald font-medium text-4xl">HELT KODELØS</h1>
+            {/* Instagram Icon positioned aligned with HELT KODELØS */}
             <a
               href="https://instagram.com/karis_pensel"
               target="_blank"
@@ -54,7 +54,7 @@ const Navigation = () => {
         )}
         
         <div className="flex justify-between items-center h-16">
-          {/* Helt kodeløs home button for non-home pages */}
+          {/* HELT KODELØS home button for non-home pages */}
           {!isHomePage && (
             <div className="flex items-center">
               {/* Mobile Menu Button for non-home pages */}
@@ -72,7 +72,7 @@ const Navigation = () => {
               
               <Link to="/" className="flex items-center">
                 <span className="text-foreground hover:text-primary font-oswald font-medium text-2xl transition-colors">
-                  Helt kodeløs
+                  HELT KODELØS
                 </span>
               </Link>
             </div>
