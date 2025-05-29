@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
@@ -51,9 +52,14 @@ const Navigation = () => {
                     isHomePage 
                       ? 'text-white hover:text-gray-200' 
                       : location.pathname === item.path
-                        ? 'text-primary border-b-2 border-primary'
+                        ? 'border-b-2' 
                         : 'text-foreground hover:text-primary'
                   }`}
+                  style={
+                    !isHomePage && location.pathname === item.path
+                      ? { color: '#E68200', borderColor: '#E68200' }
+                      : {}
+                  }
                 >
                   {item.title}
                 </Link>
@@ -109,9 +115,14 @@ const Navigation = () => {
                     isHomePage
                       ? 'text-white hover:text-gray-200'
                       : location.pathname === item.path
-                        ? 'text-primary bg-accent'
+                        ? 'bg-accent'
                         : 'text-foreground hover:text-primary'
                   }`}
+                  style={
+                    !isHomePage && location.pathname === item.path
+                      ? { color: '#E68200' }
+                      : {}
+                  }
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.title}
