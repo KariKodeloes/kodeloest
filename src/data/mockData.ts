@@ -1,3 +1,4 @@
+
 export interface Project {
   id: string;
   title: string;
@@ -14,8 +15,8 @@ export const mockProjects: Project[] = [
   {
     id: '1',
     title: 'Farvel vinter!',
-    subtitle: 'Lengter mot sommer.',
-    description: 'Leken akvarell som fløyt av gårde med drømmene. 300 gr bomull, 24x30 cm.',
+    subtitle: 'Akvarell, 300 gr bomull - 32x24 cm.',
+    description: 'Lengter mot sommer. Lek med pigment, salt og drømmer.',
     year: 2024,
     images: ['/lovable-uploads/f339d8fd-fe3d-4540-9f13-acfad88162cd.png'],
     category: 'bilder',
