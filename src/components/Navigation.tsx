@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
+import { Instagram } from 'lucide-react';
 
 const Navigation = () => {
   const location = useLocation();
@@ -65,7 +66,7 @@ const Navigation = () => {
               }`}
               aria-label="Følg meg på Instagram"
             >
-              <span className="material-icon">photo_camera</span>
+              <Instagram size={20} />
             </a>
 
             {/* Mobile Menu Button */}
