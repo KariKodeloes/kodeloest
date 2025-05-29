@@ -19,14 +19,16 @@ const Navigation = () => {
     { title: 'Om meg', path: '/om-meg' },
   ];
 
+  const isHomePage = location.pathname === '/';
+
   return (
-    <nav className="bg-card border-b border-border shadow-sm sticky top-0 z-50">
+    <nav className={`${isHomePage ? 'bg-transparent absolute top-0 left-0 right-0 z-50' : 'bg-card border-b border-border shadow-sm'} sticky top-0 z-50`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <h1 className="text-2xl font-quicksand font-bold text-primary">
-              Karis Kreative Verden
+            <h1 className={`text-2xl font-oswald font-semibold ${isHomePage ? 'text-white' : 'text-primary'}`}>
+              Kari Kodeløs
             </h1>
           </Link>
 
@@ -36,10 +38,12 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location.pathname === item.path
-                    ? 'text-primary border-b-2 border-primary'
-                    : 'text-foreground'
+                className={`text-sm font-medium transition-colors ${
+                  isHomePage 
+                    ? 'text-white hover:text-gray-200' 
+                    : location.pathname === item.path
+                      ? 'text-primary border-b-2 border-primary'
+                      : 'text-foreground hover:text-primary'
                 }`}
               >
                 {item.title}
@@ -54,7 +58,11 @@ const Navigation = () => {
               href="https://instagram.com/karis_pensel"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:text-primary transition-colors"
+              className={`transition-colors ${
+                isHomePage 
+                  ? 'text-white hover:text-gray-200' 
+                  : 'text-foreground hover:text-primary'
+              }`}
               aria-label="Følg meg på Instagram"
             >
               <span className="material-icon">photo_camera</span>
@@ -65,6 +73,7 @@ const Navigation = () => {
               variant="ghost"
               size="sm"
               onClick={toggleTheme}
+              className={isHomePage ? 'text-white hover:text-gray-200' : ''}
               aria-label={theme === 'light' ? 'Bytt til mørk modus' : 'Bytt til lys modus'}
             >
               <span className="material-icon">
@@ -76,7 +85,7 @@ const Navigation = () => {
             <Button
               variant="ghost"
               size="sm"
-              className="md:hidden"
+              className={`md:hidden ${isHomePage ? 'text-white hover:text-gray-200' : ''}`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Åpne meny"
             >
@@ -89,16 +98,18 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-border bg-card">
+          <div className={`md:hidden border-t ${isHomePage ? 'border-white/20 bg-black/50' : 'border-border bg-card'}`}>
             <div className="px-2 pt-2 pb-3 space-y-1">
               {menuItems.slice(1).map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`block px-3 py-2 text-base font-medium transition-colors hover:text-primary ${
-                    location.pathname === item.path
-                      ? 'text-primary bg-accent'
-                      : 'text-foreground'
+                  className={`block px-3 py-2 text-base font-medium transition-colors ${
+                    isHomePage
+                      ? 'text-white hover:text-gray-200'
+                      : location.pathname === item.path
+                        ? 'text-primary bg-accent'
+                        : 'text-foreground hover:text-primary'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >

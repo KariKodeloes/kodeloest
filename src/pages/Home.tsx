@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section with Background Image */}
+      {/* Hero Section with Background Image - now goes to the very top */}
       <div 
         className="relative h-screen bg-cover bg-center bg-no-repeat"
         style={{
@@ -19,8 +19,8 @@ const Home = () => {
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         <div className="relative z-10 flex items-center justify-center h-full text-white text-center px-4">
           <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-7xl font-quicksand font-bold mb-6 animate-fade-in">
-              Karis Kreative Verden
+            <h1 className="text-5xl md:text-7xl font-oswald font-semibold mb-6 animate-fade-in">
+              Kari Kodeløs
             </h1>
             <p className="text-xl md:text-2xl font-roboto mb-8 animate-fade-in">
               Utforsk en verden av kreativitet gjennom bilder, foto, søm, design og DIY
@@ -33,7 +33,7 @@ const Home = () => {
       <div className="relative -mt-16 z-20 bg-background">
         <div className="container mx-auto px-4 pt-8 pb-16">
           <div className="bg-card rounded-xl shadow-lg p-8">
-            <h2 className="text-3xl font-quicksand font-bold text-center mb-8 text-foreground">
+            <h2 className="text-3xl font-oswald font-semibold text-center mb-8 text-foreground">
               Mine Seneste Prosjekter
             </h2>
             <Gallery projects={galleryProjects} />

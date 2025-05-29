@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -20,7 +19,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'quicksand': ['Quicksand', 'sans-serif'],
+				'oswald': ['Oswald', 'sans-serif'],
 				'roboto': ['Roboto', 'sans-serif'],
 			},
 			colors: {
