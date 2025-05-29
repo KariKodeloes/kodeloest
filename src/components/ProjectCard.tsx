@@ -85,12 +85,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
             </div>
             
             {project.subtitle && (
-              <h4 className="font-oswald font-medium text-foreground mb-3" style={{ fontSize: '1rem' }}>
+              <h4 className="font-oswald font-normal text-foreground mb-3" style={{ fontSize: '1rem' }}>
                 {project.subtitle}
               </h4>
             )}
             
-            <p className={`text-foreground text-base leading-relaxed ${project.subtitle ? '' : 'mt-1'}`}>
+            <p className={`text-foreground text-base leading-relaxed font-oswald font-light ${project.subtitle ? '' : 'mt-1'}`}>
               {project.description}
             </p>
           </div>
@@ -157,12 +157,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
         </div>
         
         {project.subtitle && (
-          <h4 className="font-oswald font-medium text-foreground mb-2" style={{ fontSize: '1rem' }}>
+          <h4 className="font-oswald font-normal text-foreground mb-2" style={{ fontSize: '1rem' }}>
             {project.subtitle}
           </h4>
         )}
         
-        <p className={`text-foreground text-sm leading-relaxed line-clamp-3 ${project.subtitle ? '' : 'mt-1'}`}>
+        <p className={`text-foreground text-sm leading-relaxed line-clamp-3 font-oswald font-light ${project.subtitle ? '' : 'mt-1'}`}>
           {project.description}
         </p>
       </div>
