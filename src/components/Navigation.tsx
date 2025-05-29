@@ -71,7 +71,10 @@ const Navigation = () => {
               </Button>
               
               <Link to="/" className="flex items-center">
-                <span className="text-foreground font-oswald font-medium text-2xl transition-colors" style={{ color: location.pathname === '/' ? '#000000' : undefined }} onMouseEnter={(e) => e.currentTarget.style.color = '#000000'} onMouseLeave={(e) => e.currentTarget.style.color = location.pathname === '/' ? '#000000' : ''}>
+                <span 
+                  className="text-foreground font-oswald font-medium text-2xl transition-colors hover:text-black"
+                  style={location.pathname === '/' ? { color: '#000000' } : {}}
+                >
                   HELT KODELØS
                 </span>
               </Link>
@@ -134,10 +137,10 @@ const Navigation = () => {
                   to={item.path}
                   className={`block px-3 py-2 text-base font-medium transition-colors rounded ${
                     isHomePage
-                      ? 'text-white hover:text-white hover:bg-primary'
+                      ? 'text-white hover:text-white hover:bg-white/20'
                       : location.pathname === item.path
                         ? 'bg-accent'
-                        : 'text-foreground hover:text-white hover:bg-primary'
+                        : 'text-foreground hover:text-foreground hover:bg-accent'
                   }`}
                   style={
                     !isHomePage && location.pathname === item.path
