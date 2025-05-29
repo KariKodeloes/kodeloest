@@ -34,7 +34,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ title, projects, subcategor
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h2 className="text-2xl font-oswald font-medium mb-4 text-foreground" style={{ fontSize: '2rem' }}>
+          <h2 className="text-2xl font-oswald font-medium mb-4 text-foreground" style={{ fontSize: '1.75rem' }}>
             {title}
           </h2>
           
