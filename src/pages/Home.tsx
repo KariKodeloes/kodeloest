@@ -18,7 +18,7 @@ const Home = () => {
         <div className="relative z-10 flex items-center justify-center h-full text-white text-center px-4 pt-16">
           <div className="max-w-4xl">
             {/* Quote moved above logo with increased size and line height */}
-            <blockquote className="text-3xl md:text-5xl font-oswald font-light mb-12 animate-fade-in" style={{ lineHeight: '1.2' }}>
+            <blockquote className="text-3xl md:text-5xl font-oswald font-light mb-12 animate-fade-in" style={{ lineHeight: '1.5' }}>
               "Jeg har laget mye jeg er stolt av uten å kunne kode.<br />Denna nettsida foreksempel!"
             </blockquote>
             
