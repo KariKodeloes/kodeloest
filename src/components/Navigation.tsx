@@ -23,10 +23,10 @@ const Navigation = () => {
   return (
     <nav className={`${isHomePage ? 'bg-transparent fixed top-0 left-0 right-0 z-50' : 'bg-card border-b border-border shadow-sm sticky top-0 z-50'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* KODELØST heading for home page with Instagram icon */}
+        {/* Helt kodeløs heading for home page with Instagram icon */}
         {isHomePage && (
           <div className="text-center pt-8 pb-2 relative">
-            {/* Mobile Menu Button positioned aligned with KODELØST for home page */}
+            {/* Mobile Menu Button positioned aligned with Helt kodeløs for home page */}
             <Button
               variant="ghost"
               size="sm"
@@ -39,8 +39,8 @@ const Navigation = () => {
               </span>
             </Button>
             
-            <h1 className="text-white font-oswald font-medium text-4xl">KODELØST</h1>
-            {/* Instagram Icon positioned aligned with KODELØST */}
+            <h1 className="text-white font-oswald font-medium text-4xl">Helt kodeløs</h1>
+            {/* Instagram Icon positioned aligned with Helt kodeløs */}
             <a
               href="https://instagram.com/karis_pensel"
               target="_blank"
@@ -54,7 +54,7 @@ const Navigation = () => {
         )}
         
         <div className="flex justify-between items-center h-16">
-          {/* KODELØST home button for non-home pages */}
+          {/* Helt kodeløs home button for non-home pages */}
           {!isHomePage && (
             <div className="flex items-center">
               {/* Mobile Menu Button for non-home pages */}
@@ -72,7 +72,7 @@ const Navigation = () => {
               
               <Link to="/" className="flex items-center">
                 <span className="text-foreground hover:text-primary font-oswald font-medium text-2xl transition-colors">
-                  KODELØST
+                  Helt kodeløs
                 </span>
               </Link>
             </div>
@@ -134,7 +134,7 @@ const Navigation = () => {
                   to={item.path}
                   className={`block px-3 py-2 text-base font-medium transition-colors rounded ${
                     isHomePage
-                      ? 'text-white hover:text-white hover:bg-white/20'
+                      ? 'text-white hover:text-white hover:bg-primary'
                       : location.pathname === item.path
                         ? 'bg-accent'
                         : 'text-foreground hover:text-white hover:bg-primary'
