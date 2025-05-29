@@ -27,12 +27,9 @@ const Home = () => {
       </div>
 
       {/* Gallery Section */}
-      <div className="relative -mt-16 z-20 bg-background">
+      <div className="relative -mt-80 z-20 bg-background">
         <div className="container mx-auto px-4 pt-8 pb-16">
           <div className="bg-card rounded-xl shadow-lg p-8">
-            <h2 className="text-3xl font-oswald font-semibold text-center mb-8 text-foreground">
-              Mine Seneste Prosjekter
-            </h2>
             <Gallery projects={galleryProjects} />
             
             <div className="text-center mt-12">
