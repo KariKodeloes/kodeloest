@@ -6,7 +6,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Navigation from "./components/Navigation";
-import Breadcrumb from "./components/Breadcrumb";
 import Home from "./pages/Home";
 import Bilder from "./pages/Bilder";
 import Foto from "./pages/Foto";
@@ -27,7 +26,6 @@ const App = () => (
         <BrowserRouter>
           <div className="min-h-screen bg-background">
             <Navigation />
-            <Breadcrumb />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/bilder" element={<Bilder />} />

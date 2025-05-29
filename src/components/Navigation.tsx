@@ -31,14 +31,12 @@ const Navigation = () => {
         )}
         
         <div className="flex justify-between items-center h-16">
-          {/* Empty left side for home page, logo for other pages */}
+          {/* KODELØST home button for non-home pages */}
           {!isHomePage && (
             <Link to="/" className="flex items-center">
-              <img 
-                src="/lovable-uploads/092fa60a-3b25-44f7-bc70-4fabe5da4497.png" 
-                alt="Kari Kodeløs" 
-                className="h-10 w-auto"
-              />
+              <span className="text-foreground hover:text-primary font-oswald font-medium text-2xl transition-colors">
+                KODELØST
+              </span>
             </Link>
           )}
 
