@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
@@ -10,7 +9,7 @@ const Navigation = () => {
 
   const menuItems = [
     { title: 'Hjem', path: '/' },
-    { title: 'Bilder', path: '/bilder' },
+    { title: 'Bildekunst', path: '/bilder' },
     { title: 'Foto', path: '/foto' },
     { title: 'Søm', path: '/som' },
     { title: 'Design', path: '/design' },

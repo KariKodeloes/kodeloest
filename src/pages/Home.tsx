@@ -47,7 +47,7 @@ const Home = () => {
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   {[
-                    { title: 'Bilder', path: '/bilder' },
+                    { title: 'Bildekunst', path: '/bilder' },
                     { title: 'Foto', path: '/foto' },
                     { title: 'Søm', path: '/som' },
                     { title: 'Design', path: '/design' },
