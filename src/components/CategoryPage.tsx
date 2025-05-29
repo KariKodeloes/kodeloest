@@ -34,9 +34,9 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ title, projects, subcategor
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-quicksand font-bold mb-4 text-foreground">
+          <h2 className="text-2xl font-oswald font-medium mb-4 text-foreground" style={{ fontSize: '2rem' }}>
             {title}
-          </h1>
+          </h2>
           
           {/* Subcategories */}
           {subcategories && subcategories.length > 0 && (
