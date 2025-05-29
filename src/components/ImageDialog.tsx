@@ -48,8 +48,8 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95">
-        <div className="relative w-full h-full flex items-center justify-center">
+      <DialogContent className="max-w-[90vw] max-h-[90vh] w-auto h-auto p-0 bg-black/95 border-0">
+        <div className="relative w-full h-full flex items-center justify-center min-h-[50vh]">
           {/* Close button */}
           <Button
             variant="ghost"
@@ -86,7 +86,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
           <img
             src={images[currentIndex]}
             alt={title || `Bilde ${currentIndex + 1}`}
-            className="max-w-full max-h-full object-contain"
+            className="max-w-[calc(90vw-4rem)] max-h-[calc(90vh-8rem)] object-contain"
           />
 
           {/* Image counter */}
