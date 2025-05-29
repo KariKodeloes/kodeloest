@@ -23,10 +23,20 @@ const Navigation = () => {
   return (
     <nav className={`${isHomePage ? 'bg-transparent fixed top-0 left-0 right-0 z-50' : 'bg-card border-b border-border shadow-sm sticky top-0 z-50'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* KODELØST heading for home page */}
+        {/* KODELØST heading for home page with Instagram icon */}
         {isHomePage && (
-          <div className="text-center pt-8 pb-2">
+          <div className="text-center pt-8 pb-2 relative">
             <h1 className="text-white font-oswald font-medium text-4xl">KODELØST</h1>
+            {/* Instagram Icon positioned in top right corner, aligned with KODELØST */}
+            <a
+              href="https://instagram.com/karis_pensel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute top-8 right-0 text-white hover:text-gray-200 transition-colors"
+              aria-label="Følg meg på Instagram"
+            >
+              <Instagram size={40} />
+            </a>
           </div>
         )}
         
@@ -69,22 +79,20 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Icons */}
+          {/* Icons for non-home pages */}
           <div className="flex items-center space-x-4">
-            {/* Instagram Icon */}
-            <a
-              href="https://instagram.com/karis_pensel"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`transition-colors ${
-                isHomePage 
-                  ? 'text-white hover:text-gray-200' 
-                  : 'text-foreground hover:text-primary'
-              }`}
-              aria-label="Følg meg på Instagram"
-            >
-              <Instagram size={20} />
-            </a>
+            {/* Instagram Icon for non-home pages */}
+            {!isHomePage && (
+              <a
+                href="https://instagram.com/karis_pensel"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground hover:text-primary transition-colors"
+                aria-label="Følg meg på Instagram"
+              >
+                <Instagram size={40} />
+              </a>
+            )}
 
             {/* Mobile Menu Button */}
             <Button
