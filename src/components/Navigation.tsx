@@ -126,8 +126,8 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className={`md:hidden border-t ${isHomePage ? 'border-white/20 bg-black/50' : 'border-border bg-card'}`}>
-            <div className="px-2 pt-2 pb-3 space-y-1">
+          <div className={`md:hidden absolute left-0 right-0 ${isHomePage ? 'top-20 border-white/20 bg-black/50' : 'top-16 border-border bg-card'} border-t`}>
+            <div className="px-2 py-2 space-y-1">
               {menuItems.slice(1).map((item) => (
                 <Link
                   key={item.path}
