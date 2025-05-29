@@ -86,6 +86,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ title, projects, subcategor
                 size="sm"
                 onClick={() => setViewMode('grid')}
                 className="rounded-none border-0"
+                style={viewMode === 'grid' ? { backgroundColor: '#E68200', color: 'white' } : {}}
               >
                 <span className="material-icon">view_module</span>
               </Button>
@@ -94,6 +95,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ title, projects, subcategor
                 size="sm"
                 onClick={() => setViewMode('list')}
                 className="rounded-none border-0"
+                style={viewMode === 'list' ? { backgroundColor: '#E68200', color: 'white' } : {}}
               >
                 <span className="material-icon">view_list</span>
               </Button>
