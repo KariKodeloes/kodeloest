@@ -9,7 +9,7 @@ const Bilder = () => {
   const subcategories = [
     { name: 'akvareller', path: '/bilder/akvareller', displayName: 'Akvareller' },
     { name: 'mixed-media', path: '/bilder/mixed-media', displayName: 'Mixed Media' },
-    { name: 'strek', path: '/bilder/strek', displayName: 'Strek' }
+    { name: 'tegning', path: '/bilder/tegning', displayName: 'Tegning' }
   ];
 
   return (

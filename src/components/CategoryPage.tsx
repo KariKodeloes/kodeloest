@@ -1,22 +1,45 @@
 
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Project } from '../data/mockData';
 import ProjectCard from './ProjectCard';
 import { Button } from './ui/button';
+import { Badge } from './ui/badge';
 
 interface CategoryPageProps {
   title: string;
   projects: Project[];
   subcategories?: Array<{ name: string; path: string; displayName: string }>;
+  currentCategory?: string;
+  onCategoryChange?: (category: string) => void;
 }
 
 type ViewMode = 'grid' | 'list';
 type SortOrder = 'newest' | 'oldest';
 
-const CategoryPage: React.FC<CategoryPageProps> = ({ title, projects, subcategories }) => {
+const CategoryPage: React.FC<CategoryPageProps> = ({ 
+  title, 
+  projects, 
+  subcategories, 
+  currentCategory = 'alle',
+  onCategoryChange 
+}) => {
   const [viewMode, setViewMode] = useState<ViewMode>('grid');
   const [sortOrder, setSortOrder] = useState<SortOrder>('newest');
+  const [selectedCategory, setSelectedCategory] = useState(currentCategory);
+  const location = useLocation();
+
+  useEffect(() => {
+    // Extract category from URL path
+    const pathParts = location.pathname.split('/');
+    const urlCategory = pathParts[pathParts.length - 1];
+    
+    if (subcategories && subcategories.some(sub => sub.name === urlCategory)) {
+      setSelectedCategory(urlCategory);
+    } else {
+      setSelectedCategory('alle');
+    }
+  }, [location.pathname, subcategories]);
 
   const sortedProjects = [...projects].sort((a, b) => {
     if (sortOrder === 'newest') {
@@ -29,6 +52,13 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ title, projects, subcategor
     setSortOrder(current => current === 'newest' ? 'oldest' : 'newest');
   };
 
+  const handleCategoryClick = (categoryName: string) => {
+    setSelectedCategory(categoryName);
+    if (onCategoryChange) {
+      onCategoryChange(categoryName);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
@@ -38,18 +68,35 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ title, projects, subcategor
             {title}
           </h2>
           
-          {/* Subcategories */}
+          {/* Category Chips */}
           {subcategories && subcategories.length > 0 && (
             <div className="mb-6">
-              <h2 className="text-lg font-roboto font-medium mb-3 text-muted-foreground">
-                Underkategorier:
-              </h2>
               <div className="flex flex-wrap gap-3">
+                {/* "Alle" chip */}
+                <button
+                  onClick={() => handleCategoryClick('alle')}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                    selectedCategory === 'alle'
+                      ? 'text-white'
+                      : 'bg-card border border-border text-foreground hover:bg-accent'
+                  }`}
+                  style={selectedCategory === 'alle' ? { backgroundColor: '#E68200' } : {}}
+                >
+                  Alle
+                </button>
+                
+                {/* Subcategory chips */}
                 {subcategories.map((sub) => (
                   <Link
                     key={sub.path}
                     to={sub.path}
-                    className="bg-card border border-border px-4 py-2 rounded-lg hover:bg-accent transition-colors duration-200"
+                    onClick={() => handleCategoryClick(sub.name)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                      selectedCategory === sub.name
+                        ? 'text-white'
+                        : 'bg-card border border-border text-foreground hover:bg-accent'
+                    }`}
+                    style={selectedCategory === sub.name ? { backgroundColor: '#E68200' } : {}}
                   >
                     {sub.displayName}
                   </Link>
