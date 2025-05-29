@@ -41,7 +41,12 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
     }
   }, [location.pathname, subcategories]);
 
-  const sortedProjects = [...projects].sort((a, b) => {
+  // Filter projects based on selected category
+  const filteredProjects = selectedCategory === 'alle' 
+    ? projects 
+    : projects.filter(project => project.subcategory === selectedCategory);
+
+  const sortedProjects = [...filteredProjects].sort((a, b) => {
     if (sortOrder === 'newest') {
       return b.year - a.year;
     }
@@ -88,9 +93,8 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                 
                 {/* Subcategory chips */}
                 {subcategories.map((sub) => (
-                  <Link
+                  <button
                     key={sub.path}
-                    to={sub.path}
                     onClick={() => handleCategoryClick(sub.name)}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
                       selectedCategory === sub.name
@@ -100,7 +104,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                     style={selectedCategory === sub.name ? { backgroundColor: '#E68200' } : {}}
                   >
                     {sub.displayName}
-                  </Link>
+                  </button>
                 ))}
               </div>
             )}
@@ -146,7 +150,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
         {/* Project Count */}
         <div className="flex items-center gap-2 mb-2">
           <span className="text-sm text-muted-foreground">
-            {projects.length} prosjekt{projects.length !== 1 ? 'er' : ''}
+            {sortedProjects.length} prosjekt{sortedProjects.length !== 1 ? 'er' : ''}
           </span>
         </div>
 
