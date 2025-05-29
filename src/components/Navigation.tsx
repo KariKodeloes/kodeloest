@@ -84,7 +84,7 @@ const Navigation = () => {
               <React.Fragment key={item.path}>
                 <Link
                   to={item.path}
-                  className={`text-sm font-medium transition-colors ${
+                  className={`text-base font-medium transition-colors ${
                     isHomePage 
                       ? 'text-white hover:text-gray-200' 
                       : location.pathname === item.path
