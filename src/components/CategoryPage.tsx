@@ -71,7 +71,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
           {/* Category Chips */}
           {subcategories && subcategories.length > 0 && (
             <div className="mb-6">
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2">
                 {/* "Alle" chip */}
                 <button
                   onClick={() => handleCategoryClick('alle')}
