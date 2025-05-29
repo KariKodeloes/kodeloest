@@ -25,7 +25,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* KODELØST heading for home page */}
         {isHomePage && (
-          <div className="text-center py-4">
+          <div className="text-center pt-8 pb-2">
             <h1 className="text-white font-oswald font-medium text-4xl">KODELØST</h1>
           </div>
         )}
