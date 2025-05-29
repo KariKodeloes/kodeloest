@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Gallery from '../components/Gallery';
 import { getRandomProjects } from '../data/mockData';
@@ -17,8 +18,8 @@ const Home = () => {
       >
         <div className="relative z-10 flex items-center justify-center h-full text-white text-center px-4 pt-16">
           <div className="max-w-4xl">
-            <blockquote className="text-xl md:text-3xl font-oswald font-light mb-8 animate-fade-in italic">
-              "Jeg har laget utrolig mye jeg er stolt av uten å kunne kode. Denne nettsida foreksempel!"
+            <blockquote className="text-xl md:text-3xl font-oswald font-light mb-8 animate-fade-in">
+              "Jeg har laget utrolig mye jeg er stolt av uten å kunne kode.<br />Denne nettsida foreksempel!"
             </blockquote>
           </div>
         </div>
