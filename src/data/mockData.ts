@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -25,14 +24,14 @@ export const mockProjects: Project[] = [
   },
   {
     id: '2',
-    title: 'Abstrakt komposisjon',
-    subtitle: 'Mixed media experiment',
-    description: 'En kombinasjon av akryl, kull og pastellkritt på lerret. Utforsker kontrasten mellom varme og kalde farger.',
+    title: 'Blågrønt hav',
+    subtitle: 'Akvarell, 300 gr bomull, 17x24 cm.',
+    description: 'Fra en sommerdag i 2023 på vakre Vrnik, Korcula. En dag skal jeg tilbake dit.',
     year: 2023,
-    images: ['https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?w=800&h=600&fit=crop'],
+    images: ['/lovable-uploads/60faf3ef-db7d-4c44-8d6c-dff40616af79.png'],
     category: 'bilder',
-    subcategory: 'mixed-media',
-    mainImage: 'https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?w=800&h=600&fit=crop'
+    subcategory: 'akvareller',
+    mainImage: '/lovable-uploads/60faf3ef-db7d-4c44-8d6c-dff40616af79.png'
   },
   {
     id: '3',
