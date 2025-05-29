@@ -23,10 +23,10 @@ const Navigation = () => {
   return (
     <nav className={`${isHomePage ? 'bg-transparent fixed top-0 left-0 right-0 z-50' : 'bg-card border-b border-border shadow-sm sticky top-0 z-50'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Kodeløst heading for home page */}
+        {/* KODELØST heading for home page */}
         {isHomePage && (
           <div className="text-center py-4">
-            <h1 className="text-white font-oswald font-medium text-4xl">Kodeløst</h1>
+            <h1 className="text-white font-oswald font-medium text-4xl">KODELØST</h1>
           </div>
         )}
         
