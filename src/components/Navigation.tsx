@@ -22,7 +22,8 @@ const Navigation = () => {
 
   return (
     <nav className={`${isHomePage ? 'bg-transparent absolute top-0 left-0 right-0 z-50' : 'bg-card border-b border-border shadow-sm sticky top-0 z-50'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Use container class for consistent alignment */}
+      <div className={isHomePage ? "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" : "container mx-auto px-4"}>
         {/* HELT KODELØS heading for home page with Instagram icon */}
         {isHomePage && (
           <div className="text-center pt-8 pb-2 relative">
