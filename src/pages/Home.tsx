@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Gallery from '../components/Gallery';
 import { getRandomProjects } from '../data/mockData';
@@ -18,12 +17,9 @@ const Home = () => {
       >
         <div className="relative z-10 flex items-center justify-center h-full text-white text-center px-4 pt-16">
           <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-7xl font-oswald font-semibold mb-6 animate-fade-in">
-              Kari Kodeløs
-            </h1>
-            <p className="text-xl md:text-2xl font-roboto mb-8 animate-fade-in">
-              Utforsk en verden av kreativitet gjennom bilder, foto, søm, design og DIY
-            </p>
+            <blockquote className="text-xl md:text-3xl font-oswald font-light mb-8 animate-fade-in italic">
+              "Jeg har laget utrolig mye jeg er stolt av uten å kunne kode. Denne nettsida foreksempel!"
+            </blockquote>
           </div>
         </div>
       </div>
