@@ -12,7 +12,7 @@ const Breadcrumb = () => {
   
   const pathMap: Record<string, string> = {
     '/': 'Hjem',
-    '/bilder': 'Bilder',
+    '/bilder': 'Bildekunst',
     '/bilder/akvareller': 'Akvareller',
     '/bilder/mixed-media': 'Mixed Media',
     '/bilder/strek': 'Strek',
