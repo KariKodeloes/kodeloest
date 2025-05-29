@@ -27,7 +27,7 @@ const Home = () => {
               <img 
                 src="/lovable-uploads/092fa60a-3b25-44f7-bc70-4fabe5da4497.png" 
                 alt="Kari Kodeløs" 
-                className="h-15 w-auto mx-auto"
+                className="h-16 w-auto mx-auto"
               />
             </div>
           </div>
