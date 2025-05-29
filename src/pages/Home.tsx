@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Gallery from '../components/Gallery';
 import { getRandomProjects } from '../data/mockData';
@@ -16,7 +15,6 @@ const Home = () => {
           clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%)'
         }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         <div className="relative z-10 flex items-center justify-center h-full text-white text-center px-4">
           <div className="max-w-4xl">
             <h1 className="text-5xl md:text-7xl font-oswald font-semibold mb-6 animate-fade-in">
