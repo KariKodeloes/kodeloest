@@ -1,11 +1,9 @@
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useTheme } from '../contexts/ThemeContext';
 import { Button } from './ui/button';
 
 const Navigation = () => {
-  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -69,19 +67,6 @@ const Navigation = () => {
             >
               <span className="material-icon">photo_camera</span>
             </a>
-
-            {/* Dark Mode Toggle */}
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleTheme}
-              className={isHomePage ? 'text-white hover:text-gray-200 hover:bg-white/10' : ''}
-              aria-label={theme === 'light' ? 'Bytt til mørk modus' : 'Bytt til lys modus'}
-            >
-              <span className="material-icon">
-                {theme === 'light' ? 'dark_mode' : 'light_mode'}
-              </span>
-            </Button>
 
             {/* Mobile Menu Button */}
             <Button
