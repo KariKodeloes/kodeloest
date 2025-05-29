@@ -9,6 +9,7 @@ interface GalleryProps {
 
 const Gallery: React.FC<GalleryProps> = ({ projects }) => {
   const getCategoryPath = (project: Project) => {
+    // Always link to the main category page
     const categoryMap: Record<string, string> = {
       'bilder': '/bilder',
       'foto': '/foto',
@@ -16,10 +17,6 @@ const Gallery: React.FC<GalleryProps> = ({ projects }) => {
       'design': '/design',
       'diy': '/diy'
     };
-    
-    if (project.subcategory) {
-      return `${categoryMap[project.category]}/${project.subcategory}`;
-    }
     
     return categoryMap[project.category] || '/';
   };
