@@ -68,9 +68,10 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
             {title}
           </h2>
           
-          {/* Category Chips */}
-          {subcategories && subcategories.length > 0 && (
-            <div className="mb-6">
+          {/* Category Chips and Controls Combined */}
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-6">
+            {/* Category Chips */}
+            {subcategories && subcategories.length > 0 && (
               <div className="flex flex-wrap gap-2">
                 {/* "Alle" chip */}
                 <button
@@ -102,52 +103,51 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                   </Link>
                 ))}
               </div>
+            )}
+
+            {/* Controls */}
+            <div className="flex items-center gap-4">
+              {/* Sort */}
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={toggleSort}
+                className="flex items-center gap-2"
+              >
+                <span className="material-icon text-sm">swap_vert</span>
+                {sortOrder === 'newest' ? 'Nyeste først' : 'Eldste først'}
+              </Button>
+
+              {/* View Mode */}
+              <div className="flex items-center border border-border rounded-lg overflow-hidden">
+                <Button
+                  variant={viewMode === 'grid' ? 'default' : 'ghost'}
+                  size="sm"
+                  onClick={() => setViewMode('grid')}
+                  className="rounded-none border-0"
+                  style={viewMode === 'grid' ? { backgroundColor: '#E68200', color: 'white' } : {}}
+                >
+                  <span className="material-icon">view_module</span>
+                </Button>
+                <Button
+                  variant={viewMode === 'list' ? 'default' : 'ghost'}
+                  size="sm"
+                  onClick={() => setViewMode('list')}
+                  className="rounded-none border-0"
+                  style={viewMode === 'list' ? { backgroundColor: '#E68200', color: 'white' } : {}}
+                >
+                  <span className="material-icon">view_list</span>
+                </Button>
+              </div>
             </div>
-          )}
+          </div>
         </div>
 
-        {/* Controls */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-muted-foreground">
-              {projects.length} prosjekt{projects.length !== 1 ? 'er' : ''}
-            </span>
-          </div>
-          
-          <div className="flex items-center gap-4">
-            {/* Sort */}
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={toggleSort}
-              className="flex items-center gap-2"
-            >
-              <span className="material-icon text-sm">swap_vert</span>
-              {sortOrder === 'newest' ? 'Nyeste først' : 'Eldste først'}
-            </Button>
-
-            {/* View Mode */}
-            <div className="flex items-center border border-border rounded-lg overflow-hidden">
-              <Button
-                variant={viewMode === 'grid' ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => setViewMode('grid')}
-                className="rounded-none border-0"
-                style={viewMode === 'grid' ? { backgroundColor: '#E68200', color: 'white' } : {}}
-              >
-                <span className="material-icon">view_module</span>
-              </Button>
-              <Button
-                variant={viewMode === 'list' ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => setViewMode('list')}
-                className="rounded-none border-0"
-                style={viewMode === 'list' ? { backgroundColor: '#E68200', color: 'white' } : {}}
-              >
-                <span className="material-icon">view_list</span>
-              </Button>
-            </div>
-          </div>
+        {/* Project Count */}
+        <div className="flex items-center gap-2 mb-8">
+          <span className="text-sm text-muted-foreground">
+            {projects.length} prosjekt{projects.length !== 1 ? 'er' : ''}
+          </span>
         </div>
 
         {/* Projects Grid/List */}
