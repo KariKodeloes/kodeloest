@@ -12,7 +12,7 @@ const Home = () => {
       <div 
         className="relative h-screen bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1472396961693-142e6e269027?w=1920&h=1080&fit=crop)',
+          backgroundImage: 'url(/lovable-uploads/9b63042b-7977-4895-a9d2-c453310e5828.png)',
           clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%)'
         }}
       >
