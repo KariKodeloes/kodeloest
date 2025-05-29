@@ -26,13 +26,26 @@ const Navigation = () => {
         {/* KODELØST heading for home page with Instagram icon */}
         {isHomePage && (
           <div className="text-center pt-8 pb-2 relative">
+            {/* Mobile Menu Button positioned in top left corner for home page */}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="md:hidden absolute top-0 left-0 text-white hover:text-gray-200 hover:bg-white/10 p-1"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Åpne meny"
+            >
+              <span className="material-icon text-3xl leading-none">
+                {isMenuOpen ? 'close' : 'menu'}
+              </span>
+            </Button>
+            
             <h1 className="text-white font-oswald font-medium text-4xl">KODELØST</h1>
             {/* Instagram Icon positioned in top right corner, aligned with KODELØST */}
             <a
               href="https://instagram.com/karis_pensel"
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute top-8 right-0 text-white hover:text-gray-200 transition-colors"
+              className="absolute top-0 right-0 text-white hover:text-gray-200 transition-colors"
               aria-label="Følg meg på Instagram"
             >
               <Instagram size={32} />
@@ -43,11 +56,26 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* KODELØST home button for non-home pages */}
           {!isHomePage && (
-            <Link to="/" className="flex items-center">
-              <span className="text-foreground hover:text-primary font-oswald font-medium text-2xl transition-colors">
-                KODELØST
-              </span>
-            </Link>
+            <div className="flex items-center">
+              {/* Mobile Menu Button for non-home pages */}
+              <Button
+                variant="ghost"
+                size="sm"
+                className="md:hidden mr-2 p-1"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Åpne meny"
+              >
+                <span className="material-icon text-3xl leading-none">
+                  {isMenuOpen ? 'close' : 'menu'}
+                </span>
+              </Button>
+              
+              <Link to="/" className="flex items-center">
+                <span className="text-foreground hover:text-primary font-oswald font-medium text-2xl transition-colors">
+                  KODELØST
+                </span>
+              </Link>
+            </div>
           )}
 
           {/* Desktop Navigation - centered for home page */}
@@ -93,19 +121,6 @@ const Navigation = () => {
                 <Instagram size={32} />
               </a>
             )}
-
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className={`md:hidden ${isHomePage ? 'text-white hover:text-gray-200 hover:bg-white/10' : ''}`}
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Åpne meny"
-            >
-              <span className="material-icon">
-                {isMenuOpen ? 'close' : 'menu'}
-              </span>
-            </Button>
           </div>
         </div>
 
