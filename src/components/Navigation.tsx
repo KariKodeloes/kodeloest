@@ -92,7 +92,7 @@ const Navigation = () => {
                       ? 'text-white hover:text-gray-200' 
                       : location.pathname === item.path
                         ? 'border-b-2' 
-                        : 'text-foreground hover:text-primary'
+                        : 'text-foreground hover:text-black'
                   }`}
                   style={
                     !isHomePage && location.pathname === item.path
@@ -118,7 +118,7 @@ const Navigation = () => {
                 href="https://instagram.com/karis_pensel"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground hover:text-primary transition-colors"
+                className="text-foreground hover:text-black transition-colors"
                 aria-label="Følg meg på Instagram"
               >
                 <Instagram size={32} />
