@@ -15,7 +15,7 @@ const Home = () => {
           backgroundImage: 'url(/lovable-uploads/9b63042b-7977-4895-a9d2-c453310e5828.png)'
         }}
       >
-        <div className="relative z-10 flex items-start justify-center h-full text-white text-center px-4 pt-32">
+        <div className="relative z-10 flex items-start justify-center h-full text-white text-center px-4 pt-20">
           <div className="max-w-4xl">
             {/* Quote moved above logo with increased size and line height */}
             <blockquote className="text-3xl md:text-5xl font-oswald font-light mb-12 animate-fade-in" style={{ lineHeight: '1.5' }}>
