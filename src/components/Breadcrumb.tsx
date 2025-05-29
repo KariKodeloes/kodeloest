@@ -68,7 +68,7 @@ const Breadcrumb = () => {
               ) : (
                 <Link
                   to={crumb.path}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
                 >
                   {crumb.title}
                 </Link>
