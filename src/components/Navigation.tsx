@@ -30,11 +30,11 @@ const Navigation = () => {
             <Button
               variant="ghost"
               size="sm"
-              className="md:hidden absolute top-8 left-0 text-white hover:text-gray-200 hover:bg-white/10 p-1"
+              className="md:hidden absolute top-0 left-0 text-white hover:text-gray-200 hover:bg-white/10 p-1"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Åpne meny"
             >
-              <span className="material-icon text-3xl leading-none">
+              <span className="material-icon text-3xl leading-none" style={{ fontSize: '32px' }}>
                 {isMenuOpen ? 'close' : 'menu'}
               </span>
             </Button>
@@ -45,7 +45,7 @@ const Navigation = () => {
               href="https://instagram.com/karis_pensel"
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute top-8 right-0 text-white hover:text-gray-200 transition-colors"
+              className="absolute top-0 right-0 text-white hover:text-gray-200 transition-colors"
               aria-label="Følg meg på Instagram"
             >
               <Instagram size={32} />
@@ -65,7 +65,7 @@ const Navigation = () => {
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label="Åpne meny"
               >
-                <span className="material-icon text-3xl leading-none">
+                <span className="material-icon text-3xl leading-none" style={{ fontSize: '32px' }}>
                   {isMenuOpen ? 'close' : 'menu'}
                 </span>
               </Button>
@@ -132,12 +132,12 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`block px-3 py-2 text-base font-medium transition-colors ${
+                  className={`block px-3 py-2 text-base font-medium transition-colors rounded ${
                     isHomePage
-                      ? 'text-white hover:text-gray-200'
+                      ? 'text-white hover:text-white hover:bg-white/20'
                       : location.pathname === item.path
                         ? 'bg-accent'
-                        : 'text-foreground hover:text-primary'
+                        : 'text-foreground hover:text-white hover:bg-primary'
                   }`}
                   style={
                     !isHomePage && location.pathname === item.path
