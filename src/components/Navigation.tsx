@@ -24,10 +24,10 @@ const Navigation = () => {
     <nav className={`${isHomePage ? 'bg-transparent absolute top-0 left-0 right-0 z-50' : 'bg-card border-b border-border shadow-sm sticky top-0 z-50'}`}>
       {/* Use container class for consistent alignment */}
       <div className={isHomePage ? "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" : "container mx-auto px-4"}>
-        {/* HELT KODELØS heading for home page with Instagram icon */}
+        {/* KARI KODELØS heading for home page with Instagram icon */}
         {isHomePage && (
           <div className="text-center pt-8 pb-2 relative">
-            {/* Mobile Menu Button positioned aligned with HELT KODELØS for home page */}
+            {/* Mobile Menu Button positioned aligned with KARI KODELØS for home page */}
             <Button
               variant="ghost"
               size="sm"
@@ -40,8 +40,8 @@ const Navigation = () => {
               </span>
             </Button>
             
-            <h1 className="text-white font-oswald font-medium text-4xl">HELT KODELØS</h1>
-            {/* Instagram Icon positioned aligned with HELT KODELØS */}
+            <h1 className="text-white font-oswald font-medium text-4xl">KARI KODELØS</h1>
+            {/* Instagram Icon positioned aligned with KARI KODELØS */}
             <a
               href="https://instagram.com/karis_pensel"
               target="_blank"
@@ -55,7 +55,7 @@ const Navigation = () => {
         )}
         
         <div className="flex justify-between items-center h-16">
-          {/* HELT KODELØS home button for non-home pages */}
+          {/* KARI KODELØS home button for non-home pages */}
           {!isHomePage && (
             <div className="flex items-center">
               {/* Mobile Menu Button for non-home pages */}
@@ -76,7 +76,7 @@ const Navigation = () => {
                   className="text-foreground font-oswald font-medium text-2xl transition-colors hover:text-black"
                   style={location.pathname === '/' ? { color: '#000000' } : {}}
                 >
-                  HELT KODELØS
+                  KARI KODELØS
                 </span>
               </Link>
             </div>
