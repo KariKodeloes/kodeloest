@@ -52,7 +52,8 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
       'dyr': 'Dyr',
       'redesign': 'Redesign',
       'gjenbruk': 'Gjenbruk',
-      'rett-fra-rullen': 'Rett fra rullen'
+      'rett-fra-rullen': 'Rett fra rullen',
+      'tegning': 'Tegning'
     };
 
     let displayName = categoryNames[project.category] || project.category;

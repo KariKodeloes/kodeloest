@@ -128,4 +128,13 @@
   .gallery-item:hover .gallery-overlay {
     @apply opacity-100;
   }
+
+  .gallery-item::before {
+    content: '';
+    @apply absolute inset-0 bg-black opacity-0 transition-opacity duration-300 z-10 pointer-events-none;
+  }
+
+  .gallery-item:hover::before {
+    @apply opacity-10;
+  }
 }
