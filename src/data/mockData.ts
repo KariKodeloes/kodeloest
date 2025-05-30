@@ -75,14 +75,14 @@ export const mockProjects: Project[] = [
   },
   {
     id: '7',
-    title: 'Hjemmelaget keramikk',
-    subtitle: 'Kopper og skåler',
-    description: 'Håndlaget keramikk med naturlige farger og former. Perfekt for hverdagsbruk.',
-    year: 2023,
-    images: ['https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=800&h=600&fit=crop'],
+    title: 'Sengegavl',
+    subtitle: 'Ikea-hack',
+    description: 'Lyst på sengegavl, men det må det gå an å lage selv? Buksehenger, rørisolasjon, madrassrest, symaskin og litt stoff. Vips - en uke senere og litt kvalitetstid med borhammeren: Oppe!',
+    year: 2024,
+    images: ['/lovable-uploads/7a70fc1b-b967-4946-941d-3e835ee417c2.png', '/lovable-uploads/674bf0fc-5a2b-4524-a692-49f6779c8bc8.png', '/lovable-uploads/e1968c75-7311-4fa2-b957-f3074b920289.png', '/lovable-uploads/8746cf39-6f07-4468-974e-f384c867280b.png'],
     category: 'diy',
-    mainImage: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=800&h=600&fit=crop',
-    likes: 9
+    mainImage: '/lovable-uploads/7a70fc1b-b967-4946-941d-3e835ee417c2.png',
+    likes: 0
   },
   {
     id: '8',
