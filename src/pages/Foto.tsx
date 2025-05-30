@@ -8,7 +8,7 @@ const Foto = () => {
   
   const subcategories = [
     { name: 'ved-sjoen', path: '/foto/ved-sjoen', displayName: 'Ved sjøen' },
-    { name: 'i-fjellet', path: '/foto/i-fjellet', displayName: 'I fjellet' },
+    { name: 'i-fjellet', path: '/foto/i-fjellet', displayName: 'Fjell og mark' },
     { name: 'flora', path: '/foto/flora', displayName: 'Flora' },
     { name: 'byliv', path: '/foto/byliv', displayName: 'Byliv' },
     { name: 'dyr', path: '/foto/dyr', displayName: 'Dyr' }
