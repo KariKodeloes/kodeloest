@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -55,6 +54,17 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'dyr',
     mainImage: '/lovable-uploads/6a425ba4-8585-4f92-b02a-d48cb9454fcc.png'
+  },
+  {
+    id: '8',
+    title: 'Gatekatt i Athen',
+    subtitle: 'Mobilfoto - Iphone 15',
+    description: 'Midt mellom turister som kavet seg ned fra Akropolis dukket denne firbeinte pelsvarianten opp fra en kjeller.',
+    year: 2024,
+    images: ['/lovable-uploads/93938560-85b3-40d9-a065-0abdbe9405eb.png'],
+    category: 'foto',
+    subcategory: 'dyr',
+    mainImage: '/lovable-uploads/93938560-85b3-40d9-a065-0abdbe9405eb.png'
   },
   {
     id: '5',
