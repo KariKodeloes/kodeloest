@@ -1,3 +1,4 @@
+
 export interface Project {
   id: string;
   title: string;
@@ -19,10 +20,10 @@ export const mockProjects: Project[] = [
     subtitle: 'Akvarell, 300 gr bomull - 32x24 cm.',
     description: 'Lengter mot sommer. Lek med pigment, salt og drømmer.',
     year: 2024,
-    images: ['/lovable-uploads/f339d8fd-fe3d-4540-9f13-acfad88162cd.png'],
+    images: ['/lovable-uploads/fb8e46a7-aaf8-4666-bea3-95e4b35bb947.png'],
     category: 'bilder',
     subcategory: 'akvareller',
-    mainImage: '/lovable-uploads/f339d8fd-fe3d-4540-9f13-acfad88162cd.png',
+    mainImage: '/lovable-uploads/fb8e46a7-aaf8-4666-bea3-95e4b35bb947.png',
     likes: 12
   },
   {
