@@ -1,3 +1,4 @@
+
 export interface Project {
   id: string;
   title: string;
@@ -46,14 +47,14 @@ export const mockProjects: Project[] = [
   },
   {
     id: '4',
-    title: 'Morgen ved kysten',
-    subtitle: 'Fotoessay',
-    description: 'Tidlig morgenlys ved den norske kysten. Fanget inn øyeblikket når sollyset treffer bølgene.',
+    title: 'Rådyr i kveldssol',
+    subtitle: 'Mobilfoto - Iphone 15',
+    description: 'Et utrolig øyeblikk på vei hjem fra stranda en varm maikveld i 2024. Noen ganger er det helt ok at mobilen ikke er så langt unna.',
     year: 2024,
-    images: ['https://images.unsplash.com/photo-1500673922987-e212871fec22?w=800&h=600&fit=crop'],
+    images: ['/lovable-uploads/6a425ba4-8585-4f92-b02a-d48cb9454fcc.png'],
     category: 'foto',
-    subcategory: 'ved-sjoen',
-    mainImage: 'https://images.unsplash.com/photo-1500673922987-e212871fec22?w=800&h=600&fit=crop'
+    subcategory: 'dyr',
+    mainImage: '/lovable-uploads/6a425ba4-8585-4f92-b02a-d48cb9454fcc.png'
   },
   {
     id: '5',
