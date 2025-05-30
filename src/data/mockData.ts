@@ -1,3 +1,4 @@
+
 export interface Project {
   id: string;
   title: string;
@@ -63,15 +64,15 @@ export const mockProjects: Project[] = [
   },
   {
     id: '5',
-    title: 'Vintage kjole redesign',
-    subtitle: 'Ny stil på gammelt stoff',
-    description: 'Forvandlet en kjole fra 80-tallet til en moderne, minimalistisk design med nye snitt og detaljer.',
-    year: 2023,
-    images: ['https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop'],
+    title: 'Bluse i råsilke',
+    subtitle: 'Mobilfoto - Iphone 13',
+    description: 'Når noen rydder i gamle stoffrester hender det at det drypper på meg. Dette nydeligestoffet ble brukt til siste cm.',
+    year: 2024,
+    images: ['/lovable-uploads/270178c3-07b4-4cc5-bfce-2b2537185530.png', '/lovable-uploads/2c5ac3f3-2647-49c3-841c-ced119e9c1cc.png'],
     category: 'som',
-    subcategory: 'redesign',
-    mainImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop',
-    likes: 7
+    subcategory: 'gjenbruk',
+    mainImage: '/lovable-uploads/270178c3-07b4-4cc5-bfce-2b2537185530.png',
+    likes: 0
   },
   {
     id: '6',
