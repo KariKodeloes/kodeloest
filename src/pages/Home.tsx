@@ -1,9 +1,11 @@
+
 import React from 'react';
 import Gallery from '../components/Gallery';
-import { getRandomProjects } from '../data/mockData';
+import { mockProjects } from '../data/mockData';
 
 const Home = () => {
-  const galleryProjects = getRandomProjects('om-meg', 6);
+  // Show all projects instead of just 6 random ones
+  const galleryProjects = mockProjects;
 
   return (
     <div className="min-h-screen">
@@ -24,10 +26,10 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Gallery Section */}
+      {/* Gallery Section - now scrollable with all projects */}
       <div className="relative -mt-40 z-20">
         <div className="container mx-auto px-4 pt-8 pb-16">
-          <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-white">
+          <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-white max-h-[80vh] overflow-y-auto">
             <div className="bg-transparent p-4">
               <Gallery projects={galleryProjects} />
             </div>
