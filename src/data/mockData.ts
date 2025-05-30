@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -49,6 +48,18 @@ export const mockProjects: Project[] = [
     subcategory: 'mixed-media',
     mainImage: '/lovable-uploads/cf0f53e3-5b2b-4bde-bb0f-0263cd35300b.png',
     likes: 15
+  },
+  {
+    id: '22',
+    title: 'Faller 2',
+    subtitle: 'Håndkolorert gicleétrykk - A2',
+    description: 'Jeg tar sats og vet ikke helt hvor jeg lander eller om sikringene holder.',
+    year: 2024,
+    images: ['/lovable-uploads/01e8e2b5-0bb1-42ca-85f6-6f3e09838c7e.png'],
+    category: 'bilder',
+    subcategory: 'mixed-media',
+    mainImage: '/lovable-uploads/01e8e2b5-0bb1-42ca-85f6-6f3e09838c7e.png',
+    likes: 0
   },
   {
     id: '4',
