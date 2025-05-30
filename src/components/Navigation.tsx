@@ -130,7 +130,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className={`md:hidden absolute left-0 right-0 ${isHomePage ? 'top-20 border-white/20 bg-black/50' : 'top-16 border-border bg-card'} border-t`}>
+          <div className={`md:hidden absolute left-0 right-0 z-[100] ${isHomePage ? 'top-20 border-white/20 bg-black/80 backdrop-blur-sm' : 'top-16 border-border bg-white'} border-t shadow-lg`}>
             <div className="px-2 py-2 space-y-1">
               {menuItems.slice(1).map((item) => (
                 <Link
@@ -140,7 +140,7 @@ const Navigation = () => {
                     isHomePage
                       ? 'text-white hover:text-white hover:bg-white/20'
                       : location.pathname === item.path
-                        ? 'bg-accent'
+                        ? 'bg-accent text-orange-600'
                         : 'text-foreground hover:text-foreground hover:bg-accent'
                   }`}
                   style={
