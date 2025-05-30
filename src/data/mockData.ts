@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -63,6 +62,40 @@ export const mockProjects: Project[] = [
     likes: 23
   },
   {
+    id: '5',
+    title: 'Vintage kjole redesign',
+    subtitle: 'Ny stil på gammelt stoff',
+    description: 'Forvandlet en kjole fra 80-tallet til en moderne, minimalistisk design med nye snitt og detaljer.',
+    year: 2023,
+    images: ['https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop'],
+    category: 'som',
+    subcategory: 'redesign',
+    mainImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop',
+    likes: 7
+  },
+  {
+    id: '6',
+    title: 'Moderne plakat design',
+    subtitle: 'Typografi og farger',
+    description: 'Et rent og moderne plakatdesign som kombinerer typografi med organiske former.',
+    year: 2024,
+    images: ['https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop'],
+    category: 'design',
+    mainImage: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop',
+    likes: 5
+  },
+  {
+    id: '7',
+    title: 'Hjemmelaget keramikk',
+    subtitle: 'Kopper og skåler',
+    description: 'Håndlaget keramikk med naturlige farger og former. Perfekt for hverdagsbruk.',
+    year: 2023,
+    images: ['https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=800&h=600&fit=crop'],
+    category: 'diy',
+    mainImage: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=800&h=600&fit=crop',
+    likes: 9
+  },
+  {
     id: '8',
     title: 'Gatekatt i Athen',
     subtitle: 'Mobilfoto - Iphone 15',
@@ -123,40 +156,6 @@ export const mockProjects: Project[] = [
     likes: 2
   },
   {
-    id: '5',
-    title: 'Vintage kjole redesign',
-    subtitle: 'Ny stil på gammelt stoff',
-    description: 'Forvandlet en kjole fra 80-tallet til en moderne, minimalistisk design med nye snitt og detaljer.',
-    year: 2023,
-    images: ['https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop'],
-    category: 'som',
-    subcategory: 'redesign',
-    mainImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop',
-    likes: 7
-  },
-  {
-    id: '6',
-    title: 'Moderne plakat design',
-    subtitle: 'Typografi og farger',
-    description: 'Et rent og moderne plakatdesign som kombinerer typografi med organiske former.',
-    year: 2024,
-    images: ['https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop'],
-    category: 'design',
-    mainImage: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop',
-    likes: 5
-  },
-  {
-    id: '7',
-    title: 'Hjemmelaget keramikk',
-    subtitle: 'Kopper og skåler',
-    description: 'Håndlaget keramikk med naturlige farger og former. Perfekt for hverdagsbruk.',
-    year: 2023,
-    images: ['https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=800&h=600&fit=crop'],
-    category: 'diy',
-    mainImage: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=800&h=600&fit=crop',
-    likes: 9
-  },
-  {
     id: '13',
     title: 'Horseidstranda pyntet og klar',
     subtitle: 'Mobilfoto - Iphone 15',
@@ -179,6 +178,18 @@ export const mockProjects: Project[] = [
     subcategory: 'ved-sjoen',
     mainImage: '/lovable-uploads/fa777469-8049-4193-a37a-bf39f2285185.png',
     likes: 6
+  },
+  {
+    id: '15',
+    title: 'Fra løper til veske',
+    subtitle: 'Mobilfoto - Iphone 8',
+    description: 'Et brukfunn fra loppemarked fikk et nytt liv som veske. Så mye flott håndverk ligger stua bort i skuffer og skap.',
+    year: 2024,
+    images: ['/lovable-uploads/f9cb4e5a-3791-4fb8-8a98-89f9ab272f88.png', '/lovable-uploads/579a3d8f-7652-4fc8-9080-2060a08937fc.png'],
+    category: 'som',
+    subcategory: 'redesign',
+    mainImage: '/lovable-uploads/f9cb4e5a-3791-4fb8-8a98-89f9ab272f88.png',
+    likes: 0
   }
 ];
 
