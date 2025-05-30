@@ -5,6 +5,7 @@ import { Project } from '../data/mockData';
 import ProjectCard from './ProjectCard';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
+import { useLikes } from '../hooks/useLikes';
 
 interface CategoryPageProps {
   title: string;
@@ -15,7 +16,7 @@ interface CategoryPageProps {
 }
 
 type ViewMode = 'grid' | 'list';
-type SortOrder = 'newest' | 'oldest';
+type SortOrder = 'most-liked' | 'least-liked';
 
 const CategoryPage: React.FC<CategoryPageProps> = ({ 
   title, 
@@ -25,9 +26,10 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
   onCategoryChange 
 }) => {
   const [viewMode, setViewMode] = useState<ViewMode>('grid');
-  const [sortOrder, setSortOrder] = useState<SortOrder>('newest');
+  const [sortOrder, setSortOrder] = useState<SortOrder>('most-liked');
   const [selectedCategory, setSelectedCategory] = useState(currentCategory);
   const location = useLocation();
+  const { getLikes } = useLikes();
 
   useEffect(() => {
     // Extract category from URL path
@@ -47,14 +49,17 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
     : projects.filter(project => project.subcategory === selectedCategory);
 
   const sortedProjects = [...filteredProjects].sort((a, b) => {
-    if (sortOrder === 'newest') {
-      return b.year - a.year;
+    const likesA = getLikes(a.id, a.likes || 0);
+    const likesB = getLikes(b.id, b.likes || 0);
+    
+    if (sortOrder === 'most-liked') {
+      return likesB - likesA;
     }
-    return a.year - b.year;
+    return likesA - likesB;
   });
 
   const toggleSort = () => {
-    setSortOrder(current => current === 'newest' ? 'oldest' : 'newest');
+    setSortOrder(current => current === 'most-liked' ? 'least-liked' : 'most-liked');
   };
 
   const handleCategoryClick = (categoryName: string) => {
@@ -118,8 +123,8 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                 onClick={toggleSort}
                 className="flex items-center gap-2"
               >
-                <span className="material-icon text-sm">swap_vert</span>
-                {sortOrder === 'newest' ? 'Nyeste først' : 'Eldste først'}
+                <span className="material-icon text-sm">favorite</span>
+                {sortOrder === 'most-liked' ? 'Flest likes først' : 'Færrest likes først'}
               </Button>
 
               {/* View Mode */}
