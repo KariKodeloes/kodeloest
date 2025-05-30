@@ -1,5 +1,4 @@
 
-
 export interface Project {
   id: string;
   title: string;
@@ -215,6 +214,18 @@ export const mockProjects: Project[] = [
     category: 'bilder',
     subcategory: 'tegning',
     mainImage: '/lovable-uploads/b616f4ad-a9a1-48bb-9ae1-bd95f9205c15.png',
+    likes: 0
+  },
+  {
+    id: '18',
+    title: 'Midtsandtangen',
+    subtitle: 'Canon speilrefleks',
+    description: 'Fargene ved sjøen en kald vinterdag på strandanlegget på Midtsandtangen står ikke noe tilbake for en varm sommerkveld.',
+    year: 2024,
+    images: ['/lovable-uploads/e5fd026f-3972-44eb-b147-0435173bdbd0.png', '/lovable-uploads/171f8dd1-6187-45d2-b10a-e9b505e98316.png'],
+    category: 'foto',
+    subcategory: 'ved-sjoen',
+    mainImage: '/lovable-uploads/e5fd026f-3972-44eb-b147-0435173bdbd0.png',
     likes: 0
   }
 ];
