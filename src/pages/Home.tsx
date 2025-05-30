@@ -31,14 +31,6 @@ const Home = () => {
         <div className="container mx-auto px-4 pt-8 pb-16">
           <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-white max-h-[80vh] overflow-y-auto">
             <div className="bg-transparent p-4">
-              <div className="mb-4 text-center">
-                <h2 className="text-2xl font-quicksand font-semibold text-gray-800 mb-2">
-                  Mine prosjekter
-                </h2>
-                <p className="text-sm text-gray-600 font-oswald font-light">
-                  Sortert etter popularitet
-                </p>
-              </div>
               <Gallery projects={galleryProjects} sortByLikes={true} />
             </div>
           </div>
