@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Gallery from '../components/Gallery';
 import { getRandomProjects } from '../data/mockData';
@@ -21,15 +20,6 @@ const Home = () => {
             <blockquote className="text-3xl md:text-5xl font-oswald font-light mb-12 animate-fade-in" style={{ lineHeight: '1.5' }}>
               "Jeg liker å skape ting.<br />Noe av det kan du se her på nettsida mi,<br />som jeg også har laget - helt uten å kunne kode."
             </blockquote>
-            
-            {/* Logo now below the quote */}
-            <div className="mb-8">
-              <img 
-                src="/lovable-uploads/092fa60a-3b25-44f7-bc70-4fabe5da4497.png" 
-                alt="Kari Kodeløs" 
-                className="h-16 w-auto mx-auto"
-              />
-            </div>
           </div>
         </div>
       </div>
