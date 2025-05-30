@@ -1,12 +1,19 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Project } from '../data/mockData';
+import { useLikes } from '../hooks/useLikes';
+import { Button } from './ui/button';
+import { Heart } from 'lucide-react';
 
 interface GalleryProps {
   projects: Project[];
+  sortByLikes?: boolean;
 }
 
-const Gallery: React.FC<GalleryProps> = ({ projects }) => {
+const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
+  const { toggleLike, getLikes, hasUserLiked } = useLikes();
+
   const getCategoryPath = (project: Project) => {
     // Link to subcategory if available, otherwise main category
     const categoryMap: Record<string, string> = {
@@ -43,6 +50,7 @@ const Gallery: React.FC<GalleryProps> = ({ projects }) => {
       'i-fjellet': 'I fjellet',
       'flora': 'Flora',
       'byliv': 'Byliv',
+      'dyr': 'Dyr',
       'redesign': 'Redesign',
       'gjenbruk': 'Gjenbruk',
       'rett-fra-rullen': 'Rett fra rullen'
@@ -56,37 +64,78 @@ const Gallery: React.FC<GalleryProps> = ({ projects }) => {
     return displayName;
   };
 
+  // Sorter prosjekter etter likes hvis sortByLikes er true
+  const sortedProjects = sortByLikes 
+    ? [...projects].sort((a, b) => {
+        const likesA = getLikes(a.id, a.likes || 0);
+        const likesB = getLikes(b.id, b.likes || 0);
+        return likesB - likesA;
+      })
+    : projects;
+
+  const handleLikeClick = (e: React.MouseEvent, project: Project) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleLike(project.id, project.likes || 0);
+  };
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {projects.map((project) => (
-        <Link
-          key={project.id}
-          to={getCategoryPath(project)}
-          className="gallery-item group relative aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-        >
-          <img
-            src={project.mainImage}
-            alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-            loading="lazy"
-          />
-          <div className="gallery-overlay">
-            <div className="text-center">
-              <h3 className="text-lg font-quicksand font-semibold mb-2">
-                {project.title}
-              </h3>
-              <p className="text-sm opacity-90">
-                {getCategoryDisplayName(project)}
-              </p>
-              {project.subcategory && (
-                <p className="text-xs opacity-75 mt-1">
-                  {project.subtitle}
+      {sortedProjects.map((project) => {
+        const currentLikes = getLikes(project.id, project.likes || 0);
+        const userHasLiked = hasUserLiked(project.id);
+        
+        return (
+          <Link
+            key={project.id}
+            to={getCategoryPath(project)}
+            className="gallery-item group relative aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+          >
+            <img
+              src={project.mainImage}
+              alt={project.title}
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="gallery-overlay">
+              <div className="text-center">
+                <h3 className="text-lg font-quicksand font-semibold mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-sm opacity-90">
+                  {getCategoryDisplayName(project)}
                 </p>
-              )}
+                {project.subcategory && (
+                  <p className="text-xs opacity-75 mt-1">
+                    {project.subtitle}
+                  </p>
+                )}
+                
+                {/* Like button og antall */}
+                <div className="flex items-center justify-center mt-3 gap-2">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={(e) => handleLikeClick(e, project)}
+                    className={`p-2 rounded-full transition-colors ${
+                      userHasLiked 
+                        ? 'bg-red-500 hover:bg-red-600 text-white' 
+                        : 'bg-white/20 hover:bg-white/30 text-white'
+                    }`}
+                  >
+                    <Heart 
+                      className={`w-4 h-4 ${userHasLiked ? 'fill-current' : ''}`} 
+                    />
+                  </Button>
+                  <span className="text-sm font-medium text-white">
+                    {currentLikes}
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
-        </Link>
-      ))}
+          </Link>
+        );
+      })}
     </div>
   );
 };

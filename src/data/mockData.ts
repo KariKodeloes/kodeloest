@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -9,6 +8,7 @@ export interface Project {
   category: string;
   subcategory?: string;
   mainImage: string;
+  likes?: number;
 }
 
 export const mockProjects: Project[] = [
@@ -21,7 +21,8 @@ export const mockProjects: Project[] = [
     images: ['/lovable-uploads/f339d8fd-fe3d-4540-9f13-acfad88162cd.png'],
     category: 'bilder',
     subcategory: 'akvareller',
-    mainImage: '/lovable-uploads/f339d8fd-fe3d-4540-9f13-acfad88162cd.png'
+    mainImage: '/lovable-uploads/f339d8fd-fe3d-4540-9f13-acfad88162cd.png',
+    likes: 12
   },
   {
     id: '2',
@@ -32,7 +33,8 @@ export const mockProjects: Project[] = [
     images: ['/lovable-uploads/60faf3ef-db7d-4c44-8d6c-dff40616af79.png'],
     category: 'bilder',
     subcategory: 'akvareller',
-    mainImage: '/lovable-uploads/60faf3ef-db7d-4c44-8d6c-dff40616af79.png'
+    mainImage: '/lovable-uploads/60faf3ef-db7d-4c44-8d6c-dff40616af79.png',
+    likes: 8
   },
   {
     id: '3',
@@ -43,7 +45,8 @@ export const mockProjects: Project[] = [
     images: ['/lovable-uploads/cf0f53e3-5b2b-4bde-bb0f-0263cd35300b.png', '/lovable-uploads/bab0576c-50ae-48f6-a998-2e953d6af2c3.png'],
     category: 'bilder',
     subcategory: 'mixed-media',
-    mainImage: '/lovable-uploads/cf0f53e3-5b2b-4bde-bb0f-0263cd35300b.png'
+    mainImage: '/lovable-uploads/cf0f53e3-5b2b-4bde-bb0f-0263cd35300b.png',
+    likes: 15
   },
   {
     id: '4',
@@ -54,7 +57,8 @@ export const mockProjects: Project[] = [
     images: ['/lovable-uploads/6a425ba4-8585-4f92-b02a-d48cb9454fcc.png'],
     category: 'foto',
     subcategory: 'dyr',
-    mainImage: '/lovable-uploads/6a425ba4-8585-4f92-b02a-d48cb9454fcc.png'
+    mainImage: '/lovable-uploads/6a425ba4-8585-4f92-b02a-d48cb9454fcc.png',
+    likes: 23
   },
   {
     id: '8',
@@ -65,7 +69,8 @@ export const mockProjects: Project[] = [
     images: ['/lovable-uploads/93938560-85b3-40d9-a065-0abdbe9405eb.png'],
     category: 'foto',
     subcategory: 'dyr',
-    mainImage: '/lovable-uploads/93938560-85b3-40d9-a065-0abdbe9405eb.png'
+    mainImage: '/lovable-uploads/93938560-85b3-40d9-a065-0abdbe9405eb.png',
+    likes: 18
   },
   {
     id: '9',
@@ -76,7 +81,8 @@ export const mockProjects: Project[] = [
     images: ['/lovable-uploads/9ffa0aa0-c66f-4d2b-a1ca-702993533a31.png'],
     category: 'foto',
     subcategory: 'dyr',
-    mainImage: '/lovable-uploads/9ffa0aa0-c66f-4d2b-a1ca-702993533a31.png'
+    mainImage: '/lovable-uploads/9ffa0aa0-c66f-4d2b-a1ca-702993533a31.png',
+    likes: 31
   },
   {
     id: '5',
@@ -87,7 +93,8 @@ export const mockProjects: Project[] = [
     images: ['https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop'],
     category: 'som',
     subcategory: 'redesign',
-    mainImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop'
+    mainImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop',
+    likes: 7
   },
   {
     id: '6',
@@ -97,7 +104,8 @@ export const mockProjects: Project[] = [
     year: 2024,
     images: ['https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop'],
     category: 'design',
-    mainImage: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop'
+    mainImage: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop',
+    likes: 5
   },
   {
     id: '7',
@@ -107,7 +115,8 @@ export const mockProjects: Project[] = [
     year: 2023,
     images: ['https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=800&h=600&fit=crop'],
     category: 'diy',
-    mainImage: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=800&h=600&fit=crop'
+    mainImage: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=800&h=600&fit=crop',
+    likes: 9
   }
 ];
 
