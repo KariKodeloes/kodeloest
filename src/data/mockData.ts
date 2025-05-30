@@ -74,17 +74,6 @@ export const mockProjects: Project[] = [
     likes: 0
   },
   {
-    id: '6',
-    title: 'Moderne plakat design',
-    subtitle: 'Typografi og farger',
-    description: 'Et rent og moderne plakatdesign som kombinerer typografi med organiske former.',
-    year: 2024,
-    images: ['https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop'],
-    category: 'design',
-    mainImage: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop',
-    likes: 5
-  },
-  {
     id: '7',
     title: 'Hjemmelaget keramikk',
     subtitle: 'Kopper og skåler',
