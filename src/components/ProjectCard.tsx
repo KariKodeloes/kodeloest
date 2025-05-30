@@ -1,6 +1,9 @@
+
 import React, { useState } from 'react';
 import { Project } from '../data/mockData';
 import { Button } from './ui/button';
+import { Heart } from 'lucide-react';
+import { useLikes } from '../hooks/useLikes';
 import ImageDialog from './ImageDialog';
 
 interface ProjectCardProps {
@@ -12,6 +15,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isImageDialogOpen, setIsImageDialogOpen] = useState(false);
   const [dialogImageIndex, setDialogImageIndex] = useState(0);
+  const { toggleLike, getLikes, hasUserLiked } = useLikes();
+
+  const currentLikes = getLikes(project.id, project.likes || 0);
+  const userHasLiked = hasUserLiked(project.id);
 
   const nextImage = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -30,6 +37,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
   const openImageDialog = (index: number = currentImageIndex) => {
     setDialogImageIndex(index);
     setIsImageDialogOpen(true);
+  };
+
+  const handleLikeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleLike(project.id, project.likes || 0);
   };
 
   if (viewMode === 'list') {
@@ -99,9 +112,30 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
                 </h4>
               )}
               
-              <p className={`text-foreground text-base leading-relaxed font-oswald font-light ${project.subtitle ? '' : 'mt-1'}`}>
+              <p className={`text-foreground text-base leading-relaxed font-oswald font-light mb-4 ${project.subtitle ? '' : 'mt-1'}`}>
                 {project.description}
               </p>
+
+              {/* Like button */}
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleLikeClick}
+                  className={`p-2 rounded-full transition-colors ${
+                    userHasLiked 
+                      ? 'bg-red-500 hover:bg-red-600 text-white' 
+                      : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
+                  }`}
+                >
+                  <Heart 
+                    className={`w-4 h-4 ${userHasLiked ? 'fill-current' : ''}`} 
+                  />
+                </Button>
+                <span className="text-sm font-medium text-foreground">
+                  {currentLikes} like{currentLikes !== 1 ? 's' : ''}
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -182,9 +216,30 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
             </h4>
           )}
           
-          <p className={`text-foreground text-sm leading-relaxed line-clamp-3 font-oswald font-light ${project.subtitle ? '' : 'mt-1'}`}>
+          <p className={`text-foreground text-sm leading-relaxed line-clamp-3 font-oswald font-light mb-3 ${project.subtitle ? '' : 'mt-1'}`}>
             {project.description}
           </p>
+
+          {/* Like button */}
+          <div className="flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleLikeClick}
+              className={`p-2 rounded-full transition-colors ${
+                userHasLiked 
+                  ? 'bg-red-500 hover:bg-red-600 text-white' 
+                  : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
+              }`}
+            >
+              <Heart 
+                className={`w-4 h-4 ${userHasLiked ? 'fill-current' : ''}`} 
+              />
+            </Button>
+            <span className="text-sm font-medium text-foreground">
+              {currentLikes} like{currentLikes !== 1 ? 's' : ''}
+            </span>
+          </div>
         </div>
       </div>
 

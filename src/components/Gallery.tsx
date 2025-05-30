@@ -3,7 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Project } from '../data/mockData';
 import { useLikes } from '../hooks/useLikes';
-import { Button } from './ui/button';
 import { Heart } from 'lucide-react';
 
 interface GalleryProps {
@@ -12,7 +11,7 @@ interface GalleryProps {
 }
 
 const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
-  const { toggleLike, getLikes, hasUserLiked } = useLikes();
+  const { getLikes } = useLikes();
 
   const getCategoryPath = (project: Project) => {
     // Link to subcategory if available, otherwise main category
@@ -73,17 +72,10 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
       })
     : projects;
 
-  const handleLikeClick = (e: React.MouseEvent, project: Project) => {
-    e.preventDefault();
-    e.stopPropagation();
-    toggleLike(project.id, project.likes || 0);
-  };
-
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {sortedProjects.map((project) => {
         const currentLikes = getLikes(project.id, project.likes || 0);
-        const userHasLiked = hasUserLiked(project.id);
         
         return (
           <Link
@@ -111,22 +103,11 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
                   </p>
                 )}
                 
-                {/* Like button og antall */}
+                {/* Vis kun antall likes (ikke klikkbar) */}
                 <div className="flex items-center justify-center mt-3 gap-2">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={(e) => handleLikeClick(e, project)}
-                    className={`p-2 rounded-full transition-colors ${
-                      userHasLiked 
-                        ? 'bg-red-500 hover:bg-red-600 text-white' 
-                        : 'bg-white/20 hover:bg-white/30 text-white'
-                    }`}
-                  >
-                    <Heart 
-                      className={`w-4 h-4 ${userHasLiked ? 'fill-current' : ''}`} 
-                    />
-                  </Button>
+                  <div className="p-2 rounded-full bg-white/20">
+                    <Heart className="w-4 h-4 text-white" />
+                  </div>
                   <span className="text-sm font-medium text-white">
                     {currentLikes}
                   </span>
