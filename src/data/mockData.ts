@@ -1,3 +1,4 @@
+
 export interface Project {
   id: string;
   title: string;
@@ -107,6 +108,18 @@ export const mockProjects: Project[] = [
     subcategory: 'flora',
     mainImage: '/lovable-uploads/9bbed135-8fa4-45f2-ae37-25793d32edfe.png',
     likes: 3
+  },
+  {
+    id: '12',
+    title: 'Høst på Ladestien',
+    subtitle: 'Mobilfoto - Iphone 15',
+    description: 'Fargene på høsten står ikke noe tilbake for sommerpaletten.',
+    year: 2024,
+    images: ['/lovable-uploads/509fe9b2-f186-42d2-8f77-d8c07c0a44dc.png'],
+    category: 'foto',
+    subcategory: 'flora',
+    mainImage: '/lovable-uploads/509fe9b2-f186-42d2-8f77-d8c07c0a44dc.png',
+    likes: 2
   },
   {
     id: '5',
