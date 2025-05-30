@@ -1,3 +1,4 @@
+
 export interface Project {
   id: string;
   title: string;
@@ -65,6 +66,17 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'dyr',
     mainImage: '/lovable-uploads/93938560-85b3-40d9-a065-0abdbe9405eb.png'
+  },
+  {
+    id: '9',
+    title: 'To rufsete kompiser',
+    subtitle: 'Mobilfoto - Iphone 15',
+    description: 'I en sving opp trappene til Chora på Serifos ventet disse to håpefulle. Kanskje hadde jeg en godbit på lur, eller i det minste litt kos. Sorry, pus.',
+    year: 2024,
+    images: ['/lovable-uploads/9ffa0aa0-c66f-4d2b-a1ca-702993533a31.png'],
+    category: 'foto',
+    subcategory: 'dyr',
+    mainImage: '/lovable-uploads/9ffa0aa0-c66f-4d2b-a1ca-702993533a31.png'
   },
   {
     id: '5',
