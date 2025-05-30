@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -154,6 +153,18 @@ export const mockProjects: Project[] = [
     category: 'diy',
     mainImage: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=800&h=600&fit=crop',
     likes: 9
+  },
+  {
+    id: '13',
+    title: 'Horseidstranda pyntet og klar',
+    subtitle: 'Mobilfoto - Iphone 15',
+    description: 'Ikke at det fantastiske landskapet på Horseidstranda trengte pynt. De popper flott opp der de ligger mellom sanddynene.',
+    year: 2024,
+    images: ['/lovable-uploads/cd2f8215-2c4a-496b-9a78-00ff8b9a4fcc.png'],
+    category: 'foto',
+    subcategory: 'ved-sjoen',
+    mainImage: '/lovable-uploads/cd2f8215-2c4a-496b-9a78-00ff8b9a4fcc.png',
+    likes: 4
   }
 ];
 
