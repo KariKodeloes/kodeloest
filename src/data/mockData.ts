@@ -238,6 +238,17 @@ export const mockProjects: Project[] = [
     subcategory: 'ved-sjoen',
     mainImage: '/lovable-uploads/081fdbc3-fa0c-4105-9984-843d121413f8.png',
     likes: 0
+  },
+  {
+    id: '20',
+    title: 'Logodesign og branding',
+    subtitle: 'Grafisk design',
+    description: 'Sykkelspesialisten skulle ut av en kjede og ønsket hjelp til å finne nytt navn og design av logo. Og ja - de selger elsykler og har gnistrende god service.',
+    year: 2024,
+    images: ['/lovable-uploads/20ea83b1-f989-451b-890d-c561a008914b.png'],
+    category: 'design',
+    mainImage: '/lovable-uploads/20ea83b1-f989-451b-890d-c561a008914b.png',
+    likes: 0
   }
 ];
 
