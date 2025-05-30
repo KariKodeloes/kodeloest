@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -96,6 +95,18 @@ export const mockProjects: Project[] = [
     subcategory: 'dyr',
     mainImage: '/lovable-uploads/07a06f19-03fd-4d01-be84-08e76e2c155e.png',
     likes: 5
+  },
+  {
+    id: '11',
+    title: 'Ridderspore en sommerkveld',
+    subtitle: 'Mobilfoto - Iphone 15',
+    description: 'I villnisset og et hav av andre blomster sto denne riddersporen og nikket mot duskregnet. Vakker og giftig.',
+    year: 2024,
+    images: ['/lovable-uploads/9bbed135-8fa4-45f2-ae37-25793d32edfe.png'],
+    category: 'foto',
+    subcategory: 'flora',
+    mainImage: '/lovable-uploads/9bbed135-8fa4-45f2-ae37-25793d32edfe.png',
+    likes: 3
   },
   {
     id: '5',
