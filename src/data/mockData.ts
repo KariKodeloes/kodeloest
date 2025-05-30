@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -226,6 +225,18 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'ved-sjoen',
     mainImage: '/lovable-uploads/e5fd026f-3972-44eb-b147-0435173bdbd0.png',
+    likes: 0
+  },
+  {
+    id: '19',
+    title: 'SUP og idyll på Skæret',
+    subtitle: 'Mobilfoto - Iphone 15',
+    description: 'Bare en tusletur hjemmefra har jeg denne bademuligheten. Lyset og fargene på sensommerkvelder er magisk.',
+    year: 2024,
+    images: ['/lovable-uploads/081fdbc3-fa0c-4105-9984-843d121413f8.png'],
+    category: 'foto',
+    subcategory: 'ved-sjoen',
+    mainImage: '/lovable-uploads/081fdbc3-fa0c-4105-9984-843d121413f8.png',
     likes: 0
   }
 ];
