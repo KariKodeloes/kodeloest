@@ -1,3 +1,4 @@
+
 export interface Project {
   id: string;
   title: string;
@@ -5,6 +6,7 @@ export interface Project {
   description: string;
   year: number;
   images: string[];
+  videos?: string[];
   category: string;
   subcategory?: string;
   mainImage: string;

@@ -28,6 +28,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
           <div className="flex flex-col md:flex-row">
             <ImageCarouselList
               images={project.images}
+              videos={project.videos}
               title={project.title}
               onImageClick={openImageDialog}
             />
@@ -43,6 +44,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
 
         <ImageDialog
           images={project.images}
+          videos={project.videos}
           isOpen={isImageDialogOpen}
           onClose={() => setIsImageDialogOpen(false)}
           initialIndex={dialogImageIndex}
@@ -57,6 +59,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
       <div className="bg-card border border-border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden group">
         <ImageCarousel
           images={project.images}
+          videos={project.videos}
           title={project.title}
           onImageClick={openImageDialog}
         />
@@ -71,6 +74,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
 
       <ImageDialog
         images={project.images}
+        videos={project.videos}
         isOpen={isImageDialogOpen}
         onClose={() => setIsImageDialogOpen(false)}
         initialIndex={dialogImageIndex}
