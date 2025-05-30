@@ -190,6 +190,18 @@ export const mockProjects: Project[] = [
     subcategory: 'redesign',
     mainImage: '/lovable-uploads/f9cb4e5a-3791-4fb8-8a98-89f9ab272f88.png',
     likes: 0
+  },
+  {
+    id: '16',
+    title: 'Festdrakt til 17. mai',
+    subtitle: 'Mobilfoto - Iphone 8',
+    description: 'Etter et besøk i en stoffbutikk i Oslo dro jeg med meg hjem sort ullstoff, brunt og grønt brokadestoff til liv og gullfarget silkestoff til skjorte. Mønster: En billig festdrakt ble kopiert snittet fra før den ble videresolgt.',
+    year: 2024,
+    images: ['/lovable-uploads/77f69a42-7da3-4b1f-95b7-6b403489ea44.png', '/lovable-uploads/6389e454-0ba9-4358-ae94-c6f7ab914b6e.png', '/lovable-uploads/3dd1351b-341b-40d9-a14f-9306f5f2ad1c.png', '/lovable-uploads/65920c07-be36-493d-8d78-1a3de7828886.png'],
+    category: 'som',
+    subcategory: 'rett-fra-rullen',
+    mainImage: '/lovable-uploads/77f69a42-7da3-4b1f-95b7-6b403489ea44.png',
+    likes: 0
   }
 ];
 
