@@ -136,12 +136,12 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`block px-3 py-2 text-base font-medium transition-colors rounded ${
+                  className={`block px-3 py-2 text-base font-medium transition-colors rounded active:bg-gray-100 touch-manipulation ${
                     isHomePage
-                      ? 'text-white hover:text-white hover:bg-white/20'
+                      ? 'text-white active:bg-white/20'
                       : location.pathname === item.path
                         ? 'bg-accent text-orange-600'
-                        : 'text-foreground hover:text-foreground hover:bg-accent'
+                        : 'text-foreground active:bg-gray-100'
                   }`}
                   style={
                     !isHomePage && location.pathname === item.path
