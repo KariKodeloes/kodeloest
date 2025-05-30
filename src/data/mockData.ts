@@ -249,6 +249,17 @@ export const mockProjects: Project[] = [
     category: 'design',
     mainImage: '/lovable-uploads/20ea83b1-f989-451b-890d-c561a008914b.png',
     likes: 0
+  },
+  {
+    id: '21',
+    title: 'Bordkort og vimpler til dåp',
+    subtitle: 'Akvarell, print og manuell stans',
+    description: 'Når to små ser dagens lys er ikke nybakt mormor sen å be. Vimplene skal gjenbrukes på barnerommene etter dåpen.',
+    year: 2024,
+    images: ['/lovable-uploads/47f5f469-b2ab-425c-91a3-0b6abad22bc6.png', '/lovable-uploads/2055523a-9a8f-4869-af1a-7a7da4cc9258.png'],
+    category: 'design',
+    mainImage: '/lovable-uploads/47f5f469-b2ab-425c-91a3-0b6abad22bc6.png',
+    likes: 0
   }
 ];
 
