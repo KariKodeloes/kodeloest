@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
-import { Instagram } from 'lucide-react';
+import { Instagram, Linkedin } from 'lucide-react';
 
 const Navigation = () => {
   const location = useLocation();
@@ -24,7 +24,7 @@ const Navigation = () => {
     <nav className={`${isHomePage ? 'bg-transparent absolute top-0 left-0 right-0 z-50' : 'bg-card border-b border-border shadow-sm sticky top-0 z-50'}`}>
       {/* Use container class for consistent alignment */}
       <div className={isHomePage ? "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" : "container mx-auto px-4"}>
-        {/* KARI KODELØS heading for home page with Instagram icon */}
+        {/* KARI KODELØS heading for home page with social icons */}
         {isHomePage && (
           <div className="text-center pt-8 pb-2 relative">
             {/* Mobile Menu Button positioned aligned with KARI KODELØS for home page */}
@@ -41,16 +41,27 @@ const Navigation = () => {
             </Button>
             
             <h1 className="text-white font-oswald font-medium text-4xl">KARI KODELØS</h1>
-            {/* Instagram Icon positioned aligned with KARI KODELØS */}
-            <a
-              href="https://instagram.com/karis_pensel"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute top-8 right-0 text-white hover:text-gray-200 transition-colors"
-              aria-label="Følg meg på Instagram"
-            >
-              <Instagram size={32} />
-            </a>
+            {/* Social Icons positioned aligned with KARI KODELØS */}
+            <div className="absolute top-8 right-0 flex items-center space-x-3">
+              <a
+                href="https://www.linkedin.com/in/kari-walle-mikkelsen-0b199516/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-gray-200 transition-colors"
+                aria-label="Følg meg på LinkedIn"
+              >
+                <Linkedin size={32} />
+              </a>
+              <a
+                href="https://instagram.com/karis_pensel"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-gray-200 transition-colors"
+                aria-label="Følg meg på Instagram"
+              >
+                <Instagram size={32} />
+              </a>
+            </div>
           </div>
         )}
         
@@ -113,17 +124,28 @@ const Navigation = () => {
 
           {/* Icons for non-home pages */}
           <div className="flex items-center space-x-4">
-            {/* Instagram Icon for non-home pages */}
+            {/* Social Icons for non-home pages */}
             {!isHomePage && (
-              <a
-                href="https://instagram.com/karis_pensel"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-foreground hover:text-black transition-colors"
-                aria-label="Følg meg på Instagram"
-              >
-                <Instagram size={32} />
-              </a>
+              <>
+                <a
+                  href="https://www.linkedin.com/in/kari-walle-mikkelsen-0b199516/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-black transition-colors"
+                  aria-label="Følg meg på LinkedIn"
+                >
+                  <Linkedin size={32} />
+                </a>
+                <a
+                  href="https://instagram.com/karis_pensel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-black transition-colors"
+                  aria-label="Følg meg på Instagram"
+                >
+                  <Instagram size={32} />
+                </a>
+              </>
             )}
           </div>
         </div>
