@@ -1,4 +1,5 @@
 
+
 export interface Project {
   id: string;
   title: string;
@@ -202,6 +203,18 @@ export const mockProjects: Project[] = [
     category: 'som',
     subcategory: 'rett-fra-rullen',
     mainImage: '/lovable-uploads/77f69a42-7da3-4b1f-95b7-6b403489ea44.png',
+    likes: 0
+  },
+  {
+    id: '17',
+    title: 'Forkledd som frihet',
+    subtitle: 'Remarkable strek',
+    description: 'Det er vanskelig å ikke bli engasjert når verden står på hodet og løgnene sitter løst. Tegnet til "Inktober" forrige før valgkampen 2020.',
+    year: 2020,
+    images: ['/lovable-uploads/b616f4ad-a9a1-48bb-9ae1-bd95f9205c15.png'],
+    category: 'bilder',
+    subcategory: 'tegning',
+    mainImage: '/lovable-uploads/b616f4ad-a9a1-48bb-9ae1-bd95f9205c15.png',
     likes: 0
   }
 ];
