@@ -39,6 +39,9 @@ const App = () => (
               <Route path="/foto/byliv" element={<Foto />} />
               <Route path="/foto/dyr" element={<Foto />} />
               <Route path="/som" element={<Som />} />
+              <Route path="/som/redesign" element={<Som />} />
+              <Route path="/som/gjenbruk" element={<Som />} />
+              <Route path="/som/rett-fra-rullen" element={<Som />} />
               <Route path="/design" element={<Design />} />
               <Route path="/diy" element={<DIY />} />
               <Route path="/om-meg" element={<OmMeg />} />
