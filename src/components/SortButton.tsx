@@ -15,7 +15,7 @@ const SortButton: React.FC<SortButtonProps> = ({ sortOrder, onToggleSort }) => {
       variant="outline"
       size="sm"
       onClick={onToggleSort}
-      className="flex items-center gap-2"
+      className="flex items-center gap-2 bg-white text-[#066298] hover:text-[#013B5E] hover:bg-gray-50 border-gray-300 disabled:bg-[#CDDFF0] disabled:text-gray-500"
     >
       <span className="material-icon text-sm">favorite</span>
       {sortOrder === 'most-liked' ? 'Flest likes først' : 'Færrest likes først'}
