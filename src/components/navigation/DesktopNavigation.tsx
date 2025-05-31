@@ -15,6 +15,8 @@ interface DesktopNavigationProps {
 const DesktopNavigation = ({ menuItems, isHomePage }: DesktopNavigationProps) => {
   const location = useLocation();
 
+  console.log('DesktopNavigation render - isHomePage:', isHomePage, 'current path:', location.pathname);
+
   return (
     <div className={`hidden md:flex items-center space-x-4 ${isHomePage ? 'mx-auto' : ''}`}>
       {menuItems.slice(1).map((item, index) => (
@@ -35,6 +37,18 @@ const DesktopNavigation = ({ menuItems, isHomePage }: DesktopNavigationProps) =>
                   ? { color: '#E68200', borderColor: '#E68200' }
                   : {}
             }
+            onMouseEnter={(e) => {
+              console.log('Mouse enter on:', item.title, 'isHomePage:', isHomePage, 'isCurrentPath:', location.pathname === item.path);
+              if (!isHomePage && location.pathname !== item.path) {
+                (e.target as HTMLElement).style.color = '#000000';
+              }
+            }}
+            onMouseLeave={(e) => {
+              console.log('Mouse leave on:', item.title);
+              if (!isHomePage && location.pathname !== item.path) {
+                (e.target as HTMLElement).style.color = '';
+              }
+            }}
           >
             {item.title}
           </Link>
