@@ -22,7 +22,7 @@ const ViewModeToggle: React.FC<ViewModeToggleProps> = ({ viewMode, onViewModeCha
             : 'bg-white text-[#066298] hover:bg-gray-50'
         }`}
       >
-        <span className="material-icon">view_module</span>
+        <span className={`material-icon ${viewMode === 'grid' ? 'text-white' : 'text-[#066298]'}`}>view_module</span>
       </Button>
       <Button
         variant={viewMode === 'list' ? 'default' : 'ghost'}
@@ -34,7 +34,7 @@ const ViewModeToggle: React.FC<ViewModeToggleProps> = ({ viewMode, onViewModeCha
             : 'bg-white text-[#066298] hover:bg-gray-50'
         }`}
       >
-        <span className="material-icon">view_list</span>
+        <span className={`material-icon ${viewMode === 'list' ? 'text-white' : 'text-[#066298]'}`}>view_list</span>
       </Button>
     </div>
   );
