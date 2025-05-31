@@ -108,6 +108,11 @@
   p:not(button p), span:not(button span), div:not(button div), a:not(button a), li:not(button li), td, th {
     color: rgb(99, 68, 28) !important;
   }
+
+  /* Ensure buttons always have white text */
+  button, button *, [role="button"], [role="button"] * {
+    color: white !important;
+  }
 }
 
 @layer components {
