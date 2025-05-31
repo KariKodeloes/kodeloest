@@ -76,8 +76,8 @@ export const mockProjects: Project[] = [
   {
     id: '5',
     title: 'Bluse i råsilke',
-    subtitle: 'Mobilfoto - Iphone 13',
-    description: 'Når noen rydder i gamle stoffrester hender det at det drypper på meg. Dette nydeligestoffet ble brukt til siste cm.',
+    subtitle: 'Mønster: Fibremood,
+    description: 'Når noen rydder i gamle stoffrester hender det at det drypper på meg. Dette nydelige stoffet ble brukt til siste rest.',
     year: 2024,
     images: ['/lovable-uploads/270178c3-07b4-4cc5-bfce-2b2537185530.png', '/lovable-uploads/2c5ac3f3-2647-49c3-841c-ced119e9c1cc.png'],
     category: 'som',
