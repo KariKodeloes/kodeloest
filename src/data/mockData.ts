@@ -1,3 +1,4 @@
+
 export interface Project {
   id: string;
   title: string;
@@ -260,6 +261,18 @@ export const mockProjects: Project[] = [
     images: ['/lovable-uploads/47f5f469-b2ab-425c-91a3-0b6abad22bc6.png', '/lovable-uploads/2055523a-9a8f-4869-af1a-7a7da4cc9258.png'],
     category: 'design',
     mainImage: '/lovable-uploads/47f5f469-b2ab-425c-91a3-0b6abad22bc6.png',
+    likes: 0
+  },
+  {
+    id: '23',
+    title: 'Fra sofatrekk til kåpe',
+    subtitle: 'Ikea-hack og burdamønster',
+    description: 'Mange av gjenbrukstekstilene får jeg fra venner som rydder i skuffer og skap. Jeg skal slite med denne denimkåpa i 100\' martindale en stund.',
+    year: 2024,
+    images: ['/lovable-uploads/9b5d5876-67a8-4b64-a7fa-656a7f59224d.png', '/lovable-uploads/2c4a0928-dd65-4fcd-b3d6-8df04520061e.png'],
+    category: 'som',
+    subcategory: 'gjenbruk',
+    mainImage: '/lovable-uploads/9b5d5876-67a8-4b64-a7fa-656a7f59224d.png',
     likes: 0
   }
 ];
