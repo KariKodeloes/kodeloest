@@ -86,22 +86,11 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                 {/* "Alle" chip */}
                 <button
                   onClick={() => handleCategoryClick('alle')}
-                  className="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-white border border-gray-300"
-                  style={{
-                    backgroundColor: selectedCategory === 'alle' ? '#E68200' : 'white',
-                    color: selectedCategory === 'alle' ? 'white !important' : '#066298 !important',
-                    borderColor: '#E5E7EB'
-                  }}
-                  onMouseEnter={(e) => {
-                    if (selectedCategory !== 'alle') {
-                      e.currentTarget.style.color = '#013B5E !important';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (selectedCategory !== 'alle') {
-                      e.currentTarget.style.color = '#066298 !important';
-                    }
-                  }}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border border-gray-300 ${
+                    selectedCategory === 'alle' 
+                      ? 'bg-[#E68200] text-white border-[#E68200]' 
+                      : 'bg-white text-[#066298] hover:text-[#013B5E] border-gray-300'
+                  }`}
                 >
                   Alle
                 </button>
@@ -111,22 +100,11 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                   <button
                     key={sub.path}
                     onClick={() => handleCategoryClick(sub.name)}
-                    className="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-white border border-gray-300"
-                    style={{
-                      backgroundColor: selectedCategory === sub.name ? '#E68200' : 'white',
-                      color: selectedCategory === sub.name ? 'white !important' : '#066298 !important',
-                      borderColor: '#E5E7EB'
-                    }}
-                    onMouseEnter={(e) => {
-                      if (selectedCategory !== sub.name) {
-                        e.currentTarget.style.color = '#013B5E !important';
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (selectedCategory !== sub.name) {
-                        e.currentTarget.style.color = '#066298 !important';
-                      }
-                    }}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border border-gray-300 ${
+                      selectedCategory === sub.name 
+                        ? 'bg-[#E68200] text-white border-[#E68200]' 
+                        : 'bg-white text-[#066298] hover:text-[#013B5E] border-gray-300'
+                    }`}
                   >
                     {sub.displayName}
                   </button>
