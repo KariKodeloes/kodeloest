@@ -38,6 +38,18 @@ export const mockProjects: Project[] = [
     likes: 8
   },
   {
+    id: '25',
+    title: 'Blå iris',
+    subtitle: 'Akvarell, 300 gr bomull - 30x40 cm',
+    description: 'Det lå lenge nederst i bunken, et tidlig første av litt størrelse. Ett år og en runde med svamp i dusjen. Utrolig hva papir av bomull tåler og en sjanse til kan gjøre med en "fiasko". Gicleé i A2 finnes.',
+    year: 2024,
+    images: ['/lovable-uploads/60f7a916-b435-406b-8d28-5db02ee31fbd.png', '/lovable-uploads/4c9ea0c4-5373-4762-953a-4ae3903afb41.png'],
+    category: 'bilder',
+    subcategory: 'akvareller',
+    mainImage: '/lovable-uploads/60f7a916-b435-406b-8d28-5db02ee31fbd.png',
+    likes: 0
+  },
+  {
     id: '3',
     title: 'Øyenstikker',
     subtitle: 'Monoprint akryl og akvarell, 300 gr bomull',
