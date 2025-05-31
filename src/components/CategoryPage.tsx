@@ -86,11 +86,12 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                 {/* "Alle" chip */}
                 <button
                   onClick={() => handleCategoryClick('alle')}
-                  className="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-card border border-border"
-                  style={selectedCategory === 'alle' 
-                    ? { backgroundColor: '#E68200', color: 'white' } 
-                    : { color: '#066298' }
-                  }
+                  className="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-white border border-gray-300"
+                  style={{
+                    backgroundColor: selectedCategory === 'alle' ? '#E68200' : 'white',
+                    color: selectedCategory === 'alle' ? 'white' : '#066298',
+                    borderColor: '#E5E7EB'
+                  }}
                   onMouseEnter={(e) => {
                     if (selectedCategory !== 'alle') {
                       e.currentTarget.style.color = '#013B5E';
@@ -110,11 +111,12 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                   <button
                     key={sub.path}
                     onClick={() => handleCategoryClick(sub.name)}
-                    className="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-card border border-border"
-                    style={selectedCategory === sub.name 
-                      ? { backgroundColor: '#E68200', color: 'white' } 
-                      : { color: '#066298' }
-                    }
+                    className="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-white border border-gray-300"
+                    style={{
+                      backgroundColor: selectedCategory === sub.name ? '#E68200' : 'white',
+                      color: selectedCategory === sub.name ? 'white' : '#066298',
+                      borderColor: '#E5E7EB'
+                    }}
                     onMouseEnter={(e) => {
                       if (selectedCategory !== sub.name) {
                         e.currentTarget.style.color = '#013B5E';
