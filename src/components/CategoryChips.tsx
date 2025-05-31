@@ -23,16 +23,16 @@ const CategoryChips: React.FC<CategoryChipsProps> = ({
             : 'bg-white border-gray-300 disabled:bg-[#CDDFF0] disabled:text-gray-500 hover:bg-gray-50'
         }`}
         style={selectedCategory !== 'alle' ? { 
-          color: '#066298 !important' 
+          color: '#066298' 
         } : {}}
         onMouseEnter={(e) => {
           if (selectedCategory !== 'alle') {
-            e.currentTarget.style.color = '#013B5E !important';
+            e.currentTarget.style.color = '#013B5E';
           }
         }}
         onMouseLeave={(e) => {
           if (selectedCategory !== 'alle') {
-            e.currentTarget.style.color = '#066298 !important';
+            e.currentTarget.style.color = '#066298';
           }
         }}
       >
@@ -50,16 +50,16 @@ const CategoryChips: React.FC<CategoryChipsProps> = ({
               : 'bg-white border-gray-300 disabled:bg-[#CDDFF0] disabled:text-gray-500 hover:bg-gray-50'
           }`}
           style={selectedCategory !== sub.name ? { 
-            color: '#066298 !important' 
+            color: '#066298' 
           } : {}}
           onMouseEnter={(e) => {
             if (selectedCategory !== sub.name) {
-              e.currentTarget.style.color = '#013B5E !important';
+              e.currentTarget.style.color = '#013B5E';
             }
           }}
           onMouseLeave={(e) => {
             if (selectedCategory !== sub.name) {
-              e.currentTarget.style.color = '#066298 !important';
+              e.currentTarget.style.color = '#066298';
             }
           }}
         >
