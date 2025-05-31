@@ -62,6 +62,18 @@ export const mockProjects: Project[] = [
     likes: 0
   },
   {
+    id: '24',
+    title: 'Ridderspore',
+    subtitle: 'Monoprint akryl og akvarell - 240 gr bomull',
+    description: 'Et sommerminne fra Sandnessjøen ble til et trykk via gel-plate og akryl før akvarellfargene blir lagt på. Noen små detaljer påført med hvit tusj til slutt.',
+    year: 2024,
+    images: ['/lovable-uploads/4cf9aafb-69c8-482b-ac9e-41b60eac85a8.png', '/lovable-uploads/8107365d-1971-449a-ae2a-a2680e379a75.png'],
+    category: 'bilder',
+    subcategory: 'mixed-media',
+    mainImage: '/lovable-uploads/4cf9aafb-69c8-482b-ac9e-41b60eac85a8.png',
+    likes: 0
+  },
+  {
     id: '4',
     title: 'Rådyr i kveldssol',
     subtitle: 'Mobilfoto - Iphone 15',
