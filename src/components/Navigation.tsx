@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
@@ -23,10 +24,10 @@ const Navigation = () => {
     <nav className={`${isHomePage ? 'bg-transparent absolute top-0 left-0 right-0 z-50 home-page-nav' : 'bg-card border-b border-border shadow-sm sticky top-0 z-50'}`}>
       {/* Use container class for consistent alignment */}
       <div className={isHomePage ? "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" : "container mx-auto px-4"}>
-        {/* KARI KODELØS heading for home page with social icons */}
+        {/* KODELØST heading for home page with social icons */}
         {isHomePage && (
           <div className="text-center pt-8 pb-2 relative">
-            {/* Mobile Menu Button positioned aligned with KARI KODELØS for home page */}
+            {/* Mobile Menu Button positioned aligned with KODELØST for home page */}
             <Button
               variant="ghost"
               size="sm"
@@ -39,8 +40,8 @@ const Navigation = () => {
               </span>
             </Button>
             
-            <h1 className="text-white font-oswald font-medium text-4xl" style={{ color: '#FFFFFF' }}>KARI KODELØS</h1>
-            {/* Social Icons positioned aligned with KARI KODELØS */}
+            <h1 className="text-white font-oswald font-medium text-4xl" style={{ color: '#FFFFFF' }}>KODELØST</h1>
+            {/* Social Icons positioned aligned with KODELØST */}
             <div className="absolute top-8 right-0 flex items-center space-x-3">
               <a
                 href="https://www.linkedin.com/in/kari-walle-mikkelsen-0b199516/"
@@ -67,7 +68,7 @@ const Navigation = () => {
         )}
         
         <div className="flex justify-between items-center h-16">
-          {/* KARI KODELØS home button for non-home pages */}
+          {/* KODELØST home button for non-home pages */}
           {!isHomePage && (
             <div className="flex items-center">
               {/* Mobile Menu Button for non-home pages */}
@@ -88,7 +89,7 @@ const Navigation = () => {
                   className="text-foreground font-oswald font-medium text-2xl transition-colors hover:text-black"
                   style={location.pathname === '/' ? { color: '#000000' } : {}}
                 >
-                  KARI KODELØS
+                  KODELØST
                 </span>
               </Link>
             </div>
