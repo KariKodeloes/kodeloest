@@ -12,7 +12,7 @@ const Som = () => {
     { name: 'rett-fra-rullen', path: '/som/rett-fra-rullen', displayName: 'Rett fra rullen' }
   ];
 
-  const bodyText = "Jeg begynte å sy etter å ha sett første sesong av NRK’s «Symesterskapet». - Hvor vanskelig kan det være? tenkte jeg som knapt kunne tre en sysmaskin. Den kjørte og jeg satt på.   Det første jeg kastet meg over var en kjole i en håpløst glatt stoffrest. Siden har jeg sydd. Mye redesign og gjenbruk, men også unnet meg helt nye materialer.";
+  const bodyText = "Jeg begynte å sy etter å ha sett første sesong av NRK’s «Symesterskapet». - Hvor vanskelig kan det være? tenkte jeg som knapt kunne tre en sysmaskin. Den kjørte og jeg satt på.  Det første jeg kastet meg over var en kjole i en håpløst glatt stoffrest. Siden har jeg sydd. Mye redesign og gjenbruk, men unner meg også helt nye materialer.";
 
   return (
     <CategoryPage
