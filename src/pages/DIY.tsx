@@ -6,7 +6,7 @@ import { getProjectsByCategory } from '../data/mockData';
 const DIY = () => {
   const projects = getProjectsByCategory('diy');
 
-  const bodyText = "DIY-prosjektene mine handler om å lage praktiske løsninger med det jeg har for hånden. Fra møbelhacks til hjemmelagde løsninger som gjør hverdagen litt enklere. Alle bilder og øvrig innhold er opphavsrettslig beskyttet.";
+  const bodyText = "Om det er et gammelt bord i en container roper etter en kjærlig hånd eller en kjedelig oppgave skulle vært løst: Litt kreativitet har aldri skadet. Det er ikke alltid raskeste vei til målet, men du verden så artig jeg har det underveis. Og jammen har jeg ikke blitt venner med borhammeren!";
 
   return (
     <CategoryPage
