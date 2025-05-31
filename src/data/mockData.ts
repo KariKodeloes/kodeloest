@@ -74,6 +74,18 @@ export const mockProjects: Project[] = [
     likes: 0
   },
   {
+    id: '28',
+    title: 'Kuhaugen 1',
+    subtitle: 'Monoprint og akvarell, 300 gr bomull - 24x17 cm',
+    description: 'Jeg likte linjene i fotoet av Kuhaugen i snødrev og halvmørke. Et motiv jeg har kommet tilbake til.',
+    year: 2024,
+    images: ['/lovable-uploads/178f87a0-b030-44db-b5b6-9c0f7cb06047.png'],
+    category: 'bilder',
+    subcategory: 'mixed-media',
+    mainImage: '/lovable-uploads/178f87a0-b030-44db-b5b6-9c0f7cb06047.png',
+    likes: 0
+  },
+  {
     id: '3',
     title: 'Øyenstikker',
     subtitle: 'Monoprint akryl og akvarell, 300 gr bomull',
