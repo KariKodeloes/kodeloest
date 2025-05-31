@@ -67,21 +67,10 @@ const OmMeg = () => {
               Ta kontakt
             </h2>
             <p className="text-foreground text-base leading-relaxed mb-6">
-              Har du spørsmål om prosjektene mine, eller vil du bare si hei? Jeg hører gjerne fra deg!
+              Har du spørsmål om prosjektene mine, eller vil du bare si hei? Du kan følge meg og ta kontakt via sosiale medier!
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              {/* Email */}
-              <Button asChild>
-                <a
-                  href="mailto:kari.fm@hotmail.com"
-                  className="flex items-center gap-3"
-                >
-                  <span className="material-icon">email</span>
-                  Send meg en e-post
-                </a>
-              </Button>
-              
               {/* LinkedIn */}
               <Button asChild>
                 <a
