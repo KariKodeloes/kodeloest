@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -269,10 +268,10 @@ export const mockProjects: Project[] = [
     subtitle: 'Ikea-hack og burdamønster',
     description: 'Mange av gjenbrukstekstilene får jeg fra venner som rydder i skuffer og skap. Jeg skal slite med denne denimkåpa i 100\' martindale en stund.',
     year: 2024,
-    images: ['/lovable-uploads/9b5d5876-67a8-4b64-a7fa-656a7f59224d.png', '/lovable-uploads/2c4a0928-dd65-4fcd-b3d6-8df04520061e.png'],
+    images: ['/lovable-uploads/2c4a0928-dd65-4fcd-b3d6-8df04520061e.png', '/lovable-uploads/9b5d5876-67a8-4b64-a7fa-656a7f59224d.png'],
     category: 'som',
     subcategory: 'gjenbruk',
-    mainImage: '/lovable-uploads/9b5d5876-67a8-4b64-a7fa-656a7f59224d.png',
+    mainImage: '/lovable-uploads/2c4a0928-dd65-4fcd-b3d6-8df04520061e.png',
     likes: 0
   }
 ];
