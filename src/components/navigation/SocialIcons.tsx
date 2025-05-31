@@ -15,14 +15,8 @@ const SocialIcons = ({ isHomePage }: SocialIconsProps) => {
         href="https://www.linkedin.com/in/kari-walle-mikkelsen-0b199516/"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-foreground transition-colors"
+        className="text-foreground transition-colors hover:text-black"
         aria-label="Følg meg på LinkedIn"
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.color = '#000000';
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.color = '';
-        }}
       >
         <Linkedin size={32} />
       </a>
@@ -30,14 +24,8 @@ const SocialIcons = ({ isHomePage }: SocialIconsProps) => {
         href="https://instagram.com/karis_pensel"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-foreground transition-colors"
+        className="text-foreground transition-colors hover:text-black"
         aria-label="Følg meg på Instagram"
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.color = '#000000';
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.color = '';
-        }}
       >
         <Instagram size={32} />
       </a>

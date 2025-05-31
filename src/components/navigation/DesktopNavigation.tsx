@@ -25,8 +25,8 @@ const DesktopNavigation = ({ menuItems, isHomePage }: DesktopNavigationProps) =>
               isHomePage 
                 ? 'text-white hover:text-white' 
                 : location.pathname === item.path
-                  ? 'border-b-2' 
-                  : 'text-foreground'
+                  ? 'border-b-2 hover:text-black' 
+                  : 'text-foreground hover:text-black'
             }`}
             style={
               isHomePage
@@ -35,16 +35,6 @@ const DesktopNavigation = ({ menuItems, isHomePage }: DesktopNavigationProps) =>
                   ? { color: '#E68200', borderColor: '#E68200' }
                   : {}
             }
-            onMouseEnter={(e) => {
-              if (!isHomePage && location.pathname !== item.path) {
-                (e.target as HTMLElement).style.color = '#000000';
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (!isHomePage && location.pathname !== item.path) {
-                (e.target as HTMLElement).style.color = '';
-              }
-            }}
           >
             {item.title}
           </Link>
