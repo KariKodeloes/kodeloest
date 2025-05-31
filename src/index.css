@@ -105,12 +105,21 @@
     color: rgb(99, 68, 28) !important;
   }
 
-  p:not(button p), span:not(button span), div:not(button div), a:not(button a), li:not(button li), td, th {
+  p:not(button p):not(.bg-\[--primary\] p):not([class*="bg-[#066298]"] p), 
+  span:not(button span):not(.bg-\[--primary\] span):not([class*="bg-[#066298]"] span), 
+  div:not(button div):not(.bg-\[--primary\] div):not([class*="bg-[#066298]"] div), 
+  a:not(button a):not(.bg-\[--primary\] a):not([class*="bg-[#066298]"] a):not(.inline-flex a), 
+  li:not(button li):not(.bg-\[--primary\] li):not([class*="bg-[#066298]"] li), 
+  td, th {
     color: rgb(99, 68, 28) !important;
   }
 
-  /* Ensure buttons always have white text */
-  button, button *, [role="button"], [role="button"] * {
+  /* Ensure buttons and button-like elements always have white text */
+  button, button *, 
+  [role="button"], [role="button"] *,
+  .inline-flex, .inline-flex *,
+  a.inline-flex, a.inline-flex *,
+  a[class*="bg-[#066298]"], a[class*="bg-[#066298]"] * {
     color: white !important;
   }
 }
