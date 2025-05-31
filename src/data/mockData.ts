@@ -208,7 +208,7 @@ export const mockProjects: Project[] = [
     id: '17',
     title: 'Forkledd som frihet',
     subtitle: 'Remarkable strek',
-    description: 'Det er vanskelig å ikke bli engasjert når verden står på hodet og løgnene sitter løst. Tegnet til "Inktober" forrige før valgkampen 2020.',
+    description: 'Det er vanskelig å ikke bli engasjert når verden står på hodet og løgnene sitter løst. Tegnet til "Inktober" før valgkampen 2020.',
     year: 2020,
     images: ['/lovable-uploads/b616f4ad-a9a1-48bb-9ae1-bd95f9205c15.png'],
     category: 'bilder',
