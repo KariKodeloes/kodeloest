@@ -13,13 +13,10 @@ const ProjectContent: React.FC<ProjectContentProps> = ({ project, isListView = f
 
   return (
     <div className={isListView ? "flex-1 p-6" : "p-4"}>
-      <div className="flex justify-between items-start mb-2">
+      <div className="mb-2">
         <h2 className={`${titleClass} font-quicksand font-semibold text-foreground`}>
           {project.title}
         </h2>
-        <span className="text-sm text-muted-foreground font-roboto">
-          {project.year}
-        </span>
       </div>
       
       {project.subtitle && (

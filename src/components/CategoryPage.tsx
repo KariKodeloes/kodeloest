@@ -98,13 +98,6 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
           </div>
         </div>
 
-        {/* Project Count */}
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-sm text-muted-foreground">
-            {sortedProjects.length} prosjekt{sortedProjects.length !== 1 ? 'er' : ''}
-          </span>
-        </div>
-
         {/* Projects Grid/List */}
         {sortedProjects.length > 0 ? (
           <div className={
