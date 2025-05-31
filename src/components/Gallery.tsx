@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Project } from '../data/mockData';
@@ -14,7 +13,7 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
   const { getLikes } = useLikes();
 
   const getCategoryPath = (project: Project) => {
-    // Link to subcategory if available, otherwise main category
+    // Always link to main category page, not subcategory
     const categoryMap: Record<string, string> = {
       'bilder': '/bilder',
       'foto': '/foto',
@@ -23,13 +22,7 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
       'diy': '/diy'
     };
     
-    const basePath = categoryMap[project.category] || '/';
-    
-    if (project.subcategory) {
-      return `${basePath}/${project.subcategory}`;
-    }
-    
-    return basePath;
+    return categoryMap[project.category] || '/';
   };
 
   const getCategoryDisplayName = (project: Project) => {
