@@ -167,7 +167,7 @@ const Navigation = () => {
                       ? 'text-white active:bg-white/20'
                       : location.pathname === item.path
                         ? 'bg-accent text-orange-600'
-                        : 'text-foreground active:bg-orange-100 hover:bg-orange-50'
+                        : 'text-foreground active:bg-orange-100 hover:bg-orange-50 hover:text-black'
                   }`}
                   style={
                     isHomePage
