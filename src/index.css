@@ -114,6 +114,15 @@
     color: #FFFFFF !important;
   }
 
+  /* More specific selectors for navigation links on home page */
+  .home-page-nav .hidden.md\\:flex a {
+    color: #FFFFFF !important;
+  }
+
+  .home-page-nav .md\\:hidden a {
+    color: #FFFFFF !important;
+  }
+
   p:not(button p):not(.bg-\[--primary\] p):not([class*="bg-[#066298]"] p):not(.inline-flex p), 
   span:not(button span):not(.bg-\[--primary\] span):not([class*="bg-[#066298]"] span):not(.inline-flex span), 
   div:not(button div):not(.bg-\[--primary\] div):not([class*="bg-[#066298]"] div):not(.inline-flex div), 
@@ -121,6 +130,14 @@
   li:not(button li):not(.bg-\[--primary\] li):not([class*="bg-[#066298]"] li):not(.inline-flex li), 
   td, th {
     color: rgb(99, 68, 28) !important;
+  }
+
+  /* Override for home page navigation - more specific */
+  .home-page-nav p:not(button p):not(.bg-\[--primary\] p):not([class*="bg-[#066298]"] p):not(.inline-flex p), 
+  .home-page-nav span:not(button span):not(.bg-\[--primary\] span):not([class*="bg-[#066298]"] span):not(.inline-flex span), 
+  .home-page-nav div:not(button div):not(.bg-\[--primary\] div):not([class*="bg-[#066298]"] div):not(.inline-flex div), 
+  .home-page-nav a:not(button a):not(.bg-\[--primary\] a):not([class*="bg-[#066298]"] a):not(.inline-flex):not(.inline-flex a) {
+    color: #FFFFFF !important;
   }
 
   /* Ensure buttons and button-like elements always have white text, EXCEPT category chips, sort buttons and view mode buttons */
