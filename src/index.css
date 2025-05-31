@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -113,16 +114,16 @@
     color: rgb(99, 68, 28) !important;
   }
 
-  /* Ensure buttons and button-like elements always have white text, EXCEPT category chips and sort buttons */
-  button:not(.category-chip):not(.sort-button), button:not(.category-chip):not(.sort-button) *, 
-  [role="button"]:not(.category-chip):not(.sort-button), [role="button"]:not(.category-chip):not(.sort-button) *,
-  .inline-flex:not(.category-chip):not(.sort-button), .inline-flex:not(.category-chip):not(.sort-button) *,
-  .inline-flex p:not(.category-chip p):not(.sort-button p), .inline-flex span:not(.category-chip span):not(.sort-button span), .inline-flex div:not(.category-chip div):not(.sort-button div),
-  a.inline-flex:not(.category-chip):not(.sort-button), a.inline-flex:not(.category-chip):not(.sort-button) *,
-  a.inline-flex p:not(.category-chip p):not(.sort-button p), a.inline-flex span:not(.category-chip span):not(.sort-button span), a.inline-flex div:not(.category-chip div):not(.sort-button div),
-  a[class*="bg-[#066298]"]:not(.category-chip):not(.sort-button), a[class*="bg-[#066298]"]:not(.category-chip):not(.sort-button) *,
-  .bg-\[--primary\]:not(.category-chip):not(.sort-button), .bg-\[--primary\]:not(.category-chip):not(.sort-button) *,
-  [class*="bg-[#066298]"]:not(.category-chip):not(.sort-button), [class*="bg-[#066298]"]:not(.category-chip):not(.sort-button) * {
+  /* Ensure buttons and button-like elements always have white text, EXCEPT category chips, sort buttons and view mode buttons */
+  button:not(.category-chip):not(.sort-button):not(.view-mode-button), button:not(.category-chip):not(.sort-button):not(.view-mode-button) *, 
+  [role="button"]:not(.category-chip):not(.sort-button):not(.view-mode-button), [role="button"]:not(.category-chip):not(.sort-button):not(.view-mode-button) *,
+  .inline-flex:not(.category-chip):not(.sort-button):not(.view-mode-button), .inline-flex:not(.category-chip):not(.sort-button):not(.view-mode-button) *,
+  .inline-flex p:not(.category-chip p):not(.sort-button p):not(.view-mode-button p), .inline-flex span:not(.category-chip span):not(.sort-button span):not(.view-mode-button span), .inline-flex div:not(.category-chip div):not(.sort-button div):not(.view-mode-button div),
+  a.inline-flex:not(.category-chip):not(.sort-button):not(.view-mode-button), a.inline-flex:not(.category-chip):not(.sort-button):not(.view-mode-button) *,
+  a.inline-flex p:not(.category-chip p):not(.sort-button p):not(.view-mode-button p), a.inline-flex span:not(.category-chip span):not(.sort-button span):not(.view-mode-button span), a.inline-flex div:not(.category-chip div):not(.sort-button div):not(.view-mode-button div),
+  a[class*="bg-[#066298]"]:not(.category-chip):not(.sort-button):not(.view-mode-button), a[class*="bg-[#066298]"]:not(.category-chip):not(.sort-button):not(.view-mode-button) *,
+  .bg-\[--primary\]:not(.category-chip):not(.sort-button):not(.view-mode-button), .bg-\[--primary\]:not(.category-chip):not(.sort-button):not(.view-mode-button) *,
+  [class*="bg-[#066298]"]:not(.category-chip):not(.sort-button):not(.view-mode-button), [class*="bg-[#066298]"]:not(.category-chip):not(.sort-button):not(.view-mode-button) * {
     color: white !important;
   }
 
@@ -137,6 +138,11 @@
 
   /* Sort button specific styling */
   .sort-button {
+    color: #066298 !important;
+  }
+
+  /* View mode button specific styling */
+  .view-mode-button {
     color: #066298 !important;
   }
 }

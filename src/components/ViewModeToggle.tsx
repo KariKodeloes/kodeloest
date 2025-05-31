@@ -16,8 +16,11 @@ const ViewModeToggle: React.FC<ViewModeToggleProps> = ({ viewMode, onViewModeCha
         variant={viewMode === 'grid' ? 'default' : 'ghost'}
         size="sm"
         onClick={() => onViewModeChange('grid')}
-        className="rounded-none border-0"
-        style={viewMode === 'grid' ? { backgroundColor: '#E68200', color: 'white' } : {}}
+        className={`view-mode-button rounded-none border-0 ${
+          viewMode === 'grid' 
+            ? 'bg-[#E68200] text-white' 
+            : 'bg-white text-[#066298] hover:bg-gray-50'
+        }`}
       >
         <span className="material-icon">view_module</span>
       </Button>
@@ -25,8 +28,11 @@ const ViewModeToggle: React.FC<ViewModeToggleProps> = ({ viewMode, onViewModeCha
         variant={viewMode === 'list' ? 'default' : 'ghost'}
         size="sm"
         onClick={() => onViewModeChange('list')}
-        className="rounded-none border-0"
-        style={viewMode === 'list' ? { backgroundColor: '#E68200', color: 'white' } : {}}
+        className={`view-mode-button rounded-none border-0 ${
+          viewMode === 'list' 
+            ? 'bg-[#E68200] text-white' 
+            : 'bg-white text-[#066298] hover:bg-gray-50'
+        }`}
       >
         <span className="material-icon">view_list</span>
       </Button>
