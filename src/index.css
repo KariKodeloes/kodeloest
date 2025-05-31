@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -114,16 +113,16 @@
     color: rgb(99, 68, 28) !important;
   }
 
-  /* Ensure buttons and button-like elements always have white text, EXCEPT category chips */
-  button:not(.category-chip), button:not(.category-chip) *, 
-  [role="button"]:not(.category-chip), [role="button"]:not(.category-chip) *,
-  .inline-flex:not(.category-chip), .inline-flex:not(.category-chip) *,
-  .inline-flex p:not(.category-chip p), .inline-flex span:not(.category-chip span), .inline-flex div:not(.category-chip div),
-  a.inline-flex:not(.category-chip), a.inline-flex:not(.category-chip) *,
-  a.inline-flex p:not(.category-chip p), a.inline-flex span:not(.category-chip span), a.inline-flex div:not(.category-chip div),
-  a[class*="bg-[#066298]"]:not(.category-chip), a[class*="bg-[#066298]"]:not(.category-chip) *,
-  .bg-\[--primary\]:not(.category-chip), .bg-\[--primary\]:not(.category-chip) *,
-  [class*="bg-[#066298]"]:not(.category-chip), [class*="bg-[#066298]"]:not(.category-chip) * {
+  /* Ensure buttons and button-like elements always have white text, EXCEPT category chips and sort buttons */
+  button:not(.category-chip):not(.sort-button), button:not(.category-chip):not(.sort-button) *, 
+  [role="button"]:not(.category-chip):not(.sort-button), [role="button"]:not(.category-chip):not(.sort-button) *,
+  .inline-flex:not(.category-chip):not(.sort-button), .inline-flex:not(.category-chip):not(.sort-button) *,
+  .inline-flex p:not(.category-chip p):not(.sort-button p), .inline-flex span:not(.category-chip span):not(.sort-button span), .inline-flex div:not(.category-chip div):not(.sort-button div),
+  a.inline-flex:not(.category-chip):not(.sort-button), a.inline-flex:not(.category-chip):not(.sort-button) *,
+  a.inline-flex p:not(.category-chip p):not(.sort-button p), a.inline-flex span:not(.category-chip span):not(.sort-button span), a.inline-flex div:not(.category-chip div):not(.sort-button div),
+  a[class*="bg-[#066298]"]:not(.category-chip):not(.sort-button), a[class*="bg-[#066298]"]:not(.category-chip):not(.sort-button) *,
+  .bg-\[--primary\]:not(.category-chip):not(.sort-button), .bg-\[--primary\]:not(.category-chip):not(.sort-button) *,
+  [class*="bg-[#066298]"]:not(.category-chip):not(.sort-button), [class*="bg-[#066298]"]:not(.category-chip):not(.sort-button) * {
     color: white !important;
   }
 
@@ -134,6 +133,11 @@
 
   .category-chip.selected {
     color: white !important;
+  }
+
+  /* Sort button specific styling */
+  .sort-button {
+    color: #066298 !important;
   }
 }
 
