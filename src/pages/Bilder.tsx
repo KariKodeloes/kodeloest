@@ -12,8 +12,8 @@ const Bilder = () => {
     { name: 'tegning', path: '/bilder/tegning', displayName: 'Tegning' }
   ];
 
-  const bodyText = "Jeg har alltid likt å tegne, helt siden barneskolen.
-I dag holder meg mest på med akvareller, mixed media og tegning. Selv om jeg drømmer om å lage store, abstrakte motiver dras jeg mot det konkrete - ofte inspirert av egne foto.";
+  const bodyText = `Jeg har alltid likt å tegne, helt siden barneskolen.
+I dag holder meg mest på med akvareller, mixed media og tegning. Selv om jeg drømmer om å lage store, abstrakte motiver dras jeg mot det konkrete - ofte inspirert av egne foto.`;
 
   return (
     <CategoryPage
