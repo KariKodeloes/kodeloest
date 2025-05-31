@@ -148,7 +148,7 @@ export const mockProjects: Project[] = [
     id: '12',
     title: 'Høst på Ladestien',
     subtitle: 'Mobilfoto - Iphone 15',
-    description: 'Fargene på høsten står ikke noe tilbake for sommerpaletten.',
+    description: 'Fargene på høsten står ikke noe tilbake for sommerpaletten. Kan det være lind?',
     year: 2024,
     images: ['/lovable-uploads/509fe9b2-f186-42d2-8f77-d8c07c0a44dc.png'],
     category: 'foto',
