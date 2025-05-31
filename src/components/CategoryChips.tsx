@@ -17,10 +17,10 @@ const CategoryChips: React.FC<CategoryChipsProps> = ({
       {/* "Alle" chip */}
       <button
         onClick={() => onCategoryClick('alle')}
-        className={`category-chip px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border ${
+        className={`category-chip px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
           selectedCategory === 'alle' 
-            ? 'selected bg-[#E68200] text-white border-[#E68200]' 
-            : 'bg-white border-gray-300 disabled:bg-[#CDDFF0] disabled:text-gray-500 hover:bg-gray-50'
+            ? 'selected bg-[#E68200] text-white' 
+            : 'bg-white disabled:bg-[#CDDFF0] disabled:text-gray-500 hover:bg-gray-50'
         }`}
       >
         Alle
@@ -31,10 +31,10 @@ const CategoryChips: React.FC<CategoryChipsProps> = ({
         <button
           key={sub.path}
           onClick={() => onCategoryClick(sub.name)}
-          className={`category-chip px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border ${
+          className={`category-chip px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
             selectedCategory === sub.name 
-              ? 'selected bg-[#E68200] text-white border-[#E68200]' 
-              : 'bg-white border-gray-300 disabled:bg-[#CDDFF0] disabled:text-gray-500 hover:bg-gray-50'
+              ? 'selected bg-[#E68200] text-white' 
+              : 'bg-white disabled:bg-[#CDDFF0] disabled:text-gray-500 hover:bg-gray-50'
           }`}
         >
           {sub.displayName}
