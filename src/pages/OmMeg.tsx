@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Button } from '@/components/ui/button';
 
 const OmMeg = () => {
   return (
@@ -71,35 +72,41 @@ const OmMeg = () => {
             
             <div className="flex flex-col sm:flex-row gap-4">
               {/* Email */}
-              <a
-                href="mailto:kari.fm@hotmail.com"
-                className="flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors duration-200 text-center justify-center"
-              >
-                <span className="material-icon">email</span>
-                Send meg en e-post
-              </a>
+              <Button asChild>
+                <a
+                  href="mailto:kari.fm@hotmail.com"
+                  className="flex items-center gap-3"
+                >
+                  <span className="material-icon">email</span>
+                  Send meg en e-post
+                </a>
+              </Button>
               
               {/* LinkedIn */}
-              <a
-                href="https://www.linkedin.com/in/kari-walle-mikkelsen-0b199516/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 text-center justify-center"
-              >
-                <span className="material-icon">work</span>
-                Følg meg på LinkedIn
-              </a>
+              <Button asChild>
+                <a
+                  href="https://www.linkedin.com/in/kari-walle-mikkelsen-0b199516/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3"
+                >
+                  <span className="material-icon">work</span>
+                  Følg meg på LinkedIn
+                </a>
+              </Button>
               
               {/* Instagram */}
-              <a
-                href="https://instagram.com/karis_pensel"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 bg-secondary text-secondary-foreground px-6 py-3 rounded-lg hover:bg-secondary/90 transition-colors duration-200 text-center justify-center"
-              >
-                <span className="material-icon">photo_camera</span>
-                Følg meg på Instagram
-              </a>
+              <Button asChild>
+                <a
+                  href="https://instagram.com/karis_pensel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3"
+                >
+                  <span className="material-icon">photo_camera</span>
+                  Følg meg på Instagram
+                </a>
+              </Button>
             </div>
           </div>
         </div>
