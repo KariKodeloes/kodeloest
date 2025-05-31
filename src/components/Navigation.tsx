@@ -86,8 +86,23 @@ const Navigation = () => {
               
               <Link to="/" className="flex items-center">
                 <span 
-                  className="text-foreground font-oswald font-medium text-2xl transition-colors hover:text-black"
-                  style={location.pathname === '/' ? { color: '#000000' } : {}}
+                  className="text-foreground font-oswald font-medium text-2xl transition-colors"
+                  style={{ 
+                    color: location.pathname === '/' ? '#000000' : undefined,
+                    ...(location.pathname !== '/' && {
+                      ':hover': { color: '#000000' }
+                    })
+                  }}
+                  onMouseEnter={(e) => {
+                    if (location.pathname !== '/') {
+                      e.target.style.color = '#000000';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (location.pathname !== '/') {
+                      e.target.style.color = '';
+                    }
+                  }}
                 >
                   KODELØST
                 </span>
@@ -106,7 +121,7 @@ const Navigation = () => {
                       ? 'text-white hover:text-white' 
                       : location.pathname === item.path
                         ? 'border-b-2' 
-                        : 'text-foreground hover:text-black'
+                        : 'text-foreground'
                   }`}
                   style={
                     isHomePage
@@ -115,6 +130,16 @@ const Navigation = () => {
                         ? { color: '#E68200', borderColor: '#E68200' }
                         : {}
                   }
+                  onMouseEnter={(e) => {
+                    if (!isHomePage && location.pathname !== item.path) {
+                      e.target.style.color = '#000000';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isHomePage && location.pathname !== item.path) {
+                      e.target.style.color = '';
+                    }
+                  }}
                 >
                   {item.title}
                 </Link>
@@ -135,8 +160,14 @@ const Navigation = () => {
                   href="https://www.linkedin.com/in/kari-walle-mikkelsen-0b199516/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground hover:text-black transition-colors"
+                  className="text-foreground transition-colors"
                   aria-label="Følg meg på LinkedIn"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#000000';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = '';
+                  }}
                 >
                   <Linkedin size={32} />
                 </a>
@@ -144,8 +175,14 @@ const Navigation = () => {
                   href="https://instagram.com/karis_pensel"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground hover:text-black transition-colors"
+                  className="text-foreground transition-colors"
                   aria-label="Følg meg på Instagram"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#000000';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = '';
+                  }}
                 >
                   <Instagram size={32} />
                 </a>
