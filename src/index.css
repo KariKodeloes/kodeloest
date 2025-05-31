@@ -105,11 +105,11 @@
     color: rgb(99, 68, 28) !important;
   }
 
-  p:not(button p):not(.bg-\[--primary\] p):not([class*="bg-[#066298]"] p), 
-  span:not(button span):not(.bg-\[--primary\] span):not([class*="bg-[#066298]"] span), 
-  div:not(button div):not(.bg-\[--primary\] div):not([class*="bg-[#066298]"] div), 
-  a:not(button a):not(.bg-\[--primary\] a):not([class*="bg-[#066298]"] a):not(.inline-flex a), 
-  li:not(button li):not(.bg-\[--primary\] li):not([class*="bg-[#066298]"] li), 
+  p:not(button p):not(.bg-\[--primary\] p):not([class*="bg-[#066298]"] p):not(.inline-flex p), 
+  span:not(button span):not(.bg-\[--primary\] span):not([class*="bg-[#066298]"] span):not(.inline-flex span), 
+  div:not(button div):not(.bg-\[--primary\] div):not([class*="bg-[#066298]"] div):not(.inline-flex div), 
+  a:not(button a):not(.bg-\[--primary\] a):not([class*="bg-[#066298]"] a):not(.inline-flex):not(.inline-flex a), 
+  li:not(button li):not(.bg-\[--primary\] li):not([class*="bg-[#066298]"] li):not(.inline-flex li), 
   td, th {
     color: rgb(99, 68, 28) !important;
   }
@@ -118,8 +118,12 @@
   button, button *, 
   [role="button"], [role="button"] *,
   .inline-flex, .inline-flex *,
+  .inline-flex p, .inline-flex span, .inline-flex div,
   a.inline-flex, a.inline-flex *,
-  a[class*="bg-[#066298]"], a[class*="bg-[#066298]"] * {
+  a.inline-flex p, a.inline-flex span, a.inline-flex div,
+  a[class*="bg-[#066298]"], a[class*="bg-[#066298]"] *,
+  .bg-\[--primary\], .bg-\[--primary\] *,
+  [class*="bg-[#066298]"], [class*="bg-[#066298]"] * {
     color: white !important;
   }
 }
