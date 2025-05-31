@@ -31,11 +31,11 @@ const Navigation = () => {
             <Button
               variant="ghost"
               size="sm"
-              className="md:hidden absolute top-8 left-0 text-white hover:text-gray-200 hover:bg-white/10 p-1"
+              className="md:hidden absolute top-8 left-0 text-white hover:text-white hover:bg-white/10 p-1"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Åpne meny"
             >
-              <span className="material-icon text-3xl leading-none" style={{ fontSize: '32px' }}>
+              <span className="material-icon text-white text-3xl leading-none" style={{ fontSize: '32px' }}>
                 {isMenuOpen ? 'close' : 'menu'}
               </span>
             </Button>
@@ -47,19 +47,19 @@ const Navigation = () => {
                 href="https://www.linkedin.com/in/kari-walle-mikkelsen-0b199516/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gray-200 transition-colors"
+                className="text-white hover:text-white transition-colors"
                 aria-label="Følg meg på LinkedIn"
               >
-                <Linkedin size={32} />
+                <Linkedin size={32} style={{ color: '#FFFFFF' }} />
               </a>
               <a
                 href="https://instagram.com/karis_pensel"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gray-200 transition-colors"
+                className="text-white hover:text-white transition-colors"
                 aria-label="Følg meg på Instagram"
               >
-                <Instagram size={32} />
+                <Instagram size={32} style={{ color: '#FFFFFF' }} />
               </a>
             </div>
           </div>
@@ -101,15 +101,17 @@ const Navigation = () => {
                   to={item.path}
                   className={`text-base font-medium transition-colors ${
                     isHomePage 
-                      ? 'text-white hover:text-gray-200' 
+                      ? 'hover:text-white' 
                       : location.pathname === item.path
                         ? 'border-b-2' 
                         : 'text-foreground hover:text-black'
                   }`}
                   style={
-                    !isHomePage && location.pathname === item.path
-                      ? { color: '#E68200', borderColor: '#E68200' }
-                      : {}
+                    isHomePage
+                      ? { color: '#FFFFFF' }
+                      : !isHomePage && location.pathname === item.path
+                        ? { color: '#E68200', borderColor: '#E68200' }
+                        : {}
                   }
                 >
                   {item.title}
@@ -160,15 +162,17 @@ const Navigation = () => {
                   to={item.path}
                   className={`block px-3 py-2 text-base font-medium transition-colors rounded touch-manipulation ${
                     isHomePage
-                      ? 'text-white active:bg-white/20'
+                      ? 'active:bg-white/20'
                       : location.pathname === item.path
                         ? 'bg-accent text-orange-600'
                         : 'text-foreground active:bg-orange-100 hover:bg-orange-50'
                   }`}
                   style={
-                    !isHomePage && location.pathname === item.path
-                      ? { color: '#E68200' }
-                      : {}
+                    isHomePage
+                      ? { color: '#FFFFFF' }
+                      : !isHomePage && location.pathname === item.path
+                        ? { color: '#E68200' }
+                        : {}
                   }
                   onClick={() => setIsMenuOpen(false)}
                 >
