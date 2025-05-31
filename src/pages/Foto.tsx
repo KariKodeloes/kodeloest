@@ -14,7 +14,7 @@ const Foto = () => {
     { name: 'dyr', path: '/foto/dyr', displayName: 'Dyr' }
   ];
 
-  const bodyText = "Fotografiene mine fanger øyeblikk fra naturen og hverdagen - fra dramatiske landskap til intime dyreportretter. Mesteparten er tatt med mobilkamera på spontane oppdagelsesferdene mine. Alle fotografier og øvrig innhold er opphavsrettslig beskyttet.";
+  const bodyText = "Det har hendt jeg har drasset med meg en speilrefleks, men det krever jo planlegging - og ryggsekk. Når hodet først er i modus «utsnitt» og motivene dukker opp innrammet rundt meg, er mobilen gull verdt. For meg handler det om å se og være tilstede.";
 
   return (
     <CategoryPage
