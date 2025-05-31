@@ -6,13 +6,13 @@
 @layer base {
   :root {
     --background: 250 250 250;
-    --foreground: 33 33 33;
+    --foreground: 99 68 28;
 
     --card: 255 255 255;
-    --card-foreground: 33 33 33;
+    --card-foreground: 99 68 28;
 
     --popover: 255 255 255;
-    --popover-foreground: 33 33 33;
+    --popover-foreground: 99 68 28;
 
     --primary: 121 85 72;
     --primary-foreground: 255 255 255;
@@ -36,7 +36,7 @@
     --radius: 0.5rem;
 
     --sidebar-background: 255 255 255;
-    --sidebar-foreground: 33 33 33;
+    --sidebar-foreground: 99 68 28;
     --sidebar-primary: 121 85 72;
     --sidebar-primary-foreground: 255 255 255;
     --sidebar-accent: 245 245 244;
