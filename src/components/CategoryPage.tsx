@@ -1,10 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Project } from '../data/mockData';
 import ProjectCard from './ProjectCard';
-import { Button } from './ui/button';
-import { Badge } from './ui/badge';
+import CategoryChips from './CategoryChips';
+import SortButton from './SortButton';
+import ViewModeToggle from './ViewModeToggle';
 import { useLikes } from '../hooks/useLikes';
 
 interface CategoryPageProps {
@@ -82,70 +83,17 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-6">
             {/* Category Chips */}
             {subcategories && subcategories.length > 0 && (
-              <div className="flex flex-wrap gap-2">
-                {/* "Alle" chip */}
-                <button
-                  onClick={() => handleCategoryClick('alle')}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border border-gray-300 ${
-                    selectedCategory === 'alle' 
-                      ? 'bg-[#E68200] text-white border-[#E68200]' 
-                      : 'bg-white text-[#066298] hover:text-[#013B5E] border-gray-300'
-                  }`}
-                >
-                  Alle
-                </button>
-                
-                {/* Subcategory chips */}
-                {subcategories.map((sub) => (
-                  <button
-                    key={sub.path}
-                    onClick={() => handleCategoryClick(sub.name)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border border-gray-300 ${
-                      selectedCategory === sub.name 
-                        ? 'bg-[#E68200] text-white border-[#E68200]' 
-                        : 'bg-white text-[#066298] hover:text-[#013B5E] border-gray-300'
-                    }`}
-                  >
-                    {sub.displayName}
-                  </button>
-                ))}
-              </div>
+              <CategoryChips
+                subcategories={subcategories}
+                selectedCategory={selectedCategory}
+                onCategoryClick={handleCategoryClick}
+              />
             )}
 
             {/* Controls */}
             <div className="flex items-center gap-4">
-              {/* Sort */}
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={toggleSort}
-                className="flex items-center gap-2"
-              >
-                <span className="material-icon text-sm">favorite</span>
-                {sortOrder === 'most-liked' ? 'Flest likes først' : 'Færrest likes først'}
-              </Button>
-
-              {/* View Mode */}
-              <div className="flex items-center border border-border rounded-lg overflow-hidden">
-                <Button
-                  variant={viewMode === 'grid' ? 'default' : 'ghost'}
-                  size="sm"
-                  onClick={() => setViewMode('grid')}
-                  className="rounded-none border-0"
-                  style={viewMode === 'grid' ? { backgroundColor: '#E68200', color: 'white' } : {}}
-                >
-                  <span className="material-icon">view_module</span>
-                </Button>
-                <Button
-                  variant={viewMode === 'list' ? 'default' : 'ghost'}
-                  size="sm"
-                  onClick={() => setViewMode('list')}
-                  className="rounded-none border-0"
-                  style={viewMode === 'list' ? { backgroundColor: '#E68200', color: 'white' } : {}}
-                >
-                  <span className="material-icon">view_list</span>
-                </Button>
-              </div>
+              <SortButton sortOrder={sortOrder} onToggleSort={toggleSort} />
+              <ViewModeToggle viewMode={viewMode} onViewModeChange={setViewMode} />
             </div>
           </div>
         </div>
