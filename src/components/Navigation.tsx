@@ -95,12 +95,12 @@ const Navigation = () => {
                   }}
                   onMouseEnter={(e) => {
                     if (location.pathname !== '/') {
-                      e.target.style.color = '#000000';
+                      (e.target as HTMLElement).style.color = '#000000';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (location.pathname !== '/') {
-                      e.target.style.color = '';
+                      (e.target as HTMLElement).style.color = '';
                     }
                   }}
                 >
@@ -132,12 +132,12 @@ const Navigation = () => {
                   }
                   onMouseEnter={(e) => {
                     if (!isHomePage && location.pathname !== item.path) {
-                      e.target.style.color = '#000000';
+                      (e.target as HTMLElement).style.color = '#000000';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (!isHomePage && location.pathname !== item.path) {
-                      e.target.style.color = '';
+                      (e.target as HTMLElement).style.color = '';
                     }
                   }}
                 >
@@ -163,10 +163,10 @@ const Navigation = () => {
                   className="text-foreground transition-colors"
                   aria-label="Følg meg på LinkedIn"
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.color = '#000000';
+                    (e.currentTarget as HTMLElement).style.color = '#000000';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.color = '';
+                    (e.currentTarget as HTMLElement).style.color = '';
                   }}
                 >
                   <Linkedin size={32} />
@@ -178,10 +178,10 @@ const Navigation = () => {
                   className="text-foreground transition-colors"
                   aria-label="Følg meg på Instagram"
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.color = '#000000';
+                    (e.currentTarget as HTMLElement).style.color = '#000000';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.color = '';
+                    (e.currentTarget as HTMLElement).style.color = '';
                   }}
                 >
                   <Instagram size={32} />
