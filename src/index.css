@@ -90,18 +90,15 @@
   }
 
   body {
-    @apply bg-background font-roboto;
-    color: #63441C;
+    @apply bg-background text-foreground font-roboto;
   }
 
   h1, h2 {
-    @apply font-oswald font-semibold;
-    color: #63441C;
+    @apply font-oswald font-semibold text-foreground;
   }
 
   h3, h4, h5, h6 {
-    @apply font-roboto;
-    color: #63441C;
+    @apply font-roboto text-foreground;
   }
 }
 
