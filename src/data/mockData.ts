@@ -50,6 +50,18 @@ export const mockProjects: Project[] = [
     likes: 0
   },
   {
+    id: '26',
+    title: 'Fra havet',
+    subtitle: 'Akvarell, 300 gr bomull - 10,5x24 cm',
+    description: 'Malt en tidlig morgen på balkongen i Hellas mens sola så vidt var over horisonten og jeg gledet meg til å snorkle.',
+    year: 2024,
+    images: ['/lovable-uploads/7036f89a-e144-49ae-a484-b56f45c894b3.png', '/lovable-uploads/8fb0357f-bd49-4a6d-9350-227685982ce8.png'],
+    category: 'bilder',
+    subcategory: 'akvareller',
+    mainImage: '/lovable-uploads/7036f89a-e144-49ae-a484-b56f45c894b3.png',
+    likes: 0
+  },
+  {
     id: '3',
     title: 'Øyenstikker',
     subtitle: 'Monoprint akryl og akvarell, 300 gr bomull',
