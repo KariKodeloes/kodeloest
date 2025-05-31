@@ -17,24 +17,11 @@ const CategoryChips: React.FC<CategoryChipsProps> = ({
       {/* "Alle" chip */}
       <button
         onClick={() => onCategoryClick('alle')}
-        className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border ${
+        className={`category-chip px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border ${
           selectedCategory === 'alle' 
-            ? 'bg-[#E68200] text-white border-[#E68200]' 
+            ? 'selected bg-[#E68200] text-white border-[#E68200]' 
             : 'bg-white border-gray-300 disabled:bg-[#CDDFF0] disabled:text-gray-500 hover:bg-gray-50'
         }`}
-        style={selectedCategory !== 'alle' ? { 
-          color: '#066298' 
-        } : {}}
-        onMouseEnter={(e) => {
-          if (selectedCategory !== 'alle') {
-            e.currentTarget.style.color = '#013B5E';
-          }
-        }}
-        onMouseLeave={(e) => {
-          if (selectedCategory !== 'alle') {
-            e.currentTarget.style.color = '#066298';
-          }
-        }}
       >
         Alle
       </button>
@@ -44,24 +31,11 @@ const CategoryChips: React.FC<CategoryChipsProps> = ({
         <button
           key={sub.path}
           onClick={() => onCategoryClick(sub.name)}
-          className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border ${
+          className={`category-chip px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border ${
             selectedCategory === sub.name 
-              ? 'bg-[#E68200] text-white border-[#E68200]' 
+              ? 'selected bg-[#E68200] text-white border-[#E68200]' 
               : 'bg-white border-gray-300 disabled:bg-[#CDDFF0] disabled:text-gray-500 hover:bg-gray-50'
           }`}
-          style={selectedCategory !== sub.name ? { 
-            color: '#066298' 
-          } : {}}
-          onMouseEnter={(e) => {
-            if (selectedCategory !== sub.name) {
-              e.currentTarget.style.color = '#013B5E';
-            }
-          }}
-          onMouseLeave={(e) => {
-            if (selectedCategory !== sub.name) {
-              e.currentTarget.style.color = '#066298';
-            }
-          }}
         >
           {sub.displayName}
         </button>

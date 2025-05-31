@@ -114,16 +114,25 @@
     color: rgb(99, 68, 28) !important;
   }
 
-  /* Ensure buttons and button-like elements always have white text */
-  button, button *, 
-  [role="button"], [role="button"] *,
-  .inline-flex, .inline-flex *,
-  .inline-flex p, .inline-flex span, .inline-flex div,
-  a.inline-flex, a.inline-flex *,
-  a.inline-flex p, a.inline-flex span, a.inline-flex div,
-  a[class*="bg-[#066298]"], a[class*="bg-[#066298]"] *,
-  .bg-\[--primary\], .bg-\[--primary\] *,
-  [class*="bg-[#066298]"], [class*="bg-[#066298]"] * {
+  /* Ensure buttons and button-like elements always have white text, EXCEPT category chips */
+  button:not(.category-chip), button:not(.category-chip) *, 
+  [role="button"]:not(.category-chip), [role="button"]:not(.category-chip) *,
+  .inline-flex:not(.category-chip), .inline-flex:not(.category-chip) *,
+  .inline-flex p:not(.category-chip p), .inline-flex span:not(.category-chip span), .inline-flex div:not(.category-chip div),
+  a.inline-flex:not(.category-chip), a.inline-flex:not(.category-chip) *,
+  a.inline-flex p:not(.category-chip p), a.inline-flex span:not(.category-chip span), a.inline-flex div:not(.category-chip div),
+  a[class*="bg-[#066298]"]:not(.category-chip), a[class*="bg-[#066298]"]:not(.category-chip) *,
+  .bg-\[--primary\]:not(.category-chip), .bg-\[--primary\]:not(.category-chip) *,
+  [class*="bg-[#066298]"]:not(.category-chip), [class*="bg-[#066298]"]:not(.category-chip) * {
+    color: white !important;
+  }
+
+  /* Category chips specific styling */
+  .category-chip {
+    color: #066298 !important;
+  }
+
+  .category-chip.selected {
     color: white !important;
   }
 }
