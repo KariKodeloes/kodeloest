@@ -62,6 +62,18 @@ export const mockProjects: Project[] = [
     likes: 0
   },
   {
+    id: '27',
+    title: 'Fuglesky',
+    subtitle: 'Akvarell, 300 gr bomull - 24x30 cm',
+    description: 'De organiske formene til fugler trekker sydover om høsten ser nesten kunstige ut. Og de er ikke så lette å fange med penselen heller.',
+    year: 2024,
+    images: ['/lovable-uploads/d09022b6-9d2d-49e8-a189-898e90f36faf.png'],
+    category: 'bilder',
+    subcategory: 'akvareller',
+    mainImage: '/lovable-uploads/d09022b6-9d2d-49e8-a189-898e90f36faf.png',
+    likes: 0
+  },
+  {
     id: '3',
     title: 'Øyenstikker',
     subtitle: 'Monoprint akryl og akvarell, 300 gr bomull',
