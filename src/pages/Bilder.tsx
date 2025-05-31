@@ -12,7 +12,8 @@ const Bilder = () => {
     { name: 'tegning', path: '/bilder/tegning', displayName: 'Tegning' }
   ];
 
-  const bodyText = "Her finner du mitt utvalg av bildekunst i ulike teknikker - fra akvareller til mixed media og tegning. Verkene spenner fra naturmotiver til mer abstrakte uttrykk. Alle bilder og øvrig innhold er opphavsrettslig beskyttet.";
+  const bodyText = "Jeg har alltid likt å tegne, helt siden barneskolen.
+I dag holder meg mest på med akvareller, mixed media og tegning. Selv om jeg drømmer om å lage store, abstrakte motiver dras jeg mot det konkrete - ofte inspirert av egne foto.";
 
   return (
     <CategoryPage
