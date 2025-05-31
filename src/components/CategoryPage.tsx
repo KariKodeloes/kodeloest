@@ -89,9 +89,12 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
                     selectedCategory === 'alle'
                       ? 'text-white'
-                      : 'bg-card border border-border text-foreground hover:bg-accent'
+                      : 'bg-card border border-border hover:text-[#013B5E]'
                   }`}
-                  style={selectedCategory === 'alle' ? { backgroundColor: '#E68200' } : {}}
+                  style={selectedCategory === 'alle' 
+                    ? { backgroundColor: '#E68200' } 
+                    : { color: '#066298' }
+                  }
                 >
                   Alle
                 </button>
@@ -104,9 +107,12 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
                       selectedCategory === sub.name
                         ? 'text-white'
-                        : 'bg-card border border-border text-foreground hover:bg-accent'
+                        : 'bg-card border border-border hover:text-[#013B5E]'
                     }`}
-                    style={selectedCategory === sub.name ? { backgroundColor: '#E68200' } : {}}
+                    style={selectedCategory === sub.name 
+                      ? { backgroundColor: '#E68200' } 
+                      : { color: '#066298' }
+                    }
                   >
                     {sub.displayName}
                   </button>
