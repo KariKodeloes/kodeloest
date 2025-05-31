@@ -14,9 +14,12 @@ const Foto = () => {
     { name: 'dyr', path: '/foto/dyr', displayName: 'Dyr' }
   ];
 
+  const bodyText = "Fotografiene mine fanger øyeblikk fra naturen og hverdagen - fra dramatiske landskap til intime dyreportretter. Mesteparten er tatt med mobilkamera på spontane oppdagelsesferdene mine. Alle fotografier og øvrig innhold er opphavsrettslig beskyttet.";
+
   return (
     <CategoryPage
       title="Foto"
+      bodyText={bodyText}
       projects={projects}
       subcategories={subcategories}
     />

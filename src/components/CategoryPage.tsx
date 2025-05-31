@@ -10,6 +10,7 @@ import { useLikes } from '../hooks/useLikes';
 
 interface CategoryPageProps {
   title: string;
+  bodyText?: string;
   projects: Project[];
   subcategories?: Array<{ name: string; path: string; displayName: string }>;
   currentCategory?: string;
@@ -21,6 +22,7 @@ type SortOrder = 'most-liked' | 'least-liked';
 
 const CategoryPage: React.FC<CategoryPageProps> = ({ 
   title, 
+  bodyText,
   projects, 
   subcategories, 
   currentCategory = 'alle',
@@ -78,6 +80,13 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
           <h2 className="text-2xl font-oswald font-medium mb-4 text-foreground" style={{ fontSize: '1.75rem' }}>
             {title}
           </h2>
+          
+          {/* Body Text */}
+          {bodyText && (
+            <p className="text-foreground leading-relaxed font-roboto mb-4" style={{ fontSize: '1rem' }}>
+              {bodyText}
+            </p>
+          )}
           
           {/* Category Chips and Controls Combined */}
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-6">

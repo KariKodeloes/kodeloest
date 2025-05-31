@@ -12,9 +12,12 @@ const Som = () => {
     { name: 'rett-fra-rullen', path: '/som/rett-fra-rullen', displayName: 'Rett fra rullen' }
   ];
 
+  const bodyText = "Mine sømprosjekter spenner fra gjenbruk av gamle tekstiler til nye kreasjoner. Jeg liker å gi gamle plagg nytt liv og skape funksjonelle og vakre ting for hverdagen. Alle bilder og øvrig innhold er opphavsrettslig beskyttet.";
+
   return (
     <CategoryPage
       title="Søm"
+      bodyText={bodyText}
       projects={projects}
       subcategories={subcategories}
     />
