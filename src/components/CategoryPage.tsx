@@ -86,15 +86,21 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                 {/* "Alle" chip */}
                 <button
                   onClick={() => handleCategoryClick('alle')}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
-                    selectedCategory === 'alle'
-                      ? 'text-white'
-                      : 'bg-card border border-border hover:text-[#013B5E]'
-                  }`}
+                  className="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-card border border-border"
                   style={selectedCategory === 'alle' 
-                    ? { backgroundColor: '#E68200' } 
+                    ? { backgroundColor: '#E68200', color: 'white' } 
                     : { color: '#066298' }
                   }
+                  onMouseEnter={(e) => {
+                    if (selectedCategory !== 'alle') {
+                      e.currentTarget.style.color = '#013B5E';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (selectedCategory !== 'alle') {
+                      e.currentTarget.style.color = '#066298';
+                    }
+                  }}
                 >
                   Alle
                 </button>
@@ -104,15 +110,21 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                   <button
                     key={sub.path}
                     onClick={() => handleCategoryClick(sub.name)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
-                      selectedCategory === sub.name
-                        ? 'text-white'
-                        : 'bg-card border border-border hover:text-[#013B5E]'
-                    }`}
+                    className="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-card border border-border"
                     style={selectedCategory === sub.name 
-                      ? { backgroundColor: '#E68200' } 
+                      ? { backgroundColor: '#E68200', color: 'white' } 
                       : { color: '#066298' }
                     }
+                    onMouseEnter={(e) => {
+                      if (selectedCategory !== sub.name) {
+                        e.currentTarget.style.color = '#013B5E';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (selectedCategory !== sub.name) {
+                        e.currentTarget.style.color = '#066298';
+                      }
+                    }}
                   >
                     {sub.displayName}
                   </button>
