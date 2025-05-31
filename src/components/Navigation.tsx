@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
@@ -21,7 +20,7 @@ const Navigation = () => {
   const isHomePage = location.pathname === '/';
 
   return (
-    <nav className={`${isHomePage ? 'bg-transparent absolute top-0 left-0 right-0 z-50' : 'bg-card border-b border-border shadow-sm sticky top-0 z-50'}`}>
+    <nav className={`${isHomePage ? 'bg-transparent absolute top-0 left-0 right-0 z-50 home-page-nav' : 'bg-card border-b border-border shadow-sm sticky top-0 z-50'}`}>
       {/* Use container class for consistent alignment */}
       <div className={isHomePage ? "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" : "container mx-auto px-4"}>
         {/* KARI KODELØS heading for home page with social icons */}
@@ -35,12 +34,12 @@ const Navigation = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Åpne meny"
             >
-              <span className="material-icon text-white text-3xl leading-none" style={{ fontSize: '32px' }}>
+              <span className="material-icon text-white text-3xl leading-none" style={{ fontSize: '32px', color: '#FFFFFF' }}>
                 {isMenuOpen ? 'close' : 'menu'}
               </span>
             </Button>
             
-            <h1 className="text-white font-oswald font-medium text-4xl">KARI KODELØS</h1>
+            <h1 className="text-white font-oswald font-medium text-4xl" style={{ color: '#FFFFFF' }}>KARI KODELØS</h1>
             {/* Social Icons positioned aligned with KARI KODELØS */}
             <div className="absolute top-8 right-0 flex items-center space-x-3">
               <a
@@ -49,6 +48,7 @@ const Navigation = () => {
                 rel="noopener noreferrer"
                 className="text-white hover:text-white transition-colors"
                 aria-label="Følg meg på LinkedIn"
+                style={{ color: '#FFFFFF' }}
               >
                 <Linkedin size={32} style={{ color: '#FFFFFF' }} />
               </a>
@@ -58,6 +58,7 @@ const Navigation = () => {
                 rel="noopener noreferrer"
                 className="text-white hover:text-white transition-colors"
                 aria-label="Følg meg på Instagram"
+                style={{ color: '#FFFFFF' }}
               >
                 <Instagram size={32} style={{ color: '#FFFFFF' }} />
               </a>
