@@ -362,7 +362,7 @@ export const mockProjects: Project[] = [
     id: '31',
     title: 'Hvor ble dere av?',
     subtitle: 'Iphone 15',
-    description: 'Ungsau på leting etter flokken sin i Trollheime. Etter intens breking hørte vi bjeller i skaret bak: Lykkelig gjenforening og uhell i fossen avverget.',
+    description: 'Ungsau på leting etter flokken sin i Trollheimen. Etter intens breking hørte vi bjeller i skaret bak: Lykkelig gjenforening og uhell i fossen avverget.',
     year: 2024,
     images: ['/lovable-uploads/82685a3b-5857-472a-9b59-c5d42cdf4317.png'],
     category: 'foto',
