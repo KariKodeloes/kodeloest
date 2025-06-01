@@ -20,9 +20,9 @@ const HomePageHeader = ({ isMenuOpen, setIsMenuOpen }: HomePageHeaderProps) => {
         aria-label="Åpne meny"
       >
         {isMenuOpen ? (
-          <X size={32} style={{ color: '#FFFFFF' }} />
+          <X size={32} className="text-white" style={{ color: '#FFFFFF' }} />
         ) : (
-          <Menu size={32} style={{ color: '#FFFFFF' }} />
+          <Menu size={32} className="text-white" style={{ color: '#FFFFFF' }} />
         )}
       </Button>
       
