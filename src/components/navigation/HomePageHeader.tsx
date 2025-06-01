@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Instagram, Linkedin, Menu, X } from 'lucide-react';
-import { Button } from '../ui/button';
 
 interface HomePageHeaderProps {
   isMenuOpen: boolean;
@@ -12,19 +11,26 @@ const HomePageHeader = ({ isMenuOpen, setIsMenuOpen }: HomePageHeaderProps) => {
   return (
     <div className="text-center pt-8 pb-2 relative">
       {/* Mobile Menu Button positioned aligned with KODELØST for home page */}
-      <Button
-        variant="ghost"
-        size="sm"
-        className="md:hidden absolute top-8 left-0 text-white hover:text-white hover:bg-white/10 p-1 transition-colors"
+      <button
+        className="md:hidden absolute top-8 left-0 text-white transition-colors rounded p-1"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label="Åpne meny"
+        style={{ color: '#FFFFFF' }}
+        onMouseEnter={(e) => {
+          const button = e.currentTarget;
+          button.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+        }}
+        onMouseLeave={(e) => {
+          const button = e.currentTarget;
+          button.style.backgroundColor = 'transparent';
+        }}
       >
         {isMenuOpen ? (
-          <X size={32} className="text-white" style={{ color: '#FFFFFF' }} />
+          <X size={32} style={{ color: '#FFFFFF' }} />
         ) : (
-          <Menu size={32} className="text-white" style={{ color: '#FFFFFF' }} />
+          <Menu size={32} style={{ color: '#FFFFFF' }} />
         )}
-      </Button>
+      </button>
       
       <h1 className="text-white font-oswald font-medium text-4xl" style={{ color: '#FFFFFF' }}>KODELØST</h1>
       

@@ -9,14 +9,14 @@ interface MobileMenuButtonProps {
 }
 
 const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuButtonProps) => {
-  const iconSize = isHomePage ? 32 : 32;
+  const iconSize = 32;
   
   console.log('MobileMenuButton - isHomePage:', isHomePage, 'iconSize:', iconSize);
   
   if (isHomePage) {
     return (
       <button
-        className="md:hidden mr-2 text-white transition-colors rounded"
+        className="md:hidden mr-2 text-white transition-colors rounded p-1"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label="Åpne meny"
         style={{ color: '#FFFFFF' }}
@@ -40,7 +40,7 @@ const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuB
   
   return (
     <button
-      className="md:hidden mr-2 text-foreground transition-colors hover:text-black"
+      className="md:hidden mr-2 text-foreground transition-colors hover:text-black p-1"
       onClick={() => setIsMenuOpen(!isMenuOpen)}
       aria-label="Åpne meny"
     >
