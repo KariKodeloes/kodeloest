@@ -369,6 +369,18 @@ export const mockProjects: Project[] = [
     subcategory: 'i-fjellet',
     mainImage: '/lovable-uploads/82685a3b-5857-472a-9b59-c5d42cdf4317.png',
     likes: 0
+  },
+  {
+    id: '32',
+    title: 'Irrgrønn sommerkveld',
+    subtitle: 'Iphone 15',
+    description: 'Grønnfargene som speiler seg i Estenstaddammen er det ingen grunn til å øke intensiteten på. Kveldshimmelen spiller også på lag.',
+    year: 2024,
+    images: ['/lovable-uploads/815c9c7f-8014-4f48-8886-09b45bbf1264.png'],
+    category: 'foto',
+    subcategory: 'i-fjellet',
+    mainImage: '/lovable-uploads/815c9c7f-8014-4f48-8886-09b45bbf1264.png',
+    likes: 0
   }
 ];
 
