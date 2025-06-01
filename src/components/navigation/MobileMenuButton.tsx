@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '../ui/button';
 
 interface MobileMenuButtonProps {
@@ -19,9 +20,11 @@ const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuB
       onClick={() => setIsMenuOpen(!isMenuOpen)}
       aria-label="Åpne meny"
     >
-      <span className="material-icon leading-none" style={{ fontSize: '32px' }}>
-        {isMenuOpen ? 'close' : 'menu'}
-      </span>
+      {isMenuOpen ? (
+        <X size={32} className="text-foreground" />
+      ) : (
+        <Menu size={32} className="text-foreground" />
+      )}
     </Button>
   );
 };

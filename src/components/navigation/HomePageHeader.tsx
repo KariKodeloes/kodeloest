@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Instagram, Linkedin } from 'lucide-react';
+import { Instagram, Linkedin, Menu, X } from 'lucide-react';
 import { Button } from '../ui/button';
 
 interface HomePageHeaderProps {
@@ -19,12 +19,11 @@ const HomePageHeader = ({ isMenuOpen, setIsMenuOpen }: HomePageHeaderProps) => {
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label="Åpne meny"
       >
-        <span 
-          className="material-icon leading-none transition-colors" 
-          style={{ fontSize: '32px', color: '#FFFFFF' }}
-        >
-          {isMenuOpen ? 'close' : 'menu'}
-        </span>
+        {isMenuOpen ? (
+          <X size={32} style={{ color: '#FFFFFF' }} />
+        ) : (
+          <Menu size={32} style={{ color: '#FFFFFF' }} />
+        )}
       </Button>
       
       <h1 className="text-white font-oswald font-medium text-4xl" style={{ color: '#FFFFFF' }}>KODELØST</h1>
