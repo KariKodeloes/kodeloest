@@ -24,21 +24,12 @@ const SubPageNavigation = ({ menuItems }: SubPageNavigationProps) => {
     <nav className="bg-card border-b border-border shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          {/* Mobile and Desktop layout */}
           <div className="flex items-center">
             <MobileMenuButton 
               isMenuOpen={isMenuOpen}
               setIsMenuOpen={setIsMenuOpen}
               isHomePage={false}
             />
-            {/* Desktop logo */}
-            <div className="hidden md:block">
-              <KodelostLogo />
-            </div>
-          </div>
-
-          {/* Mobile centered logo */}
-          <div className="md:hidden absolute left-1/2 transform -translate-x-1/2">
             <KodelostLogo />
           </div>
 
