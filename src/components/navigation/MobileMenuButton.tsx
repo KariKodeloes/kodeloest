@@ -15,11 +15,11 @@ const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuB
     <Button
       variant="ghost"
       size="sm"
-      className="md:hidden mr-2 p-1 text-foreground hover:text-black"
+      className="md:hidden mr-2 p-1 text-foreground hover:text-black transition-colors"
       onClick={() => setIsMenuOpen(!isMenuOpen)}
       aria-label="Åpne meny"
     >
-      <span className="material-icon text-3xl leading-none" style={{ fontSize: '32px' }}>
+      <span className="material-icon leading-none" style={{ fontSize: '32px' }}>
         {isMenuOpen ? 'close' : 'menu'}
       </span>
     </Button>

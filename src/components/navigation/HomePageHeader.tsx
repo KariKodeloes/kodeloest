@@ -15,11 +15,14 @@ const HomePageHeader = ({ isMenuOpen, setIsMenuOpen }: HomePageHeaderProps) => {
       <Button
         variant="ghost"
         size="sm"
-        className="md:hidden absolute top-8 left-0 text-white hover:text-white hover:bg-white/10 p-1"
+        className="md:hidden absolute top-8 left-0 text-white hover:text-white hover:bg-white/10 p-1 transition-colors"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label="Åpne meny"
       >
-        <span className="material-icon text-white text-3xl leading-none" style={{ fontSize: '32px', color: '#FFFFFF' }}>
+        <span 
+          className="material-icon leading-none transition-colors" 
+          style={{ fontSize: '32px', color: '#FFFFFF' }}
+        >
           {isMenuOpen ? 'close' : 'menu'}
         </span>
       </Button>
