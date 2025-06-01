@@ -16,11 +16,12 @@ const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuB
       className="md:hidden mr-2 p-1 transition-colors"
       onClick={() => setIsMenuOpen(!isMenuOpen)}
       aria-label="Åpne meny"
+      style={{ color: 'rgb(98, 68, 28) !important' }}
     >
       {isMenuOpen ? (
-        <X size={32} className="!text-[rgb(98,68,28)]" />
+        <X size={32} style={{ color: 'rgb(98, 68, 28) !important' }} />
       ) : (
-        <Menu size={32} className="!text-[rgb(98,68,28)]" />
+        <Menu size={32} style={{ color: 'rgb(98, 68, 28) !important' }} />
       )}
     </button>
   );
