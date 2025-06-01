@@ -9,7 +9,7 @@ interface MobileMenuButtonProps {
 }
 
 const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuButtonProps) => {
-  const iconColor = isHomePage ? '#FFFFFF' : 'rgb(98, 68, 28)';
+  const iconColor = isHomePage ? '#FFFFFF !important' : 'rgb(98, 68, 28) !important';
   
   return (
     <button
