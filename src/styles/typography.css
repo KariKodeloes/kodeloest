@@ -1,0 +1,93 @@
+
+@layer base {
+  h1, h2 {
+    @apply font-oswald font-semibold;
+    color: rgb(99, 68, 28) !important;
+  }
+
+  h3, h4, h5, h6 {
+    @apply font-roboto;
+    color: rgb(99, 68, 28) !important;
+  }
+
+  /* Home page specific styling - more specific selectors */
+  .home-page-nav h1 {
+    color: #FFFFFF !important;
+  }
+
+  /* Only target actual navigation links within home page nav */
+  .home-page-nav .hidden.md\\:flex a {
+    color: #FFFFFF !important;
+  }
+
+  /* Mobile menu within home page */
+  .home-page-nav .md\\:hidden a {
+    color: #FFFFFF !important;
+  }
+
+  /* Base text colors for non-home pages, but allow hover effects */
+  p:not(button p):not(.bg-\[--primary\] p):not([class*="bg-[#066298]"] p):not(.inline-flex p):not(.gallery-overlay p), 
+  span:not(button span):not(.bg-\[--primary\] span):not([class*="bg-[#066298]"] span):not(.inline-flex span):not(.gallery-overlay span), 
+  div:not(button div):not(.bg-\[--primary\] div):not([class*="bg-[#066298]"] div):not(.inline-flex div):not(.gallery-overlay div), 
+  td, th {
+    color: rgb(99, 68, 28) !important;
+  }
+
+  /* Navigation links on non-home pages - allow hover without !important */
+  nav:not(.home-page-nav) a:not(button a):not(.bg-\[--primary\] a):not([class*="bg-[#066298]"] a):not(.inline-flex):not(.inline-flex a) {
+    color: rgb(99, 68, 28);
+  }
+
+  /* List items on non-home pages */
+  li:not(button li):not(.bg-\[--primary\] li):not([class*="bg-[#066298]"] li):not(.inline-flex li) {
+    color: rgb(99, 68, 28) !important;
+  }
+
+  /* Gallery overlay text should always be white */
+  .gallery-overlay,
+  .gallery-overlay *,
+  .gallery-overlay h3,
+  .gallery-overlay p,
+  .gallery-overlay span,
+  .gallery-overlay div {
+    color: #FFFFFF !important;
+  }
+
+  /* Ensure buttons and button-like elements always have white text, EXCEPT category chips, sort buttons and view mode buttons */
+  button:not(.category-chip):not(.sort-button):not(.view-mode-button), button:not(.category-chip):not(.sort-button):not(.view-mode-button) *, 
+  [role="button"]:not(.category-chip):not(.sort-button):not(.view-mode-button), [role="button"]:not(.category-chip):not(.sort-button):not(.view-mode-button) *,
+  .inline-flex:not(.category-chip):not(.sort-button):not(.view-mode-button), .inline-flex:not(.category-chip):not(.sort-button):not(.view-mode-button) *,
+  .inline-flex p:not(.category-chip p):not(.sort-button p):not(.view-mode-button p), .inline-flex span:not(.category-chip span):not(.sort-button span):not(.view-mode-button span), .inline-flex div:not(.category-chip div):not(.sort-button div):not(.view-mode-button div),
+  a.inline-flex:not(.category-chip):not(.sort-button):not(.view-mode-button), a.inline-flex:not(.category-chip):not(.sort-button):not(.view-mode-button) *,
+  a.inline-flex p:not(.category-chip p):not(.sort-button p):not(.view-mode-button p), a.inline-flex span:not(.category-chip span):not(.sort-button span):not(.view-mode-button span), a.inline-flex div:not(.category-chip div):not(.sort-button div):not(.view-mode-button div),
+  a[class*="bg-[#066298]"]:not(.category-chip):not(.sort-button):not(.view-mode-button), a[class*="bg-[#066298]"]:not(.category-chip):not(.sort-button):not(.view-mode-button) *,
+  .bg-\[--primary\]:not(.category-chip):not(.sort-button):not(.view-mode-button), .bg-\[--primary\]:not(.category-chip):not(.sort-button):not(.view-mode-button) *,
+  [class*="bg-[#066298]"]:not(.category-chip):not(.sort-button):not(.view-mode-button), [class*="bg-[#066298]"]:not(.category-chip):not(.sort-button):not(.view-mode-button) * {
+    color: white !important;
+  }
+
+  /* Category chips specific styling */
+  .category-chip {
+    color: #066298 !important;
+  }
+
+  .category-chip.selected {
+    color: white !important;
+  }
+
+  /* Sort button specific styling */
+  .sort-button {
+    color: #066298 !important;
+  }
+
+  /* View mode button specific styling */
+  .view-mode-button {
+    color: #066298 !important;
+  }
+
+  /* Remove hover effects for active view mode buttons */
+  .view-mode-button.bg-\[--E68200\]:hover,
+  .view-mode-button[class*="bg-[#E68200]"]:hover {
+    background-color: #E68200 !important;
+  }
+}

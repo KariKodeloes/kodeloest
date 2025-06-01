@@ -1,0 +1,36 @@
+
+@layer components {
+  .material-icon {
+    @apply select-none;
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .gallery-overlay {
+    @apply absolute inset-0 bg-amber-900 bg-opacity-50 opacity-0 transition-opacity duration-300 flex items-center justify-center text-white text-center p-4;
+  }
+
+  .gallery-item:hover .gallery-overlay {
+    @apply opacity-100;
+  }
+
+  .gallery-item::before {
+    content: '';
+    @apply absolute inset-0 bg-black opacity-0 transition-opacity duration-300 z-10 pointer-events-none;
+  }
+
+  .gallery-item:hover::before {
+    @apply opacity-10;
+  }
+}
