@@ -44,6 +44,9 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
     } else {
       setSelectedCategory('alle');
     }
+    
+    // Scroll to top when URL changes
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.pathname, subcategories]);
 
   // Filter projects based on selected category
