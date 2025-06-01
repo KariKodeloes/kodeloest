@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -105,20 +104,17 @@
     color: rgb(99, 68, 28) !important;
   }
 
-  /* Home page specific styling - override text colors to white */
-  .home-page-nav h1,
-  .home-page-nav a,
-  .home-page-nav span,
-  .home-page-nav div,
-  .home-page-nav p {
+  /* Home page specific styling - more specific selectors */
+  .home-page-nav h1 {
     color: #FFFFFF !important;
   }
 
-  /* More specific selectors for navigation links on home page */
+  /* Only target actual navigation links within home page nav */
   .home-page-nav .hidden.md\\:flex a {
     color: #FFFFFF !important;
   }
 
+  /* Mobile menu within home page */
   .home-page-nav .md\\:hidden a {
     color: #FFFFFF !important;
   }
@@ -139,14 +135,6 @@
   /* List items on non-home pages */
   li:not(button li):not(.bg-\[--primary\] li):not([class*="bg-[#066298]"] li):not(.inline-flex li) {
     color: rgb(99, 68, 28) !important;
-  }
-
-  /* Override for home page navigation - more specific */
-  .home-page-nav p:not(button p):not(.bg-\[--primary\] p):not([class*="bg-[#066298]"] p):not(.inline-flex p), 
-  .home-page-nav span:not(button span):not(.bg-\[--primary\] span):not([class*="bg-[#066298]"] span):not(.inline-flex span), 
-  .home-page-nav div:not(button div):not(.bg-\[--primary\] div):not([class*="bg-[#066298]"] div):not(.inline-flex div), 
-  .home-page-nav a:not(button a):not(.bg-\[--primary\] a):not([class*="bg-[#066298]"] a):not(.inline-flex):not(.inline-flex a) {
-    color: #FFFFFF !important;
   }
 
   /* Gallery overlay text should always be white */
