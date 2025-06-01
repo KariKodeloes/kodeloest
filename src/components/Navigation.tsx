@@ -18,7 +18,6 @@ const Navigation = () => {
     { title: 'Foto', path: '/foto' },
     { title: 'Søm', path: '/som' },
     { title: 'Design', path: '/design' },
-    { title: 'DIY', path: '/diy' },
     { title: 'Om meg', path: '/om-meg' },
   ];
 

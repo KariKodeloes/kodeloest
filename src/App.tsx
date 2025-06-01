@@ -11,7 +11,6 @@ import Bilder from "./pages/Bilder";
 import Foto from "./pages/Foto";
 import Som from "./pages/Som";
 import Design from "./pages/Design";
-import DIY from "./pages/DIY";
 import OmMeg from "./pages/OmMeg";
 import NotFound from "./pages/NotFound";
 
@@ -43,7 +42,6 @@ const App = () => (
               <Route path="/som/gjenbruk" element={<Som />} />
               <Route path="/som/rett-fra-rullen" element={<Som />} />
               <Route path="/design" element={<Design />} />
-              <Route path="/diy" element={<DIY />} />
               <Route path="/om-meg" element={<OmMeg />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

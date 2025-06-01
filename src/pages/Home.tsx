@@ -4,8 +4,8 @@ import Gallery from '../components/Gallery';
 import { mockProjects } from '../data/mockData';
 
 const Home = () => {
-  // Show all projects instead of just 6 random ones
-  const galleryProjects = mockProjects;
+  // Filter out DIY projects from the gallery
+  const galleryProjects = mockProjects.filter(project => project.category !== 'diy');
 
   return (
     <div className="min-h-screen">
