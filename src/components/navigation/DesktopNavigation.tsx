@@ -25,7 +25,7 @@ const DesktopNavigation = ({ menuItems, isHomePage }: DesktopNavigationProps) =>
             to={item.path}
             className={`text-base font-medium transition-all duration-200 px-3 py-2 rounded ${
               isHomePage 
-                ? 'text-white hover:text-white hover:bg-[#FAE6CC]' 
+                ? 'text-white hover:bg-[#C5B09E]' 
                 : location.pathname === item.path
                   ? 'border-b-2 hover:text-black' 
                   : 'text-foreground hover:text-black'
@@ -39,13 +39,17 @@ const DesktopNavigation = ({ menuItems, isHomePage }: DesktopNavigationProps) =>
             }
             onMouseEnter={(e) => {
               console.log('Mouse enter on:', item.title, 'isHomePage:', isHomePage, 'isCurrentPath:', location.pathname === item.path);
-              if (!isHomePage && location.pathname !== item.path) {
+              if (isHomePage) {
+                (e.target as HTMLElement).style.color = '#FAE6CC';
+              } else if (location.pathname !== item.path) {
                 (e.target as HTMLElement).style.color = '#000000';
               }
             }}
             onMouseLeave={(e) => {
               console.log('Mouse leave on:', item.title);
-              if (!isHomePage && location.pathname !== item.path) {
+              if (isHomePage) {
+                (e.target as HTMLElement).style.color = '#FFFFFF';
+              } else if (location.pathname !== item.path) {
                 (e.target as HTMLElement).style.color = '';
               }
             }}
