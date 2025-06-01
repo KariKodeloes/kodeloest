@@ -21,10 +21,12 @@ const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuB
         aria-label="Åpne meny"
         style={{ color: '#FFFFFF' }}
         onMouseEnter={(e) => {
-          (e.target as HTMLElement).style.color = '#FAE6CC';
+          const button = e.currentTarget;
+          button.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
         }}
         onMouseLeave={(e) => {
-          (e.target as HTMLElement).style.color = '#FFFFFF';
+          const button = e.currentTarget;
+          button.style.backgroundColor = 'transparent';
         }}
       >
         {isMenuOpen ? (
