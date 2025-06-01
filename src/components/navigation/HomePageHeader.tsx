@@ -34,9 +34,15 @@ const HomePageHeader = ({ isMenuOpen, setIsMenuOpen }: HomePageHeaderProps) => {
           href="https://www.linkedin.com/in/kari-walle-mikkelsen-0b199516/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white hover:text-white transition-colors"
+          className="text-white transition-colors hover:bg-black/20 p-1 rounded"
           aria-label="Følg meg på LinkedIn"
           style={{ color: '#FFFFFF' }}
+          onMouseEnter={(e) => {
+            (e.target as HTMLElement).style.color = '#FAE6CC';
+          }}
+          onMouseLeave={(e) => {
+            (e.target as HTMLElement).style.color = '#FFFFFF';
+          }}
         >
           <Linkedin size={32} style={{ color: '#FFFFFF' }} />
         </a>
@@ -44,9 +50,15 @@ const HomePageHeader = ({ isMenuOpen, setIsMenuOpen }: HomePageHeaderProps) => {
           href="https://instagram.com/karis_pensel"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white hover:text-white transition-colors"
+          className="text-white transition-colors hover:bg-black/20 p-1 rounded"
           aria-label="Følg meg på Instagram"
           style={{ color: '#FFFFFF' }}
+          onMouseEnter={(e) => {
+            (e.target as HTMLElement).style.color = '#FAE6CC';
+          }}
+          onMouseLeave={(e) => {
+            (e.target as HTMLElement).style.color = '#FFFFFF';
+          }}
         >
           <Instagram size={32} style={{ color: '#FFFFFF' }} />
         </a>
