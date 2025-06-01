@@ -47,13 +47,16 @@ const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuB
       className="md:hidden mr-2 transition-colors p-1 rounded"
       onClick={() => setIsMenuOpen(!isMenuOpen)}
       aria-label="Åpne meny"
-      style={{ color: brownColor }}
+      style={{ 
+        color: `${brownColor} !important`,
+        backgroundColor: 'transparent'
+      }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.color = blackColor;
+        e.currentTarget.style.color = `${blackColor} !important`;
         e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.05)';
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.color = brownColor;
+        e.currentTarget.style.color = `${brownColor} !important`;
         e.currentTarget.style.backgroundColor = 'transparent';
       }}
     >
