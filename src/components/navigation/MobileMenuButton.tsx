@@ -45,9 +45,9 @@ const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuB
       aria-label="Åpne meny"
     >
       {isMenuOpen ? (
-        <X size={iconSize} color="rgb(99, 68, 28)" />
+        <X size={iconSize} style={{ color: 'rgb(99, 68, 28)' }} />
       ) : (
-        <Menu size={iconSize} color="rgb(99, 68, 28)" />
+        <Menu size={iconSize} style={{ color: 'rgb(99, 68, 28)' }} />
       )}
     </button>
   );
