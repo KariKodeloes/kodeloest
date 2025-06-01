@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import HomePageHeader from './HomePageHeader';
 import DesktopNavigation from './DesktopNavigation';
 import MobileMenu from './MobileMenu';
+import MobileMenuButton from './MobileMenuButton';
 
 interface NavigationItem {
   title: string;

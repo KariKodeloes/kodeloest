@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
 import DesktopNavigation from './DesktopNavigation';
 import SocialIcons from './SocialIcons';
 import MobileMenu from './MobileMenu';
 import KodelostLogo from './KodelostLogo';
+import MobileMenuButton from './MobileMenuButton';
 
 interface NavigationItem {
   title: string;
@@ -23,19 +23,11 @@ const SubPageNavigation = ({ menuItems }: SubPageNavigationProps) => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            {/* Mobile Menu Button with forced color */}
-            <button
-              className="md:hidden mr-2 p-1 transition-colors"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Åpne meny"
-              style={{ color: 'rgb(98, 68, 28) !important' }}
-            >
-              {isMenuOpen ? (
-                <X size={32} style={{ color: 'rgb(98, 68, 28) !important' }} />
-              ) : (
-                <Menu size={32} style={{ color: 'rgb(98, 68, 28) !important' }} />
-              )}
-            </button>
+            <MobileMenuButton 
+              isMenuOpen={isMenuOpen}
+              setIsMenuOpen={setIsMenuOpen}
+              isHomePage={false}
+            />
             <KodelostLogo />
           </div>
 
