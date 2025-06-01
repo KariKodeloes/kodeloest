@@ -24,6 +24,7 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
     
     const basePath = categoryMap[project.category] || '/';
     
+    // Always navigate to subcategory if it exists, otherwise to main category
     if (project.subcategory) {
       return `${basePath}/${project.subcategory}`;
     }
