@@ -38,17 +38,20 @@ const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuB
     );
   }
   
-  // Sub-page styling with brown color
+  // Sub-page styling with brown color - using inline styles to override any CSS conflicts
+  const brownColor = '#63441c'; // rgb(99, 68, 28) as hex
+  
   return (
     <button
       className="md:hidden mr-2 transition-colors hover:bg-gray-100 p-1 rounded"
       onClick={() => setIsMenuOpen(!isMenuOpen)}
       aria-label="Åpne meny"
+      style={{ color: brownColor }}
     >
       {isMenuOpen ? (
-        <X size={iconSize} color="rgb(99, 68, 28)" />
+        <X size={iconSize} style={{ color: brownColor }} />
       ) : (
-        <Menu size={iconSize} color="rgb(99, 68, 28)" />
+        <Menu size={iconSize} style={{ color: brownColor }} />
       )}
     </button>
   );
