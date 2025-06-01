@@ -387,7 +387,7 @@ export const mockProjects: Project[] = [
     id: '33',
     title: 'Feststemte gardiner på vift',
     subtitle: 'Jakke og skjørt',
-    description: 'I et skap hos en antikvitetshandler dukket det opp noen fargerike stofflengder. Mye brukt, men sjelden samme. Samme mønster som boksy ulljakke, men endret kragen slik at den fikk avrundede hjørner.',
+    description: 'I et skap hos en antikvitetshandler dukket noen fargerike stofflengder opp. Resultatet har jeg brukt mye, men sjelden sammen. Mønsteret er det samme som for boksy ulljakke, men jeg endret kragen slik at den fikk avrundede hjørner.',
     year: 2024,
     images: ['/lovable-uploads/1cee23b2-eb97-4ba2-a356-6440a2358329.png', '/lovable-uploads/b9448231-23ef-4992-9138-7d8eeb5f477c.png', '/lovable-uploads/a123573d-6664-4904-8ea1-cd4b761df923.png'],
     category: 'som',
