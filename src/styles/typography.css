@@ -25,7 +25,7 @@
     color: #FFFFFF !important;
   }
 
-  /* Base text colors for non-home pages, but allow hover effects */
+  /* Base text colors for non-home pages - ensuring RGB(99, 68, 28) */
   p:not(button p):not(.bg-\[--primary\] p):not([class*="bg-[#066298]"] p):not(.inline-flex p):not(.gallery-overlay p), 
   span:not(button span):not(.bg-\[--primary\] span):not([class*="bg-[#066298]"] span):not(.inline-flex span):not(.gallery-overlay span), 
   div:not(button div):not(.bg-\[--primary\] div):not([class*="bg-[#066298]"] div):not(.inline-flex div):not(.gallery-overlay div), 
@@ -35,12 +35,22 @@
 
   /* Navigation links on non-home pages - allow hover without !important */
   nav:not(.home-page-nav) a:not(button a):not(.bg-\[--primary\] a):not([class*="bg-[#066298]"] a):not(.inline-flex):not(.inline-flex a) {
-    color: rgb(99, 68, 28);
+    color: rgb(99, 68, 28) !important;
   }
 
   /* List items on non-home pages */
   li:not(button li):not(.bg-\[--primary\] li):not([class*="bg-[#066298]"] li):not(.inline-flex li) {
     color: rgb(99, 68, 28) !important;
+  }
+
+  /* Ensure all text elements use the correct color */
+  body, body * {
+    color: rgb(99, 68, 28);
+  }
+
+  /* Override for white text elements */
+  .home-page-nav, .home-page-nav * {
+    color: #FFFFFF !important;
   }
 
   /* Gallery overlay text should always be white */
