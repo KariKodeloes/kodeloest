@@ -23,9 +23,9 @@ const DesktopNavigation = ({ menuItems, isHomePage }: DesktopNavigationProps) =>
         <React.Fragment key={item.path}>
           <Link
             to={item.path}
-            className={`text-base font-medium transition-colors ${
+            className={`text-base font-medium transition-all duration-200 px-3 py-2 rounded ${
               isHomePage 
-                ? 'text-white hover:text-white' 
+                ? 'text-white hover:text-white hover:bg-[#FAE6CC]' 
                 : location.pathname === item.path
                   ? 'border-b-2 hover:text-black' 
                   : 'text-foreground hover:text-black'
