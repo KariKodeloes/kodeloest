@@ -38,20 +38,29 @@ const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuB
     );
   }
   
-  // Sub-page styling with brown color - using inline styles to override any CSS conflicts
-  const brownColor = '#63441c'; // rgb(99, 68, 28) as hex
+  // Sub-page styling with brown color and hover effects
+  const brownColor = 'rgb(99, 68, 28)';
+  const blackColor = '#000000';
   
   return (
     <button
-      className="md:hidden mr-2 transition-colors hover:bg-gray-100 p-1 rounded"
+      className="md:hidden mr-2 transition-colors p-1 rounded"
       onClick={() => setIsMenuOpen(!isMenuOpen)}
       aria-label="Åpne meny"
       style={{ color: brownColor }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.color = blackColor;
+        e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.05)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.color = brownColor;
+        e.currentTarget.style.backgroundColor = 'transparent';
+      }}
     >
       {isMenuOpen ? (
-        <X size={iconSize} style={{ color: brownColor }} />
+        <X size={iconSize} style={{ color: 'inherit' }} />
       ) : (
-        <Menu size={iconSize} style={{ color: brownColor }} />
+        <Menu size={iconSize} style={{ color: 'inherit' }} />
       )}
     </button>
   );
