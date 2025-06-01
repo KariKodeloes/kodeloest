@@ -393,6 +393,18 @@ export const mockProjects: Project[] = [
     subcategory: 'byliv',
     mainImage: '/lovable-uploads/2138495a-b513-4632-abb4-70d15c403155.png',
     likes: 0
+  },
+  {
+    id: '35',
+    title: 'Myk stripematch',
+    subtitle: 'Viscose',
+    description: 'Det er ingen hemmelighet at jeg liker striper. Og når de treffer så godt er det ekstra artig å vimse rundt i myk, hjemmesydd raglangenser. Stoffet fant jeg i en butikk i Egersund. Et av mange feriekupp :)',
+    year: 2024,
+    images: ['/lovable-uploads/569fc2ae-ec14-4402-a321-efe3af5d5214.png', '/lovable-uploads/413087af-871e-473b-babd-fb5d7cef218e.png'],
+    category: 'som',
+    subcategory: 'rett-fra-rullen',
+    mainImage: '/lovable-uploads/569fc2ae-ec14-4402-a321-efe3af5d5214.png',
+    likes: 0
   }
 ];
 
