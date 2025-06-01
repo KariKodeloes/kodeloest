@@ -7,13 +7,13 @@ const KodelostLogo = () => {
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLSpanElement>) => {
     if (location.pathname !== '/') {
-      e.currentTarget.style.color = 'rgb(0, 0, 0)';
+      e.currentTarget.style.setProperty('color', 'rgb(0, 0, 0)', 'important');
     }
   };
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLSpanElement>) => {
     if (location.pathname !== '/') {
-      e.currentTarget.style.color = 'rgb(99, 68, 28)';
+      e.currentTarget.style.setProperty('color', 'rgb(99, 68, 28)', 'important');
     }
   };
 
