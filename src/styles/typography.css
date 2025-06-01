@@ -1,6 +1,4 @@
 
-
-
 @layer base {
   h1, h2 {
     @apply font-oswald font-semibold;
@@ -27,9 +25,22 @@
     color: #FFFFFF !important;
   }
 
-  /* Override for white text elements on home page */
-  .home-page-nav, .home-page-nav *, .home-page-nav *::before, .home-page-nav *::after {
-    color: #FFFFFF !important;
+  /* Base text colors for non-home pages, but allow hover effects */
+  p:not(button p):not(.bg-\[--primary\] p):not([class*="bg-[#066298]"] p):not(.inline-flex p):not(.gallery-overlay p), 
+  span:not(button span):not(.bg-\[--primary\] span):not([class*="bg-[#066298]"] span):not(.inline-flex span):not(.gallery-overlay span), 
+  div:not(button div):not(.bg-\[--primary\] div):not([class*="bg-[#066298]"] div):not(.inline-flex div):not(.gallery-overlay div), 
+  td, th {
+    color: rgb(99, 68, 28) !important;
+  }
+
+  /* Navigation links on non-home pages - allow hover without !important */
+  nav:not(.home-page-nav) a:not(button a):not(.bg-\[--primary\] a):not([class*="bg-[#066298]"] a):not(.inline-flex):not(.inline-flex a) {
+    color: rgb(99, 68, 28);
+  }
+
+  /* List items on non-home pages */
+  li:not(button li):not(.bg-\[--primary\] li):not([class*="bg-[#066298]"] li):not(.inline-flex li) {
+    color: rgb(99, 68, 28) !important;
   }
 
   /* Gallery overlay text should always be white */
@@ -80,33 +91,3 @@
     background-color: #E68200 !important;
   }
 }
-
-/* Force all text to be RGB(99, 68, 28) unless specifically overridden above */
-html, body, body *, 
-p, span, div, h1, h2, h3, h4, h5, h6, 
-a, li, td, th, label, input, textarea,
-.container, .container *,
-main, main *,
-section, section *,
-article, article * {
-  color: rgb(99, 68, 28) !important;
-}
-
-/* Re-apply home page overrides to ensure they work */
-.home-page-nav,
-.home-page-nav *,
-.home-page-nav h1,
-.home-page-nav h2,
-.home-page-nav h3,
-.home-page-nav h4,
-.home-page-nav h5,
-.home-page-nav h6,
-.home-page-nav p,
-.home-page-nav span,
-.home-page-nav div,
-.home-page-nav a,
-.home-page-nav li {
-  color: #FFFFFF !important;
-}
-
-
