@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -345,6 +344,18 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'i-fjellet',
     mainImage: '/lovable-uploads/03a48a95-f221-4754-b54d-f40ab4d3d388.png',
+    likes: 0
+  },
+  {
+    id: '30',
+    title: 'Lumpa 2',
+    subtitle: 'Iphone 15',
+    description: 'Grafiske linjer og former i grønne, gule og grå toner i et lite tjern en høstdag. Lite bær - mye foto.',
+    year: 2024,
+    images: ['/lovable-uploads/e777e638-1922-4994-8d3e-082351568638.png'],
+    category: 'foto',
+    subcategory: 'i-fjellet',
+    mainImage: '/lovable-uploads/e777e638-1922-4994-8d3e-082351568638.png',
     likes: 0
   }
 ];
