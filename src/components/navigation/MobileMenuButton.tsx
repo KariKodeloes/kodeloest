@@ -16,7 +16,7 @@ const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuB
   
   return (
     <button
-      className="md:hidden mr-2 p-1 transition-colors"
+      className="md:hidden mr-2 transition-colors"
       onClick={() => setIsMenuOpen(!isMenuOpen)}
       aria-label="Åpne meny"
       style={{ color: iconColor }}
