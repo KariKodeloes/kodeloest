@@ -7,7 +7,7 @@ const KodelostLogo = () => {
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLSpanElement>) => {
     if (location.pathname !== '/') {
-      e.currentTarget.style.color = '#000000';
+      e.currentTarget.style.color = 'rgb(0, 0, 0)';
     }
   };
 
@@ -23,9 +23,9 @@ const KodelostLogo = () => {
       className="flex items-center"
     >
       <span 
-        className="font-oswald font-medium text-2xl transition-colors hover:text-black"
+        className="font-oswald font-medium text-2xl transition-colors"
         style={{ 
-          color: location.pathname === '/' ? '#000000' : 'rgb(99, 68, 28)'
+          color: location.pathname === '/' ? '#FFFFFF' : 'rgb(99, 68, 28)'
         }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
