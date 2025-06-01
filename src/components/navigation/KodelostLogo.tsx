@@ -20,7 +20,7 @@ const KodelostLogo = () => {
   return (
     <Link 
       to="/" 
-      className={`flex items-center ${location.pathname !== '/' ? 'hover:bg-black/5 rounded px-2 py-1 transition-all duration-200' : ''}`}
+      className="flex items-center"
     >
       <span 
         className="font-oswald font-medium text-2xl transition-colors hover:text-black"
