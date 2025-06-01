@@ -9,9 +9,10 @@ interface MobileMenuButtonProps {
 }
 
 const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuButtonProps) => {
+  const iconSize = isHomePage ? 40 : 32;
   const iconColor = isHomePage ? '#FFFFFF !important' : 'rgb(98, 68, 28) !important';
   
-  console.log('MobileMenuButton - isHomePage:', isHomePage, 'iconColor:', iconColor);
+  console.log('MobileMenuButton - isHomePage:', isHomePage, 'iconColor:', iconColor, 'iconSize:', iconSize);
   
   return (
     <button
@@ -21,9 +22,9 @@ const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuB
       style={{ color: iconColor }}
     >
       {isMenuOpen ? (
-        <X size={40} style={{ color: iconColor }} />
+        <X size={iconSize} style={{ color: iconColor }} />
       ) : (
-        <Menu size={40} style={{ color: iconColor }} />
+        <Menu size={iconSize} style={{ color: iconColor }} />
       )}
     </button>
   );
