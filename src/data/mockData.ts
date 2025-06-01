@@ -1,3 +1,4 @@
+
 export interface Project {
   id: string;
   title: string;
@@ -332,6 +333,18 @@ export const mockProjects: Project[] = [
     category: 'som',
     subcategory: 'gjenbruk',
     mainImage: '/lovable-uploads/2c4a0928-dd65-4fcd-b3d6-8df04520061e.png',
+    likes: 0
+  },
+  {
+    id: '29',
+    title: 'Lumpa 1',
+    subtitle: 'Iphone 15',
+    description: 'Høstfarger ved et tjern 3 mil sør for Trondheim.',
+    year: 2024,
+    images: ['/lovable-uploads/03a48a95-f221-4754-b54d-f40ab4d3d388.png'],
+    category: 'foto',
+    subcategory: 'i-fjellet',
+    mainImage: '/lovable-uploads/03a48a95-f221-4754-b54d-f40ab4d3d388.png',
     likes: 0
   }
 ];
