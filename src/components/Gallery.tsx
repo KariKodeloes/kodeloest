@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Project } from '../data/mockData';
@@ -50,8 +51,7 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
       'flora': 'Flora',
       'byliv': 'Byliv',
       'dyr': 'Dyr',
-      'redesign': 'Redesign',
-      'gjenbruk': 'Gjenbruk',
+      'redesign-og-gjenbruk': 'Redesign og gjenbruk',
       'rett-fra-rullen': 'Rett fra rullen',
       'tegning': 'Tegning'
     };
