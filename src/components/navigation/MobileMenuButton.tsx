@@ -16,14 +16,15 @@ const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuB
     <Button
       variant="ghost"
       size="sm"
-      className="md:hidden mr-2 p-1 text-foreground hover:text-foreground transition-colors"
+      className="md:hidden mr-2 p-1 hover:bg-accent transition-colors"
       onClick={() => setIsMenuOpen(!isMenuOpen)}
       aria-label="Åpne meny"
+      style={{ color: 'rgb(99, 68, 28)' }}
     >
       {isMenuOpen ? (
-        <X size={32} className="text-foreground" />
+        <X size={32} style={{ color: 'rgb(99, 68, 28)' }} />
       ) : (
-        <Menu size={32} className="text-foreground" />
+        <Menu size={32} style={{ color: 'rgb(99, 68, 28)' }} />
       )}
     </Button>
   );
