@@ -394,6 +394,18 @@ export const mockProjects: Project[] = [
     subcategory: 'gjenbruk',
     mainImage: '/lovable-uploads/1cee23b2-eb97-4ba2-a356-6440a2358329.png',
     likes: 0
+  },
+  {
+    id: '34',
+    title: 'Stjerneklart torg',
+    subtitle: 'Iphone 13',
+    description: 'Når det nærmer seg jul i Trondheim er sentrum vakkert lyssatt. En runde i pariserhjulet står fortsatt på to-do-lista mi.',
+    year: 2024,
+    images: ['/lovable-uploads/2138495a-b513-4632-abb4-70d15c403155.png'],
+    category: 'foto',
+    subcategory: 'byliv',
+    mainImage: '/lovable-uploads/2138495a-b513-4632-abb4-70d15c403155.png',
+    likes: 0
   }
 ];
 
