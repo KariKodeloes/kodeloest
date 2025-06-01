@@ -23,7 +23,7 @@ const KodelostLogo = () => {
       className={`flex items-center ${location.pathname !== '/' ? 'hover:bg-black/5 rounded px-2 py-1 transition-all duration-200' : ''}`}
     >
       <span 
-        className="font-oswald font-medium text-2xl transition-colors"
+        className="font-oswald font-medium text-2xl transition-colors hover:text-black"
         style={{ 
           color: location.pathname === '/' ? '#000000' : 'rgb(99, 68, 28)'
         }}
