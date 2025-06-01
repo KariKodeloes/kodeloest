@@ -24,7 +24,7 @@ const SubPageNavigation = ({ menuItems }: SubPageNavigationProps) => {
     <nav className="bg-card border-b border-border shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16 md:justify-between">
-          {/* Mobile layout - centered logo with hamburger on left */}
+          {/* Mobile layout - hamburger on left, centered logo, spacer on right */}
           <div className="flex items-center md:hidden w-full">
             <MobileMenuButton 
               isMenuOpen={isMenuOpen}
