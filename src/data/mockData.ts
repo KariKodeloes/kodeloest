@@ -405,6 +405,18 @@ export const mockProjects: Project[] = [
     subcategory: 'rett-fra-rullen',
     mainImage: '/lovable-uploads/569fc2ae-ec14-4402-a321-efe3af5d5214.png',
     likes: 0
+  },
+  {
+    id: '36',
+    title: 'Fra pledd til jakke 1',
+    subtitle: 'Burmamønster',
+    description: 'I en bunke med pledd fant jeg dette bruktfunnet som kunne fått et langt liv i sofaen min. Lysten til å teste ut et nytt mønster og på en ny jakke ble for stor.',
+    year: 2024,
+    images: ['/lovable-uploads/8cac5d4d-c1b2-41e4-8e29-e63a90ecac34.png', '/lovable-uploads/72e83a49-8288-4359-b99b-d63c3d6e3de9.png', '/lovable-uploads/6e2ca778-7186-421b-b32a-141a7efd65a3.png', '/lovable-uploads/5f933e7d-a7c3-4097-947a-ffd873953ce0.png'],
+    category: 'som',
+    subcategory: 'redesign-og-gjenbruk',
+    mainImage: '/lovable-uploads/8cac5d4d-c1b2-41e4-8e29-e63a90ecac34.png',
+    likes: 0
   }
 ];
 
