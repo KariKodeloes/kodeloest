@@ -11,6 +11,8 @@ interface MobileMenuButtonProps {
 const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuButtonProps) => {
   const iconColor = isHomePage ? '#FFFFFF !important' : 'rgb(98, 68, 28) !important';
   
+  console.log('MobileMenuButton - isHomePage:', isHomePage, 'iconColor:', iconColor);
+  
   return (
     <button
       className="md:hidden mr-2 p-1 transition-colors"

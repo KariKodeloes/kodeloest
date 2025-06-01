@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import HomePageHeader from './HomePageHeader';
 import DesktopNavigation from './DesktopNavigation';
 import MobileMenu from './MobileMenu';
-import MobileMenuButton from './MobileMenuButton';
 
 interface NavigationItem {
   title: string;
@@ -16,6 +15,8 @@ interface HomePageNavigationProps {
 
 const HomePageNavigation = ({ menuItems }: HomePageNavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  console.log('HomePageNavigation - isMenuOpen:', isMenuOpen);
 
   return (
     <nav className="bg-transparent absolute top-0 left-0 right-0 z-50 home-page-nav">

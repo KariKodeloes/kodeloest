@@ -18,6 +18,8 @@ interface SubPageNavigationProps {
 const SubPageNavigation = ({ menuItems }: SubPageNavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  console.log('SubPageNavigation - isMenuOpen:', isMenuOpen);
+
   return (
     <nav className="bg-card border-b border-border shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4">
