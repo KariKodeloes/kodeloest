@@ -21,9 +21,9 @@ const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuB
       style={{ color: iconColor }}
     >
       {isMenuOpen ? (
-        <X size={32} style={{ color: iconColor }} />
+        <X size={40} style={{ color: iconColor }} />
       ) : (
-        <Menu size={32} style={{ color: iconColor }} />
+        <Menu size={40} style={{ color: iconColor }} />
       )}
     </button>
   );
