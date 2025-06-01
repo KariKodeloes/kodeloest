@@ -16,7 +16,7 @@ const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuB
   if (isHomePage) {
     return (
       <button
-        className="md:hidden mr-2 text-white transition-colors hover:bg-black/20 p-1 rounded"
+        className="md:hidden mr-2 text-white transition-colors rounded"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label="Åpne meny"
         style={{ color: '#FFFFFF' }}
