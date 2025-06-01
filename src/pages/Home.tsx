@@ -20,7 +20,7 @@ const Home = () => {
           <div className="max-w-4xl">
             {/* Quote moved above logo with increased size and line height */}
             <blockquote className="text-3xl md:text-5xl font-oswald font-light mb-12 animate-fade-in" style={{ lineHeight: '1.5', color: '#FFFFFF' }}>
-              "Jeg liker å skape ting.<br />Noe av det kan du se her på nettsida,<br />som jeg også har laget - helt uten å kunne kode."
+              "Idéer popper opp og jeg bare må finne ut om de er mulig å gjennomføre. Jeg maler, knipser, skriver, syr og skrur. Kan jeg lage min egen hjemmeside helt uten å kunne kode?"
             </blockquote>
           </div>
         </div>
