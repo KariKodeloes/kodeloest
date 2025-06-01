@@ -25,7 +25,7 @@ const DesktopNavigation = ({ menuItems, isHomePage }: DesktopNavigationProps) =>
             to={item.path}
             className={`text-base font-medium transition-all duration-200 px-3 py-2 rounded ${
               isHomePage 
-                ? 'text-white hover:bg-[#C5B09E]' 
+                ? 'text-white hover:bg-black/20' 
                 : location.pathname === item.path
                   ? 'border-b-2 hover:text-black' 
                   : 'text-foreground hover:text-black'
