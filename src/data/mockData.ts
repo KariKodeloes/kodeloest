@@ -141,7 +141,7 @@ export const mockProjects: Project[] = [
     year: 2024,
     images: ['/lovable-uploads/270178c3-07b4-4cc5-bfce-2b2537185530.png', '/lovable-uploads/2c5ac3f3-2647-49c3-841c-ced119e9c1cc.png'],
     category: 'som',
-    subcategory: 'gjenbruk',
+    subcategory: 'redesign-og-gjenbruk',
     mainImage: '/lovable-uploads/270178c3-07b4-4cc5-bfce-2b2537185530.png',
     likes: 0
   },
@@ -236,7 +236,7 @@ export const mockProjects: Project[] = [
     year: 2024,
     images: ['/lovable-uploads/f9cb4e5a-3791-4fb8-8a98-89f9ab272f88.png', '/lovable-uploads/579a3d8f-7652-4fc8-9080-2060a08937fc.png'],
     category: 'som',
-    subcategory: 'redesign',
+    subcategory: 'redesign-og-gjenbruk',
     mainImage: '/lovable-uploads/f9cb4e5a-3791-4fb8-8a98-89f9ab272f88.png',
     likes: 0
   },
@@ -318,7 +318,7 @@ export const mockProjects: Project[] = [
     year: 2024,
     images: ['/lovable-uploads/2c4a0928-dd65-4fcd-b3d6-8df04520061e.png', '/lovable-uploads/9b5d5876-67a8-4b64-a7fa-656a7f59224d.png'],
     category: 'som',
-    subcategory: 'gjenbruk',
+    subcategory: 'redesign-og-gjenbruk',
     mainImage: '/lovable-uploads/2c4a0928-dd65-4fcd-b3d6-8df04520061e.png',
     likes: 0
   },
@@ -378,7 +378,7 @@ export const mockProjects: Project[] = [
     year: 2024,
     images: ['/lovable-uploads/1cee23b2-eb97-4ba2-a356-6440a2358329.png', '/lovable-uploads/b9448231-23ef-4992-9138-7d8eeb5f477c.png', '/lovable-uploads/a123573d-6664-4904-8ea1-cd4b761df923.png'],
     category: 'som',
-    subcategory: 'gjenbruk',
+    subcategory: 'redesign-og-gjenbruk',
     mainImage: '/lovable-uploads/1cee23b2-eb97-4ba2-a356-6440a2358329.png',
     likes: 0
   },
