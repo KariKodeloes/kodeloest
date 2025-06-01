@@ -1,5 +1,6 @@
 
 
+
 @layer base {
   h1, h2 {
     @apply font-oswald font-semibold;
@@ -24,16 +25,6 @@
   /* Mobile menu within home page */
   .home-page-nav .md\\:hidden a {
     color: #FFFFFF !important;
-  }
-
-  /* Ensure all text elements use the correct color first */
-  body {
-    color: rgb(99, 68, 28) !important;
-  }
-
-  /* All text elements should be RGB(99, 68, 28) by default */
-  *, *::before, *::after {
-    color: rgb(99, 68, 28) !important;
   }
 
   /* Override for white text elements on home page */
@@ -89,4 +80,33 @@
     background-color: #E68200 !important;
   }
 }
+
+/* Force all text to be RGB(99, 68, 28) unless specifically overridden above */
+html, body, body *, 
+p, span, div, h1, h2, h3, h4, h5, h6, 
+a, li, td, th, label, input, textarea,
+.container, .container *,
+main, main *,
+section, section *,
+article, article * {
+  color: rgb(99, 68, 28) !important;
+}
+
+/* Re-apply home page overrides to ensure they work */
+.home-page-nav,
+.home-page-nav *,
+.home-page-nav h1,
+.home-page-nav h2,
+.home-page-nav h3,
+.home-page-nav h4,
+.home-page-nav h5,
+.home-page-nav h6,
+.home-page-nav p,
+.home-page-nav span,
+.home-page-nav div,
+.home-page-nav a,
+.home-page-nav li {
+  color: #FFFFFF !important;
+}
+
 
