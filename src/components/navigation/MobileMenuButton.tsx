@@ -9,22 +9,43 @@ interface MobileMenuButtonProps {
 }
 
 const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuButtonProps) => {
-  const iconSize = isHomePage ? 44 : 32;
-  const iconColor = isHomePage ? '#FFFFFF !important' : 'rgb(98, 68, 28) !important';
+  const iconSize = isHomePage ? 32 : 32;
   
-  console.log('MobileMenuButton - isHomePage:', isHomePage, 'iconColor:', iconColor, 'iconSize:', iconSize);
+  console.log('MobileMenuButton - isHomePage:', isHomePage, 'iconSize:', iconSize);
+  
+  if (isHomePage) {
+    return (
+      <button
+        className="md:hidden mr-2 text-white transition-colors hover:bg-black/20 p-1 rounded"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        aria-label="Åpne meny"
+        style={{ color: '#FFFFFF' }}
+        onMouseEnter={(e) => {
+          (e.target as HTMLElement).style.color = '#FAE6CC';
+        }}
+        onMouseLeave={(e) => {
+          (e.target as HTMLElement).style.color = '#FFFFFF';
+        }}
+      >
+        {isMenuOpen ? (
+          <X size={iconSize} style={{ color: '#FFFFFF' }} />
+        ) : (
+          <Menu size={iconSize} style={{ color: '#FFFFFF' }} />
+        )}
+      </button>
+    );
+  }
   
   return (
     <button
-      className="md:hidden mr-2 transition-colors"
+      className="md:hidden mr-2 text-foreground transition-colors hover:text-black"
       onClick={() => setIsMenuOpen(!isMenuOpen)}
       aria-label="Åpne meny"
-      style={{ color: iconColor }}
     >
       {isMenuOpen ? (
-        <X size={iconSize} style={{ color: iconColor }} />
+        <X size={iconSize} />
       ) : (
-        <Menu size={iconSize} style={{ color: iconColor }} />
+        <Menu size={iconSize} />
       )}
     </button>
   );
