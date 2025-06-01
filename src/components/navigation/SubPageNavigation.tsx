@@ -23,23 +23,22 @@ const SubPageNavigation = ({ menuItems }: SubPageNavigationProps) => {
   return (
     <nav className="bg-card border-b border-border shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16 md:justify-between">
-          {/* Mobile layout - centered logo with hamburger on left */}
-          <div className="flex items-center md:hidden w-full">
+        <div className="flex justify-between items-center h-16">
+          {/* Mobile and Desktop layout */}
+          <div className="flex items-center">
             <MobileMenuButton 
               isMenuOpen={isMenuOpen}
               setIsMenuOpen={setIsMenuOpen}
               isHomePage={false}
             />
-            <div className="flex-1 flex justify-center">
+            {/* Desktop logo */}
+            <div className="hidden md:block">
               <KodelostLogo />
-            </div>
-            <div className="w-10"> {/* Spacer to balance the hamburger button */}
             </div>
           </div>
 
-          {/* Desktop layout */}
-          <div className="hidden md:flex items-center">
+          {/* Mobile centered logo */}
+          <div className="md:hidden absolute left-1/2 transform -translate-x-1/2">
             <KodelostLogo />
           </div>
 
