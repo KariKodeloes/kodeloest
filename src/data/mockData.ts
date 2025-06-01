@@ -1,3 +1,4 @@
+
 export interface Project {
   id: string;
   title: string;
@@ -380,6 +381,18 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'i-fjellet',
     mainImage: '/lovable-uploads/815c9c7f-8014-4f48-8886-09b45bbf1264.png',
+    likes: 0
+  },
+  {
+    id: '33',
+    title: 'Feststemte gardiner på vift',
+    subtitle: 'Jakke og skjørt',
+    description: 'I et skap hos en antikvitetshandler dukket det opp noen fargerike stofflengder. Mye brukt, men sjelden samme. Samme mønster som boksy ulljakke, men endret kragen slik at den fikk avrundede hjørner.',
+    year: 2024,
+    images: ['/lovable-uploads/1cee23b2-eb97-4ba2-a356-6440a2358329.png', '/lovable-uploads/b9448231-23ef-4992-9138-7d8eeb5f477c.png', '/lovable-uploads/a123573d-6664-4904-8ea1-cd4b761df923.png'],
+    category: 'som',
+    subcategory: 'gjenbruk',
+    mainImage: '/lovable-uploads/1cee23b2-eb97-4ba2-a356-6440a2358329.png',
     likes: 0
   }
 ];
