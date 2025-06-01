@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -180,18 +179,6 @@ export const mockProjects: Project[] = [
     subcategory: 'dyr',
     mainImage: '/lovable-uploads/9ffa0aa0-c66f-4d2b-a1ca-702993533a31.png',
     likes: 31
-  },
-  {
-    id: '10',
-    title: 'Hjort på naboøya',
-    subtitle: 'Mobilfoto - Iphone 13',
-    description: 'En liten svipptur med båt fra øya Korcula i Kroatia fikk vi nærkontakt med disse. De var vant til folk og lurte veldig på hva vi hadde i veskene våre. "Ikke mat dyrene!" holdt nok ikke i møte med disse dådyrøynene.',
-    year: 2024,
-    images: ['/lovable-uploads/07a06f19-03fd-4d01-be84-08e76e2c155e.png'],
-    category: 'foto',
-    subcategory: 'dyr',
-    mainImage: '/lovable-uploads/07a06f19-03fd-4d01-be84-08e76e2c155e.png',
-    likes: 5
   },
   {
     id: '11',
