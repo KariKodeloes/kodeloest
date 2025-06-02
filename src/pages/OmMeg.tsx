@@ -59,6 +59,12 @@ const OmMeg = () => {
                 <p className="text-foreground text-base leading-relaxed mb-4">
                   Hva det neste dypdykk blir er ikke godt å si. Jeg tror fortsatt ikke det blir koding. Hjemmesiden min er oppe og går helt for egen hånd og hode.
                 </p>
+              </div>
+            </div>
+
+            {/* Full-width text that aligns with image left edge on desktop */}
+            <div className="mt-6 md:mt-8">
+              <div className="md:ml-[calc(33.333333%+2rem)]">
                 <p className="text-foreground text-base leading-relaxed mb-4">
                   Jeg tror jeg var 10 år før vi fikk fasttelefon. Det var venteliste og syndig dyrt å ringe. På den tida skulle barn sees og helst ikke høres. Å komme for sent var også uhørt. Jeg blir fortsatt stresset bare ved tanken.
                 </p>
