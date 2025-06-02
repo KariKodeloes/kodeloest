@@ -105,6 +105,11 @@
     color: rgb(99, 68, 28) !important;
   }
 
+  /* TextCard title specific styling - override all other rules */
+  .text-card-title {
+    color: #FFFFFF !important;
+  }
+
   /* Home page specific styling - more specific selectors */
   .home-page-nav h1 {
     color: #FFFFFF !important;
