@@ -47,13 +47,26 @@ const OmMeg = () => {
                   Kodeløse Kari
                 </h3>
                 <p className="text-foreground text-base leading-relaxed mb-4">
-                  Kreativitet har alltid vært en stor del av livet mitt. Fra jeg var liten har jeg elsket å skape noe med hendene mine - enten det er å male, tegne, sy eller bare eksperimentere med nye teknikker og materialer.
+                  Jeg tror jeg var 10 år før vi fikk fasttelefon. Det var venteliste og syndig dyrt å ringe. Barn skulle sees og helst ikke høres i utide.
                 </p>
                 <p className="text-foreground text-base leading-relaxed mb-4">
-                  I dag driver jeg med alt fra akvarellmaleri og fotografi til søm og design. Jeg liker å utforske forskjellige uttrykksformer og finne nye måter å fortelle historier på gjennom kunsten min.
+                  Veien fram til jobben som UX-designer har gått via fagbrev som typograf, sertifisering som idéastronaut, fag på NTNU og BI og konsulent i grafisk bransje. I 2012 tok jeg spranget over til IT og Kantega.
+                </p>
+                <p className="text-foreground text-base leading-relaxed mb-4">
+                  Jeg har alltid vært nysgjerrig.
+                </p>
+                <ul className="text-foreground text-base leading-relaxed mb-4 list-disc list-inside">
+                  <li>Klarer jeg å sy min egen festdrakt?</li>
+                  <li>Hva kan en hjemmesnekra sengegavl bygges av?</li>
+                  <li>Hvordan maler jeg en stooor akvarell?</li>
+                  <li>Hvor vanskelig er det å skrive en bok?</li>
+                  <li>Kan jeg lage en nettside uten å skrive en eneste kodelinje?</li>
+                </ul>
+                <p className="text-foreground text-base leading-relaxed mb-4">
+                  Hva det neste spørsmålet blir er ikke godt å si.
                 </p>
                 <p className="text-foreground text-base leading-relaxed">
-                  På denne nettsiden deler jeg noen av prosjektene mine og håper du finner inspirasjon til dine egne kreative eventyr!
+                  Å komme for sent misliker jeg sterkt og forsover meg aldri. I novellen «Teppefall» tar jeg deg med til en førjulsmorgen midt på 70-tallet. Jeg er 8 år og skal ut å fly.
                 </p>
               </div>
             </div>
