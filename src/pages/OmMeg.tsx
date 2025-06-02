@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import TextCard from '@/components/TextCard';
 
 const OmMeg = () => {
@@ -150,44 +149,6 @@ const OmMeg = () => {
                 Det gikk ennå 5 år før vi fikk installert egen telefon.
               </p>
             </TextCard>
-          </div>
-
-          {/* Contact Information */}
-          <div className="bg-card border border-border rounded-lg p-8 shadow-sm">
-            <h2 className="text-2xl font-quicksand font-semibold mb-6 text-foreground">
-              Ta kontakt
-            </h2>
-            <p className="text-foreground text-base leading-relaxed mb-6">
-              Har du spørsmål om prosjektene mine, eller vil du bare si hei? Du kan følge meg og ta kontakt via sosiale medier!
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              {/* LinkedIn */}
-              <Button asChild>
-                <a
-                  href="https://www.linkedin.com/in/kari-walle-mikkelsen-0b199516/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3"
-                >
-                  <span className="material-icon">work</span>
-                  Følg meg på LinkedIn
-                </a>
-              </Button>
-              
-              {/* Instagram */}
-              <Button asChild>
-                <a
-                  href="https://instagram.com/karis_pensel"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3"
-                >
-                  <span className="material-icon">photo_camera</span>
-                  Følg meg på Instagram
-                </a>
-              </Button>
-            </div>
           </div>
         </div>
       </div>
