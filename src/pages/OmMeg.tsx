@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 
@@ -41,7 +42,7 @@ const OmMeg = () => {
 
               {/* Content - 2/3 width on desktop */}
               <div className="md:w-2/3">
-                <h3 className="text-2xl font-quicksand font-semibold mb-4 text-foreground" style={{ fontSize: '1.5rem' }}>
+                <h3 className="font-oswald font-normal mb-4 text-foreground" style={{ fontSize: '1.5rem' }}>
                   Kodeløse Kari
                 </h3>
                 <p className="text-foreground text-base leading-relaxed mb-4">
