@@ -31,17 +31,28 @@ const MediaDisplay: React.FC<MediaDisplayProps> = ({
     }
   };
 
+  const handleContextMenu = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent right-click context menu
+  };
+
+  const handleDragStart = (e: React.DragEvent) => {
+    e.preventDefault(); // Prevent drag and drop
+  };
+
   if (isVideo) {
     return (
       <video
         src={src}
         className={`${className} ${onClick ? 'cursor-pointer' : ''}`}
         onClick={handleClick}
+        onContextMenu={handleContextMenu}
+        onDragStart={handleDragStart}
         controls={controls}
         autoPlay={autoPlay}
         muted={muted}
         loop={loop}
         preload="metadata"
+        style={{ userSelect: 'none' }}
       >
         <source src={src} />
         Din nettleser støtter ikke video-elementet.
@@ -55,7 +66,11 @@ const MediaDisplay: React.FC<MediaDisplayProps> = ({
       alt={alt}
       className={`${className} ${onClick ? 'cursor-pointer' : ''}`}
       onClick={handleClick}
+      onContextMenu={handleContextMenu}
+      onDragStart={handleDragStart}
       loading="lazy"
+      style={{ userSelect: 'none' }}
+      draggable={false}
     />
   );
 };
