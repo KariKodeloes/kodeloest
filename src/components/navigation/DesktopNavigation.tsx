@@ -17,6 +17,13 @@ const DesktopNavigation = ({ menuItems, isHomePage }: DesktopNavigationProps) =>
 
   console.log('DesktopNavigation render - isHomePage:', isHomePage, 'current path:', location.pathname);
 
+  const isCurrentPath = (itemPath: string) => {
+    if (itemPath === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname === itemPath || location.pathname.startsWith(itemPath + '/');
+  };
+
   return (
     <div className={`hidden md:flex items-center space-x-4 ${isHomePage ? 'mx-auto' : ''}`}>
       {menuItems.slice(1).map((item, index) => (
@@ -26,22 +33,22 @@ const DesktopNavigation = ({ menuItems, isHomePage }: DesktopNavigationProps) =>
             className={`text-base font-medium transition-all duration-200 px-3 py-2 rounded ${
               isHomePage 
                 ? 'text-white hover:bg-black/20' 
-                : location.pathname === item.path
+                : isCurrentPath(item.path)
                   ? 'border-b-2 hover:text-black' 
                   : 'text-foreground hover:text-black'
             }`}
             style={
               isHomePage
                 ? { color: '#FFFFFF' }
-                : !isHomePage && location.pathname === item.path
+                : !isHomePage && isCurrentPath(item.path)
                   ? { color: '#E68200', borderColor: '#E68200' }
                   : {}
             }
             onMouseEnter={(e) => {
-              console.log('Mouse enter on:', item.title, 'isHomePage:', isHomePage, 'isCurrentPath:', location.pathname === item.path);
+              console.log('Mouse enter on:', item.title, 'isHomePage:', isHomePage, 'isCurrentPath:', isCurrentPath(item.path));
               if (isHomePage) {
                 (e.target as HTMLElement).style.color = '#FAE6CC';
-              } else if (location.pathname !== item.path) {
+              } else if (!isCurrentPath(item.path)) {
                 (e.target as HTMLElement).style.color = '#000000';
               }
             }}
@@ -49,7 +56,7 @@ const DesktopNavigation = ({ menuItems, isHomePage }: DesktopNavigationProps) =>
               console.log('Mouse leave on:', item.title);
               if (isHomePage) {
                 (e.target as HTMLElement).style.color = '#FFFFFF';
-              } else if (location.pathname !== item.path) {
+              } else if (!isCurrentPath(item.path)) {
                 (e.target as HTMLElement).style.color = '';
               }
             }}
