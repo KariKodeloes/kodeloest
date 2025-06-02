@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import TextCard from '@/components/TextCard';
@@ -46,9 +47,6 @@ const OmMeg = () => {
                   Kodeløse Kari
                 </h3>
                 <p className="text-foreground text-base leading-relaxed mb-4">
-                  Jeg tror jeg var 10 år før vi fikk fasttelefon. Det var venteliste og syndig dyrt å ringe. Barn skulle sees og helst ikke høres i utide.
-                </p>
-                <p className="text-foreground text-base leading-relaxed mb-4">
                   Jeg har alltid vært nysgjerrig.
                 </p>
                 <ul className="text-foreground text-base leading-relaxed mb-4 list-disc list-inside">
@@ -59,10 +57,13 @@ const OmMeg = () => {
                   <li>Kan jeg lage en nettside uten å skrive en eneste kodelinje?</li>
                 </ul>
                 <p className="text-foreground text-base leading-relaxed mb-4">
-                  Hva det neste spørsmålet blir er ikke godt å si.
+                  Hva det neste dypdykk blir er ikke godt å si. Jeg tror fortsatt ikke det blir koding. Hjemmesiden min er oppe og går helt for egen hånd og hode.
+                </p>
+                <p className="text-foreground text-base leading-relaxed mb-4">
+                  Jeg tror jeg var 10 år før vi fikk fasttelefon. Det var venteliste og syndig dyrt å ringe. På den tida skulle barn sees og helst ikke høres. Å komme for sent var også uhørt. Jeg blir fortsatt stresset bare ved tanken.
                 </p>
                 <p className="text-foreground text-base leading-relaxed">
-                  Å komme for sent misliker jeg sterkt og forsover meg aldri. I novellen «Teppefall» tar jeg deg med til en førjulsmorgen midt på 70-tallet. Jeg er 8 år og skal ut å fly.
+                  I novellen «Teppefall» tar jeg deg med til en førjulsmorgen midt på 70-tallet. Jeg er 8 år og skal ut å fly.
                 </p>
               </div>
             </div>
