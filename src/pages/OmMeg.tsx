@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import TextCard from '@/components/TextCard';
@@ -63,15 +62,13 @@ const OmMeg = () => {
             </div>
 
             {/* Full-width text that aligns with image left edge on desktop */}
-            <div className="mt-6 md:mt-8">
-              <div className="md:ml-[calc(33.333333%+2rem)]">
-                <p className="text-foreground text-base leading-relaxed mb-4">
-                  Jeg tror jeg var 10 år før vi fikk fasttelefon. Det var venteliste og syndig dyrt å ringe. På den tida skulle barn sees og helst ikke høres. Å komme for sent var også uhørt. Jeg blir fortsatt stresset bare ved tanken.
-                </p>
-                <p className="text-foreground text-base leading-relaxed">
-                  I novellen «Teppefall» tar jeg deg med til en førjulsmorgen midt på 70-tallet. Jeg er 8 år og skal ut å fly.
-                </p>
-              </div>
+            <div className="md:ml-[calc(33.333333%+2rem)]">
+              <p className="text-foreground text-base leading-relaxed mb-4">
+                Jeg tror jeg var 10 år før vi fikk fasttelefon. Det var venteliste og syndig dyrt å ringe. På den tida skulle barn sees og helst ikke høres. Å komme for sent var også uhørt. Jeg blir fortsatt stresset bare ved tanken.
+              </p>
+              <p className="text-foreground text-base leading-relaxed">
+                I novellen «Teppefall» tar jeg deg med til en førjulsmorgen midt på 70-tallet. Jeg er 8 år og skal ut å fly.
+              </p>
             </div>
           </div>
 
