@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 
@@ -8,17 +7,10 @@ const OmMeg = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-quicksand font-bold mb-4 text-foreground">
+          <div className="text-left mb-12">
+            <h1 className="text-2xl font-quicksand font-bold mb-4 text-foreground">
               Om meg
             </h1>
-            <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary">
-              <img
-                src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=400&h=400&fit=crop&crop=face"
-                alt="Kari"
-                className="w-full h-full object-cover"
-              />
-            </div>
           </div>
 
           {/* Introduction with image */}
