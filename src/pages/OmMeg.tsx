@@ -41,9 +41,9 @@ const OmMeg = () => {
 
               {/* Content - 2/3 width on desktop */}
               <div className="md:w-2/3">
-                <h2 className="text-2xl font-quicksand font-semibold mb-4 text-foreground">
+                <h3 className="text-2xl font-quicksand font-semibold mb-4 text-foreground" style={{ fontSize: '1.5rem' }}>
                   Kodeløse Kari
-                </h2>
+                </h3>
                 <p className="text-foreground text-base leading-relaxed mb-4">
                   Kreativitet har alltid vært en stor del av livet mitt. Fra jeg var liten har jeg elsket å skape noe med hendene mine - enten det er å male, tegne, sy eller bare eksperimentere med nye teknikker og materialer.
                 </p>
