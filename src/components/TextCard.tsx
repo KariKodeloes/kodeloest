@@ -17,8 +17,8 @@ const TextCard: React.FC<TextCardProps> = ({ title, children }) => {
         style={{ backgroundColor: 'rgb(99, 68, 28)' }}
       >
         <h2 
-          className="text-2xl font-quicksand font-semibold" 
-          style={{ color: 'rgb(255, 255, 255)' }}
+          className="text-2xl font-oswald font-light"
+          style={{ color: '#FFFFFF' }}
         >
           {title}
         </h2>
