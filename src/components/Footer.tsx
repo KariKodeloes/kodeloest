@@ -14,7 +14,7 @@ const Footer = () => {
     >
       <div className="container mx-auto px-4">
         <div className="text-center">
-          <p className="text-sm md:text-base leading-relaxed">
+          <p className="text-white font-roboto leading-relaxed" style={{ fontSize: '1rem' }}>
             © Kari Walle Mikkelsen 2025. Alle bilder og kunstverk på denne siden er beskyttet av åndsverkloven og kan ikke brukes uten skriftlig tillatelse.
           </p>
         </div>
