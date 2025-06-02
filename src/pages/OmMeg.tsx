@@ -1,6 +1,7 @@
 
 import React from 'react';
 import TextCard from '@/components/TextCard';
+import MediaDisplay from '@/components/MediaDisplay';
 
 const OmMeg = () => {
   return (
@@ -19,7 +20,7 @@ const OmMeg = () => {
             {/* Mobile layout - image above title */}
             <div className="block md:hidden mb-6">
               <div className="w-48 h-48 rounded-lg overflow-hidden">
-                <img
+                <MediaDisplay
                   src="/lovable-uploads/62a48b0c-30ef-4e00-a36c-4149de722c19.png"
                   alt="Kodeløse Kari"
                   className="w-full h-full object-cover"
@@ -32,7 +33,7 @@ const OmMeg = () => {
               {/* Image - 1/3 width on desktop, hidden on mobile */}
               <div className="hidden md:block md:w-1/3 md:flex-shrink-0">
                 <div className="aspect-square rounded-lg overflow-hidden">
-                  <img
+                  <MediaDisplay
                     src="/lovable-uploads/62a48b0c-30ef-4e00-a36c-4149de722c19.png"
                     alt="Kodeløse Kari"
                     className="w-full h-full object-cover"
