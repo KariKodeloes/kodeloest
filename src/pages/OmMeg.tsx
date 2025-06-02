@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import TextCard from '@/components/TextCard';
@@ -60,7 +61,7 @@ const OmMeg = () => {
 
           {/* Childhood Story using new TextCard component */}
           <div className="mb-8">
-            <TextCard title="En historie fra barndommen">
+            <TextCard title="Teppefall">
               <p className="text-foreground text-base leading-relaxed mb-4">
                 Jeg var syv år gammel da jeg oppdaget den magiske verden av farger og pensler. Det var en grå, regnfull søndag i oktober, og jeg kjedet meg forferdelig. Mamma hadde akkurat kjøpt et lite akvarellsett til meg, men jeg hadde ikke tenkt så mye over det før den dagen.
               </p>
