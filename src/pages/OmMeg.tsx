@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import TextCard from '@/components/TextCard';
@@ -9,7 +8,7 @@ const OmMeg = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-left mb-12">
+          <div className="text-left mb-4">
             <h2 className="text-[28px] font-quicksand font-bold mb-4 text-foreground">
               Om meg
             </h2>
