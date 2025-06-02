@@ -62,6 +62,9 @@ const OmMeg = () => {
           {/* Childhood Story using new TextCard component */}
           <div className="mb-8">
             <TextCard title="Teppefall">
+              <p className="text-muted-foreground text-sm mb-4 italic">
+                Publisert 2021 i antologien "Julemirakler"
+              </p>
               <p className="text-foreground text-base leading-relaxed mb-4">
                 Det var så stille. Hjertet mitt hamret i mørket. 
                 «Mammmmmaaaaa – hvor mye er klokka?!».
@@ -100,7 +103,7 @@ const OmMeg = () => {
                 Regelen var at annenhver jul ble feiret sørpå. I Tønsberg ventet to sett med besteforeldre og en haug med slektninger. Der ventet også – og vel så viktig for oss barna – en haug med julegaver. Våre bidrag var for lengst pakket inn og ned. Midt på gulvet i stua, mellom reoler av malte ølkasser og den psykedelisk omtrukne sofaen, lå skaikoffertene våre. Vidåpne og gapende som store munner, klare til å bli smekket igjen så snart toalettsakene var fortært. Fliker av gavepapir tøyt ut mellom finklær og var stuas eneste synlige tegn på at jula var nært forestående.
               </p>
               <p className="text-foreground text-base leading-relaxed mb-4">
-                Vi hadde vært klare til å dra i lang tid. Billettene var kjøpt i våres. Avgangen var den siste sørover på denne siden av nyttår. Klokka 06:30 skulle flyet ta av. Innsjekkingen var i ferd med å stenge nede på flyplassen. Kanskje ble vi ropt opp med kontant Finnmarksdialet i selvsamme øyeblikk:
+                Vi hadde vært klare til å dra i lang tid. Billettene var kjøpt i våres. Avgangen var den siste sørover på denne siden av nyttår. Klokka 06:30 skulle flyet ta av. Innsjekkingen var i ferd med å stenge nede på flyplassen. Kanskje ble vi ropt opp med kontant Finnmarks dialekt i selvsamme øyeblikk.
               </p>
               <p className="text-foreground text-base leading-relaxed mb-4">
                 «Kan familien Mikkelsen hut sæi til utgang nummer 3! Nu stenge vi».
