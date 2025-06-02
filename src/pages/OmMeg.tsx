@@ -21,20 +21,48 @@ const OmMeg = () => {
             </div>
           </div>
 
-          {/* Introduction */}
+          {/* Introduction with image */}
           <div className="bg-card border border-border rounded-lg p-8 mb-8 shadow-sm">
-            <h2 className="text-2xl font-quicksand font-semibold mb-4 text-foreground">
-              Hei, jeg er Kari!
-            </h2>
-            <p className="text-foreground text-base leading-relaxed mb-4">
-              Kreativitet har alltid vært en stor del av livet mitt. Fra jeg var liten har jeg elsket å skape noe med hendene mine - enten det er å male, tegne, sy eller bare eksperimentere med nye teknikker og materialer.
-            </p>
-            <p className="text-foreground text-base leading-relaxed mb-4">
-              I dag driver jeg med alt fra akvarellmaleri og fotografi til søm og design. Jeg liker å utforske forskjellige uttrykksformer og finne nye måter å fortelle historier på gjennom kunsten min.
-            </p>
-            <p className="text-foreground text-base leading-relaxed">
-              På denne nettsiden deler jeg noen av prosjektene mine og håper du finner inspirasjon til dine egne kreative eventyr!
-            </p>
+            {/* Mobile layout - image above title */}
+            <div className="block md:hidden mb-6">
+              <div className="w-48 h-48 mx-auto rounded-lg overflow-hidden">
+                <img
+                  src="/lovable-uploads/62a48b0c-30ef-4e00-a36c-4149de722c19.png"
+                  alt="Kodeløse Kari"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Desktop layout - image and content side by side */}
+            <div className="md:flex md:gap-8">
+              {/* Image - 1/3 width on desktop, hidden on mobile */}
+              <div className="hidden md:block md:w-1/3 md:flex-shrink-0">
+                <div className="aspect-square rounded-lg overflow-hidden">
+                  <img
+                    src="/lovable-uploads/62a48b0c-30ef-4e00-a36c-4149de722c19.png"
+                    alt="Kodeløse Kari"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Content - 2/3 width on desktop */}
+              <div className="md:w-2/3">
+                <h2 className="text-2xl font-quicksand font-semibold mb-4 text-foreground">
+                  Kodeløse Kari
+                </h2>
+                <p className="text-foreground text-base leading-relaxed mb-4">
+                  Kreativitet har alltid vært en stor del av livet mitt. Fra jeg var liten har jeg elsket å skape noe med hendene mine - enten det er å male, tegne, sy eller bare eksperimentere med nye teknikker og materialer.
+                </p>
+                <p className="text-foreground text-base leading-relaxed mb-4">
+                  I dag driver jeg med alt fra akvarellmaleri og fotografi til søm og design. Jeg liker å utforske forskjellige uttrykksformer og finne nye måter å fortelle historier på gjennom kunsten min.
+                </p>
+                <p className="text-foreground text-base leading-relaxed">
+                  På denne nettsiden deler jeg noen av prosjektene mine og håper du finner inspirasjon til dine egne kreative eventyr!
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Childhood Story */}
