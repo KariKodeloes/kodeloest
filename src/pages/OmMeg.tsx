@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import TextCard from '@/components/TextCard';
@@ -48,9 +47,6 @@ const OmMeg = () => {
                 </h3>
                 <p className="text-foreground text-base leading-relaxed mb-4">
                   Jeg tror jeg var 10 år før vi fikk fasttelefon. Det var venteliste og syndig dyrt å ringe. Barn skulle sees og helst ikke høres i utide.
-                </p>
-                <p className="text-foreground text-base leading-relaxed mb-4">
-                  Veien fram til jobben som UX-designer har gått via fagbrev som typograf, sertifisering som idéastronaut, fag på NTNU og BI og konsulent i grafisk bransje. I 2012 tok jeg spranget over til IT og Kantega.
                 </p>
                 <p className="text-foreground text-base leading-relaxed mb-4">
                   Jeg har alltid vært nysgjerrig.
