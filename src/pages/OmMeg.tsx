@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import TextCard from '@/components/TextCard';
 
 const OmMeg = () => {
   return (
@@ -9,9 +9,9 @@ const OmMeg = () => {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-left mb-12">
-            <h1 className="text-2xl font-quicksand font-bold mb-4 text-foreground">
+            <h2 className="text-[28px] font-quicksand font-bold mb-4 text-foreground">
               Om meg
-            </h1>
+            </h2>
           </div>
 
           {/* Introduction with image */}
@@ -58,12 +58,9 @@ const OmMeg = () => {
             </div>
           </div>
 
-          {/* Childhood Story */}
-          <div className="bg-card border border-border rounded-lg p-8 mb-8 shadow-sm">
-            <h2 className="text-2xl font-quicksand font-semibold mb-6 text-foreground">
-              En historie fra barndommen
-            </h2>
-            <div className="prose prose-stone dark:prose-invert max-w-none">
+          {/* Childhood Story using new TextCard component */}
+          <div className="mb-8">
+            <TextCard title="En historie fra barndommen">
               <p className="text-foreground text-base leading-relaxed mb-4">
                 Jeg var syv år gammel da jeg oppdaget den magiske verden av farger og pensler. Det var en grå, regnfull søndag i oktober, og jeg kjedet meg forferdelig. Mamma hadde akkurat kjøpt et lite akvarellsett til meg, men jeg hadde ikke tenkt så mye over det før den dagen.
               </p>
@@ -79,7 +76,7 @@ const OmMeg = () => {
               <p className="text-foreground text-base leading-relaxed">
                 I dag, mange år senere, husker jeg fortsatt følelsen av det første penseldragget på det våte papiret. Det er den samme følelsen jeg jakter på i alt jeg skaper - den magiske øyeblikket når noe nytt og uventet blir til.
               </p>
-            </div>
+            </TextCard>
           </div>
 
           {/* Contact Information */}
