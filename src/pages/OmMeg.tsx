@@ -19,7 +19,7 @@ const OmMeg = () => {
           <div className="bg-card border border-border rounded-lg p-8 mb-8 shadow-sm">
             {/* Mobile layout - image above title */}
             <div className="block md:hidden mb-6">
-              <div className="w-48 h-48 mx-auto rounded-lg overflow-hidden">
+              <div className="w-48 h-48 rounded-lg overflow-hidden">
                 <img
                   src="/lovable-uploads/62a48b0c-30ef-4e00-a36c-4149de722c19.png"
                   alt="Kodeløse Kari"
