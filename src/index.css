@@ -132,10 +132,19 @@
     color: rgb(99, 68, 28) !important;
   }
 
+  /* Footer text should always be white */
+  footer,
+  footer *,
+  footer p,
+  footer span,
+  footer div {
+    color: rgb(255, 255, 255) !important;
+  }
+
   /* Base text colors for non-home pages, but allow hover effects */
-  p:not(button p):not(.bg-\[--primary\] p):not([class*="bg-[#066298]"] p):not(.inline-flex p):not(.gallery-overlay p), 
-  span:not(button span):not(.bg-\[--primary\] span):not([class*="bg-[#066298]"] span):not(.inline-flex span):not(.gallery-overlay span), 
-  div:not(button div):not(.bg-\[--primary\] div):not([class*="bg-[#066298]"] div):not(.inline-flex div):not(.gallery-overlay div), 
+  p:not(button p):not(.bg-\[--primary\] p):not([class*="bg-[#066298]"] p):not(.inline-flex p):not(.gallery-overlay p):not(footer p), 
+  span:not(button span):not(.bg-\[--primary\] span):not([class*="bg-[#066298]"] span):not(.inline-flex span):not(.gallery-overlay span):not(footer span), 
+  div:not(button div):not(.bg-\[--primary\] div):not([class*="bg-[#066298]"] div):not(.inline-flex div):not(.gallery-overlay div):not(footer div), 
   td, th {
     color: rgb(99, 68, 28) !important;
   }
