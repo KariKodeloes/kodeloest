@@ -7,6 +7,8 @@ interface TextCardProps {
 }
 
 const TextCard: React.FC<TextCardProps> = ({ title, children }) => {
+  console.log('TextCard rendered with title:', title);
+  
   return (
     <div className="rounded-lg shadow-sm overflow-hidden" style={{ backgroundColor: '#FEF7EE' }}>
       {/* Title bar */}
