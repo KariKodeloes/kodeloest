@@ -220,7 +220,7 @@ export const mockProjects: Project[] = [
     id: '14',
     title: 'Albuskjell på Haversand',
     subtitle: 'Mobilfoto - Iphone 15',
-    description: 'Når jeg kunne vasse rundt i 20 graders vann i Lofoten og knipse i vei på en av de vakreste strendene. Store Molla altså <3',
+    description: 'Når jeg kunne vasse rundt i 20 graders vann i Lofoten og knipse i vei på en av de vakreste strendene. Visste du forresten at de egentlig er snegler og ikke skjell? Store Molla altså <3',
     year: 2024,
     images: ['/lovable-uploads/fa777469-8049-4193-a37a-bf39f2285185.png'],
     category: 'foto',
