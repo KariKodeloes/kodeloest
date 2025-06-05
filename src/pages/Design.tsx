@@ -6,7 +6,7 @@ import { getProjectsByCategory } from '../data/mockData';
 const Design = () => {
   const projects = getProjectsByCategory('design');
 
-  const bodyText = "Her viser jeg designprosjekter som spenner fra grafisk design til tryksaker og branding. Jeg liker å lage funksjonelle og estetiske løsninger for ulike formål. Alle design og øvrig innhold er opphavsrettslig beskyttet.";
+  const bodyText = "Hva er design? Og hvor ble det av boka med arbeidsprøver? Før var design for meg å lage en logo, lage årsrapporter, finne en vinkling og en rød tråd: Få ut budskapet på trykk og nå målgruppa. Siden 2012 har det stort sett handlet om å lage gode løsninger for brukere i rollen som UX-designer i Kantega. Noen private prosjekter blir det likevel tid til.";
 
   return (
     <CategoryPage
