@@ -440,6 +440,18 @@ export const mockProjects: Project[] = [
     subcategory: 'redesign-og-gjenbruk',
     mainImage: '/lovable-uploads/72e83a49-8288-4359-b99b-d63c3d6e3de9.png',
     likes: 0
+  },
+  {
+    id: '39',
+    title: 'Rød valmue',
+    subtitle: 'Akvarell, 300 gr bomull - 34x54 cm',
+    description: 'Dette lå lenge i bunken "mislykka", men ga det en ny sjanse. Etter runder med svam og ny maling klarte jeg endelig si "ferdig". Glad jeg ikke ga det opp.',
+    year: 2024,
+    images: ['/lovable-uploads/7b2a7d77-6996-4d82-a52d-68b801d8c3f9.png'],
+    category: 'bilder',
+    subcategory: 'akvareller',
+    mainImage: '/lovable-uploads/7b2a7d77-6996-4d82-a52d-68b801d8c3f9.png',
+    likes: 0
   }
 ];
 
