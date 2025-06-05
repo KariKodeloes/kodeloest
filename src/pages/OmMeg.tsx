@@ -57,7 +57,7 @@ const OmMeg = () => {
                   <li>Kan jeg lage en nettside uten å skrive en eneste kodelinje?</li>
                 </ul>
                 <p className="text-foreground text-base leading-relaxed mb-4">
-                  Hva det neste dypdykk blir er ikke godt å si. Jeg tror fortsatt ikke det blir koding. Hjemmesiden min er oppe og går helt for egen hånd og hode.
+                  Hva neste dypdykk blir er ikke godt å si. Jeg tror fortsatt ikke det blir koding. Hjemmesiden min er oppe og går helt for egen hånd og hode.
                 </p>
               </div>
             </div>
