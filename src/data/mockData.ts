@@ -98,6 +98,17 @@ export const mockProjects: Project[] = [
     likes: 0
   },
   {
+    id: '38',
+    title: 'Julemarked 2024',
+    subtitle: 'Akvarell, Photoshop og Figma',
+    description: 'Drifitge damer gikk sammen og laget julemarked i ei gate på Lademoen. Salget gikk bra og kaféen myldra av folk. Inntektene fra loddsalget gikk til "Leger uten grenser".',
+    year: 2024,
+    images: ['/lovable-uploads/6235d691-91a8-46b5-b378-255395274627.png', '/lovable-uploads/5b88cc89-bdd6-4746-841b-dd46e9e09f7c.png'],
+    category: 'design',
+    mainImage: '/lovable-uploads/6235d691-91a8-46b5-b378-255395274627.png',
+    likes: 0
+  },
+  {
     id: '3',
     title: 'Øyenstikker',
     subtitle: 'Monoprint akryl og akvarell, 300 gr bomull',
