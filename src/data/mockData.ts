@@ -1,3 +1,4 @@
+
 export interface Project {
   id: string;
   title: string;
@@ -451,6 +452,18 @@ export const mockProjects: Project[] = [
     category: 'bilder',
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/7b2a7d77-6996-4d82-a52d-68b801d8c3f9.png',
+    likes: 0
+  },
+  {
+    id: '40',
+    title: 'Katt og jul',
+    subtitle: 'Akvarell, 300 gr bomull - 10,5 x 10,5 cm',
+    description: 'Hva er mer naturlig for "crazy catlady" enn å bruke pus til motiver på julekort. Disse forsvant fort på julemarkedet. Flere som liker pus.',
+    year: 2024,
+    images: ['/lovable-uploads/c32a1b01-6fc1-47b2-bb10-8ef599f1728c.png', '/lovable-uploads/a55ed4d4-eea2-4fa1-b81a-7584c2c20750.png', '/lovable-uploads/86dd3aa2-d33f-42c8-91d2-2a2d358ed726.png'],
+    category: 'bilder',
+    subcategory: 'akvareller',
+    mainImage: '/lovable-uploads/c32a1b01-6fc1-47b2-bb10-8ef599f1728c.png',
     likes: 0
   }
 ];
