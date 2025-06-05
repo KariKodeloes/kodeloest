@@ -86,6 +86,18 @@ export const mockProjects: Project[] = [
     likes: 0
   },
   {
+    id: '37',
+    title: 'Rallsjå, Saltstraumen',
+    subtitle: 'Monoprint akryl og akvarell, 240 gr bomull, A4',
+    description: 'Utsikten dette falleferdige huset har: Rett mot spektakulære Saltstraumen og busslaster med turistene som kommer for å se tidevannet snu.',
+    year: 2024,
+    images: ['/lovable-uploads/f847c50d-aca0-4371-ad50-df9edeb2fa85.png'],
+    category: 'bilder',
+    subcategory: 'mixed-media',
+    mainImage: '/lovable-uploads/f847c50d-aca0-4371-ad50-df9edeb2fa85.png',
+    likes: 0
+  },
+  {
     id: '3',
     title: 'Øyenstikker',
     subtitle: 'Monoprint akryl og akvarell, 300 gr bomull',
