@@ -20,7 +20,7 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, menuItems, isHomePage }: Mobile
   if (!isMenuOpen) return null;
 
   return (
-    <div className={`md:hidden absolute left-0 right-0 z-[100] ${isHomePage ? 'top-20 border-white/20 bg-black/80 backdrop-blur-sm' : 'top-16 border-border bg-white'} border-t shadow-lg`}>
+    <div className={`md:hidden absolute left-0 right-0 z-[100] ${isHomePage ? 'top-20 bg-black/80 backdrop-blur-sm' : 'top-16 bg-white'} shadow-lg`}>
       <div className="px-2 py-2 space-y-1">
         {menuItems.slice(1).map((item) => (
           <Link
