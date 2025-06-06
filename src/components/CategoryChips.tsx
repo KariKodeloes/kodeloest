@@ -19,7 +19,7 @@ const CategoryChips: React.FC<CategoryChipsProps> = ({
         onClick={() => onCategoryClick('alle')}
         className={`category-chip px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
           selectedCategory === 'alle' 
-            ? 'selected bg-[#E68200] text-white' 
+            ? 'selected bg-[rgb(215,124,4)] text-white' 
             : 'bg-white disabled:bg-[#CDDFF0] disabled:text-gray-500 hover:bg-gray-50'
         }`}
       >
@@ -33,7 +33,7 @@ const CategoryChips: React.FC<CategoryChipsProps> = ({
           onClick={() => onCategoryClick(sub.name)}
           className={`category-chip px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
             selectedCategory === sub.name 
-              ? 'selected bg-[#E68200] text-white' 
+              ? 'selected bg-[rgb(215,124,4)] text-white' 
               : 'bg-white disabled:bg-[#CDDFF0] disabled:text-gray-500 hover:bg-gray-50'
           }`}
         >
