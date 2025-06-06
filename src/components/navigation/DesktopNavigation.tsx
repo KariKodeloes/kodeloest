@@ -41,7 +41,7 @@ const DesktopNavigation = ({ menuItems, isHomePage }: DesktopNavigationProps) =>
               isHomePage
                 ? { color: '#FFFFFF' }
                 : !isHomePage && isCurrentPath(item.path)
-                  ? { color: '#E68200', borderColor: '#E68200' }
+                  ? { color: 'rgb(215, 124, 4)', borderColor: 'rgb(215, 124, 4)' }
                   : {}
             }
             onMouseEnter={(e) => {
