@@ -30,14 +30,14 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, menuItems, isHomePage }: Mobile
               isHomePage
                 ? 'text-white active:bg-white/20'
                 : location.pathname === item.path
-                  ? 'bg-accent text-orange-600'
+                  ? 'text-white hover:bg-[rgb(230,130,0)] hover:text-white'
                   : 'text-foreground active:bg-orange-100 hover:bg-orange-50 hover:text-black'
             }`}
             style={
               isHomePage
                 ? { color: '#FFFFFF' }
-                : !isHomePage && location.pathname === item.path
-                  ? { color: '#E68200' }
+                : location.pathname === item.path
+                  ? { backgroundColor: 'rgb(230, 130, 0)', color: '#FFFFFF' }
                   : {}
             }
             onClick={() => setIsMenuOpen(false)}
