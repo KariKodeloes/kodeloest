@@ -34,7 +34,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({ projectId, initialLikes }) => {
         }`}
         style={
           !userHasLiked 
-            ? { backgroundColor: 'rgb(193, 180, 164)' }
+            ? { backgroundColor: 'rgb(208, 199, 187)' }
             : {}
         }
       >
