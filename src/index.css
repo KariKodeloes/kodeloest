@@ -90,9 +90,18 @@
     @apply border-border;
   }
 
+  html {
+    background-color: rgb(255, 255, 255) !important;
+  }
+
   body {
     @apply bg-background font-roboto;
+    background-color: rgb(255, 255, 255) !important;
     color: rgb(99, 68, 28) !important;
+  }
+
+  #root {
+    background-color: rgb(255, 255, 255) !important;
   }
 
   h1, h2 {
