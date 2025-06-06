@@ -92,15 +92,26 @@
 
   html {
     background-color: rgb(255, 255, 255) !important;
+    min-height: 100vh !important;
   }
 
   body {
     @apply bg-background font-roboto;
     background-color: rgb(255, 255, 255) !important;
     color: rgb(99, 68, 28) !important;
+    min-height: 100vh !important;
   }
 
   #root {
+    background-color: rgb(255, 255, 255) !important;
+    min-height: 100vh !important;
+    width: 100% !important;
+  }
+
+  /* Force white background on all main containers */
+  main,
+  .min-h-screen,
+  [data-testid="main-content"] {
     background-color: rgb(255, 255, 255) !important;
   }
 
