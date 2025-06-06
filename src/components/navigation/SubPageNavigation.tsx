@@ -21,11 +21,11 @@ const SubPageNavigation = ({ menuItems }: SubPageNavigationProps) => {
   console.log('SubPageNavigation - isMenuOpen:', isMenuOpen);
 
   return (
-    <nav className="bg-card border-b border-border shadow-sm sticky top-0 z-50">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16 md:justify-between">
+    <nav className="border-b border-border shadow-sm sticky top-0 z-50" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
+      <div className="container mx-auto px-4" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
+        <div className="flex justify-between items-center h-16 md:justify-between" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
           {/* Mobile layout - hamburger on left, centered logo, spacer on right */}
-          <div className="flex items-center md:hidden w-full">
+          <div className="flex items-center md:hidden w-full" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
             <MobileMenuButton 
               isMenuOpen={isMenuOpen}
               setIsMenuOpen={setIsMenuOpen}

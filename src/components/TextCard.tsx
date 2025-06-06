@@ -10,7 +10,7 @@ const TextCard: React.FC<TextCardProps> = ({ title, children }) => {
   console.log('TextCard rendered with title:', title);
   
   return (
-    <div className="rounded-lg shadow-sm overflow-hidden" style={{ backgroundColor: '#FEF7EE' }}>
+    <div className="rounded-lg shadow-sm overflow-hidden" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
       {/* Title bar */}
       <div 
         className="px-8 py-4"
@@ -22,7 +22,7 @@ const TextCard: React.FC<TextCardProps> = ({ title, children }) => {
       </div>
       
       {/* Content */}
-      <div className="p-8">
+      <div className="p-8" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
         <div className="prose prose-stone dark:prose-invert max-w-none">
           {children}
         </div>

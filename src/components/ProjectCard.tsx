@@ -24,8 +24,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
   if (viewMode === 'list') {
     return (
       <>
-        <div className="bg-card border border-border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
-          <div className="flex flex-col md:flex-row">
+        <div className="border border-border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
+          <div className="flex flex-col md:flex-row" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
             <ImageCarouselList
               images={project.images}
               videos={project.videos}
@@ -36,7 +36,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
             <ProjectContent project={project} isListView={true} />
             
             {/* Like button container for list view */}
-            <div className="p-6 pt-0 md:pt-6">
+            <div className="p-6 pt-0 md:pt-6" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
               <LikeButton projectId={project.id} initialLikes={project.likes || 0} />
             </div>
           </div>
@@ -56,7 +56,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
 
   return (
     <>
-      <div className="bg-card border border-border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden group">
+      <div className="border border-border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden group" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
         <ImageCarousel
           images={project.images}
           videos={project.videos}
@@ -67,7 +67,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
         <ProjectContent project={project} />
         
         {/* Like button */}
-        <div className="px-4 pb-4">
+        <div className="px-4 pb-4" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
           <LikeButton projectId={project.id} initialLikes={project.likes || 0} />
         </div>
       </div>
