@@ -26,10 +26,10 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Gallery Section - now scrollable with all projects sorted by likes */}
-      <div className="relative -mt-40 z-20">
-        <div className="container mx-auto px-4 pt-8 pb-16">
-          <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-white max-h-[80vh] overflow-y-auto">
+      {/* Gallery Section - now full width without container restrictions */}
+      <div className="relative -mt-40 z-20 w-full">
+        <div className="w-full px-4 pt-8 pb-16">
+          <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-white max-h-[80vh] overflow-y-auto w-full">
             <div className="bg-transparent p-4">
               <Gallery projects={galleryProjects} sortByLikes={true} />
             </div>
