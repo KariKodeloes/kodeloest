@@ -30,8 +30,13 @@ const LikeButton: React.FC<LikeButtonProps> = ({ projectId, initialLikes }) => {
         className={`p-2 rounded-full transition-colors ${
           userHasLiked 
             ? 'bg-red-500 hover:bg-red-600 text-white' 
-            : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
+            : 'hover:bg-gray-200 text-gray-600'
         }`}
+        style={
+          !userHasLiked 
+            ? { backgroundColor: 'rgb(193, 180, 164)' }
+            : {}
+        }
       >
         <Heart 
           className={`w-4 h-4 ${userHasLiked ? 'fill-current' : ''}`} 
