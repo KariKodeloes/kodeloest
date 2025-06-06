@@ -18,9 +18,13 @@ const ViewModeToggle: React.FC<ViewModeToggleProps> = ({ viewMode, onViewModeCha
         onClick={() => onViewModeChange('grid')}
         className={`view-mode-button rounded-none border-0 ${
           viewMode === 'grid' 
-            ? 'bg-[#E68200] text-white' 
+            ? 'bg-[rgb(215,124,4)] text-white' 
             : 'bg-white text-[#066298] hover:bg-gray-50'
         }`}
+        style={{
+          border: '1px solid rgb(255, 255, 255)',
+          backgroundColor: viewMode === 'grid' ? 'rgb(215, 124, 4)' : 'rgb(255, 255, 255)'
+        }}
       >
         <span className={`material-icon ${viewMode === 'grid' ? 'text-white' : 'text-[#066298]'}`}>view_module</span>
       </Button>
@@ -30,9 +34,13 @@ const ViewModeToggle: React.FC<ViewModeToggleProps> = ({ viewMode, onViewModeCha
         onClick={() => onViewModeChange('list')}
         className={`view-mode-button rounded-none border-0 ${
           viewMode === 'list' 
-            ? 'bg-[#E68200] text-white' 
+            ? 'bg-[rgb(215,124,4)] text-white' 
             : 'bg-white text-[#066298] hover:bg-gray-50'
         }`}
+        style={{
+          border: '1px solid rgb(255, 255, 255)',
+          backgroundColor: viewMode === 'list' ? 'rgb(215, 124, 4)' : 'rgb(255, 255, 255)'
+        }}
       >
         <span className={`material-icon ${viewMode === 'list' ? 'text-white' : 'text-[#066298]'}`}>view_list</span>
       </Button>
