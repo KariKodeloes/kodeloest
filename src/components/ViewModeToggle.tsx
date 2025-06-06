@@ -11,7 +11,7 @@ interface ViewModeToggleProps {
 
 const ViewModeToggle: React.FC<ViewModeToggleProps> = ({ viewMode, onViewModeChange }) => {
   return (
-    <div className="flex items-center border border-white rounded-lg overflow-hidden shadow-sm">
+    <div className="flex items-center rounded-lg overflow-hidden shadow-sm" style={{ border: '1px solid rgb(255, 255, 255)', backgroundColor: 'rgb(255, 255, 255)' }}>
       <Button
         variant={viewMode === 'grid' ? 'default' : 'ghost'}
         size="sm"
