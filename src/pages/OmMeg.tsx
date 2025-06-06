@@ -16,7 +16,7 @@ const OmMeg = () => {
           </div>
 
           {/* Introduction with image */}
-          <div className="bg-white border border-border rounded-lg p-8 mb-8 shadow-sm">
+          <div className="bg-white rounded-lg p-8 mb-8 shadow-sm">
             {/* Mobile layout - image above title */}
             <div className="block md:hidden mb-6">
               <div className="w-48 h-48 rounded-lg overflow-hidden">
