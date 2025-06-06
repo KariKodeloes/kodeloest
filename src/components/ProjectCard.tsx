@@ -24,7 +24,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
   if (viewMode === 'list') {
     return (
       <>
-        <div className="border border-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-200 overflow-hidden" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
+        <div className="rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-200 overflow-hidden" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
           <div className="flex flex-col md:flex-row" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
             <ImageCarouselList
               images={project.images}
@@ -56,7 +56,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
 
   return (
     <>
-      <div className="border border-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-200 overflow-hidden group" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
+      <div className="rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-200 overflow-hidden group" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
         <ImageCarousel
           images={project.images}
           videos={project.videos}
