@@ -36,7 +36,7 @@ const SubPageNavigation = ({ menuItems }: SubPageNavigationProps) => {
             <div className="flex-1 flex justify-center">
               <KodelostLogo />
             </div>
-            <div className="w-12"> {/* Spacer to balance the hamburger button - now matches w-12 */}
+            <div className="w-12"> {/* Spacer to balance the hamburger button */}
             </div>
           </div>
 
@@ -45,13 +45,16 @@ const SubPageNavigation = ({ menuItems }: SubPageNavigationProps) => {
             <KodelostLogo />
           </div>
 
-          <DesktopNavigation 
-            menuItems={menuItems}
-            isHomePage={false}
-          />
+          {/* Desktop navigation and social icons - completely hidden on mobile */}
+          <div className="hidden md:flex items-center justify-between flex-1 ml-4">
+            <DesktopNavigation 
+              menuItems={menuItems}
+              isHomePage={false}
+            />
 
-          <div className="flex items-center space-x-4">
-            <SocialIcons isHomePage={false} />
+            <div className="flex items-center space-x-4">
+              <SocialIcons isHomePage={false} />
+            </div>
           </div>
         </div>
 
