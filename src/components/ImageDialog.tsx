@@ -75,49 +75,49 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
           className="relative w-full min-h-screen sm:min-h-[95vh] flex flex-col items-center justify-center p-4 sm:p-6 !bg-black"
           style={{ backgroundColor: '#000000' }}
         >
-          {/* Close button - Always visible with semi-transparent background */}
+          {/* Close button - Always visible with blue icon */}
           <Button
             variant="ghost"
             size="sm"
             onClick={onClose}
-            className="absolute top-2 right-2 z-10 !bg-white/90 !text-blue-600 hover:!bg-blue-600 hover:!text-white border border-white/20 shadow-lg"
+            className="absolute top-2 right-2 z-10 border border-white/20 shadow-lg"
             style={{ 
               touchAction: 'manipulation',
               backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              color: 'rgb(6, 98, 152)'
+              color: '#066298'
             }}
           >
-            <X className="h-4 w-4" />
+            <X className="h-4 w-4" style={{ color: '#066298' }} />
           </Button>
 
-          {/* Navigation buttons - Always visible with semi-transparent background */}
+          {/* Navigation buttons - Always visible with blue icons */}
           {allMedia.length > 1 && (
             <>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={prevMedia}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 !bg-white/90 !text-blue-600 hover:!bg-blue-600 hover:!text-white border border-white/20 shadow-lg"
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 border border-white/20 shadow-lg"
                 style={{ 
                   touchAction: 'manipulation',
                   backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                  color: 'rgb(6, 98, 152)'
+                  color: '#066298'
                 }}
               >
-                <ChevronLeft className="h-6 w-6" />
+                <ChevronLeft className="h-6 w-6" style={{ color: '#066298' }} />
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={nextMedia}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 !bg-white/90 !text-blue-600 hover:!bg-blue-600 hover:!text-white border border-white/20 shadow-lg"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 border border-white/20 shadow-lg"
                 style={{ 
                   touchAction: 'manipulation',
                   backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                  color: 'rgb(6, 98, 152)'
+                  color: '#066298'
                 }}
               >
-                <ChevronRight className="h-6 w-6" />
+                <ChevronRight className="h-6 w-6" style={{ color: '#066298' }} />
               </Button>
             </>
           )}
@@ -151,7 +151,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                     onClick={() => setCurrentIndex(index)}
                     className="w-2 h-2 rounded-full transition-colors border border-white/20"
                     style={{ 
-                      backgroundColor: index === currentIndex ? 'rgb(6, 98, 152)' : 'rgba(255, 255, 255, 0.7)',
+                      backgroundColor: index === currentIndex ? '#066298' : 'rgba(255, 255, 255, 0.7)',
                       touchAction: 'manipulation'
                     }}
                   />
@@ -165,7 +165,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                 className="px-3 py-1 rounded-full text-sm font-medium border border-white/20"
                 style={{ 
                   backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                  color: 'rgb(6, 98, 152)'
+                  color: '#066298'
                 }}
               >
                 {currentIndex + 1} / {allMedia.length}
