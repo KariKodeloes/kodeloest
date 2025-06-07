@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { getOptimalImageSize } from '../utils/imageCompression';
 
@@ -107,6 +106,44 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
     );
   }
 
+  // For contain mode (dialog), render image directly without wrapper
+  if (objectFit === 'contain') {
+    return (
+      <>
+        {!imageLoaded && !imageError && (
+          <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+            <div className="w-8 h-8 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        )}
+        
+        <img
+          src={optimalSrc}
+          alt={alt}
+          className={`${className} ${onClick ? 'cursor-pointer' : ''} ${
+            imageLoaded ? 'opacity-100' : 'opacity-0'
+          } transition-opacity duration-300 object-contain`}
+          onClick={handleClick}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onContextMenu={handleContextMenu}
+          onDragStart={handleDragStart}
+          onLoad={handleImageLoad}
+          onError={handleImageError}
+          loading={loading}
+          style={{ userSelect: 'none', touchAction: 'manipulation' }}
+          draggable={false}
+        />
+        
+        {imageError && (
+          <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
+            <span className="text-gray-500 text-sm">Kunne ikke laste bildet</span>
+          </div>
+        )}
+      </>
+    );
+  }
+
+  // For cover mode (project cards), use wrapper for proper aspect ratio
   return (
     <div className={`relative ${className}`}>
       {!imageLoaded && !imageError && (
@@ -120,7 +157,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
         alt={alt}
         className={`${onClick ? 'cursor-pointer' : ''} ${
           imageLoaded ? 'opacity-100' : 'opacity-0'
-        } transition-opacity duration-300 w-full h-full ${objectFit === 'contain' ? 'object-contain' : 'object-cover'}`}
+        } transition-opacity duration-300 w-full h-full object-cover`}
         onClick={handleClick}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Dialog, DialogContent } from './ui/dialog';
 import { Button } from './ui/button';
@@ -56,7 +57,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-none w-full h-full p-0 bg-black/95 border-0 sm:max-w-[95vw] sm:max-h-[95vh] sm:p-2">
-        <div className="relative w-full flex items-center justify-center h-[100vh] sm:h-[95vh]">
+        <div className="relative w-full min-h-screen sm:min-h-[95vh] flex flex-col items-center justify-center p-4 sm:p-6">
           {/* Close button */}
           <Button
             variant="ghost"
@@ -75,7 +76,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                 variant="ghost"
                 size="sm"
                 onClick={prevMedia}
-                className="absolute left-1 sm:left-2 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white hover:bg-black/70"
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white hover:bg-black/70"
                 style={{ touchAction: 'manipulation' }}
               >
                 <ChevronLeft className="h-6 w-6" />
@@ -84,7 +85,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                 variant="ghost"
                 size="sm"
                 onClick={nextMedia}
-                className="absolute right-1 sm:right-2 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white hover:bg-black/70"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white hover:bg-black/70"
                 style={{ touchAction: 'manipulation' }}
               >
                 <ChevronRight className="h-6 w-6" />
@@ -92,44 +93,49 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
             </>
           )}
 
-          {/* Media */}
-          {currentMedia && (
-            <OptimizedMediaDisplay
-              src={currentMedia}
-              alt={title || `Media ${currentIndex + 1}`}
-              className="max-w-[calc(100vw-2rem)] max-h-[calc(100vh-8rem)] sm:max-w-[calc(95vw-6rem)] sm:max-h-[calc(95vh-12rem)]"
-              isVideo={isVideo}
-              controls={isVideo}
-              autoPlay={isVideo}
-              muted={false}
-              context="large"
-              loading="eager"
-              objectFit="contain"
-            />
-          )}
+          {/* Media container with proper flex sizing */}
+          <div className="flex-1 flex items-center justify-center w-full max-w-full">
+            {currentMedia && (
+              <OptimizedMediaDisplay
+                src={currentMedia}
+                alt={title || `Media ${currentIndex + 1}`}
+                className="max-w-[calc(100vw-4rem)] max-h-[calc(100vh-12rem)] sm:max-w-[calc(95vw-8rem)] sm:max-h-[calc(95vh-16rem)] md:max-w-[calc(95vw-6rem)] md:max-h-[calc(95vh-12rem)]"
+                isVideo={isVideo}
+                controls={isVideo}
+                autoPlay={isVideo}
+                muted={false}
+                context="large"
+                loading="eager"
+                objectFit="contain"
+              />
+            )}
+          </div>
 
-          {/* Media counter */}
-          {allMedia.length > 1 && (
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
-              {currentIndex + 1} / {allMedia.length}
-            </div>
-          )}
+          {/* Bottom UI elements */}
+          <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center space-y-2 pb-4">
+            {/* Media indicators */}
+            {allMedia.length > 1 && (
+              <div className="flex space-x-2">
+                {allMedia.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-colors ${
+                      index === currentIndex ? 'bg-white' : 'bg-white/50'
+                    }`}
+                    style={{ touchAction: 'manipulation' }}
+                  />
+                ))}
+              </div>
+            )}
 
-          {/* Media indicators */}
-          {allMedia.length > 1 && (
-            <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex space-x-2">
-              {allMedia.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    index === currentIndex ? 'bg-white' : 'bg-white/50'
-                  }`}
-                  style={{ touchAction: 'manipulation' }}
-                />
-              ))}
-            </div>
-          )}
+            {/* Media counter */}
+            {allMedia.length > 1 && (
+              <div className="bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                {currentIndex + 1} / {allMedia.length}
+              </div>
+            )}
+          </div>
         </div>
       </DialogContent>
     </Dialog>
