@@ -1,9 +1,9 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
 import { useAuth } from '../../hooks/useAuth';
-import { mockProjects } from '../../data/mockData';
+import { mockProjects, Project } from '../../data/mockData';
 import ProjectEditor from './ProjectEditor';
 import { LogOut, Edit, Plus } from 'lucide-react';
 
@@ -11,9 +11,61 @@ const AdminDashboard = () => {
   const { logout, phoneNumber } = useAuth();
   const [editingProject, setEditingProject] = useState<string | null>(null);
   const [showNewProject, setShowNewProject] = useState(false);
+  const [allProjects, setAllProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    // Load all projects (original + new + edited)
+    const loadAllProjects = () => {
+      // Start with original projects
+      let projects = [...mockProjects];
+
+      // Add new projects
+      const newProjectsData = localStorage.getItem('admin_new_projects');
+      if (newProjectsData) {
+        const newProjects = JSON.parse(newProjectsData);
+        projects = [...projects, ...newProjects];
+      }
+
+      // Apply edits to existing projects
+      const editsData = localStorage.getItem('admin_project_edits');
+      if (editsData) {
+        const edits = JSON.parse(editsData);
+        projects = projects.map(project => {
+          if (edits[project.id]) {
+            return { ...project, ...edits[project.id] };
+          }
+          return project;
+        });
+      }
+
+      // Sort by year (newest first) and then by title
+      projects.sort((a, b) => {
+        if (a.year !== b.year) {
+          return b.year - a.year;
+        }
+        return a.title.localeCompare(b.title);
+      });
+
+      setAllProjects(projects);
+    };
+
+    loadAllProjects();
+  }, [editingProject, showNewProject]);
 
   const handleLogout = () => {
     logout();
+  };
+
+  const isNewProject = (projectId: string) => {
+    return projectId.startsWith('new_');
+  };
+
+  const isEditedProject = (projectId: string) => {
+    if (isNewProject(projectId)) return false;
+    const editsData = localStorage.getItem('admin_project_edits');
+    if (!editsData) return false;
+    const edits = JSON.parse(editsData);
+    return !!edits[projectId];
   };
 
   if (editingProject || showNewProject) {
@@ -46,7 +98,7 @@ const AdminDashboard = () => {
 
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-quicksand font-medium">Prosjekter</h2>
+          <h2 className="text-xl font-quicksand font-medium">Prosjekter ({allProjects.length})</h2>
           <Button onClick={() => setShowNewProject(true)}>
             <Plus className="h-4 w-4 mr-2" />
             Nytt prosjekt
@@ -54,15 +106,28 @@ const AdminDashboard = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {mockProjects.map((project) => (
+          {allProjects.map((project) => (
             <Card key={project.id} className="hover:shadow-lg transition-shadow">
               <CardHeader className="pb-2">
-                <div className="aspect-square overflow-hidden rounded-md mb-2">
+                <div className="aspect-square overflow-hidden rounded-md mb-2 relative">
                   <img
                     src={project.mainImage}
                     alt={project.title}
                     className="w-full h-full object-cover"
                   />
+                  {/* Status indicators */}
+                  <div className="absolute top-2 right-2 flex gap-1">
+                    {isNewProject(project.id) && (
+                      <span className="bg-green-500 text-white text-xs px-2 py-1 rounded">
+                        NY
+                      </span>
+                    )}
+                    {isEditedProject(project.id) && (
+                      <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded">
+                        REDIGERT
+                      </span>
+                    )}
+                  </div>
                 </div>
                 <CardTitle className="text-lg font-quicksand">{project.title}</CardTitle>
                 {project.subtitle && (
@@ -98,6 +163,16 @@ const AdminDashboard = () => {
             </Card>
           ))}
         </div>
+
+        {allProjects.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-gray-500 mb-4">Ingen prosjekter funnet</p>
+            <Button onClick={() => setShowNewProject(true)}>
+              <Plus className="h-4 w-4 mr-2" />
+              Opprett ditt første prosjekt
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );

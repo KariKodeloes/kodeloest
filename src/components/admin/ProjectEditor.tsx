@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -33,38 +34,113 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
 
   useEffect(() => {
     if (projectId && !isNewProject) {
+      // Load existing project from mockProjects first
       const existingProject = mockProjects.find(p => p.id === projectId);
       if (existingProject) {
-        setProject(existingProject);
+        // Check if there are any saved edits for this project
+        const savedEdits = localStorage.getItem('admin_project_edits');
+        const edits = savedEdits ? JSON.parse(savedEdits) : {};
+        
+        // Merge original project with any saved edits
+        const projectWithEdits = edits[projectId] ? { ...existingProject, ...edits[projectId] } : existingProject;
+        setProject(projectWithEdits);
       }
     }
   }, [projectId, isNewProject]);
 
+  const generateProjectId = (): string => {
+    return `new_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+  };
+
+  const validateProject = (project: Partial<Project>): string[] => {
+    const errors: string[] = [];
+    
+    if (!project.title?.trim()) {
+      errors.push('Tittel er påkrevd');
+    }
+    if (!project.category?.trim()) {
+      errors.push('Kategori er påkrevd');
+    }
+    if (!project.mainImage?.trim()) {
+      errors.push('Hovedbilde er påkrevd');
+    }
+    
+    return errors;
+  };
+
   const handleSave = async () => {
+    const validationErrors = validateProject(project);
+    
+    if (validationErrors.length > 0) {
+      toast({
+        title: 'Validering feilet',
+        description: validationErrors.join(', '),
+        variant: 'destructive'
+      });
+      return;
+    }
+
     setIsLoading(true);
     
     // Simulate save delay
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    // In a real app, this would save to a database
-    // For now, we'll just update localStorage for demo purposes
-    const existingData = localStorage.getItem('admin_project_edits');
-    const edits = existingData ? JSON.parse(existingData) : {};
-    
-    if (projectId) {
-      edits[projectId] = project;
+    try {
+      if (isNewProject) {
+        // Handle new project creation
+        const newProjectId = generateProjectId();
+        const completeProject: Project = {
+          id: newProjectId,
+          title: project.title || '',
+          subtitle: project.subtitle,
+          description: project.description || '',
+          year: project.year || new Date().getFullYear(),
+          category: project.category || '',
+          subcategory: project.subcategory,
+          altText: project.altText,
+          images: project.images || [],
+          videos: project.videos || [],
+          mainImage: project.mainImage || '',
+          likes: project.likes || 0
+        };
+
+        // Save new projects separately
+        const existingNewProjects = localStorage.getItem('admin_new_projects');
+        const newProjects = existingNewProjects ? JSON.parse(existingNewProjects) : [];
+        newProjects.push(completeProject);
+        localStorage.setItem('admin_new_projects', JSON.stringify(newProjects));
+
+        toast({
+          title: 'Prosjekt opprettet',
+          description: 'Det nye prosjektet ble lagret'
+        });
+      } else {
+        // Handle existing project edits
+        const existingData = localStorage.getItem('admin_project_edits');
+        const edits = existingData ? JSON.parse(existingData) : {};
+        
+        if (projectId) {
+          edits[projectId] = project;
+        }
+        
+        localStorage.setItem('admin_project_edits', JSON.stringify(edits));
+        
+        toast({
+          title: 'Lagret',
+          description: 'Prosjektet ble oppdatert'
+        });
+      }
+      
+      onClose();
+    } catch (error) {
+      toast({
+        title: 'Feil',
+        description: 'Kunne ikke lagre prosjektet',
+        variant: 'destructive'
+      });
+    } finally {
+      setIsLoading(false);
     }
-    
-    localStorage.setItem('admin_project_edits', JSON.stringify(edits));
-    
-    setIsLoading(false);
-    
-    toast({
-      title: 'Lagret',
-      description: 'Prosjektet ble lagret successfully'
-    });
-    
-    onClose();
   };
 
   const handleChange = (field: keyof Project, value: any) => {
@@ -168,7 +244,9 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Tittel</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Tittel <span className="text-red-500">*</span>
+                  </label>
                   <Input
                     value={project.title || ''}
                     onChange={(e) => handleChange('title', e.target.value)}
@@ -197,7 +275,9 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Kategori</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Kategori <span className="text-red-500">*</span>
+                    </label>
                     <Input
                       value={project.category || ''}
                       onChange={(e) => handleChange('category', e.target.value)}
@@ -245,7 +325,9 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
             {/* Main Image Upload */}
             <Card>
               <CardHeader>
-                <CardTitle>Hovedbilde</CardTitle>
+                <CardTitle>
+                  Hovedbilde <span className="text-red-500">*</span>
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <ImageUploader
