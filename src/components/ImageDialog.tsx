@@ -56,14 +56,14 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[90vw] max-h-[90vh] w-auto h-auto p-0 bg-black/95 border-0">
+      <DialogContent className="max-w-[95vw] max-h-[95vh] w-auto h-auto p-0 bg-black/95 border-0">
         <div className="relative w-full h-full flex items-center justify-center min-h-[50vh]">
           {/* Close button */}
           <Button
             variant="ghost"
             size="sm"
             onClick={onClose}
-            className="absolute top-4 right-4 z-10 bg-black/50 text-white hover:bg-black/70"
+            className="absolute top-2 right-2 z-10 bg-black/50 text-white hover:bg-black/70"
           >
             <X className="h-4 w-4" />
           </Button>
@@ -75,7 +75,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                 variant="ghost"
                 size="sm"
                 onClick={prevMedia}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white hover:bg-black/70"
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white hover:bg-black/70"
               >
                 <ChevronLeft className="h-6 w-6" />
               </Button>
@@ -83,7 +83,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                 variant="ghost"
                 size="sm"
                 onClick={nextMedia}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white hover:bg-black/70"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white hover:bg-black/70"
               >
                 <ChevronRight className="h-6 w-6" />
               </Button>
@@ -95,7 +95,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
             <MediaDisplay
               src={currentMedia}
               alt={title || `Media ${currentIndex + 1}`}
-              className="max-w-[calc(90vw-4rem)] max-h-[calc(90vh-8rem)] object-contain"
+              className="max-w-full max-h-full w-auto h-auto object-contain"
               isVideo={isVideo}
               controls={isVideo}
               autoPlay={isVideo}
