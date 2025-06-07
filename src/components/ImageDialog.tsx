@@ -56,7 +56,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[100vw] max-h-[100vh] w-auto h-auto p-0 sm:p-4 bg-black/95 border-0">
+      <DialogContent className="max-w-none w-full h-full p-0 bg-black/95 border-0 sm:max-w-[95vw] sm:max-h-[95vh] sm:p-2">
         <div className="relative w-full h-full flex items-center justify-center min-h-[100vh] sm:min-h-[50vh]">
           {/* Close button */}
           <Button
@@ -98,7 +98,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
             <OptimizedMediaDisplay
               src={currentMedia}
               alt={title || `Media ${currentIndex + 1}`}
-              className="max-w-[calc(100vw-1rem)] max-h-[calc(100vh-6rem)] sm:max-w-[calc(95vw-6rem)] sm:max-h-[calc(95vh-8rem)] w-auto h-auto object-contain"
+              className="max-w-[calc(100vw-0.5rem)] max-h-[calc(100vh-4rem)] w-auto h-auto object-contain"
               isVideo={isVideo}
               controls={isVideo}
               autoPlay={isVideo}
