@@ -23,20 +23,26 @@ export const CATEGORIES = {
 } as const;
 
 export const getCategoryOptions = () => {
-  return Object.entries(CATEGORIES).map(([key, value]) => ({
+  const options = Object.entries(CATEGORIES).map(([key, value]) => ({
     value: key,
     label: value.label
   }));
+  console.log('Category options:', options);
+  return options;
 };
 
 export const getSubcategoryOptions = (category: string) => {
+  console.log('Getting subcategories for category:', category);
   const categoryData = CATEGORIES[category as keyof typeof CATEGORIES];
   if (!categoryData || categoryData.subcategories.length === 0) {
+    console.log('No subcategories found for category:', category);
     return [];
   }
   
-  return categoryData.subcategories.map(subcategory => ({
+  const subcategoryOptions = categoryData.subcategories.map(subcategory => ({
     value: subcategory,
     label: subcategory.charAt(0).toUpperCase() + subcategory.slice(1).replace(/-/g, ' ')
   }));
+  console.log('Subcategory options:', subcategoryOptions);
+  return subcategoryOptions;
 };
