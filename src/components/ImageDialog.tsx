@@ -80,14 +80,18 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
             variant="ghost"
             size="sm"
             onClick={onClose}
-            className="absolute top-2 right-2 z-10 border border-white/20 shadow-lg"
+            className="absolute top-2 right-2 z-10 border border-white/20 shadow-lg hover:opacity-80"
             style={{ 
               touchAction: 'manipulation',
               backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              color: '#066298'
+              color: '#066298 !important'
             }}
           >
-            <X className="h-4 w-4" style={{ color: '#066298' }} />
+            <X 
+              className="h-4 w-4" 
+              style={{ color: '#066298 !important' }}
+              color="#066298"
+            />
           </Button>
 
           {/* Navigation buttons - Always visible with blue icons */}
@@ -97,27 +101,35 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                 variant="ghost"
                 size="sm"
                 onClick={prevMedia}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 border border-white/20 shadow-lg"
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 border border-white/20 shadow-lg hover:opacity-80"
                 style={{ 
                   touchAction: 'manipulation',
                   backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                  color: '#066298'
+                  color: '#066298 !important'
                 }}
               >
-                <ChevronLeft className="h-6 w-6" style={{ color: '#066298' }} />
+                <ChevronLeft 
+                  className="h-6 w-6" 
+                  style={{ color: '#066298 !important' }}
+                  color="#066298"
+                />
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={nextMedia}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 border border-white/20 shadow-lg"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 border border-white/20 shadow-lg hover:opacity-80"
                 style={{ 
                   touchAction: 'manipulation',
                   backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                  color: '#066298'
+                  color: '#066298 !important'
                 }}
               >
-                <ChevronRight className="h-6 w-6" style={{ color: '#066298' }} />
+                <ChevronRight 
+                  className="h-6 w-6" 
+                  style={{ color: '#066298 !important' }}
+                  color="#066298"
+                />
               </Button>
             </>
           )}
