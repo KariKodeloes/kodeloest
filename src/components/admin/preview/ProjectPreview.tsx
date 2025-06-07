@@ -42,11 +42,6 @@ const ProjectPreview: React.FC<ProjectPreviewProps> = ({ project }) => {
             <span>Underkategori: {project.subcategory}</span>
           </div>
         )}
-        {project.altText && (
-          <div className="mt-3 p-2 bg-green-50 rounded text-xs">
-            <strong>Alt-tekst:</strong> {project.altText}
-          </div>
-        )}
       </CardContent>
     </Card>
   );

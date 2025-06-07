@@ -32,7 +32,14 @@ const AdminDashboard = () => {
         const edits = JSON.parse(editsData);
         projects = projects.map(project => {
           if (edits[project.id]) {
-            return { ...project, ...edits[project.id] };
+            const editedProject = { ...project, ...edits[project.id] };
+            
+            // Ensure mainImage is properly set for display
+            if (editedProject.mainImage && !editedProject.images?.includes(editedProject.mainImage)) {
+              editedProject.images = [editedProject.mainImage, ...(editedProject.images || [])];
+            }
+            
+            return editedProject;
           }
           return project;
         });
@@ -112,7 +119,7 @@ const AdminDashboard = () => {
                 <div className="aspect-square overflow-hidden rounded-md mb-2 relative">
                   <img
                     src={project.mainImage}
-                    alt={project.title}
+                    alt={project.altText || project.title}
                     className="w-full h-full object-cover"
                   />
                   {/* Status indicators */}
