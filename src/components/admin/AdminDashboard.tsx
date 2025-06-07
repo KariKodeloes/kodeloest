@@ -5,7 +5,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
 import { useAuth } from '../../hooks/useAuth';
 import { mockProjects, Project } from '../../data/mockData';
 import ProjectEditor from './ProjectEditor';
-import { LogOut, Edit, Plus } from 'lucide-react';
+import { LogOut, Edit, Plus, Image } from 'lucide-react';
 
 const AdminDashboard = () => {
   const { logout, phoneNumber } = useAuth();
@@ -16,6 +16,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     // Load all projects (original + new + edited)
     const loadAllProjects = () => {
+      console.log('Loading all projects...');
       // Start with original projects
       let projects = [...mockProjects];
 
@@ -23,6 +24,7 @@ const AdminDashboard = () => {
       const newProjectsData = localStorage.getItem('admin_new_projects');
       if (newProjectsData) {
         const newProjects = JSON.parse(newProjectsData);
+        console.log('Found new projects:', newProjects);
         projects = [...projects, ...newProjects];
       }
 
@@ -30,9 +32,11 @@ const AdminDashboard = () => {
       const editsData = localStorage.getItem('admin_project_edits');
       if (editsData) {
         const edits = JSON.parse(editsData);
+        console.log('Found project edits:', edits);
         projects = projects.map(project => {
           if (edits[project.id]) {
             const editedProject = { ...project, ...edits[project.id] };
+            console.log('Applied edits to project:', project.id, editedProject);
             
             // Ensure mainImage is properly set for display
             if (editedProject.mainImage && !editedProject.images?.includes(editedProject.mainImage)) {
@@ -53,6 +57,7 @@ const AdminDashboard = () => {
         return a.title.localeCompare(b.title);
       });
 
+      console.log('Final projects loaded:', projects);
       setAllProjects(projects);
     };
 
@@ -116,12 +121,22 @@ const AdminDashboard = () => {
           {allProjects.map((project) => (
             <Card key={project.id} className="hover:shadow-lg transition-shadow">
               <CardHeader className="pb-2">
-                <div className="aspect-square overflow-hidden rounded-md mb-2 relative">
-                  <img
-                    src={project.mainImage}
-                    alt={project.altText || project.title}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="aspect-square overflow-hidden rounded-md mb-2 relative bg-gray-100 flex items-center justify-center">
+                  {project.mainImage ? (
+                    <img
+                      src={project.mainImage}
+                      alt={project.altText || project.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        console.error('Failed to load image:', project.mainImage);
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                      }}
+                    />
+                  ) : null}
+                  <div className={`flex items-center justify-center text-gray-400 ${project.mainImage ? 'hidden' : ''}`}>
+                    <Image className="h-12 w-12" />
+                  </div>
                   {/* Status indicators */}
                   <div className="absolute top-2 right-2 flex gap-1">
                     {isNewProject(project.id) && (
