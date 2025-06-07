@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import DesktopNavigation from './DesktopNavigation';
-import SocialIcons from './SocialIcons';
 import MobileMenu from './MobileMenu';
 import KodelostLogo from './KodelostLogo';
 import MobileMenuButton from './MobileMenuButton';
@@ -45,17 +44,12 @@ const SubPageNavigation = ({ menuItems }: SubPageNavigationProps) => {
             <KodelostLogo />
           </div>
 
-          {/* Desktop navigation - centered */}
+          {/* Desktop navigation - centered and expanded to take full width */}
           <div className="hidden md:flex items-center justify-center flex-1">
             <DesktopNavigation 
               menuItems={menuItems}
               isHomePage={false}
             />
-          </div>
-
-          {/* Social icons - right side on desktop */}
-          <div className="hidden md:flex items-center space-x-4">
-            <SocialIcons isHomePage={false} />
           </div>
         </div>
 
