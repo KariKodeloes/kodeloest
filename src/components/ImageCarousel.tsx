@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Button } from './ui/button';
-import MediaDisplay from './MediaDisplay';
+import OptimizedMediaDisplay from './OptimizedMediaDisplay';
 import { getAllMedia, isVideoFile } from '../utils/mediaUtils';
 
 interface ImageCarouselProps {
@@ -34,15 +34,17 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, videos = [], titl
 
   return (
     <div className="relative aspect-square overflow-hidden">
-      <MediaDisplay
+      <OptimizedMediaDisplay
         src={currentMedia}
         alt={title}
-        className={`w-full h-full object-cover ${!isVideo ? 'hover:scale-105 transition-transform duration-300' : ''}`}
+        className={`w-full h-full ${!isVideo ? 'hover:scale-105 transition-transform duration-300' : ''}`}
         onClick={() => onImageClick(currentMediaIndex)}
         isVideo={isVideo}
         controls={isVideo}
         muted={true}
         loop={true}
+        context="thumbnail"
+        loading="lazy"
       />
       
       {/* Media Navigation */}

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Dialog, DialogContent } from './ui/dialog';
 import { Button } from './ui/button';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
-import MediaDisplay from './MediaDisplay';
+import OptimizedMediaDisplay from './OptimizedMediaDisplay';
 import { getAllMedia, isVideoFile } from '../utils/mediaUtils';
 
 interface ImageDialogProps {
@@ -92,7 +92,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
 
           {/* Media */}
           {currentMedia && (
-            <MediaDisplay
+            <OptimizedMediaDisplay
               src={currentMedia}
               alt={title || `Media ${currentIndex + 1}`}
               className="max-w-[calc(100vw-2.5rem)] max-h-[calc(100vh-8rem)] sm:max-w-[calc(95vw-6rem)] sm:max-h-[calc(95vh-8rem)] w-auto h-auto object-contain"
@@ -100,6 +100,8 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
               controls={isVideo}
               autoPlay={isVideo}
               muted={false}
+              context="large"
+              loading="eager"
             />
           )}
 
