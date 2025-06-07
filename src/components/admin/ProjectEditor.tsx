@@ -95,6 +95,13 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
     }));
   };
 
+  const handleSingleGalleryImageUpload = (imageUrl: string) => {
+    setProject(prev => ({
+      ...prev,
+      images: [...(prev.images || []), imageUrl]
+    }));
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white shadow-sm border-b">
@@ -266,7 +273,7 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
               </CardHeader>
               <CardContent>
                 <ImageUploader
-                  onImagesUploaded={handleGalleryImagesUpload}
+                  onImageUploaded={handleSingleGalleryImageUpload}
                   onImagesUploaded={handleGalleryImagesUpdate}
                   multiple={true}
                   currentImages={project.images || []}
