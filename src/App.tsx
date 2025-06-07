@@ -13,6 +13,7 @@ import Foto from "./pages/Foto";
 import Som from "./pages/Som";
 import Design from "./pages/Design";
 import OmMeg from "./pages/OmMeg";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
                 <Route path="/som/rett-fra-rullen" element={<Som />} />
                 <Route path="/design" element={<Design />} />
                 <Route path="/om-meg" element={<OmMeg />} />
+                <Route path="/admin" element={<Admin />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

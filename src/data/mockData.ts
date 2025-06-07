@@ -10,6 +10,7 @@ export interface Project {
   subcategory?: string;
   mainImage: string;
   likes?: number;
+  altText?: string;
 }
 
 export const mockProjects: Project[] = [
@@ -23,7 +24,8 @@ export const mockProjects: Project[] = [
     category: 'bilder',
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/fb8e46a7-aaf8-4666-bea3-95e4b35bb947.png',
-    likes: 12
+    likes: 12,
+    altText: ''
   },
   {
     id: '2',
@@ -35,7 +37,8 @@ export const mockProjects: Project[] = [
     category: 'bilder',
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/60faf3ef-db7d-4c44-8d6c-dff40616af79.png',
-    likes: 8
+    likes: 8,
+    altText: ''
   },
   {
     id: '41',
@@ -47,7 +50,8 @@ export const mockProjects: Project[] = [
     category: 'bilder',
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/a877d46e-338c-4f28-9cef-2196ff060092.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '25',
@@ -59,7 +63,8 @@ export const mockProjects: Project[] = [
     category: 'bilder',
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/60f7a916-b435-406b-8d28-5db02ee31fbd.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '26',
@@ -71,7 +76,8 @@ export const mockProjects: Project[] = [
     category: 'bilder',
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/7036f89a-e144-49ae-a484-b56f45c894b3.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '27',
@@ -83,7 +89,8 @@ export const mockProjects: Project[] = [
     category: 'bilder',
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/d09022b6-9d2d-49e8-a189-898e90f36faf.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '28',
@@ -95,7 +102,8 @@ export const mockProjects: Project[] = [
     category: 'bilder',
     subcategory: 'mixed-media',
     mainImage: '/lovable-uploads/178f87a0-b030-44db-b5b6-9c0f7cb06047.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '37',
@@ -107,7 +115,8 @@ export const mockProjects: Project[] = [
     category: 'bilder',
     subcategory: 'mixed-media',
     mainImage: '/lovable-uploads/f847c50d-aca0-4371-ad50-df9edeb2fa85.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '38',
@@ -118,7 +127,8 @@ export const mockProjects: Project[] = [
     images: ['/lovable-uploads/6235d691-91a8-46b5-b378-255395274627.png', '/lovable-uploads/5b88cc89-bdd6-4746-841b-dd46e9e09f7c.png'],
     category: 'design',
     mainImage: '/lovable-uploads/6235d691-91a8-46b5-b378-255395274627.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '3',
@@ -130,7 +140,8 @@ export const mockProjects: Project[] = [
     category: 'bilder',
     subcategory: 'mixed-media',
     mainImage: '/lovable-uploads/cf0f53e3-5b2b-4bde-bb0f-0263cd35300b.png',
-    likes: 15
+    likes: 15,
+    altText: ''
   },
   {
     id: '22',
@@ -142,7 +153,8 @@ export const mockProjects: Project[] = [
     category: 'bilder',
     subcategory: 'mixed-media',
     mainImage: '/lovable-uploads/01e8e2b5-0bb1-42ca-85f6-6f3e09838c7e.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '24',
@@ -154,7 +166,8 @@ export const mockProjects: Project[] = [
     category: 'bilder',
     subcategory: 'mixed-media',
     mainImage: '/lovable-uploads/4cf9aafb-69c8-482b-ac9e-41b60eac85a8.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '4',
@@ -166,7 +179,8 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'dyr',
     mainImage: '/lovable-uploads/6a425ba4-8585-4f92-b02a-d48cb9454fcc.png',
-    likes: 23
+    likes: 23,
+    altText: ''
   },
   {
     id: '5',
@@ -178,7 +192,8 @@ export const mockProjects: Project[] = [
     category: 'som',
     subcategory: 'redesign-og-gjenbruk',
     mainImage: '/lovable-uploads/270178c3-07b4-4cc5-bfce-2b2537185530.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '7',
@@ -189,7 +204,8 @@ export const mockProjects: Project[] = [
     images: ['/lovable-uploads/7a70fc1b-b967-4946-941d-3e835ee417c2.png', '/lovable-uploads/674bf0fc-5a2b-4524-a692-49f6779c8bc8.png', '/lovable-uploads/e1968c75-7311-4fa2-b957-f3074b920289.png', '/lovable-uploads/8746cf39-6f07-4468-974e-f384c867280b.png'],
     category: 'diy',
     mainImage: '/lovable-uploads/7a70fc1b-b967-4946-941d-3e835ee417c2.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '8',
@@ -201,7 +217,8 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'dyr',
     mainImage: '/lovable-uploads/93938560-85b3-40d9-a065-0abdbe9405eb.png',
-    likes: 18
+    likes: 18,
+    altText: ''
   },
   {
     id: '9',
@@ -213,7 +230,8 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'dyr',
     mainImage: '/lovable-uploads/9ffa0aa0-c66f-4d2b-a1ca-702993533a31.png',
-    likes: 31
+    likes: 31,
+    altText: ''
   },
   {
     id: '11',
@@ -225,7 +243,8 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'flora',
     mainImage: '/lovable-uploads/9bbed135-8fa4-45f2-ae37-25793d32edfe.png',
-    likes: 3
+    likes: 3,
+    altText: ''
   },
   {
     id: '12',
@@ -237,7 +256,8 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'flora',
     mainImage: '/lovable-uploads/509fe9b2-f186-42d2-8f77-d8c07c0a44dc.png',
-    likes: 2
+    likes: 2,
+    altText: ''
   },
   {
     id: '13',
@@ -249,7 +269,8 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'ved-sjoen',
     mainImage: '/lovable-uploads/cd2f8215-2c4a-496b-9a78-00ff8b9a4fcc.png',
-    likes: 4
+    likes: 4,
+    altText: ''
   },
   {
     id: '14',
@@ -261,7 +282,8 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'ved-sjoen',
     mainImage: '/lovable-uploads/fa777469-8049-4193-a37a-bf39f2285185.png',
-    likes: 6
+    likes: 6,
+    altText: ''
   },
   {
     id: '15',
@@ -273,7 +295,8 @@ export const mockProjects: Project[] = [
     category: 'som',
     subcategory: 'redesign-og-gjenbruk',
     mainImage: '/lovable-uploads/f9cb4e5a-3791-4fb8-8a98-89f9ab272f88.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '16',
@@ -285,7 +308,8 @@ export const mockProjects: Project[] = [
     category: 'som',
     subcategory: 'rett-fra-rullen',
     mainImage: '/lovable-uploads/77f69a42-7da3-4b1f-95b7-6b403489ea44.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '17',
@@ -297,7 +321,8 @@ export const mockProjects: Project[] = [
     category: 'bilder',
     subcategory: 'tegning',
     mainImage: '/lovable-uploads/b616f4ad-a9a1-48bb-9ae1-bd95f9205c15.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '18',
@@ -309,7 +334,8 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'ved-sjoen',
     mainImage: '/lovable-uploads/e5fd026f-3972-44eb-b147-0435173bdbd0.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '19',
@@ -321,7 +347,8 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'ved-sjoen',
     mainImage: '/lovable-uploads/081fdbc3-fa0c-4105-9984-843d121413f8.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '20',
@@ -332,7 +359,8 @@ export const mockProjects: Project[] = [
     images: ['/lovable-uploads/20ea83b1-f989-451b-890d-c561a008914b.png'],
     category: 'design',
     mainImage: '/lovable-uploads/20ea83b1-f989-451b-890d-c561a008914b.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '21',
@@ -343,7 +371,8 @@ export const mockProjects: Project[] = [
     images: ['/lovable-uploads/47f5f469-b2ab-425c-91a3-0b6abad22bc6.png', '/lovable-uploads/2055523a-9a8f-4869-af1a-7a7da4cc9258.png'],
     category: 'design',
     mainImage: '/lovable-uploads/47f5f469-b2ab-425c-91a3-0b6abad22bc6.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '23',
@@ -355,7 +384,8 @@ export const mockProjects: Project[] = [
     category: 'som',
     subcategory: 'redesign-og-gjenbruk',
     mainImage: '/lovable-uploads/2c4a0928-dd65-4fcd-b3d6-8df04520061e.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '29',
@@ -367,7 +397,8 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'i-fjellet',
     mainImage: '/lovable-uploads/03a48a95-f221-4754-b54d-f40ab4d3d388.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '30',
@@ -379,7 +410,8 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'i-fjellet',
     mainImage: '/lovable-uploads/e777e638-1922-4994-8d3e-082351568638.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '31',
@@ -391,7 +423,8 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'i-fjellet',
     mainImage: '/lovable-uploads/82685a3b-5857-472a-9b59-c5d42cdf4317.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '32',
@@ -403,7 +436,8 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'i-fjellet',
     mainImage: '/lovable-uploads/815c9c7f-8014-4f48-8886-09b45bbf1264.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '33',
@@ -415,7 +449,8 @@ export const mockProjects: Project[] = [
     category: 'som',
     subcategory: 'redesign-og-gjenbruk',
     mainImage: '/lovable-uploads/1cee23b2-eb97-4ba2-a356-6440a2358329.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '34',
@@ -427,7 +462,8 @@ export const mockProjects: Project[] = [
     category: 'foto',
     subcategory: 'byliv',
     mainImage: '/lovable-uploads/2138495a-b513-4632-abb4-70d15c403155.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '35',
@@ -439,7 +475,8 @@ export const mockProjects: Project[] = [
     category: 'som',
     subcategory: 'rett-fra-rullen',
     mainImage: '/lovable-uploads/569fc2ae-ec14-4402-a321-efe3af5d5214.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '36',
@@ -451,7 +488,8 @@ export const mockProjects: Project[] = [
     category: 'som',
     subcategory: 'redesign-og-gjenbruk',
     mainImage: '/lovable-uploads/72e83a49-8288-4359-b99b-d63c3d6e3de9.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '39',
@@ -463,7 +501,8 @@ export const mockProjects: Project[] = [
     category: 'bilder',
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/7b2a7d77-6996-4d82-a52d-68b801d8c3f9.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   },
   {
     id: '40',
@@ -475,7 +514,8 @@ export const mockProjects: Project[] = [
     category: 'bilder',
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/c32a1b01-6fc1-47b2-bb10-8ef599f1728c.png',
-    likes: 0
+    likes: 0,
+    altText: ''
   }
 ];
 

@@ -11,6 +11,7 @@ interface MediaDisplayProps {
   autoPlay?: boolean;
   muted?: boolean;
   loop?: boolean;
+  altText?: string; // New prop for admin-set alt text
 }
 
 const MediaDisplay: React.FC<MediaDisplayProps> = ({
@@ -22,7 +23,8 @@ const MediaDisplay: React.FC<MediaDisplayProps> = ({
   controls = true,
   autoPlay = false,
   muted = true,
-  loop = false
+  loop = false,
+  altText
 }) => {
   const handleClick = (e: React.MouseEvent) => {
     if (onClick) {
@@ -39,6 +41,9 @@ const MediaDisplay: React.FC<MediaDisplayProps> = ({
     e.preventDefault(); // Prevent drag and drop
   };
 
+  // Use altText if provided, otherwise fall back to alt
+  const finalAltText = altText || alt;
+
   if (isVideo) {
     return (
       <video
@@ -53,6 +58,7 @@ const MediaDisplay: React.FC<MediaDisplayProps> = ({
         loop={loop}
         preload="metadata"
         style={{ userSelect: 'none' }}
+        title={altText || undefined}
       >
         <source src={src} />
         Din nettleser støtter ikke video-elementet.
@@ -63,7 +69,7 @@ const MediaDisplay: React.FC<MediaDisplayProps> = ({
   return (
     <img
       src={src}
-      alt={alt}
+      alt={finalAltText}
       className={`${className} ${onClick ? 'cursor-pointer' : ''}`}
       onClick={handleClick}
       onContextMenu={handleContextMenu}
@@ -71,6 +77,7 @@ const MediaDisplay: React.FC<MediaDisplayProps> = ({
       loading="lazy"
       style={{ userSelect: 'none' }}
       draggable={false}
+      title={altText || undefined}
     />
   );
 };

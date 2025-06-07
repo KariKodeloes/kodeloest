@@ -9,9 +9,10 @@ interface ImageCarouselListProps {
   videos?: string[];
   title: string;
   onImageClick: (index: number) => void;
+  altText?: string;
 }
 
-const ImageCarouselList: React.FC<ImageCarouselListProps> = ({ images, videos = [], title, onImageClick }) => {
+const ImageCarouselList: React.FC<ImageCarouselListProps> = ({ images, videos = [], title, onImageClick, altText }) => {
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
   const allMedia = getAllMedia({ images, videos });
 
@@ -37,6 +38,7 @@ const ImageCarouselList: React.FC<ImageCarouselListProps> = ({ images, videos = 
       <OptimizedMediaDisplay
         src={currentMedia}
         alt={title}
+        altText={altText}
         className="w-full h-full object-cover"
         onClick={() => onImageClick(currentMediaIndex)}
         isVideo={isVideo}

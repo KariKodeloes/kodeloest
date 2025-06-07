@@ -13,6 +13,7 @@ interface ImageDialogProps {
   onClose: () => void;
   initialIndex?: number;
   title?: string;
+  altText?: string;
 }
 
 const ImageDialog: React.FC<ImageDialogProps> = ({ 
@@ -21,7 +22,8 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
   isOpen, 
   onClose, 
   initialIndex = 0,
-  title 
+  title,
+  altText
 }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const allMedia = getAllMedia({ images, videos });
@@ -68,7 +70,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
           {title || `Media ${currentIndex + 1} of ${allMedia.length}`}
         </DialogTitle>
         <DialogDescription className="sr-only">
-          Use arrow keys to navigate between media items. Press escape to close.
+          {altText || 'Use arrow keys to navigate between media items. Press escape to close.'}
         </DialogDescription>
         
         <div 
@@ -140,6 +142,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
               <OptimizedMediaDisplay
                 src={currentMedia}
                 alt={title || `Media ${currentIndex + 1}`}
+                altText={altText}
                 className="max-w-[calc(100vw-4rem)] max-h-[calc(100vh-12rem)] sm:max-w-[calc(95vw-8rem)] sm:max-h-[calc(95vh-16rem)] md:max-w-[calc(95vw-6rem)] md:max-h-[calc(95vh-12rem)]"
                 isVideo={isVideo}
                 controls={isVideo}

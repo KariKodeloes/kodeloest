@@ -16,6 +16,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
   const [isImageDialogOpen, setIsImageDialogOpen] = useState(false);
   const [dialogImageIndex, setDialogImageIndex] = useState(0);
 
+  // Get admin edits from localStorage
+  const getProjectAltText = (projectId: string): string => {
+    const existingData = localStorage.getItem('admin_project_edits');
+    if (existingData) {
+      const edits = JSON.parse(existingData);
+      return edits[projectId]?.altText || project.altText || '';
+    }
+    return project.altText || '';
+  };
+
+  const altText = getProjectAltText(project.id);
+
   const openImageDialog = (index: number = 0) => {
     setDialogImageIndex(index);
     setIsImageDialogOpen(true);
@@ -31,6 +43,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
               videos={project.videos}
               title={project.title}
               onImageClick={openImageDialog}
+              altText={altText}
             />
 
             <ProjectContent project={project} isListView={true} />
@@ -49,6 +62,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
           onClose={() => setIsImageDialogOpen(false)}
           initialIndex={dialogImageIndex}
           title={project.title}
+          altText={altText}
         />
       </>
     );
@@ -62,6 +76,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
           videos={project.videos}
           title={project.title}
           onImageClick={openImageDialog}
+          altText={altText}
         />
 
         <ProjectContent project={project} />
@@ -79,6 +94,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
         onClose={() => setIsImageDialogOpen(false)}
         initialIndex={dialogImageIndex}
         title={project.title}
+        altText={altText}
       />
     </>
   );

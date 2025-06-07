@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { getOptimalImageSize } from '../utils/imageCompression';
 
@@ -21,6 +22,7 @@ interface OptimizedMediaDisplayProps {
   context?: 'thumbnail' | 'medium' | 'large';
   loading?: 'lazy' | 'eager';
   objectFit?: 'cover' | 'contain';
+  altText?: string; // New prop for admin-set alt text
 }
 
 const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
@@ -36,7 +38,8 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
   loop = false,
   context = 'medium',
   loading = 'lazy',
-  objectFit = 'cover'
+  objectFit = 'cover',
+  altText
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
@@ -83,6 +86,9 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
     setImageLoaded(false);
   };
 
+  // Use altText if provided, otherwise fall back to alt
+  const finalAltText = altText || alt;
+
   if (isVideo) {
     return (
       <video
@@ -99,6 +105,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
         loop={loop}
         preload="metadata"
         style={{ userSelect: 'none', touchAction: 'manipulation' }}
+        title={altText || undefined}
       >
         <source src={src} />
         Din nettleser støtter ikke video-elementet.
@@ -118,7 +125,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
         
         <img
           src={optimalSrc}
-          alt={alt}
+          alt={finalAltText}
           className={`${className} ${onClick ? 'cursor-pointer' : ''} ${
             imageLoaded ? 'opacity-100' : 'opacity-0'
           } transition-opacity duration-300 object-contain`}
@@ -132,6 +139,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
           loading={loading}
           style={{ userSelect: 'none', touchAction: 'manipulation' }}
           draggable={false}
+          title={altText || undefined}
         />
         
         {imageError && (
@@ -154,7 +162,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
       
       <img
         src={optimalSrc}
-        alt={alt}
+        alt={finalAltText}
         className={`${onClick ? 'cursor-pointer' : ''} ${
           imageLoaded ? 'opacity-100' : 'opacity-0'
         } transition-opacity duration-300 w-full h-full object-cover`}
@@ -168,6 +176,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
         loading={loading}
         style={{ userSelect: 'none', touchAction: 'manipulation' }}
         draggable={false}
+        title={altText || undefined}
       />
       
       {imageError && (
