@@ -21,6 +21,7 @@ interface OptimizedMediaDisplayProps {
   loop?: boolean;
   context?: 'thumbnail' | 'medium' | 'large';
   loading?: 'lazy' | 'eager';
+  objectFit?: 'cover' | 'contain';
 }
 
 const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
@@ -35,7 +36,8 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
   muted = true,
   loop = false,
   context = 'medium',
-  loading = 'lazy'
+  loading = 'lazy',
+  objectFit = 'cover'
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
@@ -118,7 +120,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
         alt={alt}
         className={`${onClick ? 'cursor-pointer' : ''} ${
           imageLoaded ? 'opacity-100' : 'opacity-0'
-        } transition-opacity duration-300 max-w-full max-h-full object-contain`}
+        } transition-opacity duration-300 w-full h-full ${objectFit === 'contain' ? 'object-contain' : 'object-cover'}`}
         onClick={handleClick}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}

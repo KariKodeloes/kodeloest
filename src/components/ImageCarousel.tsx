@@ -45,6 +45,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, videos = [], titl
         loop={true}
         context="thumbnail"
         loading="lazy"
+        objectFit="cover"
       />
       
       {/* Media Navigation */}
