@@ -118,7 +118,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
         alt={alt}
         className={`${onClick ? 'cursor-pointer' : ''} ${
           imageLoaded ? 'opacity-100' : 'opacity-0'
-        } transition-opacity duration-300 w-full h-full object-cover`}
+        } transition-opacity duration-300 max-w-full max-h-full object-contain`}
         onClick={handleClick}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
