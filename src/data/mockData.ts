@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -37,6 +36,18 @@ export const mockProjects: Project[] = [
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/60faf3ef-db7d-4c44-8d6c-dff40616af79.png',
     likes: 8
+  },
+  {
+    id: '41',
+    title: '3 Vintermotiver',
+    subtitle: 'Akvarell, 300 gr bomull - 20x20 og 10x10',
+    description: 'Lekne, kvadratiske vintermotiver hvor fargene har fått flyte.',
+    year: 2024,
+    images: ['/lovable-uploads/a877d46e-338c-4f28-9cef-2196ff060092.png', '/lovable-uploads/e73c9fae-c48d-4b27-8345-6557e8cfb328.png', '/lovable-uploads/7ea1c63b-de47-4ba5-a6de-500be985780c.png'],
+    category: 'bilder',
+    subcategory: 'akvareller',
+    mainImage: '/lovable-uploads/a877d46e-338c-4f28-9cef-2196ff060092.png',
+    likes: 0
   },
   {
     id: '25',
