@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Dialog, DialogContent } from './ui/dialog';
 import { Button } from './ui/button';
@@ -121,7 +120,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                     key={index}
                     onClick={() => setCurrentIndex(index)}
                     className={`w-2 h-2 rounded-full transition-colors ${
-                      index === currentIndex ? 'bg-[rgb(var(--dialog-nav-blue))]' : 'bg-white/50'
+                      index === currentIndex ? 'bg-[rgb(var(--dialog-nav-blue))]' : 'bg-white/80'
                     }`}
                     style={{ touchAction: 'manipulation' }}
                   />

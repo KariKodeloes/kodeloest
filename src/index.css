@@ -183,9 +183,9 @@
   }
 
   /* Base text colors for non-home pages, but allow hover effects */
-  p:not(button p):not(.bg-\[--primary\] p):not([class*="bg-[#066298]"] p):not(.inline-flex p):not(.gallery-overlay p):not(footer p), 
-  span:not(button span):not(.bg-\[--primary\] span):not([class*="bg-[#066298]"] span):not(.inline-flex span):not(.gallery-overlay span):not(footer span), 
-  div:not(button div):not(.bg-\[--primary\] div):not([class*="bg-[#066298]"] div):not(.inline-flex div):not(.gallery-overlay div):not(footer div), 
+  p:not(button p):not(.bg-\[--primary\] p):not([class*="bg-[#066298]"] p):not(.inline-flex p):not(.gallery-overlay p):not(footer p):not([class*="bg-[rgb(var(--dialog-nav-blue))]"] p), 
+  span:not(button span):not(.bg-\[--primary\] span):not([class*="bg-[#066298]"] span):not(.inline-flex span):not(.gallery-overlay span):not(footer span):not([class*="bg-[rgb(var(--dialog-nav-blue))]"] span), 
+  div:not(button div):not(.bg-\[--primary\] div):not([class*="bg-[#066298]"] div):not(.inline-flex div):not(.gallery-overlay div):not(footer div):not([class*="bg-[rgb(var(--dialog-nav-blue))]"] div), 
   td, th {
     color: rgb(99, 68, 28) !important;
   }
@@ -210,6 +210,15 @@
     color: #FFFFFF !important;
   }
 
+  /* Dialog navigation elements should always have white text */
+  [class*="bg-[rgb(var(--dialog-nav-blue))]"],
+  [class*="bg-[rgb(var(--dialog-nav-blue))]"] *,
+  [class*="bg-[rgb(var(--dialog-nav-blue))]"] p,
+  [class*="bg-[rgb(var(--dialog-nav-blue))]"] span,
+  [class*="bg-[rgb(var(--dialog-nav-blue))]"] div {
+    color: white !important;
+  }
+
   /* Ensure buttons and button-like elements always have white text, EXCEPT category chips, sort buttons and view mode buttons */
   button:not(.category-chip):not(.sort-button):not(.view-mode-button):not(.mobile-menu-button), button:not(.category-chip):not(.sort-button):not(.view-mode-button):not(.mobile-menu-button) *, 
   [role="button"]:not(.category-chip):not(.sort-button):not(.view-mode-button):not(.mobile-menu-button), [role="button"]:not(.category-chip):not(.sort-button):not(.view-mode-button):not(.mobile-menu-button) *,
@@ -219,7 +228,8 @@
   a.inline-flex p:not(.category-chip p):not(.sort-button p):not(.view-mode-button p):not(.mobile-menu-button p), a.inline-flex span:not(.category-chip span):not(.sort-button span):not(.view-mode-button span):not(.mobile-menu-button span), a.inline-flex div:not(.category-chip div):not(.sort-button div):not(.view-mode-button div):not(.mobile-menu-button div),
   a[class*="bg-[#066298]"]:not(.category-chip):not(.sort-button):not(.view-mode-button):not(.mobile-menu-button), a[class*="bg-[#066298]"]:not(.category-chip):not(.sort-button):not(.view-mode-button):not(.mobile-menu-button) *,
   .bg-\[--primary\]:not(.category-chip):not(.sort-button):not(.view-mode-button):not(.mobile-menu-button), .bg-\[--primary\]:not(.category-chip):not(.sort-button):not(.view-mode-button):not(.mobile-menu-button) *,
-  [class*="bg-[#066298]"]:not(.category-chip):not(.sort-button):not(.view-mode-button):not(.mobile-menu-button), [class*="bg-[#066298]"]:not(.category-chip):not(.sort-button):not(.view-mode-button):not(.mobile-menu-button) * {
+  [class*="bg-[#066298]"]:not(.category-chip):not(.sort-button):not(.view-mode-button):not(.mobile-menu-button), [class*="bg-[#066298]"]:not(.category-chip):not(.sort-button):not(.view-mode-button):not(.mobile-menu-button) *,
+  [class*="bg-[rgb(var(--dialog-nav-blue))]"]:not(.category-chip):not(.sort-button):not(.view-mode-button):not(.mobile-menu-button), [class*="bg-[rgb(var(--dialog-nav-blue))]"]:not(.category-chip):not(.sort-button):not(.view-mode-button):not(.mobile-menu-button) * {
     color: white !important;
   }
 
