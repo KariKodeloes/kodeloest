@@ -68,6 +68,7 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
   };
 
   const handleChange = (field: keyof Project, value: any) => {
+    console.log('ProjectEditor handleChange:', field, value);
     setProject(prev => {
       const updated = {
         ...prev,
@@ -76,9 +77,11 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
       
       // Clear subcategory if category changes
       if (field === 'category') {
+        console.log('Category changed, clearing subcategory');
         updated.subcategory = '';
       }
       
+      console.log('Updated project state:', updated);
       return updated;
     });
   };

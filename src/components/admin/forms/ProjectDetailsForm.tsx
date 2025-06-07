@@ -19,6 +19,20 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({ project, onProj
   console.log('ProjectDetailsForm render - project:', project);
   console.log('Category options in form:', categoryOptions);
   console.log('Subcategory options in form:', subcategoryOptions);
+  console.log('Current category value:', project.category);
+  console.log('Current subcategory value:', project.subcategory);
+
+  const handleCategoryChange = (value: string) => {
+    console.log('Category change handler called with:', value);
+    onProjectChange('category', value);
+    // Clear subcategory when category changes
+    onProjectChange('subcategory', '');
+  };
+
+  const handleSubcategoryChange = (value: string) => {
+    console.log('Subcategory change handler called with:', value);
+    onProjectChange('subcategory', value);
+  };
 
   return (
     <Card>
@@ -63,20 +77,16 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({ project, onProj
             </label>
             <Select
               value={project.category || ''}
-              onValueChange={(value) => {
-                console.log('Category selected:', value);
-                onProjectChange('category', value);
-              }}
+              onValueChange={handleCategoryChange}
             >
-              <SelectTrigger className="w-full">
+              <SelectTrigger className="w-full bg-white border border-gray-300">
                 <SelectValue placeholder="Velg kategori" />
               </SelectTrigger>
-              <SelectContent className="bg-white border border-gray-200 shadow-lg z-[9999] max-h-60 overflow-auto">
+              <SelectContent>
                 {categoryOptions.map((option) => (
                   <SelectItem 
                     key={option.value} 
                     value={option.value}
-                    className="cursor-pointer hover:bg-gray-100 px-3 py-2"
                   >
                     {option.label}
                   </SelectItem>
@@ -101,20 +111,16 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({ project, onProj
             <label className="block text-sm font-medium mb-2">Underkategori</label>
             <Select
               value={project.subcategory || ''}
-              onValueChange={(value) => {
-                console.log('Subcategory selected:', value);
-                onProjectChange('subcategory', value);
-              }}
+              onValueChange={handleSubcategoryChange}
             >
-              <SelectTrigger className="w-full">
+              <SelectTrigger className="w-full bg-white border border-gray-300">
                 <SelectValue placeholder="Velg underkategori" />
               </SelectTrigger>
-              <SelectContent className="bg-white border border-gray-200 shadow-lg z-[9999] max-h-60 overflow-auto">
+              <SelectContent>
                 {subcategoryOptions.map((option) => (
                   <SelectItem 
                     key={option.value} 
                     value={option.value}
-                    className="cursor-pointer hover:bg-gray-100 px-3 py-2"
                   >
                     {option.label}
                   </SelectItem>
