@@ -1,13 +1,14 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { ArrowLeft, Save, Image } from 'lucide-react';
 import { mockProjects, Project } from '../../data/mockData';
 import { useToast } from '../../hooks/use-toast';
 import ImageUploader from './ImageUploader';
+import { getCategoryOptions, getSubcategoryOptions } from '../../constants/categories';
 
 interface ProjectEditorProps {
   projectId: string | null;
@@ -31,6 +32,9 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
   });
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+
+  const categoryOptions = getCategoryOptions();
+  const subcategoryOptions = getSubcategoryOptions(project.category || '');
 
   useEffect(() => {
     if (projectId && !isNewProject) {
@@ -144,10 +148,19 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
   };
 
   const handleChange = (field: keyof Project, value: any) => {
-    setProject(prev => ({
-      ...prev,
-      [field]: value
-    }));
+    setProject(prev => {
+      const updated = {
+        ...prev,
+        [field]: value
+      };
+      
+      // Clear subcategory if category changes
+      if (field === 'category') {
+        updated.subcategory = '';
+      }
+      
+      return updated;
+    });
   };
 
   const handleMainImageUpload = (imageUrl: string) => {
@@ -228,6 +241,11 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
                 <span>{project.category}</span>
                 <span>{project.year}</span>
               </div>
+              {project.subcategory && (
+                <div className="mt-2 text-xs text-gray-600">
+                  <span>Underkategori: {project.subcategory}</span>
+                </div>
+              )}
               {project.altText && (
                 <div className="mt-3 p-2 bg-green-50 rounded text-xs">
                   <strong>Alt-tekst:</strong> {project.altText}
@@ -278,11 +296,21 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
                     <label className="block text-sm font-medium mb-2">
                       Kategori <span className="text-red-500">*</span>
                     </label>
-                    <Input
+                    <Select
                       value={project.category || ''}
-                      onChange={(e) => handleChange('category', e.target.value)}
-                      placeholder="bilder, foto, som, design"
-                    />
+                      onValueChange={(value) => handleChange('category', value)}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Velg kategori" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {categoryOptions.map((option) => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   <div>
@@ -296,14 +324,26 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium mb-2">Underkategori</label>
-                  <Input
-                    value={project.subcategory || ''}
-                    onChange={(e) => handleChange('subcategory', e.target.value)}
-                    placeholder="akvareller, mixed-media, etc."
-                  />
-                </div>
+                {subcategoryOptions.length > 0 && (
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Underkategori</label>
+                    <Select
+                      value={project.subcategory || ''}
+                      onValueChange={(value) => handleChange('subcategory', value)}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Velg underkategori" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {subcategoryOptions.map((option) => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                )}
 
                 <div>
                   <label className="block text-sm font-medium mb-2">
