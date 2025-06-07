@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,6 +36,8 @@
     --radius: 0.5rem;
 
     --footer-link: 205 223 240;
+
+    --dialog-nav-blue: 6 98 152;
 
     --sidebar-background: 255 255 255;
     --sidebar-foreground: 99 68 28;
@@ -76,6 +79,8 @@
     --ring: 168 162 158;
 
     --footer-link: 205 223 240;
+
+    --dialog-nav-blue: 6 98 152;
 
     --sidebar-background: 28 25 23;
     --sidebar-foreground: 250 250 249;
