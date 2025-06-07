@@ -18,7 +18,14 @@ const Footer = () => {
             className="font-roboto font-light leading-relaxed text-base"
             style={{ color: 'rgb(255, 255, 255)' }}
           >
-            © Kari Walle Mikkelsen 2025. Alle bilder og kunstverk på sidene er beskyttet av åndsverkloven og kan ikke brukes uten skriftlig tillatelse.
+            © Kari Walle Mikkelsen 2025. Alle bilder og kunstverk på sidene er beskyttet av åndsverkloven og kan ikke brukes uten{' '}
+            <a 
+              href="mailto:kari.fm@hotmail.com" 
+              className="text-blue-400 hover:text-blue-300 underline"
+              style={{ color: '#60a5fa' }}
+            >
+              skriftlig tillatelse
+            </a>.
           </p>
         </div>
       </div>
