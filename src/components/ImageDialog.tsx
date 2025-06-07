@@ -56,8 +56,8 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-none w-full h-full p-0 bg-black/95 border-0 sm:max-w-[95vw] sm:max-h-[95vh] sm:p-2">
-        <div className="relative w-full flex items-center justify-center h-[100vh] sm:h-full">
+      <DialogContent className="max-w-none w-full h-full p-0 bg-black/95 border-0 sm:max-w-[95vw] sm:max-h-[95vh] sm:p-2 overflow-auto">
+        <div className="relative w-full flex items-center justify-center h-[100vh] sm:h-[95vh]">
           {/* Close button */}
           <Button
             variant="ghost"
