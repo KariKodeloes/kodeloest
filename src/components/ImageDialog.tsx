@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Dialog, DialogContent } from './ui/dialog';
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from './ui/dialog';
 import { Button } from './ui/button';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import OptimizedMediaDisplay from './OptimizedMediaDisplay';
@@ -56,15 +56,45 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-none w-full h-full p-0 !bg-black border-0 sm:max-w-[95vw] sm:max-h-[95vh] sm:p-2">
-        <div className="relative w-full min-h-screen sm:min-h-[95vh] flex flex-col items-center justify-center p-4 sm:p-6 bg-black">
+      <DialogContent 
+        className="max-w-none w-full h-full p-0 border-0 sm:max-w-[95vw] sm:max-h-[95vh] sm:p-2"
+        style={{ 
+          backgroundColor: '#000000',
+          '--background': '0 0 0'
+        } as React.CSSProperties}
+      >
+        {/* Hidden accessibility elements */}
+        <DialogTitle className="sr-only">
+          {title || `Media ${currentIndex + 1} of ${allMedia.length}`}
+        </DialogTitle>
+        <DialogDescription className="sr-only">
+          Use arrow keys to navigate between media items. Press escape to close.
+        </DialogDescription>
+        
+        <div 
+          className="relative w-full min-h-screen sm:min-h-[95vh] flex flex-col items-center justify-center p-4 sm:p-6"
+          style={{ backgroundColor: '#000000' }}
+        >
           {/* Close button */}
           <Button
             variant="ghost"
             size="sm"
             onClick={onClose}
-            className="absolute top-2 right-2 z-10 bg-white text-[rgb(var(--dialog-nav-blue))] hover:bg-[rgb(var(--dialog-nav-blue))] hover:text-white border border-white/20"
-            style={{ touchAction: 'manipulation' }}
+            className="absolute top-2 right-2 z-10 transition-colors"
+            style={{ 
+              backgroundColor: '#ffffff',
+              color: 'rgb(6, 98, 152)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              touchAction: 'manipulation'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgb(6, 98, 152)';
+              e.currentTarget.style.color = '#ffffff';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#ffffff';
+              e.currentTarget.style.color = 'rgb(6, 98, 152)';
+            }}
           >
             <X className="h-4 w-4" />
           </Button>
@@ -76,8 +106,21 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                 variant="ghost"
                 size="sm"
                 onClick={prevMedia}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white text-[rgb(var(--dialog-nav-blue))] hover:bg-[rgb(var(--dialog-nav-blue))] hover:text-white border border-white/20"
-                style={{ touchAction: 'manipulation' }}
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 transition-colors"
+                style={{ 
+                  backgroundColor: '#ffffff',
+                  color: 'rgb(6, 98, 152)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  touchAction: 'manipulation'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgb(6, 98, 152)';
+                  e.currentTarget.style.color = '#ffffff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#ffffff';
+                  e.currentTarget.style.color = 'rgb(6, 98, 152)';
+                }}
               >
                 <ChevronLeft className="h-6 w-6" />
               </Button>
@@ -85,8 +128,21 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                 variant="ghost"
                 size="sm"
                 onClick={nextMedia}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white text-[rgb(var(--dialog-nav-blue))] hover:bg-[rgb(var(--dialog-nav-blue))] hover:text-white border border-white/20"
-                style={{ touchAction: 'manipulation' }}
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 transition-colors"
+                style={{ 
+                  backgroundColor: '#ffffff',
+                  color: 'rgb(6, 98, 152)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  touchAction: 'manipulation'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgb(6, 98, 152)';
+                  e.currentTarget.style.color = '#ffffff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#ffffff';
+                  e.currentTarget.style.color = 'rgb(6, 98, 152)';
+                }}
               >
                 <ChevronRight className="h-6 w-6" />
               </Button>
@@ -120,10 +176,11 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-colors ${
-                      index === currentIndex ? 'bg-[rgb(var(--dialog-nav-blue))]' : 'bg-white'
-                    }`}
-                    style={{ touchAction: 'manipulation' }}
+                    className="w-2 h-2 rounded-full transition-colors"
+                    style={{ 
+                      backgroundColor: index === currentIndex ? 'rgb(6, 98, 152)' : '#ffffff',
+                      touchAction: 'manipulation'
+                    }}
                   />
                 ))}
               </div>
@@ -131,7 +188,14 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
 
             {/* Media counter */}
             {allMedia.length > 1 && (
-              <div className="bg-white text-[rgb(var(--dialog-nav-blue))] px-3 py-1 rounded-full text-sm font-medium border border-white/20">
+              <div 
+                className="px-3 py-1 rounded-full text-sm font-medium"
+                style={{ 
+                  backgroundColor: '#ffffff',
+                  color: 'rgb(6, 98, 152)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)'
+                }}
+              >
                 {currentIndex + 1} / {allMedia.length}
               </div>
             )}
