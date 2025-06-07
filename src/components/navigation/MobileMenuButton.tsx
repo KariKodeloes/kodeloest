@@ -16,7 +16,7 @@ const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuB
   if (isHomePage) {
     return (
       <button
-        className="md:hidden mr-2 text-white transition-colors rounded p-1"
+        className="md:hidden text-white transition-colors rounded p-1"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label="Åpne meny"
         style={{ color: '#FFFFFF' }}
@@ -44,7 +44,7 @@ const MobileMenuButton = ({ isMenuOpen, setIsMenuOpen, isHomePage }: MobileMenuB
   
   return (
     <button
-      className="md:hidden mr-2 transition-colors p-1 rounded mobile-menu-button"
+      className="md:hidden transition-colors p-1 rounded mobile-menu-button w-10 h-10 flex items-center justify-center"
       onClick={() => setIsMenuOpen(!isMenuOpen)}
       aria-label="Åpne meny"
       style={{ 

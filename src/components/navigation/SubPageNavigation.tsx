@@ -26,15 +26,17 @@ const SubPageNavigation = ({ menuItems }: SubPageNavigationProps) => {
         <div className="flex justify-between items-center h-16 md:justify-between" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
           {/* Mobile layout - hamburger on left, centered logo, spacer on right */}
           <div className="flex items-center md:hidden w-full" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
-            <MobileMenuButton 
-              isMenuOpen={isMenuOpen}
-              setIsMenuOpen={setIsMenuOpen}
-              isHomePage={false}
-            />
+            <div className="w-12 flex justify-start">
+              <MobileMenuButton 
+                isMenuOpen={isMenuOpen}
+                setIsMenuOpen={setIsMenuOpen}
+                isHomePage={false}
+              />
+            </div>
             <div className="flex-1 flex justify-center">
               <KodelostLogo />
             </div>
-            <div className="w-10"> {/* Spacer to balance the hamburger button */}
+            <div className="w-12"> {/* Spacer to balance the hamburger button - now matches w-12 */}
             </div>
           </div>
 
