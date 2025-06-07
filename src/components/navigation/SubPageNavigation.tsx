@@ -45,16 +45,17 @@ const SubPageNavigation = ({ menuItems }: SubPageNavigationProps) => {
             <KodelostLogo />
           </div>
 
-          {/* Desktop navigation and social icons - completely hidden on mobile */}
-          <div className="hidden md:flex items-center justify-between flex-1 ml-4">
+          {/* Desktop navigation - centered */}
+          <div className="hidden md:flex items-center justify-center flex-1">
             <DesktopNavigation 
               menuItems={menuItems}
               isHomePage={false}
             />
+          </div>
 
-            <div className="flex items-center space-x-4">
-              <SocialIcons isHomePage={false} />
-            </div>
+          {/* Social icons - right side on desktop */}
+          <div className="hidden md:flex items-center space-x-4">
+            <SocialIcons isHomePage={false} />
           </div>
         </div>
 
