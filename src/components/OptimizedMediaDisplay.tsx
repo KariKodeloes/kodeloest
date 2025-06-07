@@ -45,6 +45,21 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
   const handleClick = (e: React.MouseEvent) => {
     if (onClick) {
       e.preventDefault();
+      e.stopPropagation();
+      onClick();
+    }
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (onClick) {
+      e.preventDefault();
+    }
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (onClick) {
+      e.preventDefault();
+      e.stopPropagation();
       onClick();
     }
   };
@@ -73,6 +88,8 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
         src={src}
         className={`${className} ${onClick ? 'cursor-pointer' : ''}`}
         onClick={handleClick}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         onContextMenu={handleContextMenu}
         onDragStart={handleDragStart}
         controls={controls}
@@ -80,7 +97,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
         muted={muted}
         loop={loop}
         preload="metadata"
-        style={{ userSelect: 'none' }}
+        style={{ userSelect: 'none', touchAction: 'manipulation' }}
       >
         <source src={src} />
         Din nettleser støtter ikke video-elementet.
@@ -103,12 +120,14 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
           imageLoaded ? 'opacity-100' : 'opacity-0'
         } transition-opacity duration-300 w-full h-full object-cover`}
         onClick={handleClick}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         onContextMenu={handleContextMenu}
         onDragStart={handleDragStart}
         onLoad={handleImageLoad}
         onError={handleImageError}
         loading={loading}
-        style={{ userSelect: 'none' }}
+        style={{ userSelect: 'none', touchAction: 'manipulation' }}
         draggable={false}
       />
       

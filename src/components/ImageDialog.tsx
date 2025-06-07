@@ -64,6 +64,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
             size="sm"
             onClick={onClose}
             className="absolute top-2 right-2 z-10 bg-black/50 text-white hover:bg-black/70"
+            style={{ touchAction: 'manipulation' }}
           >
             <X className="h-4 w-4" />
           </Button>
@@ -76,6 +77,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                 size="sm"
                 onClick={prevMedia}
                 className="absolute left-1 sm:left-2 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white hover:bg-black/70"
+                style={{ touchAction: 'manipulation' }}
               >
                 <ChevronLeft className="h-6 w-6" />
               </Button>
@@ -84,6 +86,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                 size="sm"
                 onClick={nextMedia}
                 className="absolute right-1 sm:right-2 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white hover:bg-black/70"
+                style={{ touchAction: 'manipulation' }}
               >
                 <ChevronRight className="h-6 w-6" />
               </Button>
@@ -95,7 +98,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
             <OptimizedMediaDisplay
               src={currentMedia}
               alt={title || `Media ${currentIndex + 1}`}
-              className="max-w-[calc(100vw-2.5rem)] max-h-[calc(100vh-8rem)] sm:max-w-[calc(95vw-6rem)] sm:max-h-[calc(95vh-8rem)] w-auto h-auto object-contain"
+              className="max-w-[calc(100vw-1rem)] max-h-[calc(100vh-6rem)] sm:max-w-[calc(95vw-6rem)] sm:max-h-[calc(95vh-8rem)] w-auto h-auto object-contain"
               isVideo={isVideo}
               controls={isVideo}
               autoPlay={isVideo}
@@ -122,6 +125,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                   className={`w-2 h-2 rounded-full transition-colors ${
                     index === currentIndex ? 'bg-white' : 'bg-white/50'
                   }`}
+                  style={{ touchAction: 'manipulation' }}
                 />
               ))}
             </div>
