@@ -57,10 +57,10 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent 
-        className="max-w-none w-full h-full p-0 border-0 sm:max-w-[95vw] sm:max-h-[95vh] sm:p-2"
+        className="!max-w-none !w-full !h-full !p-0 !border-0 !bg-black sm:!max-w-[95vw] sm:!max-h-[95vh] sm:!p-2"
         style={{ 
-          backgroundColor: '#000000',
-          '--background': '0 0 0'
+          backgroundColor: '#000000 !important',
+          '--background': '0 0% 0%'
         } as React.CSSProperties}
       >
         {/* Hidden accessibility elements */}
@@ -72,54 +72,36 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
         </DialogDescription>
         
         <div 
-          className="relative w-full min-h-screen sm:min-h-[95vh] flex flex-col items-center justify-center p-4 sm:p-6"
+          className="relative w-full min-h-screen sm:min-h-[95vh] flex flex-col items-center justify-center p-4 sm:p-6 !bg-black"
           style={{ backgroundColor: '#000000' }}
         >
-          {/* Close button */}
+          {/* Close button - Always visible with semi-transparent background */}
           <Button
             variant="ghost"
             size="sm"
             onClick={onClose}
-            className="absolute top-2 right-2 z-10 transition-colors"
+            className="absolute top-2 right-2 z-10 !bg-white/90 !text-blue-600 hover:!bg-blue-600 hover:!text-white border border-white/20 shadow-lg"
             style={{ 
-              backgroundColor: '#ffffff',
-              color: 'rgb(6, 98, 152)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              touchAction: 'manipulation'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgb(6, 98, 152)';
-              e.currentTarget.style.color = '#ffffff';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#ffffff';
-              e.currentTarget.style.color = 'rgb(6, 98, 152)';
+              touchAction: 'manipulation',
+              backgroundColor: 'rgba(255, 255, 255, 0.9)',
+              color: 'rgb(6, 98, 152)'
             }}
           >
             <X className="h-4 w-4" />
           </Button>
 
-          {/* Navigation buttons */}
+          {/* Navigation buttons - Always visible with semi-transparent background */}
           {allMedia.length > 1 && (
             <>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={prevMedia}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 transition-colors"
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 !bg-white/90 !text-blue-600 hover:!bg-blue-600 hover:!text-white border border-white/20 shadow-lg"
                 style={{ 
-                  backgroundColor: '#ffffff',
-                  color: 'rgb(6, 98, 152)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  touchAction: 'manipulation'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgb(6, 98, 152)';
-                  e.currentTarget.style.color = '#ffffff';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#ffffff';
-                  e.currentTarget.style.color = 'rgb(6, 98, 152)';
+                  touchAction: 'manipulation',
+                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                  color: 'rgb(6, 98, 152)'
                 }}
               >
                 <ChevronLeft className="h-6 w-6" />
@@ -128,20 +110,11 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                 variant="ghost"
                 size="sm"
                 onClick={nextMedia}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 transition-colors"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 !bg-white/90 !text-blue-600 hover:!bg-blue-600 hover:!text-white border border-white/20 shadow-lg"
                 style={{ 
-                  backgroundColor: '#ffffff',
-                  color: 'rgb(6, 98, 152)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  touchAction: 'manipulation'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgb(6, 98, 152)';
-                  e.currentTarget.style.color = '#ffffff';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#ffffff';
-                  e.currentTarget.style.color = 'rgb(6, 98, 152)';
+                  touchAction: 'manipulation',
+                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                  color: 'rgb(6, 98, 152)'
                 }}
               >
                 <ChevronRight className="h-6 w-6" />
@@ -176,9 +149,9 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
-                    className="w-2 h-2 rounded-full transition-colors"
+                    className="w-2 h-2 rounded-full transition-colors border border-white/20"
                     style={{ 
-                      backgroundColor: index === currentIndex ? 'rgb(6, 98, 152)' : '#ffffff',
+                      backgroundColor: index === currentIndex ? 'rgb(6, 98, 152)' : 'rgba(255, 255, 255, 0.7)',
                       touchAction: 'manipulation'
                     }}
                   />
@@ -189,11 +162,10 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
             {/* Media counter */}
             {allMedia.length > 1 && (
               <div 
-                className="px-3 py-1 rounded-full text-sm font-medium"
+                className="px-3 py-1 rounded-full text-sm font-medium border border-white/20"
                 style={{ 
-                  backgroundColor: '#ffffff',
-                  color: 'rgb(6, 98, 152)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)'
+                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                  color: 'rgb(6, 98, 152)'
                 }}
               >
                 {currentIndex + 1} / {allMedia.length}
