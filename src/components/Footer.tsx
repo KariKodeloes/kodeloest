@@ -1,7 +1,16 @@
 
 import React from 'react';
+import { Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
+  const handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.currentTarget.style.opacity = '0.8';
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.currentTarget.style.opacity = '1';
+  };
+
   return (
     <footer 
       className="relative mt-auto bg-cover bg-center bg-no-repeat text-white py-8"
@@ -14,6 +23,35 @@ const Footer = () => {
     >
       <div className="container mx-auto px-4">
         <div className="text-center">
+          {/* Social media icons */}
+          <div className="flex justify-center items-center space-x-6 mb-4">
+            <a
+              href="https://www.linkedin.com/in/kari-walle-mikkelsen-0b199516/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-opacity"
+              aria-label="Følg meg på LinkedIn"
+              style={{ color: '#FFFFFF' }}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <Linkedin size={32} />
+            </a>
+            <a
+              href="https://instagram.com/karis_pensel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-opacity"
+              aria-label="Følg meg på Instagram"
+              style={{ color: '#FFFFFF' }}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <Instagram size={32} />
+            </a>
+          </div>
+
+          {/* Copyright text */}
           <p 
             className="font-roboto font-light leading-relaxed text-base"
             style={{ color: 'rgb(255, 255, 255)' }}
