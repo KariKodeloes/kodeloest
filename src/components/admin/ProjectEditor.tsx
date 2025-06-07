@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -7,6 +6,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
 import { ArrowLeft, Save, Image } from 'lucide-react';
 import { mockProjects, Project } from '../../data/mockData';
 import { useToast } from '../../hooks/use-toast';
+import ImageUploader from './ImageUploader';
 
 interface ProjectEditorProps {
   projectId: string | null;
@@ -74,6 +74,27 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
     }));
   };
 
+  const handleMainImageUpload = (imageUrl: string) => {
+    setProject(prev => ({
+      ...prev,
+      mainImage: imageUrl
+    }));
+  };
+
+  const handleGalleryImagesUpload = (imageUrls: string[]) => {
+    setProject(prev => ({
+      ...prev,
+      images: [...(prev.images || []), ...imageUrls]
+    }));
+  };
+
+  const handleGalleryImagesUpdate = (imageUrls: string[]) => {
+    setProject(prev => ({
+      ...prev,
+      images: imageUrls
+    }));
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white shadow-sm border-b">
@@ -133,94 +154,126 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
           </Card>
 
           {/* Edit Form */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Prosjektdetaljer</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium mb-2">Tittel</label>
-                <Input
-                  value={project.title || ''}
-                  onChange={(e) => handleChange('title', e.target.value)}
-                  placeholder="Prosjekttittel"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-2">Undertittel</label>
-                <Input
-                  value={project.subtitle || ''}
-                  onChange={(e) => handleChange('subtitle', e.target.value)}
-                  placeholder="Teknikk, størrelse etc."
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-2">Beskrivelse</label>
-                <Textarea
-                  value={project.description || ''}
-                  onChange={(e) => handleChange('description', e.target.value)}
-                  placeholder="Prosjektbeskrivelse"
-                  rows={4}
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Prosjektdetaljer</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Kategori</label>
+                  <label className="block text-sm font-medium mb-2">Tittel</label>
                   <Input
-                    value={project.category || ''}
-                    onChange={(e) => handleChange('category', e.target.value)}
-                    placeholder="bilder, foto, som, design"
+                    value={project.title || ''}
+                    onChange={(e) => handleChange('title', e.target.value)}
+                    placeholder="Prosjekttittel"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">År</label>
+                  <label className="block text-sm font-medium mb-2">Undertittel</label>
                   <Input
-                    type="number"
-                    value={project.year || ''}
-                    onChange={(e) => handleChange('year', parseInt(e.target.value))}
-                    placeholder="2024"
+                    value={project.subtitle || ''}
+                    onChange={(e) => handleChange('subtitle', e.target.value)}
+                    placeholder="Teknikk, størrelse etc."
                   />
                 </div>
-              </div>
 
-              <div>
-                <label className="block text-sm font-medium mb-2">Underkategori</label>
-                <Input
-                  value={project.subcategory || ''}
-                  onChange={(e) => handleChange('subcategory', e.target.value)}
-                  placeholder="akvareller, mixed-media, etc."
-                />
-              </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Beskrivelse</label>
+                  <Textarea
+                    value={project.description || ''}
+                    onChange={(e) => handleChange('description', e.target.value)}
+                    placeholder="Prosjektbeskrivelse"
+                    rows={4}
+                  />
+                </div>
 
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Alt-tekst for bilder
-                  <span className="text-xs text-gray-500 block">
-                    Beskrivelse som leses opp av skjermlesere
-                  </span>
-                </label>
-                <Textarea
-                  value={project.altText || ''}
-                  onChange={(e) => handleChange('altText', e.target.value)}
-                  placeholder="Detaljert beskrivelse av bildet for skjermlesere..."
-                  rows={3}
-                />
-              </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Kategori</label>
+                    <Input
+                      value={project.category || ''}
+                      onChange={(e) => handleChange('category', e.target.value)}
+                      placeholder="bilder, foto, som, design"
+                    />
+                  </div>
 
-              <div>
-                <label className="block text-sm font-medium mb-2">Hovedbilde URL</label>
-                <Input
-                  value={project.mainImage || ''}
-                  onChange={(e) => handleChange('mainImage', e.target.value)}
-                  placeholder="/lovable-uploads/..."
+                  <div>
+                    <label className="block text-sm font-medium mb-2">År</label>
+                    <Input
+                      type="number"
+                      value={project.year || ''}
+                      onChange={(e) => handleChange('year', parseInt(e.target.value))}
+                      placeholder="2024"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">Underkategori</label>
+                  <Input
+                    value={project.subcategory || ''}
+                    onChange={(e) => handleChange('subcategory', e.target.value)}
+                    placeholder="akvareller, mixed-media, etc."
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Alt-tekst for bilder
+                    <span className="text-xs text-gray-500 block">
+                      Beskrivelse som leses opp av skjermlesere
+                    </span>
+                  </label>
+                  <Textarea
+                    value={project.altText || ''}
+                    onChange={(e) => handleChange('altText', e.target.value)}
+                    placeholder="Detaljert beskrivelse av bildet for skjermlesere..."
+                    rows={3}
+                  />
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Main Image Upload */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Hovedbilde</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ImageUploader
+                  onImageUploaded={handleMainImageUpload}
+                  multiple={false}
+                  className="mb-4"
                 />
-              </div>
-            </CardContent>
-          </Card>
+                {project.mainImage && (
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Eller angi URL manuelt:</label>
+                    <Input
+                      value={project.mainImage || ''}
+                      onChange={(e) => handleChange('mainImage', e.target.value)}
+                      placeholder="/lovable-uploads/..."
+                    />
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
+            {/* Gallery Images */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Bildegalleri</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ImageUploader
+                  onImagesUploaded={handleGalleryImagesUpload}
+                  onImagesUploaded={handleGalleryImagesUpdate}
+                  multiple={true}
+                  currentImages={project.images || []}
+                />
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </div>
