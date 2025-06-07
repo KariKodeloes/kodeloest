@@ -21,8 +21,7 @@ const Footer = () => {
             © Kari Walle Mikkelsen 2025. Alle bilder og kunstverk på sidene er beskyttet av åndsverkloven og kan ikke brukes uten{' '}
             <a 
               href="mailto:kari.fm@hotmail.com" 
-              className="underline hover:opacity-80 transition-opacity"
-              style={{ color: 'rgb(225, 223, 240)' }}
+              className="underline hover:opacity-80 transition-opacity footer-link"
             >
               skriftlig tillatelse
             </a>.

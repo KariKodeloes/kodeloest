@@ -35,6 +35,8 @@
 
     --radius: 0.5rem;
 
+    --footer-link: 225 223 240;
+
     --sidebar-background: 255 255 255;
     --sidebar-foreground: 99 68 28;
     --sidebar-primary: 121 85 72;
@@ -73,6 +75,8 @@
     --border: 68 64 60;
     --input: 68 64 60;
     --ring: 168 162 158;
+
+    --footer-link: 225 223 240;
 
     --sidebar-background: 28 25 23;
     --sidebar-foreground: 250 250 249;
@@ -159,6 +163,19 @@
   footer span,
   footer div {
     color: rgb(255, 255, 255) !important;
+  }
+
+  /* Footer links - standard light blue for dark backgrounds */
+  footer a,
+  footer a *,
+  .footer-link {
+    color: rgb(225, 223, 240) !important;
+  }
+
+  footer a:hover,
+  footer a:hover *,
+  .footer-link:hover {
+    opacity: 0.8;
   }
 
   /* Base text colors for non-home pages, but allow hover effects */
