@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Dialog, DialogContent } from './ui/dialog';
 import { Button } from './ui/button';
@@ -55,14 +56,14 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-none w-full h-full p-0 bg-black border-0 sm:max-w-[95vw] sm:max-h-[95vh] sm:p-2">
-        <div className="relative w-full min-h-screen sm:min-h-[95vh] flex flex-col items-center justify-center p-4 sm:p-6">
+      <DialogContent className="max-w-none w-full h-full p-0 !bg-black border-0 sm:max-w-[95vw] sm:max-h-[95vh] sm:p-2">
+        <div className="relative w-full min-h-screen sm:min-h-[95vh] flex flex-col items-center justify-center p-4 sm:p-6 bg-black">
           {/* Close button */}
           <Button
             variant="ghost"
             size="sm"
             onClick={onClose}
-            className="absolute top-2 right-2 z-10 bg-[rgb(var(--dialog-nav-blue))] text-white hover:bg-[rgb(var(--dialog-nav-blue))]/80"
+            className="absolute top-2 right-2 z-10 bg-white text-[rgb(var(--dialog-nav-blue))] hover:bg-[rgb(var(--dialog-nav-blue))] hover:text-white border border-white/20"
             style={{ touchAction: 'manipulation' }}
           >
             <X className="h-4 w-4" />
@@ -75,7 +76,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                 variant="ghost"
                 size="sm"
                 onClick={prevMedia}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-[rgb(var(--dialog-nav-blue))] text-white hover:bg-[rgb(var(--dialog-nav-blue))]/80"
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white text-[rgb(var(--dialog-nav-blue))] hover:bg-[rgb(var(--dialog-nav-blue))] hover:text-white border border-white/20"
                 style={{ touchAction: 'manipulation' }}
               >
                 <ChevronLeft className="h-6 w-6" />
@@ -84,7 +85,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                 variant="ghost"
                 size="sm"
                 onClick={nextMedia}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-[rgb(var(--dialog-nav-blue))] text-white hover:bg-[rgb(var(--dialog-nav-blue))]/80"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white text-[rgb(var(--dialog-nav-blue))] hover:bg-[rgb(var(--dialog-nav-blue))] hover:text-white border border-white/20"
                 style={{ touchAction: 'manipulation' }}
               >
                 <ChevronRight className="h-6 w-6" />
@@ -120,7 +121,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
                     key={index}
                     onClick={() => setCurrentIndex(index)}
                     className={`w-2 h-2 rounded-full transition-colors ${
-                      index === currentIndex ? 'bg-[rgb(var(--dialog-nav-blue))]' : 'bg-white/80'
+                      index === currentIndex ? 'bg-[rgb(var(--dialog-nav-blue))]' : 'bg-white'
                     }`}
                     style={{ touchAction: 'manipulation' }}
                   />
@@ -130,7 +131,7 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
 
             {/* Media counter */}
             {allMedia.length > 1 && (
-              <div className="bg-[rgb(var(--dialog-nav-blue))] text-white px-3 py-1 rounded-full text-sm font-medium">
+              <div className="bg-white text-[rgb(var(--dialog-nav-blue))] px-3 py-1 rounded-full text-sm font-medium border border-white/20">
                 {currentIndex + 1} / {allMedia.length}
               </div>
             )}
