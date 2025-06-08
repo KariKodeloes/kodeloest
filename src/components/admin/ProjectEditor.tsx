@@ -8,6 +8,8 @@ import ProjectDetailsForm from './forms/ProjectDetailsForm';
 import ProjectPreview from './preview/ProjectPreview';
 import MainImageSection from './upload/MainImageSection';
 import GallerySection from './upload/GallerySection';
+import SaveConfirmation from './SaveConfirmation';
+import PreviewButton from './PreviewButton';
 import { useProjectValidation } from './hooks/useProjectValidation';
 import { useProjectSave } from './hooks/useProjectSave';
 
@@ -34,7 +36,14 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
 
   const { toast } = useToast();
   const { validateProject } = useProjectValidation();
-  const { saveProject, isLoading } = useProjectSave();
+  const { 
+    saveProject, 
+    isLoading, 
+    showConfirmation, 
+    savedProject, 
+    wasNewProject, 
+    hideConfirmation 
+  } = useProjectSave();
 
   useEffect(() => {
     if (projectId && !isNewProject) {
@@ -64,7 +73,7 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
       return;
     }
 
-    await saveProject(project, isNewProject, projectId, onClose);
+    await saveProject(project, isNewProject, projectId);
   };
 
   const handleChange = (field: keyof Project, value: any) => {
@@ -107,6 +116,63 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
     }));
   };
 
+  const handleConfirmationActions = {
+    onBackToDashboard: () => {
+      hideConfirmation();
+      onClose();
+    },
+    onContinueEditing: () => {
+      hideConfirmation();
+    },
+    onCreateNew: () => {
+      hideConfirmation();
+      setProject({
+        title: '',
+        subtitle: '',
+        description: '',
+        year: new Date().getFullYear(),
+        category: '',
+        subcategory: '',
+        altText: '',
+        images: [],
+        videos: [],
+        mainImage: '',
+        likes: 0
+      });
+    },
+    onPreviewOnSite: () => {
+      if (savedProject?.category) {
+        const categoryRoutes: Record<string, string> = {
+          'Akvareller': '/bilder/akvareller',
+          'Mixed Media': '/bilder/mixed-media',
+          'Tegning': '/bilder/tegning',
+          'Ved sjøen': '/foto/ved-sjoen',
+          'I fjellet': '/foto/i-fjellet',
+          'Flora': '/foto/flora',
+          'Byliv': '/foto/byliv',
+          'Dyr': '/foto/dyr',
+          'Redesign og gjenbruk': '/som/redesign-og-gjenbruk',
+          'Rett fra rullen': '/som/rett-fra-rullen',
+          'Design': '/design'
+        };
+        const route = categoryRoutes[savedProject.category] || '/';
+        window.open(route, '_blank');
+      }
+    }
+  };
+
+  if (showConfirmation && savedProject) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <SaveConfirmation
+          project={savedProject}
+          isNewProject={wasNewProject}
+          {...handleConfirmationActions}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white shadow-sm border-b">
@@ -120,10 +186,13 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
               {isNewProject ? 'Nytt prosjekt' : 'Rediger prosjekt'}
             </h1>
           </div>
-          <Button onClick={handleSave} disabled={isLoading}>
-            <Save className="h-4 w-4 mr-2" />
-            {isLoading ? 'Lagrer...' : 'Lagre'}
-          </Button>
+          <div className="flex items-center space-x-2">
+            <PreviewButton project={project} />
+            <Button onClick={handleSave} disabled={isLoading}>
+              <Save className="h-4 w-4 mr-2" />
+              {isLoading ? 'Lagrer...' : 'Lagre'}
+            </Button>
+          </div>
         </div>
       </div>
 

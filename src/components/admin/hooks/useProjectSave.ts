@@ -5,6 +5,9 @@ import { useToast } from '../../../hooks/use-toast';
 
 export const useProjectSave = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [savedProject, setSavedProject] = useState<Partial<Project> | null>(null);
+  const [wasNewProject, setWasNewProject] = useState(false);
   const { toast } = useToast();
 
   const generateProjectId = (): string => {
@@ -15,7 +18,7 @@ export const useProjectSave = () => {
     project: Partial<Project>, 
     isNewProject: boolean, 
     projectId: string | null,
-    onClose: () => void
+    onClose?: () => void
   ) => {
     setIsLoading(true);
     
@@ -47,6 +50,11 @@ export const useProjectSave = () => {
         newProjects.push(completeProject);
         localStorage.setItem('admin_new_projects', JSON.stringify(newProjects));
 
+        console.log('New project saved:', completeProject);
+        setSavedProject(completeProject);
+        setWasNewProject(true);
+        setShowConfirmation(true);
+
         toast({
           title: 'Prosjekt opprettet',
           description: 'Det nye prosjektet ble lagret'
@@ -62,13 +70,16 @@ export const useProjectSave = () => {
         
         localStorage.setItem('admin_project_edits', JSON.stringify(edits));
         
+        console.log('Project edits saved:', project);
+        setSavedProject(project);
+        setWasNewProject(false);
+        setShowConfirmation(true);
+        
         toast({
           title: 'Lagret',
           description: 'Prosjektet ble oppdatert'
         });
       }
-      
-      onClose();
     } catch (error) {
       toast({
         title: 'Feil',
@@ -80,5 +91,18 @@ export const useProjectSave = () => {
     }
   };
 
-  return { saveProject, isLoading };
+  const hideConfirmation = () => {
+    setShowConfirmation(false);
+    setSavedProject(null);
+    setWasNewProject(false);
+  };
+
+  return { 
+    saveProject, 
+    isLoading, 
+    showConfirmation, 
+    savedProject, 
+    wasNewProject, 
+    hideConfirmation 
+  };
 };
