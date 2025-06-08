@@ -257,6 +257,20 @@
   .view-mode-button[class*="bg-[rgb(215,124,4)]"]:hover {
     background-color: rgb(215, 124, 4) !important;
   }
+
+  /* Admin form select - specific styling to ensure text visibility */
+  .admin-form-select,
+  .admin-form-select *,
+  .admin-form-select [data-radix-select-value],
+  .admin-form-select span {
+    color: rgb(28, 25, 23) !important;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .admin-form-select::placeholder,
+  .admin-form-select [data-placeholder] {
+    color: rgb(120, 113, 108) !important;
+  }
 }
 
 @layer components {

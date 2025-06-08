@@ -79,7 +79,7 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({ project, onProj
               value={project.category || ''}
               onValueChange={handleCategoryChange}
             >
-              <SelectTrigger className="w-full">
+              <SelectTrigger className="w-full admin-form-select">
                 <SelectValue placeholder="Velg kategori" />
               </SelectTrigger>
               <SelectContent>
@@ -113,7 +113,7 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({ project, onProj
               value={project.subcategory || ''}
               onValueChange={handleSubcategoryChange}
             >
-              <SelectTrigger className="w-full">
+              <SelectTrigger className="w-full admin-form-select">
                 <SelectValue placeholder="Velg underkategori" />
               </SelectTrigger>
               <SelectContent>
