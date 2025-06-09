@@ -1,3 +1,4 @@
+
 export interface Project {
   id: string;
   title: string;
@@ -680,8 +681,8 @@ export const mockProjects: Project[] = [
     description: 'Høststemning ved et lite tjern i marka over Kvål. Linjene i fotoet måtte bare prøves ut som trykk.',
     year: 2024,
     images: ['/lovable-uploads/cae407dd-cf1b-4ea1-ade4-606526b1c127.png'],
-    category: 'foto',
-    subcategory: 'flora',
+    category: 'bilder',
+    subcategory: 'mixed-media',
     mainImage: '/lovable-uploads/cae407dd-cf1b-4ea1-ade4-606526b1c127.png',
     likes: 0,
     altText: ''
