@@ -520,12 +520,53 @@ export const mockProjects: Project[] = [
 ];
 
 export const getProjectsByCategory = (category: string, subcategory?: string): Project[] => {
-  return mockProjects.filter(project => {
+  // Get projects from mockProjects
+  let mockFilteredProjects = mockProjects.filter(project => {
     if (subcategory) {
       return project.category === category && project.subcategory === subcategory;
     }
     return project.category === category;
   });
+
+  // Get new projects from localStorage
+  const savedNewProjects = localStorage.getItem('admin_new_projects');
+  let newProjects: Project[] = [];
+  if (savedNewProjects) {
+    try {
+      newProjects = JSON.parse(savedNewProjects);
+      // Filter new projects by category/subcategory
+      newProjects = newProjects.filter(project => {
+        if (subcategory) {
+          return project.category === category && project.subcategory === subcategory;
+        }
+        return project.category === category;
+      });
+    } catch (error) {
+      console.error('Error parsing new projects from localStorage:', error);
+    }
+  }
+
+  // Get edited projects from localStorage
+  const savedEdits = localStorage.getItem('admin_project_edits');
+  let editedProjects: { [key: string]: Partial<Project> } = {};
+  if (savedEdits) {
+    try {
+      editedProjects = JSON.parse(savedEdits);
+    } catch (error) {
+      console.error('Error parsing project edits from localStorage:', error);
+    }
+  }
+
+  // Apply edits to mock projects
+  const updatedMockProjects = mockFilteredProjects.map(project => {
+    if (editedProjects[project.id]) {
+      return { ...project, ...editedProjects[project.id] } as Project;
+    }
+    return project;
+  });
+
+  // Combine mock projects and new projects
+  return [...updatedMockProjects, ...newProjects];
 };
 
 export const getRandomProjects = (excludeCategory?: string, count: number = 6): Project[] => {

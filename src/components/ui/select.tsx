@@ -15,7 +15,7 @@ const SelectValue = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Value
     ref={ref}
-    className={cn("text-foreground", className)}
+    className={cn("text-gray-900", className)}
     {...props}
   />
 ))
