@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
@@ -7,7 +6,8 @@ import { mockProjects, Project } from '../../data/mockData';
 import ProjectEditor from './ProjectEditor';
 import DeleteConfirmation from './DeleteConfirmation';
 import { useProjectDelete } from './hooks/useProjectDelete';
-import { LogOut, Edit, Plus, Image } from 'lucide-react';
+import { LogOut, Edit, Plus, Image, RotateCcw } from 'lucide-react';
+import { resetAdminData, checkAdminDataState } from '../../utils/resetAdminData';
 
 const AdminDashboard = () => {
   const { logout, phoneNumber } = useAuth();
@@ -17,6 +17,9 @@ const AdminDashboard = () => {
   const { deleteProject, isDeleting } = useProjectDelete();
 
   useEffect(() => {
+    // Check admin data state on load
+    checkAdminDataState();
+    
     // Load all projects (original + new + edited - deleted)
     const loadAllProjects = () => {
       console.log('Loading all projects...');
@@ -89,6 +92,12 @@ const AdminDashboard = () => {
 
   const handleLogout = () => {
     logout();
+  };
+
+  const handleResetData = () => {
+    if (window.confirm('Er du sikker på at du vil tilbakestille alle admin-endringer? Dette vil gjenopprette de originale 15 prosjektene og fjerne alle nye/redigerte prosjekter.')) {
+      resetAdminData();
+    }
   };
 
   const handleDeleteProject = async (projectId: string) => {
@@ -176,6 +185,10 @@ const AdminDashboard = () => {
           <h1 className="text-2xl font-quicksand font-semibold">Admin Dashboard</h1>
           <div className="flex items-center space-x-4">
             <span className="text-sm text-gray-600">Logget inn som: {phoneNumber}</span>
+            <Button variant="outline" onClick={handleResetData} className="text-orange-600 border-orange-600 hover:bg-orange-50">
+              <RotateCcw className="h-4 w-4 mr-2" />
+              Tilbakestill data
+            </Button>
             <Button variant="outline" onClick={handleLogout}>
               <LogOut className="h-4 w-4 mr-2" />
               Logg ut
@@ -191,6 +204,13 @@ const AdminDashboard = () => {
             <Plus className="h-4 w-4 mr-2" />
             Nytt prosjekt
           </Button>
+        </div>
+
+        {/* Status info */}
+        <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <p className="text-sm text-blue-700">
+            <strong>Tips:</strong> Hvis du ikke ser alle dine originale prosjekter, klikk på "Tilbakestill data"-knappen for å gjenopprette dem.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
