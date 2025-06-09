@@ -80,6 +80,19 @@ export const mockProjects: Project[] = [
     altText: ''
   },
   {
+    id: '46',
+    title: 'Serifos - to katter',
+    subtitle: 'Monoprint akryl og akvarell, 240 gr bomull - A4',
+    description: 'Opp de bratte bakkene på veien opp til Chora på Serifos ventet disse to. En godbit eller kos? Sorry!',
+    year: 2024,
+    images: ['/lovable-uploads/146dd62f-9868-4942-b571-8c8d7862fc65.png'],
+    category: 'bilder',
+    subcategory: 'mixed-media',
+    mainImage: '/lovable-uploads/146dd62f-9868-4942-b571-8c8d7862fc65.png',
+    likes: 0,
+    altText: ''
+  },
+  {
     id: '2',
     title: 'Blågrønt hav',
     subtitle: 'Akvarell, 300 gr bomull, 17x24 cm.',
