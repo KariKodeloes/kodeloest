@@ -12,18 +12,40 @@ interface BulkAltTextEditorProps {
   onClose: () => void;
 }
 
+// Function to get alt text from localStorage or fallback to project altText
+const getProjectAltText = (projectId: string): string => {
+  try {
+    const existingData = localStorage.getItem('admin_project_edits');
+    if (existingData) {
+      const edits = JSON.parse(existingData);
+      if (edits[projectId]?.altText) {
+        return edits[projectId].altText;
+      }
+    }
+  } catch (error) {
+    console.log('Error reading alt text from localStorage:', error);
+  }
+  
+  const project = mockProjects.find(p => p.id === projectId);
+  return project?.altText || '';
+};
+
 const BulkAltTextEditor: React.FC<BulkAltTextEditorProps> = ({ onClose }) => {
   const [altTexts, setAltTexts] = useState<Record<string, string>>(() => {
     const initial: Record<string, string> = {};
     mockProjects.forEach(project => {
-      initial[project.id] = project.altText || '';
+      initial[project.id] = getProjectAltText(project.id);
     });
     return initial;
   });
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const projectsWithoutAltText = mockProjects.filter(project => !project.altText);
+  // Count projects without alt text (check both altTexts state and localStorage)
+  const projectsWithoutAltText = mockProjects.filter(project => {
+    const currentAltText = altTexts[project.id] || getProjectAltText(project.id);
+    return !currentAltText;
+  });
 
   const handleSave = async () => {
     setIsLoading(true);
@@ -103,48 +125,53 @@ const BulkAltTextEditor: React.FC<BulkAltTextEditorProps> = ({ onClose }) => {
         )}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {mockProjects.map((project) => (
-            <Card key={project.id} className={!project.altText ? 'border-orange-200' : ''}>
-              <CardHeader className="pb-4">
-                <div className="flex items-start space-x-4">
-                  <div className="w-20 h-20 flex-shrink-0 overflow-hidden rounded-md">
-                    <img
-                      src={project.mainImage}
-                      alt={project.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <CardTitle className="text-lg font-quicksand">{project.title}</CardTitle>
-                    {project.subtitle && (
-                      <p className="text-sm text-gray-600 font-oswald">{project.subtitle}</p>
-                    )}
-                    <div className="flex items-center space-x-4 text-xs text-gray-500 mt-2">
-                      <span>{project.category}</span>
-                      <span>{project.year}</span>
+          {mockProjects.map((project) => {
+            const currentAltText = altTexts[project.id] || getProjectAltText(project.id);
+            const hasAltText = !!currentAltText;
+            
+            return (
+              <Card key={project.id} className={!hasAltText ? 'border-orange-200' : ''}>
+                <CardHeader className="pb-4">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-20 h-20 flex-shrink-0 overflow-hidden rounded-md">
+                      <img
+                        src={project.mainImage}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <CardTitle className="text-lg font-quicksand">{project.title}</CardTitle>
+                      {project.subtitle && (
+                        <p className="text-sm text-gray-600 font-oswald">{project.subtitle}</p>
+                      )}
+                      <div className="flex items-center space-x-4 text-xs text-gray-500 mt-2">
+                        <span>{project.category}</span>
+                        <span>{project.year}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div>
-                  <Label className="block text-sm font-medium mb-2">
-                    Alt-tekst for bilder
-                    <span className="text-xs text-gray-500 block">
-                      Beskrivelse som leses opp av skjermlesere
-                    </span>
-                  </Label>
-                  <Textarea
-                    value={altTexts[project.id] || ''}
-                    onChange={(e) => handleAltTextChange(project.id, e.target.value)}
-                    placeholder="Detaljert beskrivelse av bildet for skjermlesere..."
-                    rows={3}
-                    className={!project.altText ? 'border-orange-300 focus:border-orange-500' : ''}
-                  />
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                </CardHeader>
+                <CardContent>
+                  <div>
+                    <Label className="block text-sm font-medium mb-2">
+                      Alt-tekst for bilder
+                      <span className="text-xs text-gray-500 block">
+                        Beskrivelse som leses opp av skjermlesere
+                      </span>
+                    </Label>
+                    <Textarea
+                      value={altTexts[project.id] || ''}
+                      onChange={(e) => handleAltTextChange(project.id, e.target.value)}
+                      placeholder="Detaljert beskrivelse av bildet for skjermlesere..."
+                      rows={3}
+                      className={!hasAltText ? 'border-orange-300 focus:border-orange-500' : ''}
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </div>

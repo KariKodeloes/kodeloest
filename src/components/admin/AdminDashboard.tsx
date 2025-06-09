@@ -8,6 +8,24 @@ import BulkAltTextEditor from './BulkAltTextEditor';
 import SiteContentEditor from './SiteContentEditor';
 import { LogOut, Edit, Plus, Type, FileText } from 'lucide-react';
 
+// Function to get alt text from localStorage or fallback to project altText
+const getProjectAltText = (projectId: string): string => {
+  try {
+    const existingData = localStorage.getItem('admin_project_edits');
+    if (existingData) {
+      const edits = JSON.parse(existingData);
+      if (edits[projectId]?.altText) {
+        return edits[projectId].altText;
+      }
+    }
+  } catch (error) {
+    console.log('Error reading alt text from localStorage:', error);
+  }
+  
+  const project = mockProjects.find(p => p.id === projectId);
+  return project?.altText || '';
+};
+
 const AdminDashboard = () => {
   const { logout, phoneNumber } = useAuth();
   const [editingProject, setEditingProject] = useState<string | null>(null);
@@ -48,7 +66,11 @@ const AdminDashboard = () => {
     );
   }
 
-  const projectsWithoutAltText = mockProjects.filter(project => !project.altText).length;
+  // Count projects without alt text using localStorage and mockProjects
+  const projectsWithoutAltText = mockProjects.filter(project => {
+    const altText = getProjectAltText(project.id);
+    return !altText;
+  }).length;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -95,49 +117,53 @@ const AdminDashboard = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {mockProjects.map((project) => (
-            <Card key={project.id} className="hover:shadow-lg transition-shadow">
-              <CardHeader className="pb-2">
-                <div className="aspect-square overflow-hidden rounded-md mb-2">
-                  <img
-                    src={project.mainImage}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <CardTitle className="text-lg font-quicksand">{project.title}</CardTitle>
-                {project.subtitle && (
-                  <p className="text-sm text-gray-600 font-oswald">{project.subtitle}</p>
-                )}
-              </CardHeader>
-              <CardContent className="pt-0">
-                <p className="text-sm text-gray-700 line-clamp-2 mb-3 font-oswald font-light">
-                  {project.description}
-                </p>
-                <div className="flex justify-between items-center text-xs text-gray-500 mb-3">
-                  <span>{project.category}</span>
-                  <span>{project.year}</span>
-                </div>
-                <div className="space-y-2">
-                  <div className="text-xs">
-                    <span className="font-medium">Alt-tekst: </span>
-                    <span className={project.altText ? 'text-green-600' : 'text-orange-600'}>
-                      {project.altText || 'Ikke satt'}
-                    </span>
+          {mockProjects.map((project) => {
+            const projectAltText = getProjectAltText(project.id);
+            
+            return (
+              <Card key={project.id} className="hover:shadow-lg transition-shadow">
+                <CardHeader className="pb-2">
+                  <div className="aspect-square overflow-hidden rounded-md mb-2">
+                    <img
+                      src={project.mainImage}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="w-full"
-                    onClick={() => setEditingProject(project.id)}
-                  >
-                    <Edit className="h-3 w-3 mr-1" />
-                    Rediger
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                  <CardTitle className="text-lg font-quicksand">{project.title}</CardTitle>
+                  {project.subtitle && (
+                    <p className="text-sm text-gray-600 font-oswald">{project.subtitle}</p>
+                  )}
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <p className="text-sm text-gray-700 line-clamp-2 mb-3 font-oswald font-light">
+                    {project.description}
+                  </p>
+                  <div className="flex justify-between items-center text-xs text-gray-500 mb-3">
+                    <span>{project.category}</span>
+                    <span>{project.year}</span>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="text-xs">
+                      <span className="font-medium">Alt-tekst: </span>
+                      <span className={projectAltText ? 'text-green-600' : 'text-orange-600'}>
+                        {projectAltText || 'Ikke satt'}
+                      </span>
+                    </div>
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="w-full"
+                      onClick={() => setEditingProject(project.id)}
+                    >
+                      <Edit className="h-3 w-3 mr-1" />
+                      Rediger
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </div>
