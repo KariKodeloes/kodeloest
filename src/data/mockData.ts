@@ -710,6 +710,19 @@ export const mockProjects: Project[] = [
     mainImage: '/lovable-uploads/5a173700-8e6c-43df-acde-5c2141141e04.png',
     likes: 0,
     altText: ''
+  },
+  {
+    id: '57',
+    title: 'Favorittjakka mi',
+    subtitle: 'Mønster: Stackerjacket',
+    description: 'Har dratt med meg mye stoff fra reiser. Mye har blitt til jakker. Her er resultatet fra et ullkupp i Krakow.',
+    year: 2024,
+    images: ['/lovable-uploads/938984bf-24d2-426b-a690-c5db034a132d.png', '/lovable-uploads/c96f57d1-68ce-47d6-9ef8-ee2c1f7d0a1b.png'],
+    category: 'som',
+    subcategory: 'rett-fra-rullen',
+    mainImage: '/lovable-uploads/938984bf-24d2-426b-a690-c5db034a132d.png',
+    likes: 0,
+    altText: ''
   }
 ];
 
