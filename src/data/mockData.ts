@@ -41,6 +41,19 @@ export const mockProjects: Project[] = [
     altText: ''
   },
   {
+    id: '43',
+    title: 'Faller',
+    subtitle: 'Akvarell, 300 gr bomull - 55x75 cm',
+    description: 'Det manglet lenge noe i bildet. Så fallt det på plass - bokstavelig talt. Noen ganger er det slik livet føles.',
+    year: 2024,
+    images: ['/lovable-uploads/7d49687d-ab49-4e60-8c28-b3bdca64e607.png', '/lovable-uploads/8de4f31f-76f0-4e42-8cda-d893a3f1c94f.png'],
+    category: 'bilder',
+    subcategory: 'akvareller',
+    mainImage: '/lovable-uploads/7d49687d-ab49-4e60-8c28-b3bdca64e607.png',
+    likes: 0,
+    altText: ''
+  },
+  {
     id: '2',
     title: 'Blågrønt hav',
     subtitle: 'Akvarell, 300 gr bomull, 17x24 cm.',
