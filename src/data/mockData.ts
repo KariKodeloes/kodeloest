@@ -28,6 +28,19 @@ export const mockProjects: Project[] = [
     altText: ''
   },
   {
+    id: '42',
+    title: 'Vinterstemning',
+    subtitle: 'Akvarell, 300 gr bomull - 20x30 cm',
+    description: 'To trær som ikke er mulig å artsbestemme kaster likevel tydelige skygger mot snøen.',
+    year: 2024,
+    images: ['/lovable-uploads/475fea69-5dea-4d15-9a12-1f02c9d86375.png'],
+    category: 'bilder',
+    subcategory: 'akvareller',
+    mainImage: '/lovable-uploads/475fea69-5dea-4d15-9a12-1f02c9d86375.png',
+    likes: 0,
+    altText: ''
+  },
+  {
     id: '2',
     title: 'Blågrønt hav',
     subtitle: 'Akvarell, 300 gr bomull, 17x24 cm.',
