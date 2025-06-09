@@ -14,12 +14,14 @@ interface ImageCarouselListProps {
 
 const ImageCarouselList: React.FC<ImageCarouselListProps> = ({ images, videos = [], title, onImageClick, altText }) => {
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
+  const [imageError, setImageError] = useState(false);
   const allMedia = getAllMedia({ images, videos });
 
   const nextMedia = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (allMedia.length > 1) {
       setCurrentMediaIndex((prev) => (prev + 1) % allMedia.length);
+      setImageError(false); // Reset error state when changing image
     }
   };
 
@@ -27,6 +29,7 @@ const ImageCarouselList: React.FC<ImageCarouselListProps> = ({ images, videos = 
     e.stopPropagation();
     if (allMedia.length > 1) {
       setCurrentMediaIndex((prev) => (prev - 1 + allMedia.length) % allMedia.length);
+      setImageError(false); // Reset error state when changing image
     }
   };
 
@@ -35,19 +38,32 @@ const ImageCarouselList: React.FC<ImageCarouselListProps> = ({ images, videos = 
 
   return (
     <div className="relative md:w-80 h-64 md:h-auto overflow-hidden">
-      <OptimizedMediaDisplay
-        src={currentMedia}
-        alt={title}
-        altText={altText}
-        className="w-full h-full object-cover"
-        onClick={() => onImageClick(currentMediaIndex)}
-        isVideo={isVideo}
-        controls={isVideo}
-        muted={true}
-        loop={true}
-        context="medium"
-        loading="lazy"
-      />
+      {imageError ? (
+        // Fallback to standard img tag if OptimizedMediaDisplay fails
+        <img
+          src={currentMedia}
+          alt={title}
+          className="w-full h-full object-cover"
+          onClick={() => onImageClick(currentMediaIndex)}
+          onError={() => {
+            console.error('Both OptimizedMediaDisplay and fallback img failed for:', currentMedia);
+          }}
+        />
+      ) : (
+        <OptimizedMediaDisplay
+          src={currentMedia}
+          alt={title}
+          altText={altText}
+          className="w-full h-full object-cover"
+          onClick={() => onImageClick(currentMediaIndex)}
+          isVideo={isVideo}
+          controls={isVideo}
+          muted={true}
+          loop={true}
+          context="medium"
+          loading="lazy"
+        />
+      )}
       
       {/* Media Navigation */}
       {allMedia.length > 1 && (
