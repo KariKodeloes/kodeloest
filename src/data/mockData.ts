@@ -594,6 +594,19 @@ export const mockProjects: Project[] = [
     mainImage: '/lovable-uploads/fbc53ff2-e378-4fab-ad75-eff003309398.png',
     likes: 0,
     altText: ''
+  },
+  {
+    id: '48',
+    title: 'Nidarosdomen',
+    subtitle: 'Iphone 13',
+    description: 'Den gamle domen øverst i Mungegata er vakkert lyssatt.',
+    year: 2024,
+    images: ['/lovable-uploads/885e86f6-18a5-4b6d-bbcc-1944ed592082.png'],
+    category: 'foto',
+    subcategory: 'byliv',
+    mainImage: '/lovable-uploads/885e86f6-18a5-4b6d-bbcc-1944ed592082.png',
+    likes: 0,
+    altText: ''
   }
 ];
 
