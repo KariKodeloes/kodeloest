@@ -646,6 +646,19 @@ export const mockProjects: Project[] = [
     mainImage: '/lovable-uploads/3cb40939-5a62-4476-a341-f43e36717f57.png',
     likes: 0,
     altText: ''
+  },
+  {
+    id: '52',
+    title: 'Humle på geitrams',
+    subtitle: 'Iphone 15',
+    description: 'Humlene surrer rundt og leter etter mat. Jeg vimser etter og forsøker fange de med kamera. Ikke lett :)',
+    year: 2024,
+    images: ['/lovable-uploads/e6543fe0-415c-475e-9c1e-8e64586b0ac1.png'],
+    category: 'foto',
+    subcategory: 'flora',
+    mainImage: '/lovable-uploads/e6543fe0-415c-475e-9c1e-8e64586b0ac1.png',
+    likes: 0,
+    altText: ''
   }
 ];
 
