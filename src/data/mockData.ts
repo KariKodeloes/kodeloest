@@ -54,6 +54,19 @@ export const mockProjects: Project[] = [
     altText: ''
   },
   {
+    id: '44',
+    title: 'Stormen kommer',
+    subtitle: 'Akvarell, 300 gr bomull - 75x55 cm',
+    description: 'Hva er det som er på vei? Å få fargene til å flyte over store flater er en utfordring.',
+    year: 2024,
+    images: ['/lovable-uploads/cff612c5-a4ee-462a-97c4-15811f9d53be.png'],
+    category: 'bilder',
+    subcategory: 'akvareller',
+    mainImage: '/lovable-uploads/cff612c5-a4ee-462a-97c4-15811f9d53be.png',
+    likes: 0,
+    altText: ''
+  },
+  {
     id: '2',
     title: 'Blågrønt hav',
     subtitle: 'Akvarell, 300 gr bomull, 17x24 cm.',
