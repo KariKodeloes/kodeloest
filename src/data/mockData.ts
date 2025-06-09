@@ -697,6 +697,19 @@ export const mockProjects: Project[] = [
     mainImage: '/lovable-uploads/a58467ff-3b68-42c4-964e-06305133f2dd.png',
     likes: 0,
     altText: ''
+  },
+  {
+    id: '56',
+    title: 'Bukserester blir Bum-bag',
+    subtitle: 'Denimrester',
+    description: 'Fint lite prosjekt å bruke opp rester etter dongeribukser på. Litt mange deler å sette sammen, men med tunga rett i munnen så gikk det bra.',
+    year: 2024,
+    images: ['/lovable-uploads/5a173700-8e6c-43df-acde-5c2141141e04.png', '/lovable-uploads/92fb1493-dc47-492f-9127-d78a95f5baa1.png'],
+    category: 'som',
+    subcategory: 'redesign-og-gjenbruk',
+    mainImage: '/lovable-uploads/5a173700-8e6c-43df-acde-5c2141141e04.png',
+    likes: 0,
+    altText: ''
   }
 ];
 
