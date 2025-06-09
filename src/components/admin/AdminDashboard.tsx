@@ -36,7 +36,19 @@ const AdminDashboard = () => {
       if (newProjectsData) {
         const newProjects = JSON.parse(newProjectsData);
         console.log('Found new projects:', newProjects);
-        projects = [...projects, ...newProjects];
+        
+        // Fix mainImage handling for new projects
+        const processedNewProjects = newProjects.map((project: Project) => {
+          if (project.mainImage && !project.images?.includes(project.mainImage)) {
+            return {
+              ...project,
+              images: [project.mainImage, ...(project.images || [])]
+            };
+          }
+          return project;
+        });
+        
+        projects = [...projects, ...processedNewProjects];
       }
 
       // Apply edits to existing projects
@@ -92,7 +104,16 @@ const AdminDashboard = () => {
         const newProjectsData = localStorage.getItem('admin_new_projects');
         if (newProjectsData) {
           const newProjects = JSON.parse(newProjectsData);
-          projects = [...projects, ...newProjects];
+          const processedNewProjects = newProjects.map((project: Project) => {
+            if (project.mainImage && !project.images?.includes(project.mainImage)) {
+              return {
+                ...project,
+                images: [project.mainImage, ...(project.images || [])]
+              };
+            }
+            return project;
+          });
+          projects = [...projects, ...processedNewProjects];
         }
 
         const editsData = localStorage.getItem('admin_project_edits');

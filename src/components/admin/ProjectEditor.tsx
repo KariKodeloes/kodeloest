@@ -49,7 +49,23 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
 
   useEffect(() => {
     if (projectId && !isNewProject) {
-      // Load existing project from mockProjects first
+      console.log('Loading project:', projectId);
+      
+      // Check if it's a new project (starts with new_)
+      if (projectId.startsWith('new_')) {
+        const newProjectsData = localStorage.getItem('admin_new_projects');
+        if (newProjectsData) {
+          const newProjects = JSON.parse(newProjectsData);
+          const foundProject = newProjects.find((p: Project) => p.id === projectId);
+          if (foundProject) {
+            console.log('Found new project:', foundProject);
+            setProject(foundProject);
+            return;
+          }
+        }
+      }
+      
+      // Load existing project from mockProjects
       const existingProject = mockProjects.find(p => p.id === projectId);
       if (existingProject) {
         // Check if there are any saved edits for this project
@@ -58,6 +74,7 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
         
         // Merge original project with any saved edits
         const projectWithEdits = edits[projectId] ? { ...existingProject, ...edits[projectId] } : existingProject;
+        console.log('Loaded project with edits:', projectWithEdits);
         setProject(projectWithEdits);
       }
     }
