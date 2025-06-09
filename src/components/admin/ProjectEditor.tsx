@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
+import { Label } from '../ui/label';
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
 import { ArrowLeft, Save, Image } from 'lucide-react';
 import { mockProjects, Project } from '../../data/mockData';
@@ -46,8 +47,17 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
     // Simulate save delay
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    // In a real app, this would save to a database
-    // For now, we'll just update localStorage for demo purposes
+    if (projectId && !isNewProject) {
+      // Find and update the project in mockProjects
+      const projectIndex = mockProjects.findIndex(p => p.id === projectId);
+      if (projectIndex !== -1) {
+        // Update the project directly in the mockProjects array
+        Object.assign(mockProjects[projectIndex], project);
+        console.log('Updated project:', mockProjects[projectIndex]);
+      }
+    }
+    
+    // Also save to localStorage for persistence
     const existingData = localStorage.getItem('admin_project_edits');
     const edits = existingData ? JSON.parse(existingData) : {};
     
@@ -139,7 +149,7 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-2">Tittel</label>
+                <Label className="block text-sm font-medium mb-2">Tittel</Label>
                 <Input
                   value={project.title || ''}
                   onChange={(e) => handleChange('title', e.target.value)}
@@ -148,7 +158,7 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Undertittel</label>
+                <Label className="block text-sm font-medium mb-2">Undertittel</Label>
                 <Input
                   value={project.subtitle || ''}
                   onChange={(e) => handleChange('subtitle', e.target.value)}
@@ -157,7 +167,7 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Beskrivelse</label>
+                <Label className="block text-sm font-medium mb-2">Beskrivelse</Label>
                 <Textarea
                   value={project.description || ''}
                   onChange={(e) => handleChange('description', e.target.value)}
@@ -168,7 +178,7 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Kategori</label>
+                  <Label className="block text-sm font-medium mb-2">Kategori</Label>
                   <Input
                     value={project.category || ''}
                     onChange={(e) => handleChange('category', e.target.value)}
@@ -177,7 +187,7 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">År</label>
+                  <Label className="block text-sm font-medium mb-2">År</Label>
                   <Input
                     type="number"
                     value={project.year || ''}
@@ -188,7 +198,7 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Underkategori</label>
+                <Label className="block text-sm font-medium mb-2">Underkategori</Label>
                 <Input
                   value={project.subcategory || ''}
                   onChange={(e) => handleChange('subcategory', e.target.value)}
@@ -197,12 +207,12 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">
+                <Label className="block text-sm font-medium mb-2">
                   Alt-tekst for bilder
                   <span className="text-xs text-gray-500 block">
                     Beskrivelse som leses opp av skjermlesere
                   </span>
-                </label>
+                </Label>
                 <Textarea
                   value={project.altText || ''}
                   onChange={(e) => handleChange('altText', e.target.value)}
@@ -212,7 +222,7 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Hovedbilde URL</label>
+                <Label className="block text-sm font-medium mb-2">Hovedbilde URL</Label>
                 <Input
                   value={project.mainImage || ''}
                   onChange={(e) => handleChange('mainImage', e.target.value)}

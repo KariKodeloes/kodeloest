@@ -5,12 +5,14 @@ import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
 import { useAuth } from '../../hooks/useAuth';
 import { mockProjects } from '../../data/mockData';
 import ProjectEditor from './ProjectEditor';
-import { LogOut, Edit, Plus } from 'lucide-react';
+import BulkAltTextEditor from './BulkAltTextEditor';
+import { LogOut, Edit, Plus, Type } from 'lucide-react';
 
 const AdminDashboard = () => {
   const { logout, phoneNumber } = useAuth();
   const [editingProject, setEditingProject] = useState<string | null>(null);
   const [showNewProject, setShowNewProject] = useState(false);
+  const [showBulkAltText, setShowBulkAltText] = useState(false);
 
   const handleLogout = () => {
     logout();
@@ -28,6 +30,16 @@ const AdminDashboard = () => {
       />
     );
   }
+
+  if (showBulkAltText) {
+    return (
+      <BulkAltTextEditor
+        onClose={() => setShowBulkAltText(false)}
+      />
+    );
+  }
+
+  const projectsWithoutAltText = mockProjects.filter(project => !project.altText).length;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -47,10 +59,25 @@ const AdminDashboard = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-quicksand font-medium">Prosjekter</h2>
-          <Button onClick={() => setShowNewProject(true)}>
-            <Plus className="h-4 w-4 mr-2" />
-            Nytt prosjekt
-          </Button>
+          <div className="flex space-x-3">
+            <Button 
+              variant="outline" 
+              onClick={() => setShowBulkAltText(true)}
+              className={projectsWithoutAltText > 0 ? 'border-orange-500 text-orange-700' : ''}
+            >
+              <Type className="h-4 w-4 mr-2" />
+              Rediger alt-tekst
+              {projectsWithoutAltText > 0 && (
+                <span className="ml-2 bg-orange-500 text-white text-xs px-2 py-1 rounded-full">
+                  {projectsWithoutAltText}
+                </span>
+              )}
+            </Button>
+            <Button onClick={() => setShowNewProject(true)}>
+              <Plus className="h-4 w-4 mr-2" />
+              Nytt prosjekt
+            </Button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
