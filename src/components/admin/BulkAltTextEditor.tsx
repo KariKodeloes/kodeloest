@@ -34,6 +34,7 @@ const BulkAltTextEditor: React.FC<BulkAltTextEditorProps> = ({ onClose }) => {
   const [altTexts, setAltTexts] = useState<Record<string, string>>(() => {
     const initial: Record<string, string> = {};
     mockProjects.forEach(project => {
+      // Use the getProjectAltText function to get existing alt text from localStorage
       initial[project.id] = getProjectAltText(project.id);
     });
     return initial;
@@ -43,7 +44,7 @@ const BulkAltTextEditor: React.FC<BulkAltTextEditorProps> = ({ onClose }) => {
 
   // Count projects without alt text (check both altTexts state and localStorage)
   const projectsWithoutAltText = mockProjects.filter(project => {
-    const currentAltText = altTexts[project.id] || getProjectAltText(project.id);
+    const currentAltText = altTexts[project.id];
     return !currentAltText;
   });
 
@@ -126,7 +127,7 @@ const BulkAltTextEditor: React.FC<BulkAltTextEditorProps> = ({ onClose }) => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {mockProjects.map((project) => {
-            const currentAltText = altTexts[project.id] || getProjectAltText(project.id);
+            const currentAltText = altTexts[project.id];
             const hasAltText = !!currentAltText;
             
             return (

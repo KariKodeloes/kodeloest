@@ -54,6 +54,34 @@ const SiteContentEditor: React.FC<SiteContentEditorProps> = ({ onClose }) => {
     setContent({ ...content, aboutMeQuestions: newQuestions });
   };
 
+  const handleNovelParagraphChange = (index: number, value: string) => {
+    const newParagraphs = [...content.novel.paragraphs];
+    newParagraphs[index] = { ...newParagraphs[index], content: value };
+    setContent({
+      ...content,
+      novel: { ...content.novel, paragraphs: newParagraphs }
+    });
+  };
+
+  const addNovelParagraph = () => {
+    const newId = (content.novel.paragraphs.length + 1).toString();
+    setContent({
+      ...content,
+      novel: {
+        ...content.novel,
+        paragraphs: [...content.novel.paragraphs, { id: newId, content: '' }]
+      }
+    });
+  };
+
+  const removeNovelParagraph = (index: number) => {
+    const newParagraphs = content.novel.paragraphs.filter((_, i) => i !== index);
+    setContent({
+      ...content,
+      novel: { ...content.novel, paragraphs: newParagraphs }
+    });
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white shadow-sm border-b">
@@ -192,6 +220,105 @@ const SiteContentEditor: React.FC<SiteContentEditorProps> = ({ onClose }) => {
                   rows={2}
                 />
               </div>
+            </CardContent>
+          </Card>
+
+          {/* Novel Content */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="font-quicksand">Novelle "Teppefall"</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  id="novel-enabled"
+                  checked={content.novel.enabled}
+                  onChange={(e) => setContent({
+                    ...content,
+                    novel: { ...content.novel, enabled: e.target.checked }
+                  })}
+                />
+                <Label htmlFor="novel-enabled" className="text-sm font-medium">
+                  Vis novelle på "Om meg"-siden
+                </Label>
+              </div>
+
+              {content.novel.enabled && (
+                <>
+                  <div>
+                    <Label className="block text-sm font-medium mb-2">
+                      Novelletittel
+                    </Label>
+                    <Input
+                      value={content.novel.title}
+                      onChange={(e) => setContent({
+                        ...content,
+                        novel: { ...content.novel, title: e.target.value }
+                      })}
+                      placeholder="Tittel på novellen..."
+                    />
+                  </div>
+
+                  <div>
+                    <Label className="block text-sm font-medium mb-2">
+                      Publikasjonsinformasjon
+                    </Label>
+                    <Input
+                      value={content.novel.publishedInfo}
+                      onChange={(e) => setContent({
+                        ...content,
+                        novel: { ...content.novel, publishedInfo: e.target.value }
+                      })}
+                      placeholder="F.eks. 'Publisert 2021 i antologien Julemirakler'..."
+                    />
+                  </div>
+
+                  <div>
+                    <Label className="block text-sm font-medium mb-2">
+                      Novelleavsnitt
+                      <span className="text-xs text-gray-500 block">
+                        Hvert avsnitt vil vises som et eget tekstblokk
+                      </span>
+                    </Label>
+                    <div className="space-y-3">
+                      {content.novel.paragraphs.map((paragraph, index) => (
+                        <div key={paragraph.id} className="flex items-start space-x-2">
+                          <div className="flex-1">
+                            <Label className="text-xs text-gray-500 mb-1 block">
+                              Avsnitt {index + 1}
+                            </Label>
+                            <Textarea
+                              value={paragraph.content}
+                              onChange={(e) => handleNovelParagraphChange(index, e.target.value)}
+                              placeholder={`Innhold for avsnitt ${index + 1}...`}
+                              rows={3}
+                            />
+                          </div>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => removeNovelParagraph(index)}
+                            disabled={content.novel.paragraphs.length <= 1}
+                            className="mt-6"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      ))}
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={addNovelParagraph}
+                        className="mt-2"
+                      >
+                        <Plus className="h-4 w-4 mr-2" />
+                        Legg til avsnitt
+                      </Button>
+                    </div>
+                  </div>
+                </>
+              )}
             </CardContent>
           </Card>
         </div>
