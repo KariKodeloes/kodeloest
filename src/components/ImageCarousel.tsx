@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Button } from './ui/button';
-import OptimizedMediaDisplay from './OptimizedMediaDisplay';
+import MediaDisplay from './MediaDisplay';
 import { getAllMedia, isVideoFile } from '../utils/mediaUtils';
 
 interface ImageCarouselProps {
@@ -39,18 +39,18 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, videos = [], titl
   return (
     <div className="relative aspect-square overflow-hidden">
       {imageError ? (
-        // Fallback to standard img tag if OptimizedMediaDisplay fails
+        // Fallback to standard img tag if MediaDisplay fails
         <img
           src={currentMedia}
           alt={title}
           className={`w-full h-full object-cover ${!isVideo ? 'hover:scale-105 transition-transform duration-300' : ''}`}
           onClick={() => onImageClick(currentMediaIndex)}
           onError={() => {
-            console.error('Both OptimizedMediaDisplay and fallback img failed for:', currentMedia);
+            console.error('Both MediaDisplay and fallback img failed for:', currentMedia);
           }}
         />
       ) : (
-        <OptimizedMediaDisplay
+        <MediaDisplay
           src={currentMedia}
           alt={title}
           altText={altText}
@@ -60,9 +60,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, videos = [], titl
           controls={isVideo}
           muted={true}
           loop={true}
-          context="thumbnail"
-          loading="lazy"
-          objectFit="cover"
         />
       )}
       
