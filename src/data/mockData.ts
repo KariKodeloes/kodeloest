@@ -620,6 +620,19 @@ export const mockProjects: Project[] = [
     mainImage: '/lovable-uploads/c6a3e999-eeab-4f59-8822-17c6f8bac416.png',
     likes: 0,
     altText: ''
+  },
+  {
+    id: '50',
+    title: 'Strandnelliker',
+    subtitle: 'Iphone 15',
+    description: 'Sommerstemning på Haversand. Vakkert hvor enn du snur deg og god badetemperatur.',
+    year: 2024,
+    images: ['/lovable-uploads/92a72688-099d-4a04-baa3-d90f8fa48560.png'],
+    category: 'foto',
+    subcategory: 'flora',
+    mainImage: '/lovable-uploads/92a72688-099d-4a04-baa3-d90f8fa48560.png',
+    likes: 0,
+    altText: ''
   }
 ];
 
