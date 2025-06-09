@@ -659,6 +659,19 @@ export const mockProjects: Project[] = [
     mainImage: '/lovable-uploads/e6543fe0-415c-475e-9c1e-8e64586b0ac1.png',
     likes: 0,
     altText: ''
+  },
+  {
+    id: '53',
+    title: 'Furulegger',
+    subtitle: 'Monoprint og akvarell, 300 gr bomull - 17x24 cm',
+    description: 'Furuer minner meg om Finnmark og Alta. Deilig å hvile øynene på disse selv i litt tåke.',
+    year: 2024,
+    images: ['/lovable-uploads/1e8ac0b7-0c44-4e64-aaa8-1978fde01664.png'],
+    category: 'bilder',
+    subcategory: 'mixed-media',
+    mainImage: '/lovable-uploads/1e8ac0b7-0c44-4e64-aaa8-1978fde01664.png',
+    likes: 0,
+    altText: ''
   }
 ];
 
