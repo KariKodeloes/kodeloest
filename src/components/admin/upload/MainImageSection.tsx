@@ -16,11 +16,11 @@ const MainImageSection: React.FC<MainImageSectionProps> = ({
   onProjectChange 
 }) => {
   const isValidImageUrl = (url: string) => {
-    // Check if URL starts with /lovable-uploads/ or is a valid http/https URL
-    return url.startsWith('/lovable-uploads/') || 
+    // Check if URL is a data URL, lovable upload, or valid http/https URL
+    return url.startsWith('data:image/') ||
+           url.startsWith('/lovable-uploads/') || 
            url.startsWith('http://') || 
-           url.startsWith('https://') ||
-           url.startsWith('data:image/');
+           url.startsWith('https://');
   };
 
   return (
@@ -50,7 +50,7 @@ const MainImageSection: React.FC<MainImageSectionProps> = ({
                 name="mainImageUrl"
                 value={project.mainImage || ''}
                 onChange={(e) => onProjectChange('mainImage', e.target.value)}
-                placeholder="/lovable-uploads/..."
+                placeholder="/lovable-uploads/... eller data:image/..."
                 className="block w-full"
               />
             </div>
@@ -68,6 +68,7 @@ const MainImageSection: React.FC<MainImageSectionProps> = ({
                     alt={project.title || 'Hovedbilde'}
                     className="w-full h-auto rounded-lg border border-gray-300 shadow-sm"
                     onError={(e) => {
+                      console.error('Failed to load main image:', project.mainImage);
                       e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkJpbGRlIGlra2UgZnVubmV0PC90ZXh0Pjwvc3ZnPg==';
                     }}
                   />

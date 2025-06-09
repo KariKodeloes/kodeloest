@@ -4,6 +4,7 @@ import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { Upload, X, Image } from 'lucide-react';
 import { useToast } from '../../hooks/use-toast';
+import { compressImage, createResponsiveImageSizes } from '../../utils/imageCompression';
 
 interface ImageUploaderProps {
   onImageUploaded: (imageUrl: string) => void;
@@ -69,20 +70,40 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
       return;
     }
 
+    // Check file sizes (max 10MB per file)
+    const maxSize = 10 * 1024 * 1024; // 10MB
+    const oversizedFiles = imageFiles.filter(file => file.size > maxSize);
+    if (oversizedFiles.length > 0) {
+      toast({
+        title: 'Feil',
+        description: `Noen filer er for store. Maksimal størrelse er 10MB per fil.`,
+        variant: 'destructive'
+      });
+      return;
+    }
+
     setUploading(true);
     
     try {
       const uploadedUrls: string[] = [];
       
       for (const file of imageFiles) {
-        // Simulate upload - in a real app, this would upload to your server
-        const fakeUrl = `/lovable-uploads/${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${file.name.split('.').pop()}`;
-        uploadedUrls.push(fakeUrl);
+        console.log(`Processing file: ${file.name}, size: ${(file.size / 1024 / 1024).toFixed(2)}MB`);
+        
+        // Compress image for optimal display
+        const compressedDataUrl = await compressImage(file, {
+          maxWidth: 1200,
+          maxHeight: 1200,
+          quality: 0.85,
+          format: 'webp'
+        });
+        
+        uploadedUrls.push(compressedDataUrl);
         
         // Show success for each file
         toast({
-          title: 'Lastet opp',
-          description: `${file.name} ble lastet opp`
+          title: 'Bilde komprimert og lastet opp',
+          description: `${file.name} ble behandlet og komprimert`
         });
       }
       
@@ -92,9 +113,10 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
         onImageUploaded(uploadedUrls[0]);
       }
     } catch (error) {
+      console.error('Error processing images:', error);
       toast({
-        title: 'Feil ved opplasting',
-        description: 'Kunne ikke laste opp bildet',
+        title: 'Feil ved behandling',
+        description: 'Kunne ikke behandle bildene. Prøv igjen.',
         variant: 'destructive'
       });
     } finally {
@@ -126,10 +148,10 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
         >
           <Upload className="h-12 w-12 mx-auto mb-4 text-gray-400" />
           <p className="text-lg font-medium mb-2">
-            {uploading ? 'Laster opp...' : 'Dra bilder hit eller klikk for å velge'}
+            {uploading ? 'Komprimerer og laster opp...' : 'Dra bilder hit eller klikk for å velge'}
           </p>
           <p className="text-sm text-gray-500">
-            {multiple ? 'PNG, JPG, GIF opptil 10MB hver' : 'PNG, JPG, GIF opptil 10MB'}
+            {multiple ? 'PNG, JPG, GIF opptil 10MB hver (blir automatisk komprimert)' : 'PNG, JPG, GIF opptil 10MB (blir automatisk komprimert)'}
           </p>
           
           <Button 
