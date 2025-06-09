@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -180,6 +179,20 @@ export const mockProjects: Project[] = [
   },
 ];
 
+// Safe function to parse localStorage JSON with fallback
+const safeParseLocalStorage = (key: string, fallback: any = null) => {
+  try {
+    const item = localStorage.getItem(key);
+    if (!item) return fallback;
+    return JSON.parse(item);
+  } catch (error) {
+    console.error(`Error parsing localStorage key "${key}":`, error);
+    // Clear corrupted data
+    localStorage.removeItem(key);
+    return fallback;
+  }
+};
+
 export const getProjectsByCategory = (category: string): Project[] => {
   console.log('🔍 getProjectsByCategory called with:', category);
   
@@ -187,22 +200,24 @@ export const getProjectsByCategory = (category: string): Project[] => {
   let allProjects = [...mockProjects];
   console.log('📦 Original mockProjects count:', allProjects.length);
 
-  // Get deleted projects list (same logic as admin dashboard)
-  const deletedProjectsData = localStorage.getItem('admin_deleted_projects');
-  const deletedProjects = deletedProjectsData ? JSON.parse(deletedProjectsData) : [];
+  // Get deleted projects list with safe parsing
+  const deletedProjects = safeParseLocalStorage('admin_deleted_projects', []);
   console.log('🗑️ Deleted projects:', deletedProjects);
 
-  // Filter out deleted original projects
-  allProjects = allProjects.filter(project => !deletedProjects.includes(project.id));
-  console.log('📦 After removing deleted projects:', allProjects.length);
+  // Only filter if deletedProjects is a valid array
+  if (Array.isArray(deletedProjects) && deletedProjects.length > 0) {
+    allProjects = allProjects.filter(project => !deletedProjects.includes(project.id));
+    console.log('📦 After removing deleted projects:', allProjects.length);
+  } else {
+    console.log('📦 No valid deleted projects list, keeping all original projects');
+  }
 
-  // Add new projects (same logic as admin dashboard)
-  const newProjectsData = localStorage.getItem('admin_new_projects');
-  if (newProjectsData) {
-    const newProjects = JSON.parse(newProjectsData);
+  // Add new projects with safe parsing
+  const newProjects = safeParseLocalStorage('admin_new_projects', []);
+  if (Array.isArray(newProjects) && newProjects.length > 0) {
     console.log('✨ Found new projects:', newProjects);
     
-    // Process new projects the same way as admin dashboard
+    // Process new projects
     const processedNewProjects = newProjects.map((project: Project) => {
       if (project.mainImage && !project.images?.includes(project.mainImage)) {
         return {
@@ -217,10 +232,9 @@ export const getProjectsByCategory = (category: string): Project[] => {
     console.log('📦 After adding new projects:', allProjects.length);
   }
 
-  // Apply edits to existing projects (same logic as admin dashboard)
-  const editsData = localStorage.getItem('admin_project_edits');
-  if (editsData) {
-    const edits = JSON.parse(editsData);
+  // Apply edits to existing projects with safe parsing
+  const edits = safeParseLocalStorage('admin_project_edits', {});
+  if (edits && typeof edits === 'object' && Object.keys(edits).length > 0) {
     console.log('✏️ Found project edits:', edits);
     
     allProjects = allProjects.map(project => {
@@ -240,9 +254,8 @@ export const getProjectsByCategory = (category: string): Project[] => {
   }
 
   console.log('📦 Total projects after all processing:', allProjects.length);
-  console.log('🏷️ All project categories:', allProjects.map(p => ({ id: p.id, title: p.title, category: p.category })));
 
-  // Enhanced category filtering to handle multiple category naming conventions
+  // Enhanced category filtering
   const filteredProjects = allProjects.filter(project => {
     const projectCategory = project.category.toLowerCase();
     const targetCategory = category.toLowerCase();
@@ -266,7 +279,10 @@ export const getProjectsByCategory = (category: string): Project[] => {
     const validCategories = categoryMappings[targetCategory] || [targetCategory];
     const matches = validCategories.includes(projectCategory);
     
-    console.log(`🔍 Project "${project.title}" (${project.id}) - category: "${project.category}", matches "${category}": ${matches}`);
+    if (matches) {
+      console.log(`✅ Mapping match: "${project.title}" category "${project.category}" matches "${category}"`);
+    }
+    
     return matches;
   });
 

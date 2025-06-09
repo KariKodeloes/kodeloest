@@ -6,85 +6,140 @@ import { mockProjects, Project } from '../../data/mockData';
 import ProjectEditor from './ProjectEditor';
 import DeleteConfirmation from './DeleteConfirmation';
 import { useProjectDelete } from './hooks/useProjectDelete';
-import { LogOut, Edit, Plus, Image, RotateCcw } from 'lucide-react';
-import { resetAdminData, checkAdminDataState } from '../../utils/resetAdminData';
+import { LogOut, Edit, Plus, Image, RotateCcw, AlertTriangle } from 'lucide-react';
+import { resetAdminData, checkAdminDataState, forceCleanAdminData } from '../../utils/resetAdminData';
 
 const AdminDashboard = () => {
   const { logout, phoneNumber } = useAuth();
   const [editingProject, setEditingProject] = useState<string | null>(null);
   const [showNewProject, setShowNewProject] = useState(false);
   const [allProjects, setAllProjects] = useState<Project[]>([]);
+  const [dataError, setDataError] = useState<string | null>(null);
   const { deleteProject, isDeleting } = useProjectDelete();
 
   useEffect(() => {
     // Check admin data state on load
     checkAdminDataState();
     
-    // Load all projects (original + new + edited - deleted)
+    // Load all projects with error handling
     const loadAllProjects = () => {
       console.log('Loading all projects...');
-      // Start with original projects
-      let projects = [...mockProjects];
+      setDataError(null);
+      
+      try {
+        // Start with original projects
+        let projects = [...mockProjects];
 
-      // Get deleted projects list
-      const deletedProjectsData = localStorage.getItem('admin_deleted_projects');
-      const deletedProjects = deletedProjectsData ? JSON.parse(deletedProjectsData) : [];
-      console.log('Deleted projects:', deletedProjects);
-
-      // Filter out deleted original projects
-      projects = projects.filter(project => !deletedProjects.includes(project.id));
-
-      // Add new projects
-      const newProjectsData = localStorage.getItem('admin_new_projects');
-      if (newProjectsData) {
-        const newProjects = JSON.parse(newProjectsData);
-        console.log('Found new projects:', newProjects);
+        // Get deleted projects list
+        const deletedProjectsData = localStorage.getItem('admin_deleted_projects');
+        let deletedProjects = [];
         
-        // Fix mainImage handling for new projects
-        const processedNewProjects = newProjects.map((project: Project) => {
-          if (project.mainImage && !project.images?.includes(project.mainImage)) {
-            return {
-              ...project,
-              images: [project.mainImage, ...(project.images || [])]
-            };
-          }
-          return project;
-        });
-        
-        projects = [...projects, ...processedNewProjects];
-      }
-
-      // Apply edits to existing projects
-      const editsData = localStorage.getItem('admin_project_edits');
-      if (editsData) {
-        const edits = JSON.parse(editsData);
-        console.log('Found project edits:', edits);
-        projects = projects.map(project => {
-          if (edits[project.id]) {
-            const editedProject = { ...project, ...edits[project.id] };
-            console.log('Applied edits to project:', project.id, editedProject);
-            
-            // Ensure mainImage is properly set for display
-            if (editedProject.mainImage && !editedProject.images?.includes(editedProject.mainImage)) {
-              editedProject.images = [editedProject.mainImage, ...(editedProject.images || [])];
+        if (deletedProjectsData) {
+          try {
+            deletedProjects = JSON.parse(deletedProjectsData);
+            if (!Array.isArray(deletedProjects)) {
+              console.warn('Deleted projects data is not an array, clearing...');
+              localStorage.removeItem('admin_deleted_projects');
+              deletedProjects = [];
             }
-            
-            return editedProject;
+          } catch (error) {
+            console.error('Error parsing deleted projects:', error);
+            localStorage.removeItem('admin_deleted_projects');
+            deletedProjects = [];
+            setDataError('Fant korrupt data for slettede prosjekter. Data er rensket.');
           }
-          return project;
-        });
-      }
-
-      // Sort by year (newest first) and then by title
-      projects.sort((a, b) => {
-        if (a.year !== b.year) {
-          return b.year - a.year;
         }
-        return a.title.localeCompare(b.title);
-      });
+        
+        console.log('Deleted projects:', deletedProjects);
 
-      console.log('Final projects loaded:', projects);
-      setAllProjects(projects);
+        // Filter out deleted original projects
+        projects = projects.filter(project => !deletedProjects.includes(project.id));
+
+        // Add new projects
+        const newProjectsData = localStorage.getItem('admin_new_projects');
+        if (newProjectsData) {
+          try {
+            const newProjects = JSON.parse(newProjectsData);
+            if (Array.isArray(newProjects)) {
+              console.log('Found new projects:', newProjects);
+              
+              // Fix mainImage handling for new projects
+              const processedNewProjects = newProjects.map((project: Project) => {
+                if (project.mainImage && !project.images?.includes(project.mainImage)) {
+                  return {
+                    ...project,
+                    images: [project.mainImage, ...(project.images || [])]
+                  };
+                }
+                return project;
+              });
+              
+              projects = [...projects, ...processedNewProjects];
+            } else {
+              console.warn('New projects data is not an array, clearing...');
+              localStorage.removeItem('admin_new_projects');
+              setDataError('Fant korrupt data for nye prosjekter. Data er rensket.');
+            }
+          } catch (error) {
+            console.error('Error parsing new projects:', error);
+            localStorage.removeItem('admin_new_projects');
+            setDataError('Fant korrupt data for nye prosjekter. Data er rensket.');
+          }
+        }
+
+        // Apply edits to existing projects
+        const editsData = localStorage.getItem('admin_project_edits');
+        if (editsData) {
+          try {
+            const edits = JSON.parse(editsData);
+            if (edits && typeof edits === 'object') {
+              console.log('Found project edits:', edits);
+              projects = projects.map(project => {
+                if (edits[project.id]) {
+                  const editedProject = { ...project, ...edits[project.id] };
+                  console.log('Applied edits to project:', project.id, editedProject);
+                  
+                  // Ensure mainImage is properly set for display
+                  if (editedProject.mainImage && !editedProject.images?.includes(editedProject.mainImage)) {
+                    editedProject.images = [editedProject.mainImage, ...(editedProject.images || [])];
+                  }
+                  
+                  return editedProject;
+                }
+                return project;
+              });
+            } else {
+              console.warn('Project edits data is not valid, clearing...');
+              localStorage.removeItem('admin_project_edits');
+              setDataError('Fant korrupt data for prosjektredigeringer. Data er rensket.');
+            }
+          } catch (error) {
+            console.error('Error parsing project edits:', error);
+            localStorage.removeItem('admin_project_edits');
+            setDataError('Fant korrupt data for prosjektredigeringer. Data er rensket.');
+          }
+        }
+
+        // Sort by year (newest first) and then by title
+        projects.sort((a, b) => {
+          if (a.year !== b.year) {
+            return b.year - a.year;
+          }
+          return a.title.localeCompare(b.title);
+        });
+
+        console.log('Final projects loaded:', projects);
+        setAllProjects(projects);
+        
+        // Check if we have far fewer projects than expected
+        if (projects.length < 10) {
+          setDataError(`Kun ${projects.length} prosjekter funnet. Forventet minst 15. Prøv å tilbakestille data.`);
+        }
+        
+      } catch (error) {
+        console.error('Critical error loading projects:', error);
+        setDataError('Kritisk feil ved lasting av prosjekter. Prøv å tilbakestille data.');
+      }
     };
 
     loadAllProjects();
@@ -97,6 +152,12 @@ const AdminDashboard = () => {
   const handleResetData = () => {
     if (window.confirm('Er du sikker på at du vil tilbakestille alle admin-endringer? Dette vil gjenopprette de originale 15 prosjektene og fjerne alle nye/redigerte prosjekter.')) {
       resetAdminData();
+    }
+  };
+
+  const handleForceClean = () => {
+    if (window.confirm('Dette vil force-rense all admin-data. Er du sikker?')) {
+      forceCleanAdminData();
     }
   };
 
@@ -185,10 +246,29 @@ const AdminDashboard = () => {
           <h1 className="text-2xl font-quicksand font-semibold">Admin Dashboard</h1>
           <div className="flex items-center space-x-4">
             <span className="text-sm text-gray-600">Logget inn som: {phoneNumber}</span>
-            <Button variant="outline" onClick={handleResetData} className="text-orange-600 border-orange-600 hover:bg-orange-50">
+            
+            {/* More prominent reset button */}
+            <Button 
+              variant="outline" 
+              onClick={handleResetData} 
+              className="text-orange-600 border-orange-600 hover:bg-orange-50 bg-orange-50/50 font-medium px-4 py-2"
+            >
               <RotateCcw className="h-4 w-4 mr-2" />
               Tilbakestill data
             </Button>
+            
+            {/* Emergency force clean button if there are data errors */}
+            {dataError && (
+              <Button 
+                variant="outline" 
+                onClick={handleForceClean} 
+                className="text-red-600 border-red-600 hover:bg-red-50 bg-red-50/50"
+              >
+                <AlertTriangle className="h-4 w-4 mr-2" />
+                Force-rens
+              </Button>
+            )}
+            
             <Button variant="outline" onClick={handleLogout}>
               <LogOut className="h-4 w-4 mr-2" />
               Logg ut
@@ -206,10 +286,27 @@ const AdminDashboard = () => {
           </Button>
         </div>
 
+        {/* Data error alert */}
+        {dataError && (
+          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+            <div className="flex items-center">
+              <AlertTriangle className="h-5 w-5 text-red-600 mr-2" />
+              <p className="text-sm text-red-700">
+                <strong>Datafeil:</strong> {dataError}
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* Status info */}
         <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
           <p className="text-sm text-blue-700">
             <strong>Tips:</strong> Hvis du ikke ser alle dine originale prosjekter, klikk på "Tilbakestill data"-knappen for å gjenopprette dem.
+            {allProjects.length < 15 && (
+              <span className="block mt-1 font-medium">
+                Du har kun {allProjects.length} prosjekter. Forventet minst 15 originale prosjekter.
+              </span>
+            )}
           </p>
         </div>
 
