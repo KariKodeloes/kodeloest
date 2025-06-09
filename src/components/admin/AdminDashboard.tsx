@@ -10,7 +10,7 @@ import SiteContentEditor from './SiteContentEditor';
 import { LogOut, Edit, Plus, Type, FileText } from 'lucide-react';
 
 const AdminDashboard = () => {
-  const { logout, phoneNumber } = useAuth();
+  const { logout, adminCode } = useAuth();
   const [editingProject, setEditingProject] = useState<string | null>(null);
   const [showNewProject, setShowNewProject] = useState(false);
   const [showBulkAltText, setShowBulkAltText] = useState(false);
@@ -58,7 +58,7 @@ const AdminDashboard = () => {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-quicksand font-semibold">Admin Dashboard</h1>
           <div className="flex items-center space-x-4">
-            <span className="text-sm text-gray-600">Logget inn som: {phoneNumber}</span>
+            <span className="text-sm text-gray-600">Logget inn som admin</span>
             <Button variant="outline" onClick={handleLogout}>
               <LogOut className="h-4 w-4 mr-2" />
               Logg ut
