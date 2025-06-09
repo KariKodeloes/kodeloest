@@ -172,7 +172,7 @@ const AdminDashboard = () => {
                     </span>
                   </div>
                   <Button 
-                    variant="outline" 
+                    variant="default"
                     size="sm" 
                     className="w-full"
                     onClick={() => setEditingProject(project.id)}
