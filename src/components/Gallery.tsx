@@ -14,28 +14,21 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
   const { getLikes } = useLikes();
 
   const getCategoryPath = (project: Project) => {
-    // Link to subcategory if available, otherwise main category
+    // Always link to main category page, not subcategory
     const categoryMap: Record<string, string> = {
-      'bilder': '/bilder',
+      'bildekunst': '/bilder',
       'foto': '/foto',
       'som': '/som',
       'design': '/design',
       'diy': '/diy'
     };
     
-    const basePath = categoryMap[project.category] || '/';
-    
-    // Always navigate to subcategory if it exists, otherwise to main category
-    if (project.subcategory) {
-      return `${basePath}/${project.subcategory}`;
-    }
-    
-    return basePath;
+    return categoryMap[project.category.toLowerCase()] || '/';
   };
 
   const getCategoryDisplayName = (project: Project) => {
     const categoryNames: Record<string, string> = {
-      'bilder': 'Bilder',
+      'bildekunst': 'Bildekunst',
       'foto': 'Foto',
       'som': 'Søm',
       'design': 'Design',
@@ -56,7 +49,7 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
       'tegning': 'Tegning'
     };
 
-    let displayName = categoryNames[project.category] || project.category;
+    let displayName = categoryNames[project.category.toLowerCase()] || project.category;
     if (project.subcategory) {
       displayName += ` → ${subcategoryNames[project.subcategory] || project.subcategory}`;
     }

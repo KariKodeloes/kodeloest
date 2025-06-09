@@ -4,7 +4,7 @@ import Gallery from '../components/Gallery';
 import { getProjectsByCategory } from '../data/mockData';
 
 const Home = () => {
-  // Get all projects using the same logic as category pages, then filter out DIY
+  // Get all projects using the correct category names
   const allProjects = [
     ...getProjectsByCategory('bildekunst'),
     ...getProjectsByCategory('foto'),
