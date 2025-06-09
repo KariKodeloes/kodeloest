@@ -607,6 +607,19 @@ export const mockProjects: Project[] = [
     mainImage: '/lovable-uploads/885e86f6-18a5-4b6d-bbcc-1944ed592082.png',
     likes: 0,
     altText: ''
+  },
+  {
+    id: '49',
+    title: 'Pitstop i Athen',
+    subtitle: 'Iphone 8',
+    description: 'Speilinga på solbrilleglasset avslører at ikke alle nyter livet i Athen.',
+    year: 2024,
+    images: ['/lovable-uploads/62a48b0c-30ef-4e00-a36c-4149de722c19.png'],
+    category: 'foto',
+    subcategory: 'byliv',
+    mainImage: '/lovable-uploads/62a48b0c-30ef-4e00-a36c-4149de722c19.png',
+    likes: 0,
+    altText: ''
   }
 ];
 
