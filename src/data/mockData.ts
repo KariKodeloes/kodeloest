@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -26,7 +25,7 @@ export const mockProjects: Project[] = [
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/fb8e46a7-aaf8-4666-bea3-95e4b35bb947.png',
     likes: 12,
-    altText: ''
+    altText: 'Et abstrakt akvarellmaleri i varme fargetoner med rosa, gul og blå pigmenter som flyter sammen, med kristaller av salt som skaper tekstur og dybde'
   },
   {
     id: '42',
@@ -39,7 +38,7 @@ export const mockProjects: Project[] = [
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/475fea69-5dea-4d15-9a12-1f02c9d86375.png',
     likes: 0,
-    altText: ''
+    altText: 'Akvarellmaleri av to stiliserte trær i vinterlandskap med blå og grå toner, hvor trærnes skygger strekker seg over den hvite snøen'
   },
   {
     id: '43',
@@ -52,7 +51,7 @@ export const mockProjects: Project[] = [
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/7d49687d-ab49-4e60-8c28-b3bdca64e607.png',
     likes: 0,
-    altText: ''
+    altText: 'Stort abstrakt akvarellmaleri med dynamiske strøk i blå, grønn og gul, hvor former ser ut til å falle nedover lerretet'
   },
   {
     id: '44',
@@ -65,7 +64,7 @@ export const mockProjects: Project[] = [
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/cff612c5-a4ee-462a-97c4-15811f9d53be.png',
     likes: 0,
-    altText: ''
+    altText: 'Dramatisk akvarellmaleri med mørke skyer i grå og blå toner som samler seg over et landskap, med flytende fargeoverganger'
   },
   {
     id: '45',
@@ -78,7 +77,7 @@ export const mockProjects: Project[] = [
     subcategory: 'mixed-media',
     mainImage: '/lovable-uploads/44612c34-64c2-4e7a-bf83-59fc49f3f646.png',
     likes: 0,
-    altText: ''
+    altText: 'To abstraktee monoprint-arbeider som viser forenklede linjer og former fra et åkerlandskap, utført i akryl og akvarell'
   },
   {
     id: '46',
@@ -91,7 +90,7 @@ export const mockProjects: Project[] = [
     subcategory: 'mixed-media',
     mainImage: '/lovable-uploads/146dd62f-9868-4942-b571-8c8d7862fc65.png',
     likes: 0,
-    altText: ''
+    altText: 'Monoprint-arbeider med to katter på en grå bakke, utført i akryl og akvarell'
   },
   {
     id: '2',
@@ -104,7 +103,7 @@ export const mockProjects: Project[] = [
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/60faf3ef-db7d-4c44-8d6c-dff40616af79.png',
     likes: 8,
-    altText: ''
+    altText: 'Akvarellmaleri av en sommerdag i Vrnik, Korcula, med blå grønne farger og en sommerbilde'
   },
   {
     id: '41',
@@ -117,7 +116,7 @@ export const mockProjects: Project[] = [
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/a877d46e-338c-4f28-9cef-2196ff060092.png',
     likes: 0,
-    altText: ''
+    altText: 'Akvarellmaleri av tre kvadratiske vintermotiver med fargene som flyter'
   },
   {
     id: '25',
@@ -130,7 +129,7 @@ export const mockProjects: Project[] = [
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/60f7a916-b435-406b-8d28-5db02ee31fbd.png',
     likes: 0,
-    altText: ''
+    altText: 'Akvarellmaleri av en blå iris på bomull, med en runde med svamp i dusjen'
   },
   {
     id: '26',
@@ -143,7 +142,7 @@ export const mockProjects: Project[] = [
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/7036f89a-e144-49ae-a484-b56f45c894b3.png',
     likes: 0,
-    altText: ''
+    altText: 'Akvarellmaleri av en tidlig morgen på balkongen i Hellas, med en snorkling'
   },
   {
     id: '27',
@@ -156,7 +155,7 @@ export const mockProjects: Project[] = [
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/d09022b6-9d2d-49e8-a189-898e90f36faf.png',
     likes: 0,
-    altText: ''
+    altText: 'Akvarellmaleri av fugler i høsten, med organiske formene'
   },
   {
     id: '28',
@@ -169,7 +168,7 @@ export const mockProjects: Project[] = [
     subcategory: 'mixed-media',
     mainImage: '/lovable-uploads/178f87a0-b030-44db-b5b6-9c0f7cb06047.png',
     likes: 0,
-    altText: ''
+    altText: 'Monoprint-arbeider av Kuhaugen i snødrev og halvmørke'
   },
   {
     id: '37',
@@ -182,7 +181,7 @@ export const mockProjects: Project[] = [
     subcategory: 'mixed-media',
     mainImage: '/lovable-uploads/f847c50d-aca0-4371-ad50-df9edeb2fa85.png',
     likes: 0,
-    altText: ''
+    altText: 'Monoprint-arbeider av et falleferdige huset i Saltstraumen'
   },
   {
     id: '38',
@@ -194,7 +193,7 @@ export const mockProjects: Project[] = [
     category: 'design',
     mainImage: '/lovable-uploads/6235d691-91a8-46b5-b378-255395274627.png',
     likes: 0,
-    altText: ''
+    altText: 'Akvarellmaleri av julemarkedet i Lademoen'
   },
   {
     id: '3',
@@ -207,7 +206,7 @@ export const mockProjects: Project[] = [
     subcategory: 'mixed-media',
     mainImage: '/lovable-uploads/cf0f53e3-5b2b-4bde-bb0f-0263cd35300b.png',
     likes: 15,
-    altText: ''
+    altText: 'Monoprint-arbeider av et foto fra tur i marka'
   },
   {
     id: '22',
@@ -220,7 +219,7 @@ export const mockProjects: Project[] = [
     subcategory: 'mixed-media',
     mainImage: '/lovable-uploads/01e8e2b5-0bb1-42ca-85f6-6f3e09838c7e.png',
     likes: 0,
-    altText: ''
+    altText: 'Håndkolorert gicleétrykk av et fallebilde'
   },
   {
     id: '24',
@@ -233,7 +232,7 @@ export const mockProjects: Project[] = [
     subcategory: 'mixed-media',
     mainImage: '/lovable-uploads/4cf9aafb-69c8-482b-ac9e-41b60eac85a8.png',
     likes: 0,
-    altText: ''
+    altText: 'Monoprint-arbeider av et sommerminne fra Sandnessjøen'
   },
   {
     id: '4',
@@ -246,7 +245,7 @@ export const mockProjects: Project[] = [
     subcategory: 'dyr',
     mainImage: '/lovable-uploads/6a425ba4-8585-4f92-b02a-d48cb9454fcc.png',
     likes: 23,
-    altText: ''
+    altText: 'Mobilfoto av et rådyr på vei hjem fra stranda'
   },
   {
     id: '5',
@@ -259,7 +258,7 @@ export const mockProjects: Project[] = [
     subcategory: 'redesign-og-gjenbruk',
     mainImage: '/lovable-uploads/270178c3-07b4-4cc5-bfce-2b2537185530.png',
     likes: 0,
-    altText: ''
+    altText: 'Mønsteret "Fibremood" på en bluse i råsilke'
   },
   {
     id: '7',
@@ -271,7 +270,7 @@ export const mockProjects: Project[] = [
     category: 'diy',
     mainImage: '/lovable-uploads/7a70fc1b-b967-4946-941d-3e835ee417c2.png',
     likes: 0,
-    altText: ''
+    altText: 'Ikea-hack av en sengegavl'
   },
   {
     id: '8',
@@ -284,7 +283,7 @@ export const mockProjects: Project[] = [
     subcategory: 'dyr',
     mainImage: '/lovable-uploads/93938560-85b3-40d9-a065-0abdbe9405eb.png',
     likes: 18,
-    altText: ''
+    altText: 'Mobilfoto av en gatekatt i Athen'
   },
   {
     id: '9',
@@ -297,7 +296,7 @@ export const mockProjects: Project[] = [
     subcategory: 'dyr',
     mainImage: '/lovable-uploads/9ffa0aa0-c66f-4d2b-a1ca-702993533a31.png',
     likes: 31,
-    altText: ''
+    altText: 'Mobilfoto av to rufsete kompiser i Chora på Serifos'
   },
   {
     id: '11',
@@ -310,7 +309,7 @@ export const mockProjects: Project[] = [
     subcategory: 'flora',
     mainImage: '/lovable-uploads/9bbed135-8fa4-45f2-ae37-25793d32edfe.png',
     likes: 3,
-    altText: ''
+    altText: 'Mobilfoto av en ridderspore i villnisset'
   },
   {
     id: '12',
@@ -323,7 +322,7 @@ export const mockProjects: Project[] = [
     subcategory: 'flora',
     mainImage: '/lovable-uploads/509fe9b2-f186-42d2-8f77-d8c07c0a44dc.png',
     likes: 2,
-    altText: ''
+    altText: 'Mobilfoto av høst på Ladestien'
   },
   {
     id: '13',
@@ -336,7 +335,7 @@ export const mockProjects: Project[] = [
     subcategory: 'ved-sjoen',
     mainImage: '/lovable-uploads/cd2f8215-2c4a-496b-9a78-00ff8b9a4fcc.png',
     likes: 4,
-    altText: ''
+    altText: 'Mobilfoto av Horseidstranda'
   },
   {
     id: '14',
@@ -349,7 +348,7 @@ export const mockProjects: Project[] = [
     subcategory: 'ved-sjoen',
     mainImage: '/lovable-uploads/fa777469-8049-4193-a37a-bf39f2285185.png',
     likes: 6,
-    altText: ''
+    altText: 'Mobilfoto av Albuskjell på Haversand'
   },
   {
     id: '15',
@@ -362,7 +361,7 @@ export const mockProjects: Project[] = [
     subcategory: 'redesign-og-gjenbruk',
     mainImage: '/lovable-uploads/f9cb4e5a-3791-4fb8-8a98-89f9ab272f88.png',
     likes: 0,
-    altText: ''
+    altText: 'Mobilfoto av et brukfunn fra loppemarked'
   },
   {
     id: '16',
@@ -375,7 +374,7 @@ export const mockProjects: Project[] = [
     subcategory: 'rett-fra-rullen',
     mainImage: '/lovable-uploads/77f69a42-7da3-4b1f-95b7-6b403489ea44.png',
     likes: 0,
-    altText: ''
+    altText: 'Mobilfoto av en festdrakt'
   },
   {
     id: '17',
@@ -388,7 +387,7 @@ export const mockProjects: Project[] = [
     subcategory: 'tegning',
     mainImage: '/lovable-uploads/b616f4ad-a9a1-48bb-9ae1-bd95f9205c15.png',
     likes: 0,
-    altText: ''
+    altText: 'Tegnet til "Inktober" før valgkampen 2020'
   },
   {
     id: '18',
@@ -401,7 +400,7 @@ export const mockProjects: Project[] = [
     subcategory: 'ved-sjoen',
     mainImage: '/lovable-uploads/e5fd026f-3972-44eb-b147-0435173bdbd0.png',
     likes: 0,
-    altText: ''
+    altText: 'Mobilfoto av fargene ved sjøen på Midtsandtangen'
   },
   {
     id: '19',
@@ -414,7 +413,7 @@ export const mockProjects: Project[] = [
     subcategory: 'ved-sjoen',
     mainImage: '/lovable-uploads/081fdbc3-fa0c-4105-9984-843d121413f8.png',
     likes: 0,
-    altText: ''
+    altText: 'Mobilfoto av SUP og idyll på Skæret'
   },
   {
     id: '20',
@@ -426,7 +425,7 @@ export const mockProjects: Project[] = [
     category: 'design',
     mainImage: '/lovable-uploads/20ea83b1-f989-451b-890d-c561a008914b.png',
     likes: 0,
-    altText: ''
+    altText: 'Logodesign og branding av sykkelspesialisten'
   },
   {
     id: '21',
@@ -438,7 +437,7 @@ export const mockProjects: Project[] = [
     category: 'design',
     mainImage: '/lovable-uploads/47f5f469-b2ab-425c-91a3-0b6abad22bc6.png',
     likes: 0,
-    altText: ''
+    altText: 'Bordkort og vimpler til dåp'
   },
   {
     id: '23',
@@ -451,7 +450,7 @@ export const mockProjects: Project[] = [
     subcategory: 'redesign-og-gjenbruk',
     mainImage: '/lovable-uploads/2c4a0928-dd65-4fcd-b3d6-8df04520061e.png',
     likes: 0,
-    altText: ''
+    altText: 'Mange av gjenbrukstekstilene fra venner'
   },
   {
     id: '29',
@@ -464,7 +463,7 @@ export const mockProjects: Project[] = [
     subcategory: 'i-fjellet',
     mainImage: '/lovable-uploads/03a48a95-f221-4754-b54d-f40ab4d3d388.png',
     likes: 0,
-    altText: ''
+    altText: 'Høstfarger ved et tjern 3 mil sør for Trondheim'
   },
   {
     id: '30',
@@ -477,7 +476,7 @@ export const mockProjects: Project[] = [
     subcategory: 'i-fjellet',
     mainImage: '/lovable-uploads/e777e638-1922-4994-8d3e-082351568638.png',
     likes: 0,
-    altText: ''
+    altText: 'Grafiske linjer og former i grønne, gule og grå toner i et lite tjern en høstdag'
   },
   {
     id: '31',
@@ -490,7 +489,7 @@ export const mockProjects: Project[] = [
     subcategory: 'i-fjellet',
     mainImage: '/lovable-uploads/82685a3b-5857-472a-9b59-c5d42cdf4317.png',
     likes: 0,
-    altText: ''
+    altText: 'Ungsau på leting etter flokken sin i Trollheimen'
   },
   {
     id: '32',
@@ -503,7 +502,7 @@ export const mockProjects: Project[] = [
     subcategory: 'i-fjellet',
     mainImage: '/lovable-uploads/815c9c7f-8014-4f48-8886-09b45bbf1264.png',
     likes: 0,
-    altText: ''
+    altText: 'Grønnfargene som speiler seg i Estenstaddammen'
   },
   {
     id: '33',
@@ -516,7 +515,7 @@ export const mockProjects: Project[] = [
     subcategory: 'redesign-og-gjenbruk',
     mainImage: '/lovable-uploads/1cee23b2-eb97-4ba2-a356-6440a2358329.png',
     likes: 0,
-    altText: ''
+    altText: 'Feststemte gardiner på vift'
   },
   {
     id: '34',
@@ -529,7 +528,7 @@ export const mockProjects: Project[] = [
     subcategory: 'byliv',
     mainImage: '/lovable-uploads/2138495a-b513-4632-abb4-70d15c403155.png',
     likes: 0,
-    altText: ''
+    altText: 'Når det nærmer seg jul i Trondheim'
   },
   {
     id: '35',
@@ -542,7 +541,7 @@ export const mockProjects: Project[] = [
     subcategory: 'rett-fra-rullen',
     mainImage: '/lovable-uploads/569fc2ae-ec14-4402-a321-efe3af5d5214.png',
     likes: 0,
-    altText: ''
+    altText: 'Det er ingen hemmelighet at jeg liker striper'
   },
   {
     id: '36',
@@ -555,7 +554,7 @@ export const mockProjects: Project[] = [
     subcategory: 'redesign-og-gjenbruk',
     mainImage: '/lovable-uploads/72e83a49-8288-4359-b99b-d63c3d6e3de9.png',
     likes: 0,
-    altText: ''
+    altText: 'I en bunke med pledd'
   },
   {
     id: '39',
@@ -568,7 +567,7 @@ export const mockProjects: Project[] = [
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/7b2a7d77-6996-4d82-a52d-68b801d8c3f9.png',
     likes: 0,
-    altText: ''
+    altText: 'Dette lå lenge i bunken "mislykka"'
   },
   {
     id: '40',
@@ -581,7 +580,7 @@ export const mockProjects: Project[] = [
     subcategory: 'akvareller',
     mainImage: '/lovable-uploads/c32a1b01-6fc1-47b2-bb10-8ef599f1728c.png',
     likes: 0,
-    altText: ''
+    altText: 'Hva er mer naturlig for "crazy catlady" enn å bruke pus til motiver på julekort'
   },
   {
     id: '47',
@@ -594,7 +593,7 @@ export const mockProjects: Project[] = [
     subcategory: 'byliv',
     mainImage: '/lovable-uploads/fbc53ff2-e378-4fab-ad75-eff003309398.png',
     likes: 0,
-    altText: ''
+    altText: 'Alle kan ikke springe på fjelltoppene'
   },
   {
     id: '48',
@@ -607,7 +606,7 @@ export const mockProjects: Project[] = [
     subcategory: 'byliv',
     mainImage: '/lovable-uploads/885e86f6-18a5-4b6d-bbcc-1944ed592082.png',
     likes: 0,
-    altText: ''
+    altText: 'Den gamle domen øverst i Mungegata'
   },
   {
     id: '49',
@@ -620,7 +619,7 @@ export const mockProjects: Project[] = [
     subcategory: 'byliv',
     mainImage: '/lovable-uploads/c6a3e999-eeab-4f59-8822-17c6f8bac416.png',
     likes: 0,
-    altText: ''
+    altText: 'Speilinga på solbrilleglasset avslører at ikke alle nyter livet i Athen'
   },
   {
     id: '50',
@@ -633,7 +632,7 @@ export const mockProjects: Project[] = [
     subcategory: 'flora',
     mainImage: '/lovable-uploads/92a72688-099d-4a04-baa3-d90f8fa48560.png',
     likes: 0,
-    altText: ''
+    altText: 'Sommerstemning på Haversand'
   },
   {
     id: '51',
@@ -646,7 +645,7 @@ export const mockProjects: Project[] = [
     subcategory: 'flora',
     mainImage: '/lovable-uploads/3cb40939-5a62-4476-a341-f43e36717f57.png',
     likes: 0,
-    altText: ''
+    altText: 'Å bo i gangavstand til Ringveparken'
   },
   {
     id: '52',
@@ -659,7 +658,7 @@ export const mockProjects: Project[] = [
     subcategory: 'flora',
     mainImage: '/lovable-uploads/e6543fe0-415c-475e-9c1e-8e64586b0ac1.png',
     likes: 0,
-    altText: ''
+    altText: 'Humlene surrer rundt og leter etter mat'
   },
   {
     id: '53',
@@ -672,7 +671,7 @@ export const mockProjects: Project[] = [
     subcategory: 'mixed-media',
     mainImage: '/lovable-uploads/1e8ac0b7-0c44-4e64-aaa8-1978fde01664.png',
     likes: 0,
-    altText: ''
+    altText: 'Furuer minner meg om Finnmark og Alta'
   },
   {
     id: '54',
@@ -685,7 +684,7 @@ export const mockProjects: Project[] = [
     subcategory: 'mixed-media',
     mainImage: '/lovable-uploads/cae407dd-cf1b-4ea1-ade4-606526b1c127.png',
     likes: 0,
-    altText: ''
+    altText: 'Høststemning ved et lite tjern i marka over Kvål'
   },
   {
     id: '55',
@@ -697,7 +696,7 @@ export const mockProjects: Project[] = [
     category: 'som',
     mainImage: '/lovable-uploads/a58467ff-3b68-42c4-964e-06305133f2dd.png',
     likes: 0,
-    altText: ''
+    altText: 'Midt i en syfase er det ikke lett å plukke ut favoritter'
   },
   {
     id: '56',
@@ -710,7 +709,7 @@ export const mockProjects: Project[] = [
     subcategory: 'redesign-og-gjenbruk',
     mainImage: '/lovable-uploads/5a173700-8e6c-43df-acde-5c2141141e04.png',
     likes: 0,
-    altText: ''
+    altText: 'Fint lite prosjekt å bruke opp rester etter dongeribukser på'
   },
   {
     id: '57',
@@ -723,7 +722,7 @@ export const mockProjects: Project[] = [
     subcategory: 'rett-fra-rullen',
     mainImage: '/lovable-uploads/938984bf-24d2-426b-a690-c5db034a132d.png',
     likes: 0,
-    altText: ''
+    altText: 'Har dratt med meg mye stoff fra reiser'
   },
   {
     id: '58',
@@ -736,7 +735,7 @@ export const mockProjects: Project[] = [
     subcategory: 'redesign-og-gjenbruk',
     mainImage: '/lovable-uploads/3121f37a-21c3-4e5d-9f32-79f12c15ac58.png',
     likes: 0,
-    altText: ''
+    altText: 'Fikk så lyst til å teste ut tekstiltusj og et gammelt dynetrekk røyk med'
   }
 ];
 

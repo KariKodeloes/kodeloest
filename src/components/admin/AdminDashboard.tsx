@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
@@ -7,24 +8,6 @@ import ProjectEditor from './ProjectEditor';
 import BulkAltTextEditor from './BulkAltTextEditor';
 import SiteContentEditor from './SiteContentEditor';
 import { LogOut, Edit, Plus, Type, FileText } from 'lucide-react';
-
-// Function to get alt text from localStorage or fallback to project altText
-const getProjectAltText = (projectId: string): string => {
-  try {
-    const existingData = localStorage.getItem('admin_project_edits');
-    if (existingData) {
-      const edits = JSON.parse(existingData);
-      if (edits[projectId]?.altText) {
-        return edits[projectId].altText;
-      }
-    }
-  } catch (error) {
-    console.log('Error reading alt text from localStorage:', error);
-  }
-  
-  const project = mockProjects.find(p => p.id === projectId);
-  return project?.altText || '';
-};
 
 const AdminDashboard = () => {
   const { logout, phoneNumber } = useAuth();
@@ -66,11 +49,8 @@ const AdminDashboard = () => {
     );
   }
 
-  // Count projects without alt text using localStorage and mockProjects
-  const projectsWithoutAltText = mockProjects.filter(project => {
-    const altText = getProjectAltText(project.id);
-    return !altText;
-  }).length;
+  // Count projects without alt text directly from project data
+  const projectsWithoutAltText = mockProjects.filter(project => !project.altText).length;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -118,8 +98,6 @@ const AdminDashboard = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {mockProjects.map((project) => {
-            const projectAltText = getProjectAltText(project.id);
-            
             return (
               <Card key={project.id} className="hover:shadow-lg transition-shadow">
                 <CardHeader className="pb-2">
@@ -146,8 +124,8 @@ const AdminDashboard = () => {
                   <div className="space-y-2">
                     <div className="text-xs">
                       <span className="font-medium">Alt-tekst: </span>
-                      <span className={projectAltText ? 'text-green-600' : 'text-orange-600'}>
-                        {projectAltText || 'Ikke satt'}
+                      <span className={project.altText ? 'text-green-600' : 'text-orange-600'}>
+                        {project.altText || 'Ikke satt'}
                       </span>
                     </div>
                     <Button 

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -56,16 +55,6 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
         console.log('Updated project:', mockProjects[projectIndex]);
       }
     }
-    
-    // Also save to localStorage for persistence
-    const existingData = localStorage.getItem('admin_project_edits');
-    const edits = existingData ? JSON.parse(existingData) : {};
-    
-    if (projectId) {
-      edits[projectId] = project;
-    }
-    
-    localStorage.setItem('admin_project_edits', JSON.stringify(edits));
     
     setIsLoading(false);
     

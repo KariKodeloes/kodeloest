@@ -12,37 +12,18 @@ interface BulkAltTextEditorProps {
   onClose: () => void;
 }
 
-// Function to get alt text from localStorage or fallback to project altText
-const getProjectAltText = (projectId: string): string => {
-  try {
-    const existingData = localStorage.getItem('admin_project_edits');
-    if (existingData) {
-      const edits = JSON.parse(existingData);
-      if (edits[projectId]?.altText) {
-        return edits[projectId].altText;
-      }
-    }
-  } catch (error) {
-    console.log('Error reading alt text from localStorage:', error);
-  }
-  
-  const project = mockProjects.find(p => p.id === projectId);
-  return project?.altText || '';
-};
-
 const BulkAltTextEditor: React.FC<BulkAltTextEditorProps> = ({ onClose }) => {
   const [altTexts, setAltTexts] = useState<Record<string, string>>(() => {
     const initial: Record<string, string> = {};
     mockProjects.forEach(project => {
-      // Use the getProjectAltText function to get existing alt text from localStorage
-      initial[project.id] = getProjectAltText(project.id);
+      initial[project.id] = project.altText || '';
     });
     return initial;
   });
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  // Count projects without alt text (check both altTexts state and localStorage)
+  // Count projects without alt text
   const projectsWithoutAltText = mockProjects.filter(project => {
     const currentAltText = altTexts[project.id];
     return !currentAltText;
@@ -54,27 +35,12 @@ const BulkAltTextEditor: React.FC<BulkAltTextEditorProps> = ({ onClose }) => {
     // Simulate save delay
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    // Update the projects in mockProjects array
+    // Update the projects in mockProjects array directly
     mockProjects.forEach(project => {
       if (altTexts[project.id]) {
         project.altText = altTexts[project.id];
       }
     });
-    
-    // Also save to localStorage for persistence
-    const existingData = localStorage.getItem('admin_project_edits');
-    const edits = existingData ? JSON.parse(existingData) : {};
-    
-    Object.keys(altTexts).forEach(projectId => {
-      if (altTexts[projectId]) {
-        if (!edits[projectId]) {
-          edits[projectId] = {};
-        }
-        edits[projectId].altText = altTexts[projectId];
-      }
-    });
-    
-    localStorage.setItem('admin_project_edits', JSON.stringify(edits));
     
     setIsLoading(false);
     
