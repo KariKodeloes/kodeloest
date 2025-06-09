@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/button';
 import { ArrowLeft, Save } from 'lucide-react';
@@ -10,8 +9,10 @@ import MainImageSection from './upload/MainImageSection';
 import GallerySection from './upload/GallerySection';
 import SaveConfirmation from './SaveConfirmation';
 import PreviewButton from './PreviewButton';
+import DeleteConfirmation from './DeleteConfirmation';
 import { useProjectValidation } from './hooks/useProjectValidation';
 import { useProjectSave } from './hooks/useProjectSave';
+import { useProjectDelete } from './hooks/useProjectDelete';
 
 interface ProjectEditorProps {
   projectId: string | null;
@@ -44,6 +45,7 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
     wasNewProject, 
     hideConfirmation 
   } = useProjectSave();
+  const { deleteProject, isDeleting } = useProjectDelete();
 
   useEffect(() => {
     if (projectId && !isNewProject) {
@@ -74,6 +76,15 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
     }
 
     await saveProject(project, isNewProject, projectId);
+  };
+
+  const handleDelete = async () => {
+    if (!projectId) return;
+    
+    const success = await deleteProject(projectId);
+    if (success) {
+      onClose();
+    }
   };
 
   const handleChange = (field: keyof Project, value: any) => {
@@ -219,6 +230,25 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
               onSingleGalleryImageUpload={handleSingleGalleryImageUpload}
               onGalleryImagesUpdate={handleGalleryImagesUpdate}
             />
+
+            {/* Delete Section - only show for existing projects */}
+            {!isNewProject && projectId && (
+              <div className="border-t pt-6 mt-8">
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold text-red-600">
+                    Farlig sone
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Sletting av prosjekt kan ikke angres. Vær sikker før du fortsetter.
+                  </p>
+                  <DeleteConfirmation
+                    projectTitle={project.title || 'dette prosjektet'}
+                    onConfirm={handleDelete}
+                    isDeleting={isDeleting}
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -5,6 +5,8 @@ import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
 import { useAuth } from '../../hooks/useAuth';
 import { mockProjects, Project } from '../../data/mockData';
 import ProjectEditor from './ProjectEditor';
+import DeleteConfirmation from './DeleteConfirmation';
+import { useProjectDelete } from './hooks/useProjectDelete';
 import { LogOut, Edit, Plus, Image } from 'lucide-react';
 
 const AdminDashboard = () => {
@@ -12,13 +14,22 @@ const AdminDashboard = () => {
   const [editingProject, setEditingProject] = useState<string | null>(null);
   const [showNewProject, setShowNewProject] = useState(false);
   const [allProjects, setAllProjects] = useState<Project[]>([]);
+  const { deleteProject, isDeleting } = useProjectDelete();
 
   useEffect(() => {
-    // Load all projects (original + new + edited)
+    // Load all projects (original + new + edited - deleted)
     const loadAllProjects = () => {
       console.log('Loading all projects...');
       // Start with original projects
       let projects = [...mockProjects];
+
+      // Get deleted projects list
+      const deletedProjectsData = localStorage.getItem('admin_deleted_projects');
+      const deletedProjects = deletedProjectsData ? JSON.parse(deletedProjectsData) : [];
+      console.log('Deleted projects:', deletedProjects);
+
+      // Filter out deleted original projects
+      projects = projects.filter(project => !deletedProjects.includes(project.id));
 
       // Add new projects
       const newProjectsData = localStorage.getItem('admin_new_projects');
@@ -66,6 +77,50 @@ const AdminDashboard = () => {
 
   const handleLogout = () => {
     logout();
+  };
+
+  const handleDeleteProject = async (projectId: string) => {
+    const success = await deleteProject(projectId);
+    if (success) {
+      // Reload projects after successful deletion
+      const loadAllProjects = () => {
+        let projects = [...mockProjects];
+        const deletedProjectsData = localStorage.getItem('admin_deleted_projects');
+        const deletedProjects = deletedProjectsData ? JSON.parse(deletedProjectsData) : [];
+        projects = projects.filter(project => !deletedProjects.includes(project.id));
+
+        const newProjectsData = localStorage.getItem('admin_new_projects');
+        if (newProjectsData) {
+          const newProjects = JSON.parse(newProjectsData);
+          projects = [...projects, ...newProjects];
+        }
+
+        const editsData = localStorage.getItem('admin_project_edits');
+        if (editsData) {
+          const edits = JSON.parse(editsData);
+          projects = projects.map(project => {
+            if (edits[project.id]) {
+              const editedProject = { ...project, ...edits[project.id] };
+              if (editedProject.mainImage && !editedProject.images?.includes(editedProject.mainImage)) {
+                editedProject.images = [editedProject.mainImage, ...(editedProject.images || [])];
+              }
+              return editedProject;
+            }
+            return project;
+          });
+        }
+
+        projects.sort((a, b) => {
+          if (a.year !== b.year) {
+            return b.year - a.year;
+          }
+          return a.title.localeCompare(b.title);
+        });
+
+        setAllProjects(projects);
+      };
+      loadAllProjects();
+    }
   };
 
   const isNewProject = (projectId: string) => {
@@ -171,15 +226,23 @@ const AdminDashboard = () => {
                       {project.altText || 'Ikke satt'}
                     </span>
                   </div>
-                  <Button 
-                    variant="default"
-                    size="sm" 
-                    className="w-full"
-                    onClick={() => setEditingProject(project.id)}
-                  >
-                    <Edit className="h-3 w-3 mr-1" />
-                    Rediger
-                  </Button>
+                  <div className="flex gap-2">
+                    <Button 
+                      variant="default"
+                      size="sm" 
+                      className="flex-1"
+                      onClick={() => setEditingProject(project.id)}
+                    >
+                      <Edit className="h-3 w-3 mr-1" />
+                      Rediger
+                    </Button>
+                    <DeleteConfirmation
+                      projectTitle={project.title}
+                      onConfirm={() => handleDeleteProject(project.id)}
+                      isDeleting={isDeleting}
+                      variant="icon"
+                    />
+                  </div>
                 </div>
               </CardContent>
             </Card>
