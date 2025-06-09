@@ -581,6 +581,19 @@ export const mockProjects: Project[] = [
     mainImage: '/lovable-uploads/c32a1b01-6fc1-47b2-bb10-8ef599f1728c.png',
     likes: 0,
     altText: ''
+  },
+  {
+    id: '47',
+    title: 'Chora - Serifos',
+    subtitle: 'Iphone 15',
+    description: 'Alle kan ikke springe på fjelltoppene. Noen av oss må sjekke kaffen og folkelivet i Chora.',
+    year: 2024,
+    images: ['/lovable-uploads/fbc53ff2-e378-4fab-ad75-eff003309398.png'],
+    category: 'foto',
+    subcategory: 'byliv',
+    mainImage: '/lovable-uploads/fbc53ff2-e378-4fab-ad75-eff003309398.png',
+    likes: 0,
+    altText: ''
   }
 ];
 
