@@ -63,7 +63,7 @@ const AdminDashboard = () => {
             <Button 
               variant="outline" 
               onClick={() => setShowBulkAltText(true)}
-              className={projectsWithoutAltText > 0 ? 'border-orange-500 text-orange-700' : ''}
+              className={`text-gray-900 ${projectsWithoutAltText > 0 ? 'border-orange-500 !text-orange-700' : ''}`}
             >
               <Type className="h-4 w-4 mr-2" />
               Rediger alt-tekst
