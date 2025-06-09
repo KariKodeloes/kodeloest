@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from './ui/dialog';
 import { Button } from './ui/button';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
-import OptimizedMediaDisplay from './OptimizedMediaDisplay';
+import MediaDisplay from './MediaDisplay';
 import { getAllMedia, isVideoFile } from '../utils/mediaUtils';
 
 interface ImageDialogProps {
@@ -139,18 +139,15 @@ const ImageDialog: React.FC<ImageDialogProps> = ({
           {/* Media container with proper flex sizing */}
           <div className="flex-1 flex items-center justify-center w-full max-w-full">
             {currentMedia && (
-              <OptimizedMediaDisplay
+              <MediaDisplay
                 src={currentMedia}
                 alt={title || `Media ${currentIndex + 1}`}
                 altText={altText}
-                className="max-w-[calc(100vw-4rem)] max-h-[calc(100vh-12rem)] sm:max-w-[calc(95vw-8rem)] sm:max-h-[calc(95vh-16rem)] md:max-w-[calc(95vw-6rem)] md:max-h-[calc(95vh-12rem)]"
+                className="max-w-[calc(100vw-4rem)] max-h-[calc(100vh-12rem)] sm:max-w-[calc(95vw-8rem)] sm:max-h-[calc(95vh-16rem)] md:max-w-[calc(95vw-6rem)] md:max-h-[calc(95vh-12rem)] object-contain"
                 isVideo={isVideo}
                 controls={isVideo}
                 autoPlay={isVideo}
                 muted={false}
-                context="large"
-                loading="eager"
-                objectFit="contain"
               />
             )}
           </div>

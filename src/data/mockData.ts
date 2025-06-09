@@ -1,3 +1,4 @@
+
 export interface Project {
   id: string;
   title: string;
@@ -241,13 +242,32 @@ export const getProjectsByCategory = (category: string): Project[] => {
   console.log('📦 Total projects after all processing:', allProjects.length);
   console.log('🏷️ All project categories:', allProjects.map(p => ({ id: p.id, title: p.title, category: p.category })));
 
-  // Filter by category - handle both old and new category naming
+  // Enhanced category filtering to handle multiple category naming conventions
   const filteredProjects = allProjects.filter(project => {
-    const matchesCategory = project.category === category || 
-                           (category === 'bilder' && (project.category === 'Bilder' || project.category === 'Bildekunst'));
+    const projectCategory = project.category.toLowerCase();
+    const targetCategory = category.toLowerCase();
     
-    console.log(`🔍 Project "${project.title}" (${project.id}) - category: "${project.category}", matches "${category}": ${matchesCategory}`);
-    return matchesCategory;
+    // Direct match
+    if (projectCategory === targetCategory) {
+      console.log(`✅ Direct match: "${project.title}" category "${project.category}" matches "${category}"`);
+      return true;
+    }
+    
+    // Handle specific category mappings
+    const categoryMappings: Record<string, string[]> = {
+      'bilder': ['bildekunst', 'bilder'],
+      'bildekunst': ['bildekunst', 'bilder'],
+      'foto': ['foto'],
+      'som': ['som'],
+      'design': ['design'],
+      'diy': ['diy']
+    };
+    
+    const validCategories = categoryMappings[targetCategory] || [targetCategory];
+    const matches = validCategories.includes(projectCategory);
+    
+    console.log(`🔍 Project "${project.title}" (${project.id}) - category: "${project.category}", matches "${category}": ${matches}`);
+    return matches;
   });
 
   console.log(`✅ Final filtered projects for category "${category}":`, filteredProjects.map(p => ({ id: p.id, title: p.title, category: p.category })));

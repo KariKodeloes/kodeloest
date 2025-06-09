@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Button } from './ui/button';
-import OptimizedMediaDisplay from './OptimizedMediaDisplay';
+import MediaDisplay from './MediaDisplay';
 import { getAllMedia, isVideoFile } from '../utils/mediaUtils';
 
 interface ImageCarouselProps {
@@ -14,14 +14,12 @@ interface ImageCarouselProps {
 
 const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, videos = [], title, onImageClick, altText }) => {
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
-  const [imageError, setImageError] = useState(false);
   const allMedia = getAllMedia({ images, videos });
 
   const nextMedia = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (allMedia.length > 1) {
       setCurrentMediaIndex((prev) => (prev + 1) % allMedia.length);
-      setImageError(false); // Reset error state when changing image
     }
   };
 
@@ -29,7 +27,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, videos = [], titl
     e.stopPropagation();
     if (allMedia.length > 1) {
       setCurrentMediaIndex((prev) => (prev - 1 + allMedia.length) % allMedia.length);
-      setImageError(false); // Reset error state when changing image
     }
   };
 
@@ -38,33 +35,17 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, videos = [], titl
 
   return (
     <div className="relative aspect-square overflow-hidden">
-      {imageError ? (
-        // Fallback to standard img tag if OptimizedMediaDisplay fails
-        <img
-          src={currentMedia}
-          alt={title}
-          className={`w-full h-full object-cover ${!isVideo ? 'hover:scale-105 transition-transform duration-300' : ''}`}
-          onClick={() => onImageClick(currentMediaIndex)}
-          onError={() => {
-            console.error('Both OptimizedMediaDisplay and fallback img failed for:', currentMedia);
-          }}
-        />
-      ) : (
-        <OptimizedMediaDisplay
-          src={currentMedia}
-          alt={title}
-          altText={altText}
-          className={`w-full h-full ${!isVideo ? 'hover:scale-105 transition-transform duration-300' : ''}`}
-          onClick={() => onImageClick(currentMediaIndex)}
-          isVideo={isVideo}
-          controls={isVideo}
-          muted={true}
-          loop={true}
-          context="thumbnail"
-          loading="lazy"
-          objectFit="cover"
-        />
-      )}
+      <MediaDisplay
+        src={currentMedia}
+        alt={title}
+        altText={altText}
+        className={`w-full h-full object-cover ${!isVideo ? 'hover:scale-105 transition-transform duration-300' : ''}`}
+        onClick={() => onImageClick(currentMediaIndex)}
+        isVideo={isVideo}
+        controls={isVideo}
+        muted={true}
+        loop={true}
+      />
       
       {/* Media Navigation */}
       {allMedia.length > 1 && (
