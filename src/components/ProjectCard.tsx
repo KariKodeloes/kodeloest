@@ -26,20 +26,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
     return project.altText || '';
   };
 
-  // Get all images including mainImage
-  const getAllImages = (): string[] => {
-    const images = [...(project.images || [])];
-    
-    // If mainImage exists and is not already in images array, add it at the beginning
-    if (project.mainImage && !images.includes(project.mainImage)) {
-      images.unshift(project.mainImage);
-    }
-    
-    return images;
-  };
-
   const altText = getProjectAltText(project.id);
-  const allImages = getAllImages();
 
   const openImageDialog = (index: number = 0) => {
     setDialogImageIndex(index);
@@ -52,7 +39,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
         <div className="rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-200 overflow-hidden" style={{ backgroundColor: 'rgb(255, 255, 255)', border: '1px solid rgb(224, 218, 210)' }}>
           <div className="flex flex-col md:flex-row" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
             <ImageCarouselList
-              images={allImages}
+              images={project.images}
               videos={project.videos}
               title={project.title}
               onImageClick={openImageDialog}
@@ -69,7 +56,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
         </div>
 
         <ImageDialog
-          images={allImages}
+          images={project.images}
           videos={project.videos}
           isOpen={isImageDialogOpen}
           onClose={() => setIsImageDialogOpen(false)}
@@ -85,7 +72,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
     <>
       <div className="rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-200 overflow-hidden group" style={{ backgroundColor: 'rgb(255, 255, 255)', border: '1px solid rgb(224, 218, 210)' }}>
         <ImageCarousel
-          images={allImages}
+          images={project.images}
           videos={project.videos}
           title={project.title}
           onImageClick={openImageDialog}
@@ -101,7 +88,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, viewMode }) => {
       </div>
 
       <ImageDialog
-        images={allImages}
+        images={project.images}
         videos={project.videos}
         isOpen={isImageDialogOpen}
         onClose={() => setIsImageDialogOpen(false)}

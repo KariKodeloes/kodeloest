@@ -1,23 +1,11 @@
 
 import React from 'react';
 import Gallery from '../components/Gallery';
-import { getProjectsByCategory } from '../data/mockData';
+import { mockProjects } from '../data/mockData';
 
 const Home = () => {
-  // Get all projects using the correct category names
-  const allProjects = [
-    ...getProjectsByCategory('bildekunst'),
-    ...getProjectsByCategory('foto'),
-    ...getProjectsByCategory('som'),
-    ...getProjectsByCategory('design')
-  ];
-
-  // Remove duplicates (in case projects appear in multiple categories)
-  const uniqueProjects = allProjects.filter((project, index, self) =>
-    index === self.findIndex(p => p.id === project.id)
-  );
-
-  console.log('Home page - displaying projects:', uniqueProjects.length);
+  // Filter out DIY projects from the gallery
+  const galleryProjects = mockProjects.filter(project => project.category !== 'diy');
 
   return (
     <div className="min-h-screen">
@@ -43,7 +31,7 @@ const Home = () => {
         <div className="w-full px-4 pt-8 pb-16">
           <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-white max-h-[80vh] overflow-y-auto w-full">
             <div className="bg-transparent p-4">
-              <Gallery projects={uniqueProjects} sortByLikes={true} />
+              <Gallery projects={galleryProjects} sortByLikes={true} />
             </div>
           </div>
         </div>

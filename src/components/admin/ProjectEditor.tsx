@@ -1,18 +1,12 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/button';
-import { ArrowLeft, Save } from 'lucide-react';
+import { Input } from '../ui/input';
+import { Textarea } from '../ui/textarea';
+import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
+import { ArrowLeft, Save, Image } from 'lucide-react';
 import { mockProjects, Project } from '../../data/mockData';
 import { useToast } from '../../hooks/use-toast';
-import ProjectDetailsForm from './forms/ProjectDetailsForm';
-import ProjectPreview from './preview/ProjectPreview';
-import MainImageSection from './upload/MainImageSection';
-import GallerySection from './upload/GallerySection';
-import SaveConfirmation from './SaveConfirmation';
-import PreviewButton from './PreviewButton';
-import DeleteConfirmation from './DeleteConfirmation';
-import { useProjectValidation } from './hooks/useProjectValidation';
-import { useProjectSave } from './hooks/useProjectSave';
-import { useProjectDelete } from './hooks/useProjectDelete';
 
 interface ProjectEditorProps {
   projectId: string | null;
@@ -34,172 +28,51 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
     mainImage: '',
     likes: 0
   });
-
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
-  const { validateProject } = useProjectValidation();
-  const { 
-    saveProject, 
-    isLoading, 
-    showConfirmation, 
-    savedProject, 
-    wasNewProject, 
-    hideConfirmation 
-  } = useProjectSave();
-  const { deleteProject, isDeleting } = useProjectDelete();
 
   useEffect(() => {
     if (projectId && !isNewProject) {
-      console.log('Loading project:', projectId);
-      
-      // Check if it's a new project (starts with new_)
-      if (projectId.startsWith('new_')) {
-        const newProjectsData = localStorage.getItem('admin_new_projects');
-        if (newProjectsData) {
-          const newProjects = JSON.parse(newProjectsData);
-          const foundProject = newProjects.find((p: Project) => p.id === projectId);
-          if (foundProject) {
-            console.log('Found new project:', foundProject);
-            setProject(foundProject);
-            return;
-          }
-        }
-      }
-      
-      // Load existing project from mockProjects
       const existingProject = mockProjects.find(p => p.id === projectId);
       if (existingProject) {
-        // Check if there are any saved edits for this project
-        const savedEdits = localStorage.getItem('admin_project_edits');
-        const edits = savedEdits ? JSON.parse(savedEdits) : {};
-        
-        // Merge original project with any saved edits
-        const projectWithEdits = edits[projectId] ? { ...existingProject, ...edits[projectId] } : existingProject;
-        console.log('Loaded project with edits:', projectWithEdits);
-        setProject(projectWithEdits);
+        setProject(existingProject);
       }
     }
   }, [projectId, isNewProject]);
 
   const handleSave = async () => {
-    const validationErrors = validateProject(project);
+    setIsLoading(true);
     
-    if (validationErrors.length > 0) {
-      toast({
-        title: 'Validering feilet',
-        description: validationErrors.join(', '),
-        variant: 'destructive'
-      });
-      return;
-    }
-
-    await saveProject(project, isNewProject, projectId);
-  };
-
-  const handleDelete = async () => {
-    if (!projectId) return;
+    // Simulate save delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
     
-    const success = await deleteProject(projectId);
-    if (success) {
-      onClose();
+    // In a real app, this would save to a database
+    // For now, we'll just update localStorage for demo purposes
+    const existingData = localStorage.getItem('admin_project_edits');
+    const edits = existingData ? JSON.parse(existingData) : {};
+    
+    if (projectId) {
+      edits[projectId] = project;
     }
+    
+    localStorage.setItem('admin_project_edits', JSON.stringify(edits));
+    
+    setIsLoading(false);
+    
+    toast({
+      title: 'Lagret',
+      description: 'Prosjektet ble lagret successfully'
+    });
+    
+    onClose();
   };
 
   const handleChange = (field: keyof Project, value: any) => {
-    console.log('ProjectEditor handleChange:', field, value);
-    setProject(prev => {
-      const updated = {
-        ...prev,
-        [field]: value
-      };
-      
-      // Clear subcategory if category changes
-      if (field === 'category') {
-        console.log('Category changed, clearing subcategory');
-        updated.subcategory = '';
-      }
-      
-      console.log('Updated project state:', updated);
-      return updated;
-    });
-  };
-
-  const handleMainImageUpload = (imageUrl: string) => {
     setProject(prev => ({
       ...prev,
-      mainImage: imageUrl
+      [field]: value
     }));
   };
-
-  const handleGalleryImagesUpdate = (imageUrls: string[]) => {
-    setProject(prev => ({
-      ...prev,
-      images: imageUrls
-    }));
-  };
-
-  const handleSingleGalleryImageUpload = (imageUrl: string) => {
-    setProject(prev => ({
-      ...prev,
-      images: [...(prev.images || []), imageUrl]
-    }));
-  };
-
-  const handleConfirmationActions = {
-    onBackToDashboard: () => {
-      hideConfirmation();
-      onClose();
-    },
-    onContinueEditing: () => {
-      hideConfirmation();
-    },
-    onCreateNew: () => {
-      hideConfirmation();
-      setProject({
-        title: '',
-        subtitle: '',
-        description: '',
-        year: new Date().getFullYear(),
-        category: '',
-        subcategory: '',
-        altText: '',
-        images: [],
-        videos: [],
-        mainImage: '',
-        likes: 0
-      });
-    },
-    onPreviewOnSite: () => {
-      if (savedProject?.category) {
-        const categoryRoutes: Record<string, string> = {
-          'Akvareller': '/bilder/akvareller',
-          'Mixed Media': '/bilder/mixed-media',
-          'Tegning': '/bilder/tegning',
-          'Ved sjøen': '/foto/ved-sjoen',
-          'I fjellet': '/foto/i-fjellet',
-          'Flora': '/foto/flora',
-          'Byliv': '/foto/byliv',
-          'Dyr': '/foto/dyr',
-          'Redesign og gjenbruk': '/som/redesign-og-gjenbruk',
-          'Rett fra rullen': '/som/rett-fra-rullen',
-          'Design': '/design'
-        };
-        const route = categoryRoutes[savedProject.category] || '/';
-        window.open(route, '_blank');
-      }
-    }
-  };
-
-  if (showConfirmation && savedProject) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <SaveConfirmation
-          project={savedProject}
-          isNewProject={wasNewProject}
-          {...handleConfirmationActions}
-        />
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -214,59 +87,140 @@ const ProjectEditor: React.FC<ProjectEditorProps> = ({ projectId, onClose, isNew
               {isNewProject ? 'Nytt prosjekt' : 'Rediger prosjekt'}
             </h1>
           </div>
-          <div className="flex items-center space-x-2">
-            <PreviewButton project={project} />
-            <Button onClick={handleSave} disabled={isLoading}>
-              <Save className="h-4 w-4 mr-2" />
-              {isLoading ? 'Lagrer...' : 'Lagre'}
-            </Button>
-          </div>
+          <Button onClick={handleSave} disabled={isLoading}>
+            <Save className="h-4 w-4 mr-2" />
+            {isLoading ? 'Lagrer...' : 'Lagre'}
+          </Button>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Preview */}
-          <ProjectPreview project={project} />
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <Image className="h-5 w-5 mr-2" />
+                Forhåndsvisning
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              {project.mainImage && (
+                <div className="aspect-square overflow-hidden rounded-lg mb-4">
+                  <img
+                    src={project.mainImage}
+                    alt={project.altText || project.title || 'Prosjektbilde'}
+                    className="w-full h-full object-cover"
+                    title={project.altText || undefined}
+                  />
+                </div>
+              )}
+              <h3 className="text-lg font-quicksand font-semibold mb-2">{project.title || 'Uten tittel'}</h3>
+              {project.subtitle && (
+                <h4 className="text-sm font-oswald text-gray-600 mb-2">{project.subtitle}</h4>
+              )}
+              <p className="text-sm text-gray-700 font-oswald font-light">{project.description}</p>
+              <div className="flex justify-between items-center text-xs text-gray-500 mt-4">
+                <span>{project.category}</span>
+                <span>{project.year}</span>
+              </div>
+              {project.altText && (
+                <div className="mt-3 p-2 bg-green-50 rounded text-xs">
+                  <strong>Alt-tekst:</strong> {project.altText}
+                </div>
+              )}
+            </CardContent>
+          </Card>
 
           {/* Edit Form */}
-          <div className="space-y-6">
-            <ProjectDetailsForm 
-              project={project} 
-              onProjectChange={handleChange} 
-            />
+          <Card>
+            <CardHeader>
+              <CardTitle>Prosjektdetaljer</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium mb-2">Tittel</label>
+                <Input
+                  value={project.title || ''}
+                  onChange={(e) => handleChange('title', e.target.value)}
+                  placeholder="Prosjekttittel"
+                />
+              </div>
 
-            <MainImageSection 
-              project={project}
-              onMainImageUpload={handleMainImageUpload}
-              onProjectChange={handleChange}
-            />
+              <div>
+                <label className="block text-sm font-medium mb-2">Undertittel</label>
+                <Input
+                  value={project.subtitle || ''}
+                  onChange={(e) => handleChange('subtitle', e.target.value)}
+                  placeholder="Teknikk, størrelse etc."
+                />
+              </div>
 
-            <GallerySection 
-              project={project}
-              onSingleGalleryImageUpload={handleSingleGalleryImageUpload}
-              onGalleryImagesUpdate={handleGalleryImagesUpdate}
-            />
+              <div>
+                <label className="block text-sm font-medium mb-2">Beskrivelse</label>
+                <Textarea
+                  value={project.description || ''}
+                  onChange={(e) => handleChange('description', e.target.value)}
+                  placeholder="Prosjektbeskrivelse"
+                  rows={4}
+                />
+              </div>
 
-            {/* Delete Section - only show for existing projects */}
-            {!isNewProject && projectId && (
-              <div className="border-t pt-6 mt-8">
-                <div className="space-y-4">
-                  <h3 className="text-lg font-semibold text-red-600">
-                    Farlig sone
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Sletting av prosjekt kan ikke angres. Vær sikker før du fortsetter.
-                  </p>
-                  <DeleteConfirmation
-                    projectTitle={project.title || 'dette prosjektet'}
-                    onConfirm={handleDelete}
-                    isDeleting={isDeleting}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Kategori</label>
+                  <Input
+                    value={project.category || ''}
+                    onChange={(e) => handleChange('category', e.target.value)}
+                    placeholder="bilder, foto, som, design"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">År</label>
+                  <Input
+                    type="number"
+                    value={project.year || ''}
+                    onChange={(e) => handleChange('year', parseInt(e.target.value))}
+                    placeholder="2024"
                   />
                 </div>
               </div>
-            )}
-          </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">Underkategori</label>
+                <Input
+                  value={project.subcategory || ''}
+                  onChange={(e) => handleChange('subcategory', e.target.value)}
+                  placeholder="akvareller, mixed-media, etc."
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  Alt-tekst for bilder
+                  <span className="text-xs text-gray-500 block">
+                    Beskrivelse som leses opp av skjermlesere
+                  </span>
+                </label>
+                <Textarea
+                  value={project.altText || ''}
+                  onChange={(e) => handleChange('altText', e.target.value)}
+                  placeholder="Detaljert beskrivelse av bildet for skjermlesere..."
+                  rows={3}
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">Hovedbilde URL</label>
+                <Input
+                  value={project.mainImage || ''}
+                  onChange={(e) => handleChange('mainImage', e.target.value)}
+                  placeholder="/lovable-uploads/..."
+                />
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
