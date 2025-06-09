@@ -4,7 +4,9 @@ import CategoryPage from '../components/CategoryPage';
 import { getProjectsByCategory } from '../data/mockData';
 
 const Bilder = () => {
+  console.log('🎨 Bilder page loading...');
   const projects = getProjectsByCategory('bilder');
+  console.log('🎨 Bilder page - projects loaded:', projects.length, projects.map(p => ({ id: p.id, title: p.title })));
   
   const subcategories = [
     { name: 'akvareller', path: '/bilder/akvareller', displayName: 'Akvareller' },
