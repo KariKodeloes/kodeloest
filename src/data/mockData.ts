@@ -1,3 +1,4 @@
+
 export interface Project {
   id: string;
   title: string;
@@ -721,6 +722,19 @@ export const mockProjects: Project[] = [
     category: 'som',
     subcategory: 'rett-fra-rullen',
     mainImage: '/lovable-uploads/938984bf-24d2-426b-a690-c5db034a132d.png',
+    likes: 0,
+    altText: ''
+  },
+  {
+    id: '58',
+    title: 'Sommerbluse med knyting',
+    subtitle: 'Dynetrekk og tusj',
+    description: 'Fikk så lyst til å teste ut tekstiltusj og et gammelt dynetrekk røyk med. Om det hadde vært 100% bomull ville det nok blitt mer brukt.',
+    year: 2024,
+    images: ['/lovable-uploads/3121f37a-21c3-4e5d-9f32-79f12c15ac58.png'],
+    category: 'som',
+    subcategory: 'redesign-og-gjenbruk',
+    mainImage: '/lovable-uploads/3121f37a-21c3-4e5d-9f32-79f12c15ac58.png',
     likes: 0,
     altText: ''
   }
