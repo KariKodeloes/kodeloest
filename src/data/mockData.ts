@@ -672,6 +672,19 @@ export const mockProjects: Project[] = [
     mainImage: '/lovable-uploads/1e8ac0b7-0c44-4e64-aaa8-1978fde01664.png',
     likes: 0,
     altText: ''
+  },
+  {
+    id: '54',
+    title: 'Lumpa',
+    subtitle: 'Monoprint akryl og akvarell - 24x17 cm',
+    description: 'Høststemning ved et lite tjern i marka over Kvål. Linjene i fotoet måtte bare prøves ut som trykk.',
+    year: 2024,
+    images: ['/lovable-uploads/cae407dd-cf1b-4ea1-ade4-606526b1c127.png'],
+    category: 'foto',
+    subcategory: 'flora',
+    mainImage: '/lovable-uploads/cae407dd-cf1b-4ea1-ade4-606526b1c127.png',
+    likes: 0,
+    altText: ''
   }
 ];
 
