@@ -70,22 +70,19 @@ const AdminDashboard = () => {
           <h2 className="text-xl font-quicksand font-medium">Prosjekter</h2>
           <div className="flex space-x-3">
             <Button 
-              variant="outline" 
               onClick={() => setShowSiteContentEditor(true)}
-              className="text-gray-900"
             >
               <FileText className="h-4 w-4 mr-2" />
               Rediger nettstedsinnhold
             </Button>
             <Button 
-              variant="outline" 
               onClick={() => setShowBulkAltText(true)}
-              className={`text-gray-900 ${projectsWithoutAltText > 0 ? 'border-orange-500 !text-orange-700' : ''}`}
+              className={projectsWithoutAltText > 0 ? '!bg-orange-500 !text-white' : ''}
             >
               <Type className="h-4 w-4 mr-2" />
               Rediger alt-tekst
               {projectsWithoutAltText > 0 && (
-                <span className="ml-2 bg-orange-500 text-white text-xs px-2 py-1 rounded-full">
+                <span className="ml-2 bg-white text-orange-500 text-xs px-2 py-1 rounded-full">
                   {projectsWithoutAltText}
                 </span>
               )}
