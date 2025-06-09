@@ -1,7 +1,7 @@
 
 export const CATEGORIES = {
   bilder: {
-    label: 'Bilder',
+    label: 'Bildekunst',
     subcategories: ['akvareller', 'mixed-media', 'tegning']
   },
   foto: {
