@@ -1,9 +1,11 @@
-
 import React from 'react';
 import TextCard from '@/components/TextCard';
 import MediaDisplay from '@/components/MediaDisplay';
+import { getSiteContent } from '../data/siteContent';
 
 const OmMeg = () => {
+  const siteContent = getSiteContent();
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
@@ -47,17 +49,15 @@ const OmMeg = () => {
                   Kodeløse Kari
                 </h3>
                 <p className="text-foreground text-base leading-relaxed mb-4">
-                  Jeg har alltid vært nysgjerrig.
+                  {siteContent.aboutMeIntro}
                 </p>
                 <ul className="text-foreground text-base leading-relaxed mb-4 list-disc list-inside">
-                  <li>Klarer jeg å sy min egen festdrakt?</li>
-                  <li>Hva kan en hjemmesnekra sengegavl bygges av?</li>
-                  <li>Hvordan maler jeg en stooor akvarell?</li>
-                  <li>Hvor vanskelig er det å skrive en bok?</li>
-                  <li>Kan jeg lage en nettside uten å skrive en eneste kodelinje?</li>
+                  {siteContent.aboutMeQuestions.map((question, index) => (
+                    <li key={index}>{question}</li>
+                  ))}
                 </ul>
                 <p className="text-foreground text-base leading-relaxed mb-4">
-                  Hva neste dypdykk blir er ikke godt å si. Jeg tror fortsatt ikke det blir koding. Hjemmesiden min er oppe og går helt for egen hånd og hode.
+                  {siteContent.aboutMeClosing}
                 </p>
               </div>
             </div>
@@ -65,10 +65,10 @@ const OmMeg = () => {
             {/* Full-width text that spans the entire card width */}
             <div className="mt-6">
               <p className="text-foreground text-base leading-relaxed mb-4">
-                Jeg tror jeg var 10-12 år før vi fikk fasttelefon. Det var venteliste og syndig dyrt å ringe. På den tida skulle barn sees og helst ikke høres. Å komme for sent var også uhørt. Jeg blir fortsatt stresset bare ved tanken.
+                {siteContent.aboutMeStoryIntro}
               </p>
               <p className="text-foreground text-base leading-relaxed">
-                I novellen «Teppefall» tar jeg deg med til en førjulsmorgen midt på 70-tallet. Jeg er 7 år og skal ut å fly.
+                {siteContent.aboutMeStoryClosing}
               </p>
             </div>
           </div>

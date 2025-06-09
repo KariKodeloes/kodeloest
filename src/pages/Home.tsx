@@ -2,10 +2,12 @@
 import React from 'react';
 import Gallery from '../components/Gallery';
 import { mockProjects } from '../data/mockData';
+import { getSiteContent } from '../data/siteContent';
 
 const Home = () => {
   // Filter out DIY projects from the gallery
   const galleryProjects = mockProjects.filter(project => project.category !== 'diy');
+  const siteContent = getSiteContent();
 
   return (
     <div className="min-h-screen">
@@ -20,7 +22,7 @@ const Home = () => {
           <div className="max-w-4xl">
             {/* Quote moved above logo with increased size and line height */}
             <blockquote className="text-3xl md:text-5xl font-oswald font-light mb-12 animate-fade-in" style={{ lineHeight: '1.5', color: '#FFFFFF' }}>
-              "Jeg maler, knipser, skriver, syr og skrur. Nye infall popper opp. Idéer som: Kan jeg lage min egen hjemmeside helt uten å kunne kode?"
+              {siteContent.homepageQuote}
             </blockquote>
           </div>
         </div>

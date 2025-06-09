@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
@@ -6,13 +5,15 @@ import { useAuth } from '../../hooks/useAuth';
 import { mockProjects } from '../../data/mockData';
 import ProjectEditor from './ProjectEditor';
 import BulkAltTextEditor from './BulkAltTextEditor';
-import { LogOut, Edit, Plus, Type } from 'lucide-react';
+import SiteContentEditor from './SiteContentEditor';
+import { LogOut, Edit, Plus, Type, FileText } from 'lucide-react';
 
 const AdminDashboard = () => {
   const { logout, phoneNumber } = useAuth();
   const [editingProject, setEditingProject] = useState<string | null>(null);
   const [showNewProject, setShowNewProject] = useState(false);
   const [showBulkAltText, setShowBulkAltText] = useState(false);
+  const [showSiteContentEditor, setShowSiteContentEditor] = useState(false);
 
   const handleLogout = () => {
     logout();
@@ -39,6 +40,14 @@ const AdminDashboard = () => {
     );
   }
 
+  if (showSiteContentEditor) {
+    return (
+      <SiteContentEditor
+        onClose={() => setShowSiteContentEditor(false)}
+      />
+    );
+  }
+
   const projectsWithoutAltText = mockProjects.filter(project => !project.altText).length;
 
   return (
@@ -60,6 +69,14 @@ const AdminDashboard = () => {
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-quicksand font-medium">Prosjekter</h2>
           <div className="flex space-x-3">
+            <Button 
+              variant="outline" 
+              onClick={() => setShowSiteContentEditor(true)}
+              className="text-gray-900"
+            >
+              <FileText className="h-4 w-4 mr-2" />
+              Rediger nettstedsinnhold
+            </Button>
             <Button 
               variant="outline" 
               onClick={() => setShowBulkAltText(true)}
