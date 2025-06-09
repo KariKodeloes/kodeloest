@@ -51,17 +51,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
   // Use altText if provided, otherwise fall back to alt
   const finalAltText = altText || alt;
 
-  // Improved URL validation to handle both data URLs and lovable-uploads paths
-  const isValidUrl = (url: string) => {
-    return url.startsWith('data:image/') ||
-           url.startsWith('/lovable-uploads/') || 
-           url.startsWith('http://') || 
-           url.startsWith('https://') ||
-           url.startsWith('./') ||
-           url.startsWith('../');
-  };
-
-  // Use source as-is for now - optimization can be enhanced later
+  // Use source as-is - let the browser handle invalid URLs
   const optimizedSrc = src;
 
   if (isVideo) {
@@ -89,20 +79,6 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
     );
   }
 
-  // Check if URL is valid before rendering
-  if (!isValidUrl(optimizedSrc)) {
-    return (
-      <div 
-        className={`${className} bg-gray-100 flex items-center justify-center text-gray-400`}
-        style={{ objectFit: objectFit }}
-      >
-        <div className="text-center text-sm">
-          <span>Ugyldig bilde-URL</span>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <img
       src={optimizedSrc}
@@ -120,7 +96,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
       title={altText || undefined}
       onError={(e) => {
         console.error('Failed to load optimized image:', src);
-        // Don't replace with placeholder, let the parent component handle fallback
+        // Let the parent component handle fallback if needed
       }}
     />
   );
