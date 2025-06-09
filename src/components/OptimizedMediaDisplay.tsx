@@ -46,6 +46,24 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
 
   const optimalSrc = getOptimalImageSize(context, imageSizes, src);
 
+  // Validate if the URL looks like a valid image URL
+  const isValidImageUrl = (url: string) => {
+    return url.startsWith('/lovable-uploads/') || 
+           url.startsWith('http://') || 
+           url.startsWith('https://') ||
+           url.startsWith('data:image/');
+  };
+
+  useEffect(() => {
+    if (!isValidImageUrl(optimalSrc)) {
+      setImageError(true);
+      setImageLoaded(false);
+    } else {
+      setImageError(false);
+      setImageLoaded(false);
+    }
+  }, [optimalSrc]);
+
   const handleClick = (e: React.MouseEvent) => {
     if (onClick) {
       e.preventDefault();
@@ -110,6 +128,25 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
         <source src={src} />
         Din nettleser støtter ikke video-elementet.
       </video>
+    );
+  }
+
+  // Show error immediately for invalid URLs
+  if (!isValidImageUrl(optimalSrc)) {
+    if (objectFit === 'contain') {
+      return (
+        <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
+          <span className="text-gray-500 text-sm">Ugyldig bilde-URL</span>
+        </div>
+      );
+    }
+    
+    return (
+      <div className={`relative ${className}`}>
+        <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
+          <span className="text-gray-500 text-sm">Ugyldig bilde-URL</span>
+        </div>
+      </div>
     );
   }
 

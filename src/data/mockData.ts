@@ -557,16 +557,25 @@ export const getProjectsByCategory = (category: string, subcategory?: string): P
     }
   }
 
-  // Apply edits to mock projects
-  const updatedMockProjects = mockFilteredProjects.map(project => {
+  // Apply edits to mock projects and filter out projects that have been replaced by new versions
+  const projectsMap = new Map<string, Project>();
+  
+  // First add original mock projects with any edits applied
+  mockFilteredProjects.forEach(project => {
     if (editedProjects[project.id]) {
-      return { ...project, ...editedProjects[project.id] } as Project;
+      projectsMap.set(project.id, { ...project, ...editedProjects[project.id] } as Project);
+    } else {
+      projectsMap.set(project.id, project);
     }
-    return project;
+  });
+  
+  // Then add new projects (these will overwrite any existing ones with same ID)
+  newProjects.forEach(project => {
+    projectsMap.set(project.id, project);
   });
 
-  // Combine mock projects and new projects
-  return [...updatedMockProjects, ...newProjects];
+  // Convert back to array and return
+  return Array.from(projectsMap.values());
 };
 
 export const getRandomProjects = (excludeCategory?: string, count: number = 6): Project[] => {
