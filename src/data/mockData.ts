@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -684,6 +683,18 @@ export const mockProjects: Project[] = [
     category: 'bilder',
     subcategory: 'mixed-media',
     mainImage: '/lovable-uploads/cae407dd-cf1b-4ea1-ade4-606526b1c127.png',
+    likes: 0,
+    altText: ''
+  },
+  {
+    id: '55',
+    title: 'Sommerproduksjon 2020',
+    subtitle: 'Iphone 13',
+    description: 'Midt i en syfase er det ikke lett å plukke ut favoritter. Ymse utvalg av produksjonen for 2020.',
+    year: 2020,
+    images: ['/lovable-uploads/a58467ff-3b68-42c4-964e-06305133f2dd.png'],
+    category: 'som',
+    mainImage: '/lovable-uploads/a58467ff-3b68-42c4-964e-06305133f2dd.png',
     likes: 0,
     altText: ''
   }
