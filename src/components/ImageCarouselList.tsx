@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Button } from './ui/button';
-import MediaDisplay from './MediaDisplay';
+import OptimizedMediaDisplay from './OptimizedMediaDisplay';
 import { getAllMedia, isVideoFile } from '../utils/mediaUtils';
 
 interface ImageCarouselListProps {
@@ -39,18 +39,18 @@ const ImageCarouselList: React.FC<ImageCarouselListProps> = ({ images, videos = 
   return (
     <div className="relative md:w-80 h-64 md:h-auto overflow-hidden">
       {imageError ? (
-        // Fallback to standard img tag if MediaDisplay fails
+        // Fallback to standard img tag if OptimizedMediaDisplay fails
         <img
           src={currentMedia}
           alt={title}
           className="w-full h-full object-cover"
           onClick={() => onImageClick(currentMediaIndex)}
           onError={() => {
-            console.error('Both MediaDisplay and fallback img failed for:', currentMedia);
+            console.error('Both OptimizedMediaDisplay and fallback img failed for:', currentMedia);
           }}
         />
       ) : (
-        <MediaDisplay
+        <OptimizedMediaDisplay
           src={currentMedia}
           alt={title}
           altText={altText}
@@ -60,6 +60,8 @@ const ImageCarouselList: React.FC<ImageCarouselListProps> = ({ images, videos = 
           controls={isVideo}
           muted={true}
           loop={true}
+          context="medium"
+          loading="lazy"
         />
       )}
       
