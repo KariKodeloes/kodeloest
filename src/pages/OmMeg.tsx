@@ -65,7 +65,7 @@ const OmMeg = () => {
             {/* Full-width text that spans the entire card width */}
             <div className="mt-6">
               <p className="text-foreground text-base leading-relaxed mb-4">
-                Jeg tror jeg var 10 år før vi fikk fasttelefon. Det var venteliste og syndig dyrt å ringe. På den tida skulle barn sees og helst ikke høres. Å komme for sent var også uhørt. Jeg blir fortsatt stresset bare ved tanken.
+                Jeg tror jeg var 10-12 år før vi fikk fasttelefon. Det var venteliste og syndig dyrt å ringe. På den tida skulle barn sees og helst ikke høres. Å komme for sent var også uhørt. Jeg blir fortsatt stresset bare ved tanken.
               </p>
               <p className="text-foreground text-base leading-relaxed">
                 I novellen «Teppefall» tar jeg deg med til en førjulsmorgen midt på 70-tallet. Jeg er 7 år og skal ut å fly.
