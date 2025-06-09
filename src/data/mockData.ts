@@ -67,6 +67,19 @@ export const mockProjects: Project[] = [
     altText: ''
   },
   {
+    id: '45',
+    title: 'Østmarka 1 og 2',
+    subtitle: 'Monoprint akryl og akvarell, 240 gr bomull - A4',
+    description: 'En vissen åker ved Ringvebukta kan også gi inspirasjon selv om fotoet ikke gir annet enn linjer.',
+    year: 2024,
+    images: ['/lovable-uploads/44612c34-64c2-4e7a-bf83-59fc49f3f646.png', '/lovable-uploads/bf560a4b-ebf9-4f87-a84d-2f6eb8093471.png'],
+    category: 'bilder',
+    subcategory: 'mixed-media',
+    mainImage: '/lovable-uploads/44612c34-64c2-4e7a-bf83-59fc49f3f646.png',
+    likes: 0,
+    altText: ''
+  },
+  {
     id: '2',
     title: 'Blågrønt hav',
     subtitle: 'Akvarell, 300 gr bomull, 17x24 cm.',
