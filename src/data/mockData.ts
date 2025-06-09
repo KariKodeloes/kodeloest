@@ -633,6 +633,19 @@ export const mockProjects: Project[] = [
     mainImage: '/lovable-uploads/92a72688-099d-4a04-baa3-d90f8fa48560.png',
     likes: 0,
     altText: ''
+  },
+  {
+    id: '51',
+    title: 'Ringveparken',
+    subtitle: 'Iphone 15',
+    description: 'Å bo i gangavstand til Ringveparken er en fryd. Vakre blomster og planter i alle regnbuens farger.',
+    year: 2024,
+    images: ['/lovable-uploads/3cb40939-5a62-4476-a341-f43e36717f57.png', '/lovable-uploads/bbed3d00-e030-483d-8ebc-70f2d1cce4c6.png', '/lovable-uploads/4758dbd8-f10c-49fb-8561-6d97f3deeee0.png'],
+    category: 'foto',
+    subcategory: 'flora',
+    mainImage: '/lovable-uploads/3cb40939-5a62-4476-a341-f43e36717f57.png',
+    likes: 0,
+    altText: ''
   }
 ];
 
