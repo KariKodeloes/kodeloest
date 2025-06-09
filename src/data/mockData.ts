@@ -614,10 +614,10 @@ export const mockProjects: Project[] = [
     subtitle: 'Iphone 8',
     description: 'Speilinga på solbrilleglasset avslører at ikke alle nyter livet i Athen.',
     year: 2024,
-    images: ['/lovable-uploads/62a48b0c-30ef-4e00-a36c-4149de722c19.png'],
+    images: ['/lovable-uploads/c6a3e999-eeab-4f59-8822-17c6f8bac416.png'],
     category: 'foto',
     subcategory: 'byliv',
-    mainImage: '/lovable-uploads/62a48b0c-30ef-4e00-a36c-4149de722c19.png',
+    mainImage: '/lovable-uploads/c6a3e999-eeab-4f59-8822-17c6f8bac416.png',
     likes: 0,
     altText: ''
   }
