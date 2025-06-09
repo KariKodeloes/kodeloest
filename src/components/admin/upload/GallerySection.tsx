@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from '../../ui/card';
 import ImageUploader from '../ImageUploader';
 import { Project } from '../../../data/mockData';
 
@@ -16,19 +15,21 @@ const GallerySection: React.FC<GallerySectionProps> = ({
   onGalleryImagesUpdate 
 }) => {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Bildegalleri</CardTitle>
-      </CardHeader>
-      <CardContent>
+    <div className="bg-white shadow-sm ring-1 ring-gray-900/5 rounded-xl">
+      <div className="px-6 py-4 border-b border-gray-200">
+        <h3 className="text-lg font-semibold leading-6 text-gray-900">Bildegalleri</h3>
+        <p className="mt-1 text-sm text-gray-600">Last opp flere bilder til galleriet</p>
+      </div>
+      
+      <div className="px-6 py-6">
         <ImageUploader
           onImageUploaded={onSingleGalleryImageUpload}
           onImagesUploaded={onGalleryImagesUpdate}
           multiple={true}
           currentImages={project.images || []}
         />
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 };
 
