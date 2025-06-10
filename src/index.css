@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -256,11 +257,6 @@
   .view-mode-button[class*="bg-[rgb(215,124,4)]"]:hover {
     background-color: rgb(215, 124, 4) !important;
   }
-
-  /* Hint text should always be white - for tap hints on media */
-  .hint-text-white {
-    color: white !important;
-  }
 }
 
 @layer components {
@@ -297,4 +293,21 @@
   .gallery-item:hover::before {
     @apply opacity-10;
   }
+
+  /* Hint text should always be white - moved to components layer for higher specificity */
+  .hint-text-white,
+  .hint-text-white *,
+  div.hint-text-white,
+  span.hint-text-white {
+    color: white !important;
+  }
+
+  /* More specific selectors for hint text in various contexts */
+  .gallery-overlay .hint-text-white,
+  .absolute .hint-text-white,
+  [class*="bg-black"] .hint-text-white,
+  .bg-black\/80 .hint-text-white {
+    color: white !important;
+  }
 }
+
