@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { getOptimalImageSize } from '../utils/imageCompression';
 
@@ -142,7 +141,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
         
         {showTapHint && onClick && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in" style={{ color: 'white' }}>
+            <div className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in hint-text-white">
               Dobbelttrykk for å åpne
             </div>
           </div>
@@ -187,7 +186,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
 
         {showTapHint && onClick && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in" style={{ color: 'white' }}>
+            <div className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in hint-text-white">
               Dobbelttrykk for å åpne
             </div>
           </div>
@@ -231,7 +230,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
 
       {showTapHint && onClick && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in" style={{ color: 'white' }}>
+          <div className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in hint-text-white">
             Dobbelttrykk for å åpne
           </div>
         </div>
