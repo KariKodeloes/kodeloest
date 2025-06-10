@@ -130,9 +130,9 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
                 
                 <div className="flex items-center justify-center mt-3 gap-2">
                   <div className="p-2 rounded-full bg-white/20">
-                    <Heart className="w-4 h-4 text-white" />
+                    <Heart className="w-4 h-4 text-primary-foreground" />
                   </div>
-                  <span className="text-sm font-medium text-white">
+                  <span className="text-sm font-medium text-primary-foreground">
                     {currentLikes}
                   </span>
                 </div>
