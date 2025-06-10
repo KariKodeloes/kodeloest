@@ -30,6 +30,10 @@ const ImageCarouselList: React.FC<ImageCarouselListProps> = ({ images, videos = 
     }
   };
 
+  const handleImageOpen = () => {
+    onImageClick(currentMediaIndex);
+  };
+
   const currentMedia = allMedia[currentMediaIndex];
   const isVideo = isVideoFile(currentMedia);
 
@@ -40,7 +44,7 @@ const ImageCarouselList: React.FC<ImageCarouselListProps> = ({ images, videos = 
         alt={title}
         altText={altText}
         className="w-full h-full object-cover"
-        onClick={() => onImageClick(currentMediaIndex)}
+        onClick={handleImageOpen}
         isVideo={isVideo}
         controls={isVideo}
         muted={true}
@@ -56,7 +60,7 @@ const ImageCarouselList: React.FC<ImageCarouselListProps> = ({ images, videos = 
             variant="ghost"
             size="sm"
             onClick={prevMedia}
-            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white hover:bg-black/70"
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white hover:bg-black/70 z-10"
           >
             <span className="material-icon">chevron_left</span>
           </Button>
@@ -64,7 +68,7 @@ const ImageCarouselList: React.FC<ImageCarouselListProps> = ({ images, videos = 
             variant="ghost"
             size="sm"
             onClick={nextMedia}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white hover:bg-black/70"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white hover:bg-black/70 z-10"
           >
             <span className="material-icon">chevron_right</span>
           </Button>
