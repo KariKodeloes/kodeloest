@@ -23,7 +23,7 @@ export interface SiteContent {
 
 export const defaultSiteContent: SiteContent = {
   id: 'site-content',
-  homepageQuote: '"Jeg maler, knipser, skriver, syr og skrur. Nye infall popper opp. Idéer som: Kan jeg lage min egen hjemmeside helt uten å kunne kode?"',
+  homepageQuote: '"Jeg maler, knipser, skriver, syr og skrur. Nye innfall popper opp. Idéer som: Kan jeg lage min egen hjemmeside helt uten å kunne kode?"',
   aboutMeIntro: 'Jeg har alltid vært nysgjerrig.',
   aboutMeQuestions: [
     'Klarer jeg å sy min egen festdrakt?',
