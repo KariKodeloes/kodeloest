@@ -141,7 +141,10 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
         
         {showTapHint && onClick && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in hint-text-white">
+            <div 
+              className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in hint-text-white"
+              style={{ color: '#FFFFFF !important' }}
+            >
               Dobbelttrykk for å åpne
             </div>
           </div>
@@ -186,7 +189,10 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
 
         {showTapHint && onClick && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in hint-text-white">
+            <div 
+              className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in hint-text-white"
+              style={{ color: '#FFFFFF !important' }}
+            >
               Dobbelttrykk for å åpne
             </div>
           </div>
@@ -230,7 +236,10 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
 
       {showTapHint && onClick && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in hint-text-white">
+          <div 
+            className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in hint-text-white"
+            style={{ color: '#FFFFFF !important' }}
+          >
             Dobbelttrykk for å åpne
           </div>
         </div>

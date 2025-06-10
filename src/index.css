@@ -294,20 +294,56 @@
     @apply opacity-10;
   }
 
-  /* Hint text should always be white - moved to components layer for higher specificity */
+  /* Ultra-specific hint text rules - maximum priority */
   .hint-text-white,
   .hint-text-white *,
   div.hint-text-white,
-  span.hint-text-white {
-    color: white !important;
+  span.hint-text-white,
+  .hint-text-white > *,
+  .absolute .hint-text-white,
+  .relative .hint-text-white,
+  [class*="bg-black"] .hint-text-white,
+  .bg-black\/80 .hint-text-white,
+  .gallery-overlay .hint-text-white,
+  .project-card .hint-text-white,
+  .aspect-square .hint-text-white,
+  .rounded-lg .hint-text-white {
+    color: #FFFFFF !important;
+    text-color: #FFFFFF !important;
   }
 
-  /* More specific selectors for hint text in various contexts */
-  .gallery-overlay .hint-text-white,
-  .absolute .hint-text-white,
-  [class*="bg-black"] .hint-text-white,
-  .bg-black\/80 .hint-text-white {
-    color: white !important;
+  /* Even more specific targeting for project cards */
+  .aspect-square .absolute .hint-text-white,
+  .rounded-lg .absolute .hint-text-white,
+  .group .absolute .hint-text-white,
+  .overflow-hidden .absolute .hint-text-white,
+  .shadow-sm .absolute .hint-text-white {
+    color: #FFFFFF !important;
+    text-color: #FFFFFF !important;
   }
 }
 
+/* Ultra-high specificity rules outside of layers */
+.hint-text-white,
+.hint-text-white *,
+div.hint-text-white,
+span.hint-text-white,
+.absolute div.hint-text-white,
+.absolute span.hint-text-white,
+.bg-black\/80 div.hint-text-white,
+.bg-black\/80 span.hint-text-white {
+  color: #FFFFFF !important;
+  text-color: #FFFFFF !important;
+}
+
+/* Force white color on all hint text elements */
+*[class*="hint-text-white"] {
+  color: #FFFFFF !important;
+}
+
+/* Target specific elements that might contain hint text */
+.absolute.inset-0 .hint-text-white,
+.pointer-events-none .hint-text-white,
+.flex.items-center.justify-center .hint-text-white {
+  color: #FFFFFF !important;
+}
