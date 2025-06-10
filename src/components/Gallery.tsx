@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Project } from '../data/mockData';
@@ -137,7 +136,7 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
                   </span>
                 </div>
 
-                <div className="mt-2 text-xs opacity-75">
+                <div className="mt-2 text-xs opacity-75 hint-text-white">
                   Dobbelttrykk for å åpne
                 </div>
               </div>
