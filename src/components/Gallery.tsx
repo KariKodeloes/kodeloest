@@ -1,9 +1,8 @@
+
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Project } from '../data/mockData';
 import { useLikes } from '../hooks/useLikes';
-import { useIsMobile } from '../hooks/use-mobile';
-import { useIsTouchDevice } from '../hooks/useIsTouchDevice';
 import { Heart } from 'lucide-react';
 
 interface GalleryProps {
@@ -15,8 +14,6 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
   const { getLikes } = useLikes();
   const navigate = useNavigate();
   const lastTapTimeRef = useRef<{ [key: string]: number }>({});
-  const isMobile = useIsMobile();
-  const isTouchDevice = useIsTouchDevice();
 
   const getCategoryPath = (project: Project) => {
     const categoryMap: Record<string, string> = {
@@ -133,18 +130,16 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
                 
                 <div className="flex items-center justify-center mt-3 gap-2">
                   <div className="p-2 rounded-full bg-white/20">
-                    <Heart className="w-4 h-4 text-primary-foreground" />
+                    <Heart className="w-4 h-4 text-white" />
                   </div>
-                  <span className="text-sm font-medium text-primary-foreground">
+                  <span className="text-sm font-medium text-white">
                     {currentLikes}
                   </span>
                 </div>
 
-                {!isTouchDevice && (
-                  <div className="mt-2 text-xs opacity-75 hint-text-white">
-                    Dobbelttrykk for å åpne
-                  </div>
-                )}
+                <div className="mt-2 text-xs opacity-75">
+                  Dobbelttrykk for å åpne
+                </div>
               </div>
             </div>
           </div>

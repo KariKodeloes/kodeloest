@@ -1,7 +1,6 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { getOptimalImageSize } from '../utils/imageCompression';
-import { useIsMobile } from '../hooks/use-mobile';
-import { useIsTouchDevice } from '../hooks/useIsTouchDevice';
 
 interface ImageSizes {
   thumbnail: string;
@@ -47,8 +46,6 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
   const [showTapHint, setShowTapHint] = useState(false);
   const lastTapTime = useRef<number>(0);
   const tapTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const isMobile = useIsMobile();
-  const isTouchDevice = useIsTouchDevice();
 
   const optimalSrc = getOptimalImageSize(context, imageSizes, src);
 
@@ -78,19 +75,17 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
       setShowTapHint(false);
       onClick();
     } else {
-      // First tap - only show hint on non-touch devices
+      // First tap - show hint and set timeout
       lastTapTime.current = currentTime;
-      if (!isTouchDevice) {
-        setShowTapHint(true);
-        
-        // Clear hint after delay
-        if (tapTimeoutRef.current) {
-          clearTimeout(tapTimeoutRef.current);
-        }
-        tapTimeoutRef.current = setTimeout(() => {
-          setShowTapHint(false);
-        }, 1500);
+      setShowTapHint(true);
+      
+      // Clear hint after delay
+      if (tapTimeoutRef.current) {
+        clearTimeout(tapTimeoutRef.current);
       }
+      tapTimeoutRef.current = setTimeout(() => {
+        setShowTapHint(false);
+      }, 1500);
     }
   };
 
@@ -145,12 +140,9 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
           Din nettleser støtter ikke video-elementet.
         </video>
         
-        {showTapHint && onClick && !isTouchDevice && (
+        {showTapHint && onClick && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div 
-              className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in hint-text-white"
-              style={{ color: '#FFFFFF !important' }}
-            >
+            <div className="bg-black/70 text-white px-3 py-2 rounded-lg text-sm animate-fade-in">
               Dobbelttrykk for å åpne
             </div>
           </div>
@@ -193,12 +185,9 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
           </div>
         )}
 
-        {showTapHint && onClick && !isTouchDevice && (
+        {showTapHint && onClick && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div 
-              className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in hint-text-white"
-              style={{ color: '#FFFFFF !important' }}
-            >
+            <div className="bg-black/70 text-white px-3 py-2 rounded-lg text-sm animate-fade-in">
               Dobbelttrykk for å åpne
             </div>
           </div>
@@ -240,12 +229,9 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
         </div>
       )}
 
-      {showTapHint && onClick && !isTouchDevice && (
+      {showTapHint && onClick && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div 
-            className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in hint-text-white"
-            style={{ color: '#FFFFFF !important' }}
-          >
+          <div className="bg-black/70 text-white px-3 py-2 rounded-lg text-sm animate-fade-in">
             Dobbelttrykk for å åpne
           </div>
         </div>
