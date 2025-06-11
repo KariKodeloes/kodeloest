@@ -40,7 +40,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, videos = [], titl
         alt={title}
         altText={altText}
         className={`w-full h-full ${!isVideo ? 'hover:scale-105 transition-transform duration-300' : ''}`}
-        onClick={() => onImageClick(currentMediaIndex)}
+        onDoubleClick={() => onImageClick(currentMediaIndex)}
         isVideo={isVideo}
         controls={isVideo}
         muted={true}

@@ -40,7 +40,7 @@ const ImageCarouselList: React.FC<ImageCarouselListProps> = ({ images, videos = 
         alt={title}
         altText={altText}
         className="w-full h-full object-cover"
-        onClick={() => onImageClick(currentMediaIndex)}
+        onDoubleClick={() => onImageClick(currentMediaIndex)}
         isVideo={isVideo}
         controls={isVideo}
         muted={true}
