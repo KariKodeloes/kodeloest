@@ -1,6 +1,6 @@
 
-import React, { useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { Project } from '../data/mockData';
 import { useLikes } from '../hooks/useLikes';
 import { Heart } from 'lucide-react';
@@ -12,10 +12,9 @@ interface GalleryProps {
 
 const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
   const { getLikes } = useLikes();
-  const navigate = useNavigate();
-  const lastTapTimeRef = useRef<{ [key: string]: number }>({});
 
   const getCategoryPath = (project: Project) => {
+    // Link to subcategory if available, otherwise main category
     const categoryMap: Record<string, string> = {
       'bilder': '/bilder',
       'foto': '/foto',
@@ -26,6 +25,7 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
     
     const basePath = categoryMap[project.category] || '/';
     
+    // Always navigate to subcategory if it exists, otherwise to main category
     if (project.subcategory) {
       return `${basePath}/${project.subcategory}`;
     }
@@ -64,25 +64,6 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
     return displayName;
   };
 
-  const handleDoubleClick = (project: Project) => {
-    navigate(getCategoryPath(project));
-  };
-
-  const handleTouchStart = (e: React.TouchEvent, project: Project) => {
-    e.preventDefault();
-    const currentTime = Date.now();
-    const lastTap = lastTapTimeRef.current[project.id] || 0;
-    const timeDiff = currentTime - lastTap;
-    
-    if (timeDiff < 300 && timeDiff > 0) {
-      // Double tap detected
-      navigate(getCategoryPath(project));
-    } else {
-      // First tap
-      lastTapTimeRef.current[project.id] = currentTime;
-    }
-  };
-
   // Sorter prosjekter etter likes hvis sortByLikes er true
   const sortedProjects = sortByLikes 
     ? [...projects].sort((a, b) => {
@@ -98,12 +79,10 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
         const currentLikes = getLikes(project.id, project.likes || 0);
         
         return (
-          <div
+          <Link
             key={project.id}
-            className="gallery-item group relative aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer"
-            onDoubleClick={() => handleDoubleClick(project)}
-            onTouchStart={(e) => handleTouchStart(e, project)}
-            style={{ touchAction: 'manipulation' }}
+            to={getCategoryPath(project)}
+            className="gallery-item group relative aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
           >
             <img
               src={project.mainImage}
@@ -111,8 +90,6 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               loading="lazy"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              draggable={false}
-              style={{ userSelect: 'none' }}
             />
             <div className="gallery-overlay">
               <div className="text-center">
@@ -128,6 +105,7 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
                   </p>
                 )}
                 
+                {/* Vis kun antall likes (ikke klikkbar) */}
                 <div className="flex items-center justify-center mt-3 gap-2">
                   <div className="p-2 rounded-full bg-white/20">
                     <Heart className="w-4 h-4 text-white" />
@@ -136,13 +114,9 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
                     {currentLikes}
                   </span>
                 </div>
-
-                <div className="mt-2 text-xs opacity-75">
-                  Dobbelttrykk for å åpne
-                </div>
               </div>
             </div>
-          </div>
+          </Link>
         );
       })}
     </div>

@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getOptimalImageSize } from '../utils/imageCompression';
 
 interface ImageSizes {
@@ -22,7 +22,7 @@ interface OptimizedMediaDisplayProps {
   context?: 'thumbnail' | 'medium' | 'large';
   loading?: 'lazy' | 'eager';
   objectFit?: 'cover' | 'contain';
-  altText?: string;
+  altText?: string; // New prop for admin-set alt text
 }
 
 const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
@@ -43,14 +43,10 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
-  const [showTapHint, setShowTapHint] = useState(false);
-  const lastTapTime = useRef<number>(0);
-  const tapTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const optimalSrc = getOptimalImageSize(context, imageSizes, src);
 
-  // Double-click handler for desktop
-  const handleDoubleClick = (e: React.MouseEvent) => {
+  const handleClick = (e: React.MouseEvent) => {
     if (onClick) {
       e.preventDefault();
       e.stopPropagation();
@@ -58,34 +54,17 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
     }
   };
 
-  // Touch handlers for mobile double-tap
   const handleTouchStart = (e: React.TouchEvent) => {
-    if (!onClick) return;
-    
-    e.preventDefault();
-    const currentTime = Date.now();
-    const timeDiff = currentTime - lastTapTime.current;
-    
-    if (timeDiff < 300 && timeDiff > 0) {
-      // Double tap detected
-      if (tapTimeoutRef.current) {
-        clearTimeout(tapTimeoutRef.current);
-        tapTimeoutRef.current = null;
-      }
-      setShowTapHint(false);
+    if (onClick) {
+      e.preventDefault();
+    }
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (onClick) {
+      e.preventDefault();
+      e.stopPropagation();
       onClick();
-    } else {
-      // First tap - show hint and set timeout
-      lastTapTime.current = currentTime;
-      setShowTapHint(true);
-      
-      // Clear hint after delay
-      if (tapTimeoutRef.current) {
-        clearTimeout(tapTimeoutRef.current);
-      }
-      tapTimeoutRef.current = setTimeout(() => {
-        setShowTapHint(false);
-      }, 1500);
     }
   };
 
@@ -107,54 +86,37 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
     setImageLoaded(false);
   };
 
-  // Cleanup timeout on unmount
-  useEffect(() => {
-    return () => {
-      if (tapTimeoutRef.current) {
-        clearTimeout(tapTimeoutRef.current);
-      }
-    };
-  }, []);
-
+  // Use altText if provided, otherwise fall back to alt
   const finalAltText = altText || alt;
 
   if (isVideo) {
     return (
-      <div className="relative">
-        <video
-          src={src}
-          className={`${className} ${onClick ? 'cursor-pointer' : ''}`}
-          onDoubleClick={handleDoubleClick}
-          onTouchStart={handleTouchStart}
-          onContextMenu={handleContextMenu}
-          onDragStart={handleDragStart}
-          controls={controls}
-          autoPlay={autoPlay}
-          muted={muted}
-          loop={loop}
-          preload="metadata"
-          style={{ userSelect: 'none', touchAction: 'manipulation' }}
-          title={altText || undefined}
-        >
-          <source src={src} />
-          Din nettleser støtter ikke video-elementet.
-        </video>
-        
-        {showTapHint && onClick && (
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="bg-black/70 text-white px-3 py-2 rounded-lg text-sm animate-fade-in">
-              Dobbelttrykk for å åpne
-            </div>
-          </div>
-        )}
-      </div>
+      <video
+        src={src}
+        className={`${className} ${onClick ? 'cursor-pointer' : ''}`}
+        onClick={handleClick}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onContextMenu={handleContextMenu}
+        onDragStart={handleDragStart}
+        controls={controls}
+        autoPlay={autoPlay}
+        muted={muted}
+        loop={loop}
+        preload="metadata"
+        style={{ userSelect: 'none', touchAction: 'manipulation' }}
+        title={altText || undefined}
+      >
+        <source src={src} />
+        Din nettleser støtter ikke video-elementet.
+      </video>
     );
   }
 
   // For contain mode (dialog), render image directly without wrapper
   if (objectFit === 'contain') {
     return (
-      <div className="relative">
+      <>
         {!imageLoaded && !imageError && (
           <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
             <div className="w-8 h-8 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
@@ -167,8 +129,9 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
           className={`${className} ${onClick ? 'cursor-pointer' : ''} ${
             imageLoaded ? 'opacity-100' : 'opacity-0'
           } transition-opacity duration-300 object-contain`}
-          onDoubleClick={handleDoubleClick}
+          onClick={handleClick}
           onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
           onContextMenu={handleContextMenu}
           onDragStart={handleDragStart}
           onLoad={handleImageLoad}
@@ -184,15 +147,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
             <span className="text-gray-500 text-sm">Kunne ikke laste bildet</span>
           </div>
         )}
-
-        {showTapHint && onClick && (
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="bg-black/70 text-white px-3 py-2 rounded-lg text-sm animate-fade-in">
-              Dobbelttrykk for å åpne
-            </div>
-          </div>
-        )}
-      </div>
+      </>
     );
   }
 
@@ -211,8 +166,9 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
         className={`${onClick ? 'cursor-pointer' : ''} ${
           imageLoaded ? 'opacity-100' : 'opacity-0'
         } transition-opacity duration-300 w-full h-full object-cover`}
-        onDoubleClick={handleDoubleClick}
+        onClick={handleClick}
         onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         onContextMenu={handleContextMenu}
         onDragStart={handleDragStart}
         onLoad={handleImageLoad}
@@ -226,14 +182,6 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
       {imageError && (
         <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
           <span className="text-gray-500 text-sm">Kunne ikke laste bildet</span>
-        </div>
-      )}
-
-      {showTapHint && onClick && (
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="bg-black/70 text-white px-3 py-2 rounded-lg text-sm animate-fade-in">
-            Dobbelttrykk for å åpne
-          </div>
         </div>
       )}
     </div>
