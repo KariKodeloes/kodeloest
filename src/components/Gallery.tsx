@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Project } from '../data/mockData';
 import { useLikes } from '../hooks/useLikes';
+import { useIsMobile } from '../hooks/use-mobile';
 import { Heart } from 'lucide-react';
 
 interface GalleryProps {
@@ -13,6 +14,7 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
   const { getLikes } = useLikes();
   const navigate = useNavigate();
   const lastTapTimeRef = useRef<{ [key: string]: number }>({});
+  const isMobile = useIsMobile();
 
   const getCategoryPath = (project: Project) => {
     const categoryMap: Record<string, string> = {
@@ -136,9 +138,11 @@ const Gallery: React.FC<GalleryProps> = ({ projects, sortByLikes = false }) => {
                   </span>
                 </div>
 
-                <div className="mt-2 text-xs opacity-75 hint-text-white">
-                  Dobbelttrykk for å åpne
-                </div>
+                {!isMobile && (
+                  <div className="mt-2 text-xs opacity-75 hint-text-white">
+                    Dobbelttrykk for å åpne
+                  </div>
+                )}
               </div>
             </div>
           </div>
