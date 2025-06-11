@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { getOptimalImageSize } from '../utils/imageCompression';
 import { useIsMobile } from '../hooks/use-mobile';
+import { useIsTouchDevice } from '../hooks/useIsTouchDevice';
 
 interface ImageSizes {
   thumbnail: string;
@@ -47,6 +48,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
   const lastTapTime = useRef<number>(0);
   const tapTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const isMobile = useIsMobile();
+  const isTouchDevice = useIsTouchDevice();
 
   const optimalSrc = getOptimalImageSize(context, imageSizes, src);
 
@@ -76,9 +78,9 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
       setShowTapHint(false);
       onClick();
     } else {
-      // First tap - only show hint on desktop
+      // First tap - only show hint on non-touch devices
       lastTapTime.current = currentTime;
-      if (!isMobile) {
+      if (!isTouchDevice) {
         setShowTapHint(true);
         
         // Clear hint after delay
@@ -143,7 +145,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
           Din nettleser støtter ikke video-elementet.
         </video>
         
-        {showTapHint && onClick && !isMobile && (
+        {showTapHint && onClick && !isTouchDevice && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div 
               className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in hint-text-white"
@@ -191,7 +193,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
           </div>
         )}
 
-        {showTapHint && onClick && !isMobile && (
+        {showTapHint && onClick && !isTouchDevice && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div 
               className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in hint-text-white"
@@ -238,7 +240,7 @@ const OptimizedMediaDisplay: React.FC<OptimizedMediaDisplayProps> = ({
         </div>
       )}
 
-      {showTapHint && onClick && !isMobile && (
+      {showTapHint && onClick && !isTouchDevice && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div 
             className="bg-black/80 px-3 py-2 rounded-lg text-sm animate-fade-in hint-text-white"
