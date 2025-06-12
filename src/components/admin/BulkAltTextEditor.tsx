@@ -7,6 +7,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
 import { ArrowLeft, Save, Type } from 'lucide-react';
 import { mockProjects } from '../../data/mockData';
 import { useToast } from '../../hooks/use-toast';
+import { sanitizeInput } from '../../utils/security';
 
 interface BulkAltTextEditorProps {
   onClose: () => void;
@@ -32,30 +33,50 @@ const BulkAltTextEditor: React.FC<BulkAltTextEditorProps> = ({ onClose }) => {
   const handleSave = async () => {
     setIsLoading(true);
     
-    // Simulate save delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Update the projects in mockProjects array directly
-    mockProjects.forEach(project => {
-      if (altTexts[project.id]) {
-        project.altText = altTexts[project.id];
+    try {
+      // Validate all alt texts before saving
+      const validatedAltTexts: Record<string, string> = {};
+      for (const [projectId, altText] of Object.entries(altTexts)) {
+        const sanitized = sanitizeInput(altText);
+        if (sanitized.length > 500) {
+          throw new Error(`Alt-tekst for prosjekt ${projectId} er for lang (maks 500 tegn)`);
+        }
+        validatedAltTexts[projectId] = sanitized;
       }
-    });
-    
-    setIsLoading(false);
-    
-    toast({
-      title: 'Lagret',
-      description: 'Alt-tekster ble oppdatert'
-    });
-    
-    onClose();
+      
+      // Simulate save delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Update the projects in mockProjects array directly
+      mockProjects.forEach(project => {
+        if (validatedAltTexts[project.id]) {
+          project.altText = validatedAltTexts[project.id];
+        }
+      });
+      
+      toast({
+        title: 'Lagret',
+        description: 'Alt-tekster ble oppdatert'
+      });
+      
+      onClose();
+    } catch (error) {
+      toast({
+        title: 'Feil',
+        description: error instanceof Error ? error.message : 'Kunne ikke lagre alt-tekster',
+        variant: 'destructive'
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleAltTextChange = (projectId: string, value: string) => {
+    // Sanitize input on change
+    const sanitized = sanitizeInput(value);
     setAltTexts(prev => ({
       ...prev,
-      [projectId]: value
+      [projectId]: sanitized
     }));
   };
 
@@ -95,6 +116,7 @@ const BulkAltTextEditor: React.FC<BulkAltTextEditorProps> = ({ onClose }) => {
           {mockProjects.map((project) => {
             const currentAltText = altTexts[project.id];
             const hasAltText = !!currentAltText;
+            const isTextTooLong = currentAltText && currentAltText.length > 500;
             
             return (
               <Card key={project.id} className={!hasAltText ? 'border-orange-200' : ''}>
@@ -124,7 +146,7 @@ const BulkAltTextEditor: React.FC<BulkAltTextEditorProps> = ({ onClose }) => {
                     <Label className="block text-sm font-medium mb-2">
                       Alt-tekst for bilder
                       <span className="text-xs text-gray-500 block">
-                        Beskrivelse som leses opp av skjermlesere
+                        Beskrivelse som leses opp av skjermlesere (maks 500 tegn)
                       </span>
                     </Label>
                     <Textarea
@@ -132,8 +154,15 @@ const BulkAltTextEditor: React.FC<BulkAltTextEditorProps> = ({ onClose }) => {
                       onChange={(e) => handleAltTextChange(project.id, e.target.value)}
                       placeholder="Detaljert beskrivelse av bildet for skjermlesere..."
                       rows={3}
-                      className={!hasAltText ? 'border-orange-300 focus:border-orange-500' : ''}
+                      maxLength={500}
+                      className={`${!hasAltText ? 'border-orange-300 focus:border-orange-500' : ''} ${isTextTooLong ? 'border-red-300 focus:border-red-500' : ''}`}
                     />
+                    <div className="mt-1 text-xs text-gray-500">
+                      {currentAltText ? currentAltText.length : 0}/500 tegn
+                      {isTextTooLong && (
+                        <span className="text-red-600 ml-2">For lang tekst!</span>
+                      )}
+                    </div>
                   </div>
                 </CardContent>
               </Card>
