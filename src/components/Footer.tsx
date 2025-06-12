@@ -38,7 +38,7 @@ const Footer = () => {
               <Linkedin size={32} />
             </a>
             <a
-              href="https://instagram.com/karis_pensel"
+              href="https://www.instagram.com/karis_pensel?igsh=MWl1OGNpM2FnemUyZQ%3D%3D&utm_source=qr"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-opacity"
