@@ -13,7 +13,7 @@ const Bilder = () => {
   ];
 
   const bodyText = `Jeg har alltid likt å tegne.
-I dag holder jeg mest på med akvareller, mixed media og tegning. Selv om jeg drømmer om store, nonfigurative motiver dras jeg mot det konkrete - ofte inspirert av egne foto.`;
+I dag holder jeg mest på med akvareller, mixed media og tegning. Selv om jeg drømmer om store, nonfigurative motiver dras jeg mot det konkrete - ofte inspirert av egne foto. På Instagramprofilen min @karis_pensel ligger det flere bilder.`;
 
   return (
     <CategoryPage
